@@ -56,7 +56,7 @@ New Game copies 64 starting bytes from `$12:F200` (`$00:82C6`). The snapshot app
   - Slots 1–4 empty.
 - **Spells:** Black magic list 3 (`$15A8`) has the 24 black spells; Call list 4 (`$15C0`) is empty. Unused slots are `$00` (the starting-list loader at `$15:C23E` stops at `$FF`).
 - **Items:** 30 Cure3, 20 Ether2, 5 Elixir, 20 Heal, 10 Life. 500,000 gold.
-- **Start:** event `$10` becomes `FE FB 9A C8 00 FF`, putting Rydia on foot just outside Mysidia.
+- **Start:** event `$10` becomes `FE FB 9A C8 00 FA 0D FF`, putting Rydia on foot just outside Mysidia with the overworld theme playing.
   - `FE`'s fourth parameter: bits 0–4 are the vehicle to arrive riding (`6` = Big Whale); bit 7 is the underworld/moon plane.
 - **Vehicles:** records `[present, x, y, map]`. The Big Whale is at (`99`,`C7`), where event `9E` lands it; the Falcon at (`9C`,`C8`); the Enterprise at (`9D`,`C6`). The map byte is `0` for the surface.
 - **Pacts:** `$1181–$119C` cleared.
@@ -66,7 +66,10 @@ New Game copies 64 starting bytes from `$12:F200` (`$00:82C6`). The snapshot app
 `asm/newgame.asm` replaces the opening's `LDA #$10; JSR $DF63` at `$00:8081` with `JSR $00:FD31`. That routine does three things:
 1. Walks the table at `$0F:CF40`, generated into `build/gen/newgame.asm` from `late_game.py`. Each entry is `dw address, length` followed by the bytes; `dw 0` ends it. It block-copies each entry into WRAM with `MVN`.
 2. Calls `JSL $03:8006` with A = 0 to recalculate Rydia's stats.
-3. Runs event `$10`.
+3. Clears the field palette buffer (`$0CDB`, 512 bytes, uploaded to CGRAM every frame).
+   - Loading the overworld streams graphics over several frames and switches the screen on between them (`$00:8FD4`).
+   - After the title, the buffer still held the title's colours, so playtest saw about half a second of tiled garbage.
+4. Runs event `$10`: `FE FB 9A C8 00` (load the overworld outside Mysidia), then `FA 0D` (play song `$0D`, the overworld theme). Loading a map from an event doesn't change the music.
 
 Vanilla's world setup, Cecil and spell-list code all run before it, so nothing overwrites the table.
 

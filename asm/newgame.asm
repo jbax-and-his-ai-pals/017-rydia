@@ -36,6 +36,16 @@ rydia_new_game:
     plp                     ; back to 8-bit A, 16-bit X/Y
     lda #$00                ; character slot 0, as $00:92D0 does
     jsl $038006             ; calculate character stats
+    ; Black out the field palette buffer ($0CDB, 512 bytes, uploaded to CGRAM
+    ; every frame). Loading the overworld streams graphics over several frames
+    ; and switches the screen on between them ($00:8FD4). In normal play the
+    ; palette is already dark from the previous fade; after the title it still
+    ; held the title's colours, which showed as half a second of garbage.
+    ldx.w #$0200
+.black:
+    dex
+    stz $0CDB,x             ; DEX sets Z; STZ leaves flags alone
+    bne .black
     lda #$10
     jsr $DF63               ; run event $10
     rts

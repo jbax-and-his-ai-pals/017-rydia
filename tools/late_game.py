@@ -78,9 +78,15 @@ def writes(rom: Rom) -> list[tuple[int, bytes]]:
     return out
 
 
+OVERWORLD_SONG = 0x0D   # what vanilla events play right after loading the overworld ($15, $30, $43)
+
+
 def start_event() -> bytes:
-    """Event $10 replacement: load the overworld at START, on foot."""
-    return bytes([0xFE, 0xFB, START[0], START[1], 0x00, 0xFF])
+    """Event $10 replacement: load the overworld at START on foot, then start its music.
+
+    Loading a map from an event doesn't change the music; events set it themselves.
+    """
+    return bytes([0xFE, 0xFB, START[0], START[1], 0x00, 0xFA, OVERWORLD_SONG, 0xFF])
 
 
 if __name__ == "__main__":
