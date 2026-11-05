@@ -4,13 +4,15 @@
 ; Free ROM allocation (all $FF in the clean ROM):
 ;   $0E:B439-$0E:B6BF  data tables generated from data/*.csv (gen/data.asm)
 ;   $0F:CF40-$0F:D1FF  new-game WRAM table (gen/newgame.asm)
-;   $03:FEE3-$03:FFFF  battle code (capture handler, Phase 3)
+;   $03:FEE3-$03:FFFF  battle code (Pact handler, asm/pact.asm)
+;   $0F:B33D-$0F:B3FF  battle message text (Pact messages)
 ;   $00:FD31-$00:FFAF  field code (new-game hook)
 
 lorom
 
 incsrc "charmap.asm"
 incsrc "commands.asm"
+incsrc "pact.asm"
 incsrc "newgame.asm"
 incsrc "gen/data.asm"     ; generated into build/gen by tools/build.py
 incsrc "gen/newgame.asm"

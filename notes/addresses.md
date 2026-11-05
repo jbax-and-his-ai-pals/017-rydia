@@ -74,7 +74,7 @@ Whether a set NPC flag means "shown" or "hidden" is open.
 | --- | --- | --- |
 | Character ID | `$11` (child Rydia is `$03`) | confirmed |
 | Sprite/class ID | `$0B` | confirmed (add-character code forces it for ID `$11`) |
-| Battle menu | `$13:FDA5` = `00 03 04 01 FF`: Fight, Black, Call, Item, **empty** | confirmed |
+| Battle menu | `$13:FDA5` = `00 03 04 01 FF`: Fight, Black, Call, Item, **empty**. The patch makes the fifth `$14` (Pact) | confirmed |
 | Character → join source | `$00:E69A + (ID − 1)`: `< $80` is an initial-stats record, `$8n` restores parked slot *n* | confirmed |
 | Adult Rydia's join source | `$84`: restore from parked slot 4 (`$1240–$127F`) | confirmed |
 | Initial stats, 14 × 32 bytes | `$0F:A900–$0F:AABF` | confirmed |
@@ -95,7 +95,9 @@ Battle menus (`$13:FD50 + 5 × ID`): Cid (`$0E`) is Fight Peep Item; Edge (`$12`
 | --- | --- | --- |
 | Command names, 5 bytes each | `$0F:A7C6 + 5 × command` | confirmed |
 | Command targeting, 1 byte each | `$13:FDC3 + command` | confirmed |
-| Command handler jump table | `$03:B37C + 2 × command`; Peep's entry is at `$03:B3A4` → `$E153` | confirmed (runtime; see below) |
+| Command handler jump table | `$03:B37C + 2 × command`; Peep's entry is at `$03:B3A4` → `$E153` (the patch points it at `$FEE3`) | confirmed (runtime) |
+| Dispatch | `$03:B02C JSR $B10F` → `$B14A`: `$33C4 = $C0 + command`, then `JML [$80]` from the table. The handler's `RTS` returns to `$03:B02F` | confirmed (runtime) |
+| Handler entry state | 8-bit A, 16-bit X/Y, DB = `$7E`, D = 0. Target in `$CE` (L5) | confirmed (runtime) |
 
 | ID | Name | Tgt | ID | Name | Tgt | ID | Name | Tgt |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -112,30 +114,34 @@ Battle menus (`$13:FD50 + 5 × ID`): Cid (`$0E`) is Fight Peep Item; Edge (`$12`
 
 Targeting byte bits 4–6: `001` one ally, `010` all allies, `100` one enemy, `101` one ally/enemy defaulting to enemy, `110` all enemies. Peep (`$58`) and Sneak (`$50`) are both `101`.
 
-**Peep is still the better template**, for its single-enemy targeting and messages. Its handler reportedly tests the boss bit, but **don't reuse that test**: the boss bit also covers Behemoth, the dragons and other monsters we want capturable (L6). Replace it with a lookup in the capturable table (L12).
+**Pact replaces Peep** (`asm/pact.asm`, handler at `$03:FEE3`). It doesn't reuse Peep's boss test (`LDA $2770; BPL`): the boss bit also covers Behemoth, the dragons and others (L6). It checks the capturable table (L12) instead.
+
+Sneak (`$03:E1CC`) is a second template: `$34C8 = $17`, `$34C7 = $10`, display script `F8 04` then `F8 03` (`JSR $85B1`), target in `$CE`.
 
 A bank `$03` table that might fit a 26-entry command list (`$03:B372 JSR ($C38D,X)`) isn't one; its entries are code bytes.
-
-Next: in Mesen, give Cid a Peep and set a breakpoint on reads of his battle record `+$51` after choosing Peep; follow it to the handler.
 
 ## L5 · Battle RAM
 
 | What | Address | Status |
 | --- | --- | --- |
-| Battle records, `$80` each: party slots 0–4, monster slots 5–12 | `$2000`; monsters from `$2280` | docs |
+| Battle records, `$80` each: party slots 0–4, monster slots 5–12 | `$2000`; monsters from `$2280` | confirmed (runtime) |
 | Record `+$51` command, `+$52` sub-action, `+$53` monster targets, `+$54` party targets | | docs |
 | Record `+$70` (monsters): level and boss bit | | docs |
 | Formation number (16-bit) | `$1800` | confirmed (event `EC` handler stores it) |
-| Species for each of the 3 monster types | `$29AD–$29AF` | docs (bot) |
-| Type index (0–2) for each of the 8 monster slots | `$29B5–$29BC` | docs (bot) |
+| Species for each of the 3 monster types; `$FF` once that type is wiped out | `$29AD–$29AF` | confirmed (runtime) |
+| Type index (0–2) for each of the 8 monster slots; `$FF` once dead | `$29B5–$29BC` | confirmed (runtime) |
 | Same, kept when the monster dies | `$29BD–$29C4` | docs |
-| Count per type; total remaining (battle ends at 0) | `$29CA–$29CC`; `$29CD` | docs |
-| Kills per type | `$3585–$3587` | docs (bot) |
+| Count per type; total remaining (battle ends at 0) | `$29CA–$29CC`; `$29CD` | confirmed (runtime) |
+| Kills per type (EXP comes from these) | `$3585–$3587` | confirmed (code, `$03:B216`) |
 | How the battle ended | `$00A8` | docs (bot) |
 | Monsters invincible | `$3881` | docs |
-| Current actor / target group and slot | `$34C2–$34C5` | docs (bot) |
+| Actor group / slot; target group (`$80` = monsters) / target mask | `$34C2–$34C5` | confirmed (runtime) |
+| **Action target**: bit 7 = monster, bits 0–2 = monster slot 0–7; bit 7 clear = party member | `$CE` | confirmed (runtime; set at `$03:AE42` from the actor's `+$53` mask, bit 7 = slot 0) |
+| Target's record copy; actor's record copy (actor command `$26D1`, monster target mask `$26D3`) | `$2700`; `$2680` | confirmed (runtime) |
+| **Pending status** to add, 4 bytes per battle slot (`+$03..+$06` order) | `$338E + 4 × slot` | confirmed (runtime) |
+| Battle menu open; opening animation; menu (1 = command list); command cursor (0–4) | `$D7`; `$1820`; `$1823`; `$60` | confirmed (runtime; from the bot) |
 
-So slot *s* (0–7) is species `$29AD[$29B5[s]]`. Confirm in Mesen with a two-type formation.
+So monster slot *s* (0–7) is species `$29AD[$29B5[s]]`: confirmed with formation `$21` (Turtle in slot 0, Imps in slots 1–2).
 
 ## L6 · Monster data
 
@@ -154,21 +160,29 @@ So slot *s* (0–7) is species `$29AD[$29B5[s]]`. Confirm in Mesen with a two-ty
 
 | What | Address | Status |
 | --- | --- | --- |
-| `_set monster swooned` | `$03:8EA3–$03:8ED5` (v1.1) | docs |
-| Victory check: remaining count reaches 0 | `$29CD` | docs |
+| **Apply pending status** (the normal death path) | `$03:B1B0`, called after every handler from `$03:B05A` | confirmed (runtime) |
+| `_set monster swooned` | `$03:8EA3–$03:8ED5`; only called from a special-formation path at `$03:8C20` | confirmed (code) |
+| Victory check: remaining count reaches 0 | `$29CD` | confirmed (runtime) |
 
-Next: breakpoint on writes to `$29CD` when a monster dies; walk back to the death routine and find a safe entry point.
+**How a monster dies.** The handler ORs `$80` (swoon) into the target's pending status, `$338E + 4 × battle slot`; Fight does this at `$03:CAEE` when HP runs out. Then `$03:B1B0` ORs every slot's pending bytes into its record (`+$03..+$06`). For a monster that gains swoon or stone it zeroes HP, sets `$29B5[s] = $FF`, decrements `$29CA[type]`, increments kills `$3585[type]` (so EXP is awarded), sets `$29AD[type] = $FF` when the type is gone, and recomputes `$29CD`. The sprite then dissolves as usual and the battle ends at 0. Pact uses this path.
 
 ## L8 · Battle messages
 
 | What | Address | Status |
 | --- | --- | --- |
-| Battle message pointers (16-bit, data in bank `$0F`) | `$0F:B000–$0F:B33C` | docs |
+| Battle message pointers: 59 × 16-bit (`$00–$3A`), bank `$0F`; text ends with `$00`, `!` = `$C4` | `$0F:B000–$0F:B075`; text `$0F:B076–$0F:B33C` | confirmed |
 | Status-ailment text pointers | `$0F:B400–$0F:B4BA` | docs |
 | Battle dialogue pointers | `$0E:F200–$0E:FFFF` | docs |
-| Battle message work area | `$34CA` | docs |
+| Message list for the action: message IDs, ended by `$FF` | `$34CA+` | confirmed (runtime) |
+| Action display script, ended by `$FF` | `$33C2+` | confirmed (runtime) |
+| Message display: copies the text straight from the table | `$02:CBFF` | confirmed (code) |
+| Per-message flag (1 = no wait; post-battle messages) | `$16:FD74 + ID` | confirmed |
 
-Next: find Peep's output and the "immune" message, and how the handler queues them.
+**Display script.** The dispatcher writes `F8 02 (C0 + command) 00` at `$33C2`. `JSR $85A6` appends `F8 03` at `$33C6`, which shows the messages in `$34CA+`; `$859B` writes it at `$33C2`, and `$85B1` at `$33C8`. Fight appends `F8 04`. Handlers also set `$34C8` = command and `$34C7` = `$10` (Peep, Sneak).
+
+**Peep's messages:** `$1E` (HP as `{06}0/{06}1`), then `$14` (no weak points) or `$15 + element`.
+
+**Unused message IDs.** One-letter "D" stubs: `$07 $08 $09 $0F $10 $12 $13 $2E $36 $39 $3A`. All but `$07`, `$08` and `$2E` are loaded by handlers (`LDA #id; STA $34CA`); `$2E` sits among the status messages. **Pact uses `$07` ("Pact formed!") and `$08` ("The pact is refused.")**, with text at `$0F:B33D`.
 
 ## L9 · Save routine
 
@@ -199,7 +213,8 @@ All checked against our ROM: every byte is `$FF`.
 | Range | Size | Note |
 | --- | --- | --- |
 | `$00:FD31–$00:FFAF` | 639 | Bank `$00` (field/event code). Stop before `$00:FFB0` |
-| `$03:FEE3–$03:FFFF` | 285 | Bank `$03` (battle). Home for the capture handler |
+| `$03:FEE3–$03:FFFF` | 285 | Bank `$03` (battle). Pact handler uses `$FEE3–$FF49`; `$FF4A+` (182) free |
+| `$0F:B33D–$0F:B3FF` | 195 | After the battle message text. Pact messages use `$B33D–$B35E` |
 | `$0E:B439–$0E:B6BF` | 647 | |
 | `$0E:B98A–$0E:BABF` | 310 | |
 | `$0E:E522–$0E:E5FF` | 222 | |
@@ -296,9 +311,12 @@ Formations: 8 bytes each at `$0E:8000–$0E:8FFF` (512 formations). Confirmed by
   - The target's record is copied to `$2700` and the actor's to `$2680` (actor command byte at `$26D1`, sub-action at `$26D2`).
   - It tests the boss bit (`LDA $2770; BPL`) and just returns for bosses.
   - It copies target HP and max HP (`$2707`, `$2709`) into `$359A` and `$359D`, builds weakness message IDs at `$34CB+`, calls `$03:85A6`, then sets `$34CA = $1E`, `$34C8 = $14`, `$34C7 = $10` (message and animation queue).
-  - Still to find for capture: where the target's slot number lives during the action, to get its species from `$29AD[$29B5[slot − 5]]`.
+  - The target is `$CE` (L5): monster slot = `$CE & 7`, species `$29AD[$29B5[slot]]`.
 - **Battle code reads `$1180`.** `$03:EDD0` does `LDA $1000,X` over character slots, reaching Tellah's slot. It reads only the ID byte, sees `$00` and skips. Keep `$1180` at `$00`.
 - **Tellah's slot, long watch** (`monkey.lua`): 30,000 frames covering the opening plus random walking, talking and menu presses in Baron Castle (16 map changes, 2 opening fights). The only accesses were the three startup ones: the boot clear (`$15:C9ED`), the title's save-slot setup (`$01:99AA`, read) and the no-saves new-game clear (`$01:9B25`).
   - With the Imp fights from `peep.lua`, the only in-battle access is the `$03:EDD3` ID-byte read above.
   - Not exercised at runtime: random battles outside the opening, actual saving and loading (both are whole-block `MVN` copies by code), and later-game menus.
   - **Verdict: `$1181–$119C` is safe for the pact bitfield.**
+- **Phase 3 verified** (`tools/mesen/pact.lua`, on the built patch): findings are folded into L4, L5, L7, L8 and L10.
+  - The harness drives the real menu with `$D7`/`$1823`/`$60` and checks RAM after each Pact. Its fixture rewrites event `$10` to load the overworld, then fight each formation in `FORMS` and reload the map. Without the reload the screen stays garbled after the last fight, with Fight as well as Pact.
+  - Runs: `FORMS=21,82` (Turtle + 2 Imps, then 1 Imp) and `FORMS=ED,82 ACTIONS="P,P,F;P"` (Officer + Soldiers: refused twice, then won with Fight).

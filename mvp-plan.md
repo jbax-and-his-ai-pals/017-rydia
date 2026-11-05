@@ -136,6 +136,23 @@ Free Enterprise, the open-world FF4 randomizer, is a useful reference for which 
 
 ## Phase 3 — The capture command
 
+**Status (Nov 5): done.** Criteria 3, 4 and 6 hold, verified headless in Mesen on the built patch with `tools/mesen/pact.lua`. Details are in [notes/addresses.md](notes/addresses.md), L4–L8.
+- **The command:** Peep (`$14`) is renamed Pact and fills adult Rydia's empty fifth menu slot. Its jump-table entry points to a new handler, `asm/pact.asm` at `$03:FEE3`.
+- **The handler:**
+  - It reads the target from `$CE` and gets the species from `$29AD[$29B5[slot]]`.
+  - It checks the capturable table.
+  - On success it sets the bit in `$1181+`, gives the target pending swoon (`$338E`) and shows "Pact formed!" (message `$07`). Vanilla's status-apply routine `$03:B1B0` then KOs it exactly like a Fight kill: the sprite dissolves, counts update, and the battle ends at zero.
+  - Otherwise it shows "The pact is refused." (message `$08`) and nothing changes.
+- **Verified:**
+  - Turtle + 2 Imps: three Pacts covered two species, a repeat species and the last monster. The battle ends with the same `$00A8` as a Fight-only win, and the next fight follows.
+  - Officer + 3 Soldiers (not capturable): two refusals, then Fight wins.
+- **Edge cases:**
+  - Last monster: the battle ends normally and **EXP is awarded**, because kills are counted.
+  - Multiple types: the right species is recorded per slot.
+  - Already pacted: still works.
+  - Target already dead, or an ally targeted: the handler returns quietly with no message. Not exercised at runtime.
+  - Silence and actual boss formations: not tested. Refusal is per species, so a boss species is refused the same way.
+
 Repurpose an existing command rather than adding one. Edge's steal command and the scan-type command both target a single enemy and show a message, and their owners won't be in a solo game. Choose in L4, preferring whichever handler is simplest.
 
 - [ ] Rename it in the command name table. "Pact" is a placeholder; naming is still open in the handoff.

@@ -8,6 +8,7 @@ Stops after `count` instructions (default 40) or at RTS/RTL/RTI/JMP/BRA.
 """
 
 import sys
+from pathlib import Path
 
 from ff4rom import Rom
 
@@ -95,6 +96,7 @@ if __name__ == "__main__":
         sys.exit(__doc__)
     start = parse_addr(args[0])
     n = int(args[1]) if len(args) > 1 else 40
-    rom = Rom()
+    rom_flag = next((f for f in flags if f.startswith("--rom=")), None)
+    rom = Rom(Path(rom_flag[6:])) if rom_flag else Rom()
     for a, raw, text in disassemble(rom, start, n, m8="--m16" not in flags, x8="--x8" in flags):
         print(f"${a >> 16:02X}:{a & 0xFFFF:04X}  {raw.hex(' '):<12} {text}")
