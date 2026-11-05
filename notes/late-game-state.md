@@ -9,7 +9,9 @@ Only event scripts change plot flags: `F2 xx` sets, `F3 xx` clears. No other cod
 Events touch 87 flags: 80 are only ever set, 2 only cleared (`10`, `E1`), and 5 both. Flag numbers follow story order: `00` is the opening, `0D` D.Mist, `33` Dr. Lugae, `41` the Sealed Cave, and `43` the Big Whale (event `9E`). Event numbers do not follow story order.
 
 The snapshot is "just after the Big Whale":
-- **Set:** set-only flags `00–43`, plus `53` (K. Eblan at the Tower of Babil, a mid-game fight with a high flag number).
+- **Set:** set-only flags `00–43`, plus:
+  - `53`: K. Eblan at the Tower of Babil, a mid-game fight with a high flag number
+  - `47`: FuSoYa joining (event `D0`). Added after the access audit found that walking into Lunar's Lair otherwise runs `D0` and adds FuSoYa to the party.
 - **Not set:**
   - `08` (Odin's trial) and `44–46` (Asura, Leviathan, Bahamut), so the summon trials stay available
   - everything after the Whale: FuSoYa joins (`47`), Giant of Babil (`49`), moon dungeon, CPU, Zemus
@@ -23,7 +25,12 @@ The snapshot is "just after the Big Whale":
 | `3E` | clear | set `8C` (Calbrena), cleared `96` |
 | `42` | set | set `B6` (Kain leaves), cleared only by the final CPU fight |
 
-Result: 63 plot flags set.
+Result: 64 plot flags set.
+
+**Party joins.** 17 events add a character (`E7`).
+- 15 set a flag that the snapshot already sets, so they count as done.
+- `3B` (Tellah) sets no flag, so whatever triggers it decides whether it can still fire. The audit didn't trigger it.
+- `E6` is the exception. That's the CPU fight at the bottom of the moon's final dungeon, which adds Kain (`$14`) and sets flag `48`. It's left alone because marking the CPU defeated could open the endgame. Reaching it takes the whole final dungeon; if solo play matters there, block it later.
 
 ## NPC flags (`$12E0–$131F`)
 
@@ -59,9 +66,12 @@ Vanilla's world setup, Cecil and spell-list code all run before it, so nothing o
   - Rydia's derived stats are filled in; Wisdom is 75, base 60 plus equipment.
   - She stands on the overworld at (`9A`,`C8`) outside Mysidia, with the Whale, Falcon and Enterprise around her.
 - **Earlier, before the patch existed:** `tools/mesen/start_test.lua` applied the same writes from a script, with the same result.
+- **The Falcon reaches the underworld.** Arriving on the Falcon over the hole near Agart (`6A`,`D4`), visibly open because flag `30` is set, and pressing A takes it down. The world byte becomes `1` and the party appears at the return point (`71`,`10`).
+  - The descent is vehicle code, not an event: `$00:9C2A` fires when flag `3D` or `30` is set and an Enterprise or Falcon lands in x `69–6B`, y `D3–D5`.
+  - In the underworld `$1700` and `$1701` both read `01`, so a vehicle's map byte is the world number.
 
 ## Not yet verified
 
 - That story scenes stay quiet in towns and dungeons. That's the Phase 2.5 access audit.
-- That the Falcon can descend to the underworld, and the Whale can reach the moon.
+- That the Big Whale can reach the moon. That goes through the crystal inside the Whale, which is hard to script blind; moon maps themselves load fine (access audit).
 - New Game when save files already exist. Vanilla's no-saves path zeroes `$1040–$17FF` first; with saves present, any RAM the table doesn't cover may hold leftovers.

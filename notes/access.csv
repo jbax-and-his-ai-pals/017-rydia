@@ -1,0 +1,45 @@
+world,entrance,map,name,status,details,start
+surface,"65,9C",024,Baron,quiet,,map=03:0024 end=03:0024 party=91
+surface,"64,9D",000,Town of Baron,quiet,,map=03:0000 end=03:0000 party=91
+surface,"4C,84",06C,Misty Cave,quiet,,map=03:006C end=03:006C party=91
+surface,"60,77",001,Village Mist,quiet,,map=03:0001 end=03:0001 party=91
+surface,"7D,68",002,Kaipo,quiet,,map=03:0002 end=03:0002 party=91
+surface,"8A,53",06F,Watery Pass-South,quiet,,map=03:006F end=03:006F party=91
+surface,"8A,4D",073,Watery Pass-North,check,map 03:0073 -> 00:0073 at +288; map 00:0073 -> 03:0073 at +439,map=03:0073 end=03:0073 party=91
+surface,"86,48",074,Waterfalls,check,map 03:0074 -> 00:0074 at +288,map=03:0074 end=00:0074 party=91
+surface,"7D,42",076,Lake,check,map 03:0076 -> 00:0076 at +288; map 00:0076 -> 03:0076 at +439,map=03:0076 end=03:0076 party=91
+surface,"76,3A",025,Damcyan,quiet,,map=03:0025 end=03:0025 party=91
+surface,"88,38",077,Antlion B1F,check,map 03:0077 -> 00:0077 at +288; map 00:0077 -> 03:0077 at +439,map=03:0077 end=03:0077 party=91
+surface,"98,31",07E,Mt.Hobs-West,quiet,,map=03:007E end=03:007E party=91
+surface,"A0,31",080,Mt.Hobs-East,quiet,,map=03:0080 end=03:0080 party=91
+surface,"D6,3A",026,Fabul,quiet,,map=03:0026 end=03:0026 party=91
+surface,"9A,C7",003,Mysidia,quiet,,map=03:0003 end=03:0003 party=91
+surface,"DA,C7",084,Mt.Ordeals,quiet,,map=03:0084 end=03:0084 party=91
+surface,"22,52",027,Toroian Castle,quiet,,map=03:0027 end=03:0027 party=91
+surface,"23,53",005,Town of Toroia,quiet,,map=03:0005 end=03:0005 party=91
+surface,"4A,35",08C,Cave Magnes,check,map 03:008C -> 00:008C at +288,map=03:008C end=00:008C party=91
+surface,"2D,EB",028,Eblan,quiet,,map=03:0028 end=03:0028 party=91
+surface,"18,E7",0C7,Cave Eblana,check,map 03:00C7 -> 00:00C7 at +288; map 00:00C7 -> 03:00C7 at +436,map=03:00C7 end=03:00C7 party=91
+surface,"68,D7",006,Agart,quiet,,map=03:0006 end=03:0006 party=91
+surface,"D2,82",004,Silvera,quiet,,map=03:0004 end=03:0004 party=91
+surface,"DB,88",0A0,Grotto Adamant,quiet,,map=03:00A0 end=03:00A0 party=91
+surface,"21,DB",0B5,Mouth,quiet,,map=03:00B5 end=03:00B5 party=91
+surface,"22,DB",0C0,title 128,quiet,,map=03:00C0 end=03:00C0 party=91
+surface,"E4,2F",0CF,Chocobo's Forest,quiet,,map=03:00CF end=03:00CF party=91
+surface,"D5,D1",0D1,Chocobo's Forest,quiet,,map=03:00D1 end=03:00D1 party=91
+surface,"59,A3",0D2,Chocobo's Forest,quiet,,map=03:00D2 end=03:00D2 party=91
+surface,"22,65",0D3,Chocobo's Forest,quiet,,map=03:00D3 end=03:00D3 party=91
+surface,"56,4F",0D4,Chocobo's Forest,quiet,,map=03:00D4 end=03:00D4 party=91
+surface,"29,35",021,Chocobo's Village,quiet,,map=03:0021 end=03:0021 party=91
+underworld,"63,52",107,Castle of Dwarves,quiet,,map=03:0107 end=03:0107 party=91
+underworld,"5B,53",10F,Dwarf Base,quiet,,map=03:010F end=03:010F party=91
+underworld,"68,7B",100,Kokkol{C9} the Smith's,check,map 03:0100 -> 03:0102 at +376,map=03:0100 end=03:0102 party=91
+underworld,"3E,79",101,Tomra,quiet,,map=03:0101 end=03:0101 party=91
+underworld,"0D,0E",145,Sylvan Cave,check,map 03:0145 -> 00:0145 at +288; map 00:0145 -> 00:0045 at +338,map=03:0145 end=00:0045 party=91
+underworld,"2E,6D",144,Sealed Cave,quiet,,map=03:0144 end=03:0144 party=91
+underworld,"1B,56",136,Land of Monsters,check,map 03:0136 -> 00:0136 at +288; map 00:0136 -> 00:0036 at +338,map=03:0136 end=00:0036 party=91
+moon,"3D,17",15A,Cave Bahamut,check,map 03:015A -> 00:015A at +288; map 00:015A -> 00:005A at +338,map=03:015A end=00:005A party=91
+moon,"1C,19",160,Lunar's Lair,quiet,,map=03:0160 end=03:0160 party=91
+moon,"12,14",163,Lunar Path,quiet,,map=03:0163 end=03:0163 party=91
+moon,"29,18",164,Lunar Path,check,map 03:0164 -> 02:0164 at +288; map 02:0164 -> 02:0264 at +345; map 02:0264 -> 02:0164 at +409; map 02:0164 -> 03:0164 at +441,map=03:0164 end=03:0164 party=91
+moon,"21,27",165,title 128,quiet,,map=03:0165 end=03:0165 party=91

@@ -23,6 +23,9 @@ end, emu.callbackType.exec, off(0x00DF63), off(0x00DF63), emu.cpuType.snes, ROM)
 
 H.override = function(f)
   if not started and f >= 320 and f % 16 < 2 then return { a = true } end
+  -- AFTER_A=n: press A for 4 frames, n frames after the event starts.
+  local n = tonumber(os.getenv("AFTER_A") or "")
+  if started and n and f - started >= n and f - started < n + 4 then return { a = true } end
   return {}
 end
 

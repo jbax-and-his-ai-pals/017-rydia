@@ -19,7 +19,8 @@ from events import parse_all
 from ff4rom import Rom
 
 LAST_FLAG = 0x43          # set by event $9E, the Big Whale rising at Mysidia
-EXTRA = {0x53}            # K. Eblan fight at the Tower of Babil (mid-game, high number)
+EXTRA = {0x53, 0x47}      # $53: K. Eblan at Babil (mid-game, high number). $47: FuSoYa's joining
+                          # (event $D0) counts as done, so walking into Lunar's Lair adds no one
 SKIP = {0x08}             # Odin's trial: leave it available
 FIXED = {                 # flags events both set and clear
     0x0A: True,           # cleared by $95, set by $96 (later)
