@@ -84,6 +84,11 @@ Goal: power on, choose New Game, and Rydia is standing on the world map with the
 
 This is mostly data and event bytes, plus one small assembly hook (2.2). Since FF4kster is viewer-only, the new-game event is written in asar from the format in L11.
 
+**Status (Nov 5): 2.1–2.4 done; the 2.5 access audit is next.**
+- The world state comes from the event scripts rather than a real save, using the snapshot route. The flag reasoning is in [notes/late-game-state.md](notes/late-game-state.md).
+- The hook is in `asm/newgame.asm`, with its data generated from `tools/late_game.py`.
+- Verified in Mesen on the built patch: New Game puts level-60 Rydia outside Mysidia, with the Big Whale, Falcon and Enterprise.
+
 ### 2.1 Starting record
 
 - [ ] Build adult Rydia's full 64-byte character record (L3): ID `$11`, sprite `$0B`, level ~60, with HP, MP, stats and EXP to match. She has no initial-stats record in the ROM; vanilla's add-character restores her from child Rydia's parked slot, which is empty on a new game. So the hook (2.2) writes this record straight into party slot 0, and the event never uses add-character.
