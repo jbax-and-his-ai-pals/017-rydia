@@ -63,6 +63,8 @@ Record each answer in `notes/addresses.md` with the address and how it was found
 
 ## Phase 1 — Build pipeline
 
+**Status: done (Nov 5).** `python tools/build.py` builds `build/rydia.bps` (verified to re-apply byte for byte). The first change, renaming Peep to "Pact", shows in a battle in Mesen. `data/monsters.csv` is exported, and the capturable table is generated into `$0E:B439`.
+
 - [ ] `tools/build.py`:
   1. Check the input ROM hash; stop with a clear message if it's wrong.
   2. Copy it to `build/rydia.sfc`.

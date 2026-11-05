@@ -20,9 +20,11 @@ HEADER_COMPLEMENT = slice(0x7FDC, 0x7FDE)
 HEADER_CHECKSUM = slice(0x7FDE, 0x7FE0)
 
 
-def check(path: Path) -> bool:
+def check(path: Path, quiet: bool = False) -> bool:
     data = path.read_bytes()
     ok = True
+    if quiet:
+        return len(data) == EXPECTED_SIZE and zlib.crc32(data) & 0xFFFFFFFF == EXPECTED_CRC32
 
     print(f"File:     {path} ({len(data):,} bytes)")
     if len(data) == EXPECTED_SIZE + COPIER_HEADER:

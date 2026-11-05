@@ -27,7 +27,7 @@ H.override = function(f)
     return {}
   end
   local t = f - battleAt - 90
-  if t < 0 or f - battleAt > 900 then return {} end
+  if MODE == "idle" or t < 0 or f - battleAt > 900 then return {} end
   local p = t % 48
   if MODE == "peep" then
     if p < 2 then return { down = true } end

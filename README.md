@@ -25,6 +25,31 @@ Final Fantasy II (USA) v1.1 (Rev 1), unheadered, 1,048,576 bytes, CRC32 `23084FC
 python tools/check_rom.py
 ```
 
+## Build
+
+```bash
+python tools/build.py
+```
+
+This checks the clean ROM, generates `build/gen/data.asm` from `data/monsters.csv`, runs asar on `asm/main.asm`, and writes:
+- `build/rydia.bps`: the patch to distribute
+- `build/rydia.sfc`: a patched ROM for testing only
+- `build/rydia.sym`: symbols for Mesen
+
+It also re-applies the patch to confirm it reproduces the build byte for byte.
+
+`data/monsters.csv` comes from the clean ROM. Re-run the export after adding columns; it keeps hand-edited `capturable` and `notes` values:
+
+```bash
+python tools/export_monsters.py
+```
+
+Test a build headless in Mesen (scripts in `tools/mesen/`):
+
+```bash
+python tools/mesen/run.py tools/mesen/peep.lua build/mesen-out --rom build/rydia.sfc --frames 800 --env MODE=idle
+```
+
 ## Tools
 
 | Tool | Version | Where | Status |
