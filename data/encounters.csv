@@ -1,0 +1,2817 @@
+world,kind,area,area_name,from_world_map,rate,set,slot,slot_chance,formation,can_run,species,species_name,count
+surface,region,"0,0",near Chocobo's Village,y,10,5,0,43,058,y,3C,StingRat,3
+surface,region,"0,0",near Chocobo's Village,y,10,5,0,43,058,y,06,Treant,2
+surface,region,"0,0",near Chocobo's Village,y,10,5,1,43,059,y,42,Panther,1
+surface,region,"0,0",near Chocobo's Village,y,10,5,1,43,059,y,3C,StingRat,3
+surface,region,"0,0",near Chocobo's Village,y,10,5,2,43,05A,y,21,Cannibal,1
+surface,region,"0,0",near Chocobo's Village,y,10,5,2,43,05A,y,06,Treant,2
+surface,region,"0,0",near Chocobo's Village,y,10,5,3,43,05B,y,3D,Python,1
+surface,region,"0,0",near Chocobo's Village,y,10,5,3,43,05B,y,3C,StingRat,2
+surface,region,"0,0",near Chocobo's Village,y,10,5,4,32,058,y,3C,StingRat,3
+surface,region,"0,0",near Chocobo's Village,y,10,5,4,32,058,y,06,Treant,2
+surface,region,"0,0",near Chocobo's Village,y,10,5,5,32,059,y,42,Panther,1
+surface,region,"0,0",near Chocobo's Village,y,10,5,5,32,059,y,3C,StingRat,3
+surface,region,"0,0",near Chocobo's Village,y,10,5,6,16,05A,y,21,Cannibal,1
+surface,region,"0,0",near Chocobo's Village,y,10,5,6,16,05A,y,06,Treant,2
+surface,region,"0,0",near Chocobo's Village,y,10,5,7,4,05B,y,3D,Python,1
+surface,region,"0,0",near Chocobo's Village,y,10,5,7,4,05B,y,3C,StingRat,2
+surface,region,"1,0",near Chocobo's Village,y,10,5,0,43,058,y,3C,StingRat,3
+surface,region,"1,0",near Chocobo's Village,y,10,5,0,43,058,y,06,Treant,2
+surface,region,"1,0",near Chocobo's Village,y,10,5,1,43,059,y,42,Panther,1
+surface,region,"1,0",near Chocobo's Village,y,10,5,1,43,059,y,3C,StingRat,3
+surface,region,"1,0",near Chocobo's Village,y,10,5,2,43,05A,y,21,Cannibal,1
+surface,region,"1,0",near Chocobo's Village,y,10,5,2,43,05A,y,06,Treant,2
+surface,region,"1,0",near Chocobo's Village,y,10,5,3,43,05B,y,3D,Python,1
+surface,region,"1,0",near Chocobo's Village,y,10,5,3,43,05B,y,3C,StingRat,2
+surface,region,"1,0",near Chocobo's Village,y,10,5,4,32,058,y,3C,StingRat,3
+surface,region,"1,0",near Chocobo's Village,y,10,5,4,32,058,y,06,Treant,2
+surface,region,"1,0",near Chocobo's Village,y,10,5,5,32,059,y,42,Panther,1
+surface,region,"1,0",near Chocobo's Village,y,10,5,5,32,059,y,3C,StingRat,3
+surface,region,"1,0",near Chocobo's Village,y,10,5,6,16,05A,y,21,Cannibal,1
+surface,region,"1,0",near Chocobo's Village,y,10,5,6,16,05A,y,06,Treant,2
+surface,region,"1,0",near Chocobo's Village,y,10,5,7,4,05B,y,3D,Python,1
+surface,region,"1,0",near Chocobo's Village,y,10,5,7,4,05B,y,3C,StingRat,2
+surface,region,"2,0",near Cave Magnes,y,10,5,0,43,058,y,3C,StingRat,3
+surface,region,"2,0",near Cave Magnes,y,10,5,0,43,058,y,06,Treant,2
+surface,region,"2,0",near Cave Magnes,y,10,5,1,43,059,y,42,Panther,1
+surface,region,"2,0",near Cave Magnes,y,10,5,1,43,059,y,3C,StingRat,3
+surface,region,"2,0",near Cave Magnes,y,10,5,2,43,05A,y,21,Cannibal,1
+surface,region,"2,0",near Cave Magnes,y,10,5,2,43,05A,y,06,Treant,2
+surface,region,"2,0",near Cave Magnes,y,10,5,3,43,05B,y,3D,Python,1
+surface,region,"2,0",near Cave Magnes,y,10,5,3,43,05B,y,3C,StingRat,2
+surface,region,"2,0",near Cave Magnes,y,10,5,4,32,058,y,3C,StingRat,3
+surface,region,"2,0",near Cave Magnes,y,10,5,4,32,058,y,06,Treant,2
+surface,region,"2,0",near Cave Magnes,y,10,5,5,32,059,y,42,Panther,1
+surface,region,"2,0",near Cave Magnes,y,10,5,5,32,059,y,3C,StingRat,3
+surface,region,"2,0",near Cave Magnes,y,10,5,6,16,05A,y,21,Cannibal,1
+surface,region,"2,0",near Cave Magnes,y,10,5,6,16,05A,y,06,Treant,2
+surface,region,"2,0",near Cave Magnes,y,10,5,7,4,05B,y,3D,Python,1
+surface,region,"2,0",near Cave Magnes,y,10,5,7,4,05B,y,3C,StingRat,2
+surface,region,"3,0",near Damcyan,y,8,2,0,43,00B,y,0C,SandWorm,1
+surface,region,"3,0",near Damcyan,y,8,2,1,43,01C,y,00,Imp,3
+surface,region,"3,0",near Damcyan,y,8,2,1,43,01C,y,00,Imp,3
+surface,region,"3,0",near Damcyan,y,8,2,1,43,01C,y,00,Imp,2
+surface,region,"3,0",near Damcyan,y,8,2,2,43,01D,y,07,SwordRat,2
+surface,region,"3,0",near Damcyan,y,8,2,2,43,01D,y,00,Imp,2
+surface,region,"3,0",near Damcyan,y,8,2,2,43,01D,y,08,TinyMage,2
+surface,region,"3,0",near Damcyan,y,8,2,3,43,01E,y,0C,SandWorm,1
+surface,region,"3,0",near Damcyan,y,8,2,3,43,01E,y,0B,Sandpede,1
+surface,region,"3,0",near Damcyan,y,8,2,4,32,00B,y,0C,SandWorm,1
+surface,region,"3,0",near Damcyan,y,8,2,5,32,01D,y,07,SwordRat,2
+surface,region,"3,0",near Damcyan,y,8,2,5,32,01D,y,00,Imp,2
+surface,region,"3,0",near Damcyan,y,8,2,5,32,01D,y,08,TinyMage,2
+surface,region,"3,0",near Damcyan,y,8,2,6,16,01C,y,00,Imp,3
+surface,region,"3,0",near Damcyan,y,8,2,6,16,01C,y,00,Imp,3
+surface,region,"3,0",near Damcyan,y,8,2,6,16,01C,y,00,Imp,2
+surface,region,"3,0",near Damcyan,y,8,2,7,4,01F,y,0C,SandWorm,2
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,0,43,00B,y,0C,SandWorm,1
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,1,43,01C,y,00,Imp,3
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,1,43,01C,y,00,Imp,3
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,1,43,01C,y,00,Imp,2
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,2,43,01D,y,07,SwordRat,2
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,2,43,01D,y,00,Imp,2
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,2,43,01D,y,08,TinyMage,2
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,3,43,01E,y,0C,SandWorm,1
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,3,43,01E,y,0B,Sandpede,1
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,4,32,00B,y,0C,SandWorm,1
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,5,32,01D,y,07,SwordRat,2
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,5,32,01D,y,00,Imp,2
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,5,32,01D,y,08,TinyMage,2
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,6,16,01C,y,00,Imp,3
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,6,16,01C,y,00,Imp,3
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,6,16,01C,y,00,Imp,2
+surface,region,"4,0",near Mt.Hobs-West,y,8,2,7,4,01F,y,0C,SandWorm,2
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,0,43,034,y,1B,Imp Cap.,3
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,0,43,034,y,1F,Needler,1
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,1,43,035,y,1B,Imp Cap.,3
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,1,43,035,y,1F,Needler,3
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,2,43,036,y,00,Imp,2
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,3,43,02C,y,24,Cocktric,3
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,4,32,02A,y,25,Gargoyle,1
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,4,32,02A,y,24,Cocktric,2
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,5,32,02E,y,56,GrayBomb,2
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,5,32,02E,y,55,Bomb,2
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,6,16,037,y,07,SwordRat,3
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,6,16,037,y,1F,Needler,3
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,7,4,037,y,07,SwordRat,3
+surface,region,"5,0",near Mt.Hobs-East,y,10,3,7,4,037,y,1F,Needler,3
+surface,region,"6,0",near Chocobo's Forest,y,10,3,0,43,034,y,1B,Imp Cap.,3
+surface,region,"6,0",near Chocobo's Forest,y,10,3,0,43,034,y,1F,Needler,1
+surface,region,"6,0",near Chocobo's Forest,y,10,3,1,43,035,y,1B,Imp Cap.,3
+surface,region,"6,0",near Chocobo's Forest,y,10,3,1,43,035,y,1F,Needler,3
+surface,region,"6,0",near Chocobo's Forest,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"6,0",near Chocobo's Forest,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"6,0",near Chocobo's Forest,y,10,3,2,43,036,y,00,Imp,2
+surface,region,"6,0",near Chocobo's Forest,y,10,3,3,43,02C,y,24,Cocktric,3
+surface,region,"6,0",near Chocobo's Forest,y,10,3,4,32,02A,y,25,Gargoyle,1
+surface,region,"6,0",near Chocobo's Forest,y,10,3,4,32,02A,y,24,Cocktric,2
+surface,region,"6,0",near Chocobo's Forest,y,10,3,5,32,02E,y,56,GrayBomb,2
+surface,region,"6,0",near Chocobo's Forest,y,10,3,5,32,02E,y,55,Bomb,2
+surface,region,"6,0",near Chocobo's Forest,y,10,3,6,16,037,y,07,SwordRat,3
+surface,region,"6,0",near Chocobo's Forest,y,10,3,6,16,037,y,1F,Needler,3
+surface,region,"6,0",near Chocobo's Forest,y,10,3,7,4,037,y,07,SwordRat,3
+surface,region,"6,0",near Chocobo's Forest,y,10,3,7,4,037,y,1F,Needler,3
+surface,region,"7,0",near Chocobo's Forest,y,10,3,0,43,034,y,1B,Imp Cap.,3
+surface,region,"7,0",near Chocobo's Forest,y,10,3,0,43,034,y,1F,Needler,1
+surface,region,"7,0",near Chocobo's Forest,y,10,3,1,43,035,y,1B,Imp Cap.,3
+surface,region,"7,0",near Chocobo's Forest,y,10,3,1,43,035,y,1F,Needler,3
+surface,region,"7,0",near Chocobo's Forest,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"7,0",near Chocobo's Forest,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"7,0",near Chocobo's Forest,y,10,3,2,43,036,y,00,Imp,2
+surface,region,"7,0",near Chocobo's Forest,y,10,3,3,43,02C,y,24,Cocktric,3
+surface,region,"7,0",near Chocobo's Forest,y,10,3,4,32,02A,y,25,Gargoyle,1
+surface,region,"7,0",near Chocobo's Forest,y,10,3,4,32,02A,y,24,Cocktric,2
+surface,region,"7,0",near Chocobo's Forest,y,10,3,5,32,02E,y,56,GrayBomb,2
+surface,region,"7,0",near Chocobo's Forest,y,10,3,5,32,02E,y,55,Bomb,2
+surface,region,"7,0",near Chocobo's Forest,y,10,3,6,16,037,y,07,SwordRat,3
+surface,region,"7,0",near Chocobo's Forest,y,10,3,6,16,037,y,1F,Needler,3
+surface,region,"7,0",near Chocobo's Forest,y,10,3,7,4,037,y,07,SwordRat,3
+surface,region,"7,0",near Chocobo's Forest,y,10,3,7,4,037,y,1F,Needler,3
+surface,region,"0,1",near Chocobo's Village,y,10,5,0,43,058,y,3C,StingRat,3
+surface,region,"0,1",near Chocobo's Village,y,10,5,0,43,058,y,06,Treant,2
+surface,region,"0,1",near Chocobo's Village,y,10,5,1,43,059,y,42,Panther,1
+surface,region,"0,1",near Chocobo's Village,y,10,5,1,43,059,y,3C,StingRat,3
+surface,region,"0,1",near Chocobo's Village,y,10,5,2,43,05A,y,21,Cannibal,1
+surface,region,"0,1",near Chocobo's Village,y,10,5,2,43,05A,y,06,Treant,2
+surface,region,"0,1",near Chocobo's Village,y,10,5,3,43,05B,y,3D,Python,1
+surface,region,"0,1",near Chocobo's Village,y,10,5,3,43,05B,y,3C,StingRat,2
+surface,region,"0,1",near Chocobo's Village,y,10,5,4,32,058,y,3C,StingRat,3
+surface,region,"0,1",near Chocobo's Village,y,10,5,4,32,058,y,06,Treant,2
+surface,region,"0,1",near Chocobo's Village,y,10,5,5,32,059,y,42,Panther,1
+surface,region,"0,1",near Chocobo's Village,y,10,5,5,32,059,y,3C,StingRat,3
+surface,region,"0,1",near Chocobo's Village,y,10,5,6,16,05A,y,21,Cannibal,1
+surface,region,"0,1",near Chocobo's Village,y,10,5,6,16,05A,y,06,Treant,2
+surface,region,"0,1",near Chocobo's Village,y,10,5,7,4,05B,y,3D,Python,1
+surface,region,"0,1",near Chocobo's Village,y,10,5,7,4,05B,y,3C,StingRat,2
+surface,region,"1,1",Chocobo's Village,y,10,5,0,43,058,y,3C,StingRat,3
+surface,region,"1,1",Chocobo's Village,y,10,5,0,43,058,y,06,Treant,2
+surface,region,"1,1",Chocobo's Village,y,10,5,1,43,059,y,42,Panther,1
+surface,region,"1,1",Chocobo's Village,y,10,5,1,43,059,y,3C,StingRat,3
+surface,region,"1,1",Chocobo's Village,y,10,5,2,43,05A,y,21,Cannibal,1
+surface,region,"1,1",Chocobo's Village,y,10,5,2,43,05A,y,06,Treant,2
+surface,region,"1,1",Chocobo's Village,y,10,5,3,43,05B,y,3D,Python,1
+surface,region,"1,1",Chocobo's Village,y,10,5,3,43,05B,y,3C,StingRat,2
+surface,region,"1,1",Chocobo's Village,y,10,5,4,32,058,y,3C,StingRat,3
+surface,region,"1,1",Chocobo's Village,y,10,5,4,32,058,y,06,Treant,2
+surface,region,"1,1",Chocobo's Village,y,10,5,5,32,059,y,42,Panther,1
+surface,region,"1,1",Chocobo's Village,y,10,5,5,32,059,y,3C,StingRat,3
+surface,region,"1,1",Chocobo's Village,y,10,5,6,16,05A,y,21,Cannibal,1
+surface,region,"1,1",Chocobo's Village,y,10,5,6,16,05A,y,06,Treant,2
+surface,region,"1,1",Chocobo's Village,y,10,5,7,4,05B,y,3D,Python,1
+surface,region,"1,1",Chocobo's Village,y,10,5,7,4,05B,y,3C,StingRat,2
+surface,region,"2,1",Cave Magnes,y,10,5,0,43,058,y,3C,StingRat,3
+surface,region,"2,1",Cave Magnes,y,10,5,0,43,058,y,06,Treant,2
+surface,region,"2,1",Cave Magnes,y,10,5,1,43,059,y,42,Panther,1
+surface,region,"2,1",Cave Magnes,y,10,5,1,43,059,y,3C,StingRat,3
+surface,region,"2,1",Cave Magnes,y,10,5,2,43,05A,y,21,Cannibal,1
+surface,region,"2,1",Cave Magnes,y,10,5,2,43,05A,y,06,Treant,2
+surface,region,"2,1",Cave Magnes,y,10,5,3,43,05B,y,3D,Python,1
+surface,region,"2,1",Cave Magnes,y,10,5,3,43,05B,y,3C,StingRat,2
+surface,region,"2,1",Cave Magnes,y,10,5,4,32,058,y,3C,StingRat,3
+surface,region,"2,1",Cave Magnes,y,10,5,4,32,058,y,06,Treant,2
+surface,region,"2,1",Cave Magnes,y,10,5,5,32,059,y,42,Panther,1
+surface,region,"2,1",Cave Magnes,y,10,5,5,32,059,y,3C,StingRat,3
+surface,region,"2,1",Cave Magnes,y,10,5,6,16,05A,y,21,Cannibal,1
+surface,region,"2,1",Cave Magnes,y,10,5,6,16,05A,y,06,Treant,2
+surface,region,"2,1",Cave Magnes,y,10,5,7,4,05B,y,3D,Python,1
+surface,region,"2,1",Cave Magnes,y,10,5,7,4,05B,y,3C,StingRat,2
+surface,region,"3,1",Damcyan,y,8,2,0,43,00B,y,0C,SandWorm,1
+surface,region,"3,1",Damcyan,y,8,2,1,43,01C,y,00,Imp,3
+surface,region,"3,1",Damcyan,y,8,2,1,43,01C,y,00,Imp,3
+surface,region,"3,1",Damcyan,y,8,2,1,43,01C,y,00,Imp,2
+surface,region,"3,1",Damcyan,y,8,2,2,43,01D,y,07,SwordRat,2
+surface,region,"3,1",Damcyan,y,8,2,2,43,01D,y,00,Imp,2
+surface,region,"3,1",Damcyan,y,8,2,2,43,01D,y,08,TinyMage,2
+surface,region,"3,1",Damcyan,y,8,2,3,43,01E,y,0C,SandWorm,1
+surface,region,"3,1",Damcyan,y,8,2,3,43,01E,y,0B,Sandpede,1
+surface,region,"3,1",Damcyan,y,8,2,4,32,00B,y,0C,SandWorm,1
+surface,region,"3,1",Damcyan,y,8,2,5,32,01D,y,07,SwordRat,2
+surface,region,"3,1",Damcyan,y,8,2,5,32,01D,y,00,Imp,2
+surface,region,"3,1",Damcyan,y,8,2,5,32,01D,y,08,TinyMage,2
+surface,region,"3,1",Damcyan,y,8,2,6,16,01C,y,00,Imp,3
+surface,region,"3,1",Damcyan,y,8,2,6,16,01C,y,00,Imp,3
+surface,region,"3,1",Damcyan,y,8,2,6,16,01C,y,00,Imp,2
+surface,region,"3,1",Damcyan,y,8,2,7,4,01F,y,0C,SandWorm,2
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,0,43,00B,y,0C,SandWorm,1
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,1,43,01C,y,00,Imp,3
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,1,43,01C,y,00,Imp,3
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,1,43,01C,y,00,Imp,2
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,2,43,01D,y,07,SwordRat,2
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,2,43,01D,y,00,Imp,2
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,2,43,01D,y,08,TinyMage,2
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,3,43,01E,y,0C,SandWorm,1
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,3,43,01E,y,0B,Sandpede,1
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,4,32,00B,y,0C,SandWorm,1
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,5,32,01D,y,07,SwordRat,2
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,5,32,01D,y,00,Imp,2
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,5,32,01D,y,08,TinyMage,2
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,6,16,01C,y,00,Imp,3
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,6,16,01C,y,00,Imp,3
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,6,16,01C,y,00,Imp,2
+surface,region,"4,1","Antlion, Mt.Hobs-West",y,8,2,7,4,01F,y,0C,SandWorm,2
+surface,region,"5,1",Mt.Hobs-East,y,10,3,0,43,034,y,1B,Imp Cap.,3
+surface,region,"5,1",Mt.Hobs-East,y,10,3,0,43,034,y,1F,Needler,1
+surface,region,"5,1",Mt.Hobs-East,y,10,3,1,43,035,y,1B,Imp Cap.,3
+surface,region,"5,1",Mt.Hobs-East,y,10,3,1,43,035,y,1F,Needler,3
+surface,region,"5,1",Mt.Hobs-East,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"5,1",Mt.Hobs-East,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"5,1",Mt.Hobs-East,y,10,3,2,43,036,y,00,Imp,2
+surface,region,"5,1",Mt.Hobs-East,y,10,3,3,43,02C,y,24,Cocktric,3
+surface,region,"5,1",Mt.Hobs-East,y,10,3,4,32,02A,y,25,Gargoyle,1
+surface,region,"5,1",Mt.Hobs-East,y,10,3,4,32,02A,y,24,Cocktric,2
+surface,region,"5,1",Mt.Hobs-East,y,10,3,5,32,02E,y,56,GrayBomb,2
+surface,region,"5,1",Mt.Hobs-East,y,10,3,5,32,02E,y,55,Bomb,2
+surface,region,"5,1",Mt.Hobs-East,y,10,3,6,16,037,y,07,SwordRat,3
+surface,region,"5,1",Mt.Hobs-East,y,10,3,6,16,037,y,1F,Needler,3
+surface,region,"5,1",Mt.Hobs-East,y,10,3,7,4,037,y,07,SwordRat,3
+surface,region,"5,1",Mt.Hobs-East,y,10,3,7,4,037,y,1F,Needler,3
+surface,region,"6,1",Fabul,y,10,3,0,43,034,y,1B,Imp Cap.,3
+surface,region,"6,1",Fabul,y,10,3,0,43,034,y,1F,Needler,1
+surface,region,"6,1",Fabul,y,10,3,1,43,035,y,1B,Imp Cap.,3
+surface,region,"6,1",Fabul,y,10,3,1,43,035,y,1F,Needler,3
+surface,region,"6,1",Fabul,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"6,1",Fabul,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"6,1",Fabul,y,10,3,2,43,036,y,00,Imp,2
+surface,region,"6,1",Fabul,y,10,3,3,43,02C,y,24,Cocktric,3
+surface,region,"6,1",Fabul,y,10,3,4,32,02A,y,25,Gargoyle,1
+surface,region,"6,1",Fabul,y,10,3,4,32,02A,y,24,Cocktric,2
+surface,region,"6,1",Fabul,y,10,3,5,32,02E,y,56,GrayBomb,2
+surface,region,"6,1",Fabul,y,10,3,5,32,02E,y,55,Bomb,2
+surface,region,"6,1",Fabul,y,10,3,6,16,037,y,07,SwordRat,3
+surface,region,"6,1",Fabul,y,10,3,6,16,037,y,1F,Needler,3
+surface,region,"6,1",Fabul,y,10,3,7,4,037,y,07,SwordRat,3
+surface,region,"6,1",Fabul,y,10,3,7,4,037,y,1F,Needler,3
+surface,region,"7,1",Chocobo's Forest,y,10,3,0,43,034,y,1B,Imp Cap.,3
+surface,region,"7,1",Chocobo's Forest,y,10,3,0,43,034,y,1F,Needler,1
+surface,region,"7,1",Chocobo's Forest,y,10,3,1,43,035,y,1B,Imp Cap.,3
+surface,region,"7,1",Chocobo's Forest,y,10,3,1,43,035,y,1F,Needler,3
+surface,region,"7,1",Chocobo's Forest,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"7,1",Chocobo's Forest,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"7,1",Chocobo's Forest,y,10,3,2,43,036,y,00,Imp,2
+surface,region,"7,1",Chocobo's Forest,y,10,3,3,43,02C,y,24,Cocktric,3
+surface,region,"7,1",Chocobo's Forest,y,10,3,4,32,02A,y,25,Gargoyle,1
+surface,region,"7,1",Chocobo's Forest,y,10,3,4,32,02A,y,24,Cocktric,2
+surface,region,"7,1",Chocobo's Forest,y,10,3,5,32,02E,y,56,GrayBomb,2
+surface,region,"7,1",Chocobo's Forest,y,10,3,5,32,02E,y,55,Bomb,2
+surface,region,"7,1",Chocobo's Forest,y,10,3,6,16,037,y,07,SwordRat,3
+surface,region,"7,1",Chocobo's Forest,y,10,3,6,16,037,y,1F,Needler,3
+surface,region,"7,1",Chocobo's Forest,y,10,3,7,4,037,y,07,SwordRat,3
+surface,region,"7,1",Chocobo's Forest,y,10,3,7,4,037,y,1F,Needler,3
+surface,region,"0,2",near Toroian Castle,y,10,5,0,43,058,y,3C,StingRat,3
+surface,region,"0,2",near Toroian Castle,y,10,5,0,43,058,y,06,Treant,2
+surface,region,"0,2",near Toroian Castle,y,10,5,1,43,059,y,42,Panther,1
+surface,region,"0,2",near Toroian Castle,y,10,5,1,43,059,y,3C,StingRat,3
+surface,region,"0,2",near Toroian Castle,y,10,5,2,43,05A,y,21,Cannibal,1
+surface,region,"0,2",near Toroian Castle,y,10,5,2,43,05A,y,06,Treant,2
+surface,region,"0,2",near Toroian Castle,y,10,5,3,43,05B,y,3D,Python,1
+surface,region,"0,2",near Toroian Castle,y,10,5,3,43,05B,y,3C,StingRat,2
+surface,region,"0,2",near Toroian Castle,y,10,5,4,32,058,y,3C,StingRat,3
+surface,region,"0,2",near Toroian Castle,y,10,5,4,32,058,y,06,Treant,2
+surface,region,"0,2",near Toroian Castle,y,10,5,5,32,059,y,42,Panther,1
+surface,region,"0,2",near Toroian Castle,y,10,5,5,32,059,y,3C,StingRat,3
+surface,region,"0,2",near Toroian Castle,y,10,5,6,16,05A,y,21,Cannibal,1
+surface,region,"0,2",near Toroian Castle,y,10,5,6,16,05A,y,06,Treant,2
+surface,region,"0,2",near Toroian Castle,y,10,5,7,4,05B,y,3D,Python,1
+surface,region,"0,2",near Toroian Castle,y,10,5,7,4,05B,y,3C,StingRat,2
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,0,43,058,y,3C,StingRat,3
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,0,43,058,y,06,Treant,2
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,1,43,059,y,42,Panther,1
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,1,43,059,y,3C,StingRat,3
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,2,43,05A,y,21,Cannibal,1
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,2,43,05A,y,06,Treant,2
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,3,43,05B,y,3D,Python,1
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,3,43,05B,y,3C,StingRat,2
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,4,32,058,y,3C,StingRat,3
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,4,32,058,y,06,Treant,2
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,5,32,059,y,42,Panther,1
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,5,32,059,y,3C,StingRat,3
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,6,16,05A,y,21,Cannibal,1
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,6,16,05A,y,06,Treant,2
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,7,4,05B,y,3D,Python,1
+surface,region,"1,2","Toroian Castle, Town of Toroia",y,10,5,7,4,05B,y,3C,StingRat,2
+surface,region,"2,2",Chocobo's Forest,y,10,1,0,43,008,y,0A,SandMoth,2
+surface,region,"2,2",Chocobo's Forest,y,10,1,0,43,008,y,04,Larva,2
+surface,region,"2,2",Chocobo's Forest,y,10,1,1,43,009,y,09,Sand Man,3
+surface,region,"2,2",Chocobo's Forest,y,10,1,1,43,009,y,09,Sand Man,1
+surface,region,"2,2",Chocobo's Forest,y,10,1,2,43,00A,y,0B,Sandpede,1
+surface,region,"2,2",Chocobo's Forest,y,10,1,2,43,00A,y,09,Sand Man,2
+surface,region,"2,2",Chocobo's Forest,y,10,1,3,43,006,y,00,Imp,3
+surface,region,"2,2",Chocobo's Forest,y,10,1,3,43,006,y,00,Imp,1
+surface,region,"2,2",Chocobo's Forest,y,10,1,4,32,009,y,09,Sand Man,3
+surface,region,"2,2",Chocobo's Forest,y,10,1,4,32,009,y,09,Sand Man,1
+surface,region,"2,2",Chocobo's Forest,y,10,1,5,32,008,y,0A,SandMoth,2
+surface,region,"2,2",Chocobo's Forest,y,10,1,5,32,008,y,04,Larva,2
+surface,region,"2,2",Chocobo's Forest,y,10,1,6,16,00B,y,0C,SandWorm,1
+surface,region,"2,2",Chocobo's Forest,y,10,1,7,4,00B,y,0C,SandWorm,1
+surface,region,"3,2",Lake,y,8,1,0,43,008,y,0A,SandMoth,2
+surface,region,"3,2",Lake,y,8,1,0,43,008,y,04,Larva,2
+surface,region,"3,2",Lake,y,8,1,1,43,009,y,09,Sand Man,3
+surface,region,"3,2",Lake,y,8,1,1,43,009,y,09,Sand Man,1
+surface,region,"3,2",Lake,y,8,1,2,43,00A,y,0B,Sandpede,1
+surface,region,"3,2",Lake,y,8,1,2,43,00A,y,09,Sand Man,2
+surface,region,"3,2",Lake,y,8,1,3,43,006,y,00,Imp,3
+surface,region,"3,2",Lake,y,8,1,3,43,006,y,00,Imp,1
+surface,region,"3,2",Lake,y,8,1,4,32,009,y,09,Sand Man,3
+surface,region,"3,2",Lake,y,8,1,4,32,009,y,09,Sand Man,1
+surface,region,"3,2",Lake,y,8,1,5,32,008,y,0A,SandMoth,2
+surface,region,"3,2",Lake,y,8,1,5,32,008,y,04,Larva,2
+surface,region,"3,2",Lake,y,8,1,6,16,00B,y,0C,SandWorm,1
+surface,region,"3,2",Lake,y,8,1,7,4,00B,y,0C,SandWorm,1
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,0,43,008,y,0A,SandMoth,2
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,0,43,008,y,04,Larva,2
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,1,43,009,y,09,Sand Man,3
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,1,43,009,y,09,Sand Man,1
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,2,43,00A,y,0B,Sandpede,1
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,2,43,00A,y,09,Sand Man,2
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,3,43,006,y,00,Imp,3
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,3,43,006,y,00,Imp,1
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,4,32,009,y,09,Sand Man,3
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,4,32,009,y,09,Sand Man,1
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,5,32,008,y,0A,SandMoth,2
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,5,32,008,y,04,Larva,2
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,6,16,00B,y,0C,SandWorm,1
+surface,region,"4,2","Watery Pass-South, Watery Pass-North, Waterfalls",y,8,1,7,4,00B,y,0C,SandWorm,1
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,0,43,034,y,1B,Imp Cap.,3
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,0,43,034,y,1F,Needler,1
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,1,43,035,y,1B,Imp Cap.,3
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,1,43,035,y,1F,Needler,3
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,2,43,036,y,00,Imp,2
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,3,43,02C,y,24,Cocktric,3
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,4,32,02A,y,25,Gargoyle,1
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,4,32,02A,y,24,Cocktric,2
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,5,32,02E,y,56,GrayBomb,2
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,5,32,02E,y,55,Bomb,2
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,6,16,037,y,07,SwordRat,3
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,6,16,037,y,1F,Needler,3
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,7,4,037,y,07,SwordRat,3
+surface,region,"5,2",near Mt.Hobs-East,y,10,3,7,4,037,y,1F,Needler,3
+surface,region,"6,2",near Fabul,y,10,3,0,43,034,y,1B,Imp Cap.,3
+surface,region,"6,2",near Fabul,y,10,3,0,43,034,y,1F,Needler,1
+surface,region,"6,2",near Fabul,y,10,3,1,43,035,y,1B,Imp Cap.,3
+surface,region,"6,2",near Fabul,y,10,3,1,43,035,y,1F,Needler,3
+surface,region,"6,2",near Fabul,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"6,2",near Fabul,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"6,2",near Fabul,y,10,3,2,43,036,y,00,Imp,2
+surface,region,"6,2",near Fabul,y,10,3,3,43,02C,y,24,Cocktric,3
+surface,region,"6,2",near Fabul,y,10,3,4,32,02A,y,25,Gargoyle,1
+surface,region,"6,2",near Fabul,y,10,3,4,32,02A,y,24,Cocktric,2
+surface,region,"6,2",near Fabul,y,10,3,5,32,02E,y,56,GrayBomb,2
+surface,region,"6,2",near Fabul,y,10,3,5,32,02E,y,55,Bomb,2
+surface,region,"6,2",near Fabul,y,10,3,6,16,037,y,07,SwordRat,3
+surface,region,"6,2",near Fabul,y,10,3,6,16,037,y,1F,Needler,3
+surface,region,"6,2",near Fabul,y,10,3,7,4,037,y,07,SwordRat,3
+surface,region,"6,2",near Fabul,y,10,3,7,4,037,y,1F,Needler,3
+surface,region,"7,2",near Fabul,y,10,3,0,43,034,y,1B,Imp Cap.,3
+surface,region,"7,2",near Fabul,y,10,3,0,43,034,y,1F,Needler,1
+surface,region,"7,2",near Fabul,y,10,3,1,43,035,y,1B,Imp Cap.,3
+surface,region,"7,2",near Fabul,y,10,3,1,43,035,y,1F,Needler,3
+surface,region,"7,2",near Fabul,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"7,2",near Fabul,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"7,2",near Fabul,y,10,3,2,43,036,y,00,Imp,2
+surface,region,"7,2",near Fabul,y,10,3,3,43,02C,y,24,Cocktric,3
+surface,region,"7,2",near Fabul,y,10,3,4,32,02A,y,25,Gargoyle,1
+surface,region,"7,2",near Fabul,y,10,3,4,32,02A,y,24,Cocktric,2
+surface,region,"7,2",near Fabul,y,10,3,5,32,02E,y,56,GrayBomb,2
+surface,region,"7,2",near Fabul,y,10,3,5,32,02E,y,55,Bomb,2
+surface,region,"7,2",near Fabul,y,10,3,6,16,037,y,07,SwordRat,3
+surface,region,"7,2",near Fabul,y,10,3,6,16,037,y,1F,Needler,3
+surface,region,"7,2",near Fabul,y,10,3,7,4,037,y,07,SwordRat,3
+surface,region,"7,2",near Fabul,y,10,3,7,4,037,y,1F,Needler,3
+surface,region,"0,3",near Chocobo's Forest,y,10,5,0,43,058,y,3C,StingRat,3
+surface,region,"0,3",near Chocobo's Forest,y,10,5,0,43,058,y,06,Treant,2
+surface,region,"0,3",near Chocobo's Forest,y,10,5,1,43,059,y,42,Panther,1
+surface,region,"0,3",near Chocobo's Forest,y,10,5,1,43,059,y,3C,StingRat,3
+surface,region,"0,3",near Chocobo's Forest,y,10,5,2,43,05A,y,21,Cannibal,1
+surface,region,"0,3",near Chocobo's Forest,y,10,5,2,43,05A,y,06,Treant,2
+surface,region,"0,3",near Chocobo's Forest,y,10,5,3,43,05B,y,3D,Python,1
+surface,region,"0,3",near Chocobo's Forest,y,10,5,3,43,05B,y,3C,StingRat,2
+surface,region,"0,3",near Chocobo's Forest,y,10,5,4,32,058,y,3C,StingRat,3
+surface,region,"0,3",near Chocobo's Forest,y,10,5,4,32,058,y,06,Treant,2
+surface,region,"0,3",near Chocobo's Forest,y,10,5,5,32,059,y,42,Panther,1
+surface,region,"0,3",near Chocobo's Forest,y,10,5,5,32,059,y,3C,StingRat,3
+surface,region,"0,3",near Chocobo's Forest,y,10,5,6,16,05A,y,21,Cannibal,1
+surface,region,"0,3",near Chocobo's Forest,y,10,5,6,16,05A,y,06,Treant,2
+surface,region,"0,3",near Chocobo's Forest,y,10,5,7,4,05B,y,3D,Python,1
+surface,region,"0,3",near Chocobo's Forest,y,10,5,7,4,05B,y,3C,StingRat,2
+surface,region,"1,3",Chocobo's Forest,y,10,5,0,43,058,y,3C,StingRat,3
+surface,region,"1,3",Chocobo's Forest,y,10,5,0,43,058,y,06,Treant,2
+surface,region,"1,3",Chocobo's Forest,y,10,5,1,43,059,y,42,Panther,1
+surface,region,"1,3",Chocobo's Forest,y,10,5,1,43,059,y,3C,StingRat,3
+surface,region,"1,3",Chocobo's Forest,y,10,5,2,43,05A,y,21,Cannibal,1
+surface,region,"1,3",Chocobo's Forest,y,10,5,2,43,05A,y,06,Treant,2
+surface,region,"1,3",Chocobo's Forest,y,10,5,3,43,05B,y,3D,Python,1
+surface,region,"1,3",Chocobo's Forest,y,10,5,3,43,05B,y,3C,StingRat,2
+surface,region,"1,3",Chocobo's Forest,y,10,5,4,32,058,y,3C,StingRat,3
+surface,region,"1,3",Chocobo's Forest,y,10,5,4,32,058,y,06,Treant,2
+surface,region,"1,3",Chocobo's Forest,y,10,5,5,32,059,y,42,Panther,1
+surface,region,"1,3",Chocobo's Forest,y,10,5,5,32,059,y,3C,StingRat,3
+surface,region,"1,3",Chocobo's Forest,y,10,5,6,16,05A,y,21,Cannibal,1
+surface,region,"1,3",Chocobo's Forest,y,10,5,6,16,05A,y,06,Treant,2
+surface,region,"1,3",Chocobo's Forest,y,10,5,7,4,05B,y,3D,Python,1
+surface,region,"1,3",Chocobo's Forest,y,10,5,7,4,05B,y,3C,StingRat,2
+surface,region,"2,3",near Village Mist,y,7,1,0,43,008,y,0A,SandMoth,2
+surface,region,"2,3",near Village Mist,y,7,1,0,43,008,y,04,Larva,2
+surface,region,"2,3",near Village Mist,y,7,1,1,43,009,y,09,Sand Man,3
+surface,region,"2,3",near Village Mist,y,7,1,1,43,009,y,09,Sand Man,1
+surface,region,"2,3",near Village Mist,y,7,1,2,43,00A,y,0B,Sandpede,1
+surface,region,"2,3",near Village Mist,y,7,1,2,43,00A,y,09,Sand Man,2
+surface,region,"2,3",near Village Mist,y,7,1,3,43,006,y,00,Imp,3
+surface,region,"2,3",near Village Mist,y,7,1,3,43,006,y,00,Imp,1
+surface,region,"2,3",near Village Mist,y,7,1,4,32,009,y,09,Sand Man,3
+surface,region,"2,3",near Village Mist,y,7,1,4,32,009,y,09,Sand Man,1
+surface,region,"2,3",near Village Mist,y,7,1,5,32,008,y,0A,SandMoth,2
+surface,region,"2,3",near Village Mist,y,7,1,5,32,008,y,04,Larva,2
+surface,region,"2,3",near Village Mist,y,7,1,6,16,00B,y,0C,SandWorm,1
+surface,region,"2,3",near Village Mist,y,7,1,7,4,00B,y,0C,SandWorm,1
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,0,43,008,y,0A,SandMoth,2
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,0,43,008,y,04,Larva,2
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,1,43,009,y,09,Sand Man,3
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,1,43,009,y,09,Sand Man,1
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,2,43,00A,y,0B,Sandpede,1
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,2,43,00A,y,09,Sand Man,2
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,3,43,006,y,00,Imp,3
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,3,43,006,y,00,Imp,1
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,4,32,009,y,09,Sand Man,3
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,4,32,009,y,09,Sand Man,1
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,5,32,008,y,0A,SandMoth,2
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,5,32,008,y,04,Larva,2
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,6,16,00B,y,0C,SandWorm,1
+surface,region,"3,3","Village Mist, Kaipo",y,8,1,7,4,00B,y,0C,SandWorm,1
+surface,region,"4,3",near Kaipo,y,8,1,0,43,008,y,0A,SandMoth,2
+surface,region,"4,3",near Kaipo,y,8,1,0,43,008,y,04,Larva,2
+surface,region,"4,3",near Kaipo,y,8,1,1,43,009,y,09,Sand Man,3
+surface,region,"4,3",near Kaipo,y,8,1,1,43,009,y,09,Sand Man,1
+surface,region,"4,3",near Kaipo,y,8,1,2,43,00A,y,0B,Sandpede,1
+surface,region,"4,3",near Kaipo,y,8,1,2,43,00A,y,09,Sand Man,2
+surface,region,"4,3",near Kaipo,y,8,1,3,43,006,y,00,Imp,3
+surface,region,"4,3",near Kaipo,y,8,1,3,43,006,y,00,Imp,1
+surface,region,"4,3",near Kaipo,y,8,1,4,32,009,y,09,Sand Man,3
+surface,region,"4,3",near Kaipo,y,8,1,4,32,009,y,09,Sand Man,1
+surface,region,"4,3",near Kaipo,y,8,1,5,32,008,y,0A,SandMoth,2
+surface,region,"4,3",near Kaipo,y,8,1,5,32,008,y,04,Larva,2
+surface,region,"4,3",near Kaipo,y,8,1,6,16,00B,y,0C,SandWorm,1
+surface,region,"4,3",near Kaipo,y,8,1,7,4,00B,y,0C,SandWorm,1
+surface,region,"5,3",near Silvera,y,8,1,0,43,008,y,0A,SandMoth,2
+surface,region,"5,3",near Silvera,y,8,1,0,43,008,y,04,Larva,2
+surface,region,"5,3",near Silvera,y,8,1,1,43,009,y,09,Sand Man,3
+surface,region,"5,3",near Silvera,y,8,1,1,43,009,y,09,Sand Man,1
+surface,region,"5,3",near Silvera,y,8,1,2,43,00A,y,0B,Sandpede,1
+surface,region,"5,3",near Silvera,y,8,1,2,43,00A,y,09,Sand Man,2
+surface,region,"5,3",near Silvera,y,8,1,3,43,006,y,00,Imp,3
+surface,region,"5,3",near Silvera,y,8,1,3,43,006,y,00,Imp,1
+surface,region,"5,3",near Silvera,y,8,1,4,32,009,y,09,Sand Man,3
+surface,region,"5,3",near Silvera,y,8,1,4,32,009,y,09,Sand Man,1
+surface,region,"5,3",near Silvera,y,8,1,5,32,008,y,0A,SandMoth,2
+surface,region,"5,3",near Silvera,y,8,1,5,32,008,y,04,Larva,2
+surface,region,"5,3",near Silvera,y,8,1,6,16,00B,y,0C,SandWorm,1
+surface,region,"5,3",near Silvera,y,8,1,7,4,00B,y,0C,SandWorm,1
+surface,region,"6,3",near Silvera,y,10,3,0,43,034,y,1B,Imp Cap.,3
+surface,region,"6,3",near Silvera,y,10,3,0,43,034,y,1F,Needler,1
+surface,region,"6,3",near Silvera,y,10,3,1,43,035,y,1B,Imp Cap.,3
+surface,region,"6,3",near Silvera,y,10,3,1,43,035,y,1F,Needler,3
+surface,region,"6,3",near Silvera,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"6,3",near Silvera,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"6,3",near Silvera,y,10,3,2,43,036,y,00,Imp,2
+surface,region,"6,3",near Silvera,y,10,3,3,43,02C,y,24,Cocktric,3
+surface,region,"6,3",near Silvera,y,10,3,4,32,02A,y,25,Gargoyle,1
+surface,region,"6,3",near Silvera,y,10,3,4,32,02A,y,24,Cocktric,2
+surface,region,"6,3",near Silvera,y,10,3,5,32,02E,y,56,GrayBomb,2
+surface,region,"6,3",near Silvera,y,10,3,5,32,02E,y,55,Bomb,2
+surface,region,"6,3",near Silvera,y,10,3,6,16,037,y,07,SwordRat,3
+surface,region,"6,3",near Silvera,y,10,3,6,16,037,y,1F,Needler,3
+surface,region,"6,3",near Silvera,y,10,3,7,4,037,y,07,SwordRat,3
+surface,region,"6,3",near Silvera,y,10,3,7,4,037,y,1F,Needler,3
+surface,region,"7,3",near Grotto Adamant,y,10,3,0,43,034,y,1B,Imp Cap.,3
+surface,region,"7,3",near Grotto Adamant,y,10,3,0,43,034,y,1F,Needler,1
+surface,region,"7,3",near Grotto Adamant,y,10,3,1,43,035,y,1B,Imp Cap.,3
+surface,region,"7,3",near Grotto Adamant,y,10,3,1,43,035,y,1F,Needler,3
+surface,region,"7,3",near Grotto Adamant,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"7,3",near Grotto Adamant,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"7,3",near Grotto Adamant,y,10,3,2,43,036,y,00,Imp,2
+surface,region,"7,3",near Grotto Adamant,y,10,3,3,43,02C,y,24,Cocktric,3
+surface,region,"7,3",near Grotto Adamant,y,10,3,4,32,02A,y,25,Gargoyle,1
+surface,region,"7,3",near Grotto Adamant,y,10,3,4,32,02A,y,24,Cocktric,2
+surface,region,"7,3",near Grotto Adamant,y,10,3,5,32,02E,y,56,GrayBomb,2
+surface,region,"7,3",near Grotto Adamant,y,10,3,5,32,02E,y,55,Bomb,2
+surface,region,"7,3",near Grotto Adamant,y,10,3,6,16,037,y,07,SwordRat,3
+surface,region,"7,3",near Grotto Adamant,y,10,3,6,16,037,y,1F,Needler,3
+surface,region,"7,3",near Grotto Adamant,y,10,3,7,4,037,y,07,SwordRat,3
+surface,region,"7,3",near Grotto Adamant,y,10,3,7,4,037,y,1F,Needler,3
+surface,region,"0,4",near Chocobo's Forest,y,8,5,0,43,058,y,3C,StingRat,3
+surface,region,"0,4",near Chocobo's Forest,y,8,5,0,43,058,y,06,Treant,2
+surface,region,"0,4",near Chocobo's Forest,y,8,5,1,43,059,y,42,Panther,1
+surface,region,"0,4",near Chocobo's Forest,y,8,5,1,43,059,y,3C,StingRat,3
+surface,region,"0,4",near Chocobo's Forest,y,8,5,2,43,05A,y,21,Cannibal,1
+surface,region,"0,4",near Chocobo's Forest,y,8,5,2,43,05A,y,06,Treant,2
+surface,region,"0,4",near Chocobo's Forest,y,8,5,3,43,05B,y,3D,Python,1
+surface,region,"0,4",near Chocobo's Forest,y,8,5,3,43,05B,y,3C,StingRat,2
+surface,region,"0,4",near Chocobo's Forest,y,8,5,4,32,058,y,3C,StingRat,3
+surface,region,"0,4",near Chocobo's Forest,y,8,5,4,32,058,y,06,Treant,2
+surface,region,"0,4",near Chocobo's Forest,y,8,5,5,32,059,y,42,Panther,1
+surface,region,"0,4",near Chocobo's Forest,y,8,5,5,32,059,y,3C,StingRat,3
+surface,region,"0,4",near Chocobo's Forest,y,8,5,6,16,05A,y,21,Cannibal,1
+surface,region,"0,4",near Chocobo's Forest,y,8,5,6,16,05A,y,06,Treant,2
+surface,region,"0,4",near Chocobo's Forest,y,8,5,7,4,05B,y,3D,Python,1
+surface,region,"0,4",near Chocobo's Forest,y,8,5,7,4,05B,y,3C,StingRat,2
+surface,region,"1,4",near Misty Cave,y,8,5,0,43,058,y,3C,StingRat,3
+surface,region,"1,4",near Misty Cave,y,8,5,0,43,058,y,06,Treant,2
+surface,region,"1,4",near Misty Cave,y,8,5,1,43,059,y,42,Panther,1
+surface,region,"1,4",near Misty Cave,y,8,5,1,43,059,y,3C,StingRat,3
+surface,region,"1,4",near Misty Cave,y,8,5,2,43,05A,y,21,Cannibal,1
+surface,region,"1,4",near Misty Cave,y,8,5,2,43,05A,y,06,Treant,2
+surface,region,"1,4",near Misty Cave,y,8,5,3,43,05B,y,3D,Python,1
+surface,region,"1,4",near Misty Cave,y,8,5,3,43,05B,y,3C,StingRat,2
+surface,region,"1,4",near Misty Cave,y,8,5,4,32,058,y,3C,StingRat,3
+surface,region,"1,4",near Misty Cave,y,8,5,4,32,058,y,06,Treant,2
+surface,region,"1,4",near Misty Cave,y,8,5,5,32,059,y,42,Panther,1
+surface,region,"1,4",near Misty Cave,y,8,5,5,32,059,y,3C,StingRat,3
+surface,region,"1,4",near Misty Cave,y,8,5,6,16,05A,y,21,Cannibal,1
+surface,region,"1,4",near Misty Cave,y,8,5,6,16,05A,y,06,Treant,2
+surface,region,"1,4",near Misty Cave,y,8,5,7,4,05B,y,3D,Python,1
+surface,region,"1,4",near Misty Cave,y,8,5,7,4,05B,y,3C,StingRat,2
+surface,region,"2,4",Misty Cave,y,7,0,0,43,000,y,00,Imp,3
+surface,region,"2,4",Misty Cave,y,7,0,1,43,001,y,03,FloatEye,2
+surface,region,"2,4",Misty Cave,y,7,0,2,43,002,y,03,FloatEye,1
+surface,region,"2,4",Misty Cave,y,7,0,2,43,002,y,02,Eagle,2
+surface,region,"2,4",Misty Cave,y,7,0,3,43,004,y,00,Imp,3
+surface,region,"2,4",Misty Cave,y,7,0,3,43,004,y,07,SwordRat,1
+surface,region,"2,4",Misty Cave,y,7,0,4,32,003,y,02,Eagle,3
+surface,region,"2,4",Misty Cave,y,7,0,5,32,006,y,00,Imp,3
+surface,region,"2,4",Misty Cave,y,7,0,5,32,006,y,00,Imp,1
+surface,region,"2,4",Misty Cave,y,7,0,6,16,004,y,00,Imp,3
+surface,region,"2,4",Misty Cave,y,7,0,6,16,004,y,07,SwordRat,1
+surface,region,"2,4",Misty Cave,y,7,0,7,4,0D0,y,00,Imp,3
+surface,region,"2,4",Misty Cave,y,7,0,7,4,0D0,y,00,Imp,3
+surface,region,"3,4","Baron, Town of Baron",y,7,0,0,43,000,y,00,Imp,3
+surface,region,"3,4","Baron, Town of Baron",y,7,0,1,43,001,y,03,FloatEye,2
+surface,region,"3,4","Baron, Town of Baron",y,7,0,2,43,002,y,03,FloatEye,1
+surface,region,"3,4","Baron, Town of Baron",y,7,0,2,43,002,y,02,Eagle,2
+surface,region,"3,4","Baron, Town of Baron",y,7,0,3,43,004,y,00,Imp,3
+surface,region,"3,4","Baron, Town of Baron",y,7,0,3,43,004,y,07,SwordRat,1
+surface,region,"3,4","Baron, Town of Baron",y,7,0,4,32,003,y,02,Eagle,3
+surface,region,"3,4","Baron, Town of Baron",y,7,0,5,32,006,y,00,Imp,3
+surface,region,"3,4","Baron, Town of Baron",y,7,0,5,32,006,y,00,Imp,1
+surface,region,"3,4","Baron, Town of Baron",y,7,0,6,16,004,y,00,Imp,3
+surface,region,"3,4","Baron, Town of Baron",y,7,0,6,16,004,y,07,SwordRat,1
+surface,region,"3,4","Baron, Town of Baron",y,7,0,7,4,0D0,y,00,Imp,3
+surface,region,"3,4","Baron, Town of Baron",y,7,0,7,4,0D0,y,00,Imp,3
+surface,region,"4,4",near Kaipo,y,8,1,0,43,008,y,0A,SandMoth,2
+surface,region,"4,4",near Kaipo,y,8,1,0,43,008,y,04,Larva,2
+surface,region,"4,4",near Kaipo,y,8,1,1,43,009,y,09,Sand Man,3
+surface,region,"4,4",near Kaipo,y,8,1,1,43,009,y,09,Sand Man,1
+surface,region,"4,4",near Kaipo,y,8,1,2,43,00A,y,0B,Sandpede,1
+surface,region,"4,4",near Kaipo,y,8,1,2,43,00A,y,09,Sand Man,2
+surface,region,"4,4",near Kaipo,y,8,1,3,43,006,y,00,Imp,3
+surface,region,"4,4",near Kaipo,y,8,1,3,43,006,y,00,Imp,1
+surface,region,"4,4",near Kaipo,y,8,1,4,32,009,y,09,Sand Man,3
+surface,region,"4,4",near Kaipo,y,8,1,4,32,009,y,09,Sand Man,1
+surface,region,"4,4",near Kaipo,y,8,1,5,32,008,y,0A,SandMoth,2
+surface,region,"4,4",near Kaipo,y,8,1,5,32,008,y,04,Larva,2
+surface,region,"4,4",near Kaipo,y,8,1,6,16,00B,y,0C,SandWorm,1
+surface,region,"4,4",near Kaipo,y,8,1,7,4,00B,y,0C,SandWorm,1
+surface,region,"5,4",near Silvera,y,8,1,0,43,008,y,0A,SandMoth,2
+surface,region,"5,4",near Silvera,y,8,1,0,43,008,y,04,Larva,2
+surface,region,"5,4",near Silvera,y,8,1,1,43,009,y,09,Sand Man,3
+surface,region,"5,4",near Silvera,y,8,1,1,43,009,y,09,Sand Man,1
+surface,region,"5,4",near Silvera,y,8,1,2,43,00A,y,0B,Sandpede,1
+surface,region,"5,4",near Silvera,y,8,1,2,43,00A,y,09,Sand Man,2
+surface,region,"5,4",near Silvera,y,8,1,3,43,006,y,00,Imp,3
+surface,region,"5,4",near Silvera,y,8,1,3,43,006,y,00,Imp,1
+surface,region,"5,4",near Silvera,y,8,1,4,32,009,y,09,Sand Man,3
+surface,region,"5,4",near Silvera,y,8,1,4,32,009,y,09,Sand Man,1
+surface,region,"5,4",near Silvera,y,8,1,5,32,008,y,0A,SandMoth,2
+surface,region,"5,4",near Silvera,y,8,1,5,32,008,y,04,Larva,2
+surface,region,"5,4",near Silvera,y,8,1,6,16,00B,y,0C,SandWorm,1
+surface,region,"5,4",near Silvera,y,8,1,7,4,00B,y,0C,SandWorm,1
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,0,43,058,y,3C,StingRat,3
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,0,43,058,y,06,Treant,2
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,1,43,059,y,42,Panther,1
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,1,43,059,y,3C,StingRat,3
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,2,43,05A,y,21,Cannibal,1
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,2,43,05A,y,06,Treant,2
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,3,43,05B,y,3D,Python,1
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,3,43,05B,y,3C,StingRat,2
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,4,32,058,y,3C,StingRat,3
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,4,32,058,y,06,Treant,2
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,5,32,059,y,42,Panther,1
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,5,32,059,y,3C,StingRat,3
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,6,16,05A,y,21,Cannibal,1
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,6,16,05A,y,06,Treant,2
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,7,4,05B,y,3D,Python,1
+surface,region,"6,4","Silvera, Grotto Adamant",y,10,5,7,4,05B,y,3C,StingRat,2
+surface,region,"7,4",near Grotto Adamant,y,10,3,0,43,034,y,1B,Imp Cap.,3
+surface,region,"7,4",near Grotto Adamant,y,10,3,0,43,034,y,1F,Needler,1
+surface,region,"7,4",near Grotto Adamant,y,10,3,1,43,035,y,1B,Imp Cap.,3
+surface,region,"7,4",near Grotto Adamant,y,10,3,1,43,035,y,1F,Needler,3
+surface,region,"7,4",near Grotto Adamant,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"7,4",near Grotto Adamant,y,10,3,2,43,036,y,1B,Imp Cap.,2
+surface,region,"7,4",near Grotto Adamant,y,10,3,2,43,036,y,00,Imp,2
+surface,region,"7,4",near Grotto Adamant,y,10,3,3,43,02C,y,24,Cocktric,3
+surface,region,"7,4",near Grotto Adamant,y,10,3,4,32,02A,y,25,Gargoyle,1
+surface,region,"7,4",near Grotto Adamant,y,10,3,4,32,02A,y,24,Cocktric,2
+surface,region,"7,4",near Grotto Adamant,y,10,3,5,32,02E,y,56,GrayBomb,2
+surface,region,"7,4",near Grotto Adamant,y,10,3,5,32,02E,y,55,Bomb,2
+surface,region,"7,4",near Grotto Adamant,y,10,3,6,16,037,y,07,SwordRat,3
+surface,region,"7,4",near Grotto Adamant,y,10,3,6,16,037,y,1F,Needler,3
+surface,region,"7,4",near Grotto Adamant,y,10,3,7,4,037,y,07,SwordRat,3
+surface,region,"7,4",near Grotto Adamant,y,10,3,7,4,037,y,1F,Needler,3
+surface,region,"0,5",near Cave Eblana,y,8,6,0,43,088,y,61,Roc,1
+surface,region,"0,5",near Cave Eblana,y,8,6,0,43,088,y,26,Roc Baby,2
+surface,region,"0,5",near Cave Eblana,y,8,6,1,43,08B,y,60,HugeCell,3
+surface,region,"0,5",near Cave Eblana,y,8,6,2,43,0D2,y,5A,FlameDog,2
+surface,region,"0,5",near Cave Eblana,y,8,6,2,43,0D2,y,19,BlackLiz,2
+surface,region,"0,5",near Cave Eblana,y,8,6,3,43,091,y,59,Ironback,2
+surface,region,"0,5",near Cave Eblana,y,8,6,3,43,091,y,19,BlackLiz,2
+surface,region,"0,5",near Cave Eblana,y,8,6,4,32,089,y,61,Roc,1
+surface,region,"0,5",near Cave Eblana,y,8,6,4,32,089,y,26,Roc Baby,3
+surface,region,"0,5",near Cave Eblana,y,8,6,5,32,08A,y,60,HugeCell,3
+surface,region,"0,5",near Cave Eblana,y,8,6,5,32,08A,y,60,HugeCell,1
+surface,region,"0,5",near Cave Eblana,y,8,6,6,16,0D2,y,5A,FlameDog,2
+surface,region,"0,5",near Cave Eblana,y,8,6,6,16,0D2,y,19,BlackLiz,2
+surface,region,"0,5",near Cave Eblana,y,8,6,7,4,091,y,59,Ironback,2
+surface,region,"0,5",near Cave Eblana,y,8,6,7,4,091,y,19,BlackLiz,2
+surface,region,"1,5",near Chocobo's Forest,y,8,6,0,43,088,y,61,Roc,1
+surface,region,"1,5",near Chocobo's Forest,y,8,6,0,43,088,y,26,Roc Baby,2
+surface,region,"1,5",near Chocobo's Forest,y,8,6,1,43,08B,y,60,HugeCell,3
+surface,region,"1,5",near Chocobo's Forest,y,8,6,2,43,0D2,y,5A,FlameDog,2
+surface,region,"1,5",near Chocobo's Forest,y,8,6,2,43,0D2,y,19,BlackLiz,2
+surface,region,"1,5",near Chocobo's Forest,y,8,6,3,43,091,y,59,Ironback,2
+surface,region,"1,5",near Chocobo's Forest,y,8,6,3,43,091,y,19,BlackLiz,2
+surface,region,"1,5",near Chocobo's Forest,y,8,6,4,32,089,y,61,Roc,1
+surface,region,"1,5",near Chocobo's Forest,y,8,6,4,32,089,y,26,Roc Baby,3
+surface,region,"1,5",near Chocobo's Forest,y,8,6,5,32,08A,y,60,HugeCell,3
+surface,region,"1,5",near Chocobo's Forest,y,8,6,5,32,08A,y,60,HugeCell,1
+surface,region,"1,5",near Chocobo's Forest,y,8,6,6,16,0D2,y,5A,FlameDog,2
+surface,region,"1,5",near Chocobo's Forest,y,8,6,6,16,0D2,y,19,BlackLiz,2
+surface,region,"1,5",near Chocobo's Forest,y,8,6,7,4,091,y,59,Ironback,2
+surface,region,"1,5",near Chocobo's Forest,y,8,6,7,4,091,y,19,BlackLiz,2
+surface,region,"2,5",Chocobo's Forest,y,7,0,0,43,000,y,00,Imp,3
+surface,region,"2,5",Chocobo's Forest,y,7,0,1,43,001,y,03,FloatEye,2
+surface,region,"2,5",Chocobo's Forest,y,7,0,2,43,002,y,03,FloatEye,1
+surface,region,"2,5",Chocobo's Forest,y,7,0,2,43,002,y,02,Eagle,2
+surface,region,"2,5",Chocobo's Forest,y,7,0,3,43,004,y,00,Imp,3
+surface,region,"2,5",Chocobo's Forest,y,7,0,3,43,004,y,07,SwordRat,1
+surface,region,"2,5",Chocobo's Forest,y,7,0,4,32,003,y,02,Eagle,3
+surface,region,"2,5",Chocobo's Forest,y,7,0,5,32,006,y,00,Imp,3
+surface,region,"2,5",Chocobo's Forest,y,7,0,5,32,006,y,00,Imp,1
+surface,region,"2,5",Chocobo's Forest,y,7,0,6,16,004,y,00,Imp,3
+surface,region,"2,5",Chocobo's Forest,y,7,0,6,16,004,y,07,SwordRat,1
+surface,region,"2,5",Chocobo's Forest,y,7,0,7,4,0D0,y,00,Imp,3
+surface,region,"2,5",Chocobo's Forest,y,7,0,7,4,0D0,y,00,Imp,3
+surface,region,"3,5",near Town of Baron,y,7,0,0,43,000,y,00,Imp,3
+surface,region,"3,5",near Town of Baron,y,7,0,1,43,001,y,03,FloatEye,2
+surface,region,"3,5",near Town of Baron,y,7,0,2,43,002,y,03,FloatEye,1
+surface,region,"3,5",near Town of Baron,y,7,0,2,43,002,y,02,Eagle,2
+surface,region,"3,5",near Town of Baron,y,7,0,3,43,004,y,00,Imp,3
+surface,region,"3,5",near Town of Baron,y,7,0,3,43,004,y,07,SwordRat,1
+surface,region,"3,5",near Town of Baron,y,7,0,4,32,003,y,02,Eagle,3
+surface,region,"3,5",near Town of Baron,y,7,0,5,32,006,y,00,Imp,3
+surface,region,"3,5",near Town of Baron,y,7,0,5,32,006,y,00,Imp,1
+surface,region,"3,5",near Town of Baron,y,7,0,6,16,004,y,00,Imp,3
+surface,region,"3,5",near Town of Baron,y,7,0,6,16,004,y,07,SwordRat,1
+surface,region,"3,5",near Town of Baron,y,7,0,7,4,0D0,y,00,Imp,3
+surface,region,"3,5",near Town of Baron,y,7,0,7,4,0D0,y,00,Imp,3
+surface,region,"4,5",near Mysidia,y,8,4,0,43,038,y,28,Raven,1
+surface,region,"4,5",near Mysidia,y,8,4,1,43,01D,y,07,SwordRat,2
+surface,region,"4,5",near Mysidia,y,8,4,1,43,01D,y,00,Imp,2
+surface,region,"4,5",near Mysidia,y,8,4,1,43,01D,y,08,TinyMage,2
+surface,region,"4,5",near Mysidia,y,8,4,2,43,034,y,1B,Imp Cap.,3
+surface,region,"4,5",near Mysidia,y,8,4,2,43,034,y,1F,Needler,1
+surface,region,"4,5",near Mysidia,y,8,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"4,5",near Mysidia,y,8,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"4,5",near Mysidia,y,8,4,3,43,036,y,00,Imp,2
+surface,region,"4,5",near Mysidia,y,8,4,4,32,038,y,28,Raven,1
+surface,region,"4,5",near Mysidia,y,8,4,5,32,03A,y,1F,Needler,2
+surface,region,"4,5",near Mysidia,y,8,4,5,32,03A,y,07,SwordRat,2
+surface,region,"4,5",near Mysidia,y,8,4,6,16,039,y,28,Raven,1
+surface,region,"4,5",near Mysidia,y,8,4,6,16,039,y,24,Cocktric,3
+surface,region,"4,5",near Mysidia,y,8,4,7,4,039,y,28,Raven,1
+surface,region,"4,5",near Mysidia,y,8,4,7,4,039,y,24,Cocktric,3
+surface,region,"5,5",near Mysidia,y,10,4,0,43,038,y,28,Raven,1
+surface,region,"5,5",near Mysidia,y,10,4,1,43,01D,y,07,SwordRat,2
+surface,region,"5,5",near Mysidia,y,10,4,1,43,01D,y,00,Imp,2
+surface,region,"5,5",near Mysidia,y,10,4,1,43,01D,y,08,TinyMage,2
+surface,region,"5,5",near Mysidia,y,10,4,2,43,034,y,1B,Imp Cap.,3
+surface,region,"5,5",near Mysidia,y,10,4,2,43,034,y,1F,Needler,1
+surface,region,"5,5",near Mysidia,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"5,5",near Mysidia,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"5,5",near Mysidia,y,10,4,3,43,036,y,00,Imp,2
+surface,region,"5,5",near Mysidia,y,10,4,4,32,038,y,28,Raven,1
+surface,region,"5,5",near Mysidia,y,10,4,5,32,03A,y,1F,Needler,2
+surface,region,"5,5",near Mysidia,y,10,4,5,32,03A,y,07,SwordRat,2
+surface,region,"5,5",near Mysidia,y,10,4,6,16,039,y,28,Raven,1
+surface,region,"5,5",near Mysidia,y,10,4,6,16,039,y,24,Cocktric,3
+surface,region,"5,5",near Mysidia,y,10,4,7,4,039,y,28,Raven,1
+surface,region,"5,5",near Mysidia,y,10,4,7,4,039,y,24,Cocktric,3
+surface,region,"6,5",near Mt.Ordeals,y,10,4,0,43,038,y,28,Raven,1
+surface,region,"6,5",near Mt.Ordeals,y,10,4,1,43,01D,y,07,SwordRat,2
+surface,region,"6,5",near Mt.Ordeals,y,10,4,1,43,01D,y,00,Imp,2
+surface,region,"6,5",near Mt.Ordeals,y,10,4,1,43,01D,y,08,TinyMage,2
+surface,region,"6,5",near Mt.Ordeals,y,10,4,2,43,034,y,1B,Imp Cap.,3
+surface,region,"6,5",near Mt.Ordeals,y,10,4,2,43,034,y,1F,Needler,1
+surface,region,"6,5",near Mt.Ordeals,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"6,5",near Mt.Ordeals,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"6,5",near Mt.Ordeals,y,10,4,3,43,036,y,00,Imp,2
+surface,region,"6,5",near Mt.Ordeals,y,10,4,4,32,038,y,28,Raven,1
+surface,region,"6,5",near Mt.Ordeals,y,10,4,5,32,03A,y,1F,Needler,2
+surface,region,"6,5",near Mt.Ordeals,y,10,4,5,32,03A,y,07,SwordRat,2
+surface,region,"6,5",near Mt.Ordeals,y,10,4,6,16,039,y,28,Raven,1
+surface,region,"6,5",near Mt.Ordeals,y,10,4,6,16,039,y,24,Cocktric,3
+surface,region,"6,5",near Mt.Ordeals,y,10,4,7,4,039,y,28,Raven,1
+surface,region,"6,5",near Mt.Ordeals,y,10,4,7,4,039,y,24,Cocktric,3
+surface,region,"7,5",near Mt.Ordeals,y,10,4,0,43,038,y,28,Raven,1
+surface,region,"7,5",near Mt.Ordeals,y,10,4,1,43,01D,y,07,SwordRat,2
+surface,region,"7,5",near Mt.Ordeals,y,10,4,1,43,01D,y,00,Imp,2
+surface,region,"7,5",near Mt.Ordeals,y,10,4,1,43,01D,y,08,TinyMage,2
+surface,region,"7,5",near Mt.Ordeals,y,10,4,2,43,034,y,1B,Imp Cap.,3
+surface,region,"7,5",near Mt.Ordeals,y,10,4,2,43,034,y,1F,Needler,1
+surface,region,"7,5",near Mt.Ordeals,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"7,5",near Mt.Ordeals,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"7,5",near Mt.Ordeals,y,10,4,3,43,036,y,00,Imp,2
+surface,region,"7,5",near Mt.Ordeals,y,10,4,4,32,038,y,28,Raven,1
+surface,region,"7,5",near Mt.Ordeals,y,10,4,5,32,03A,y,1F,Needler,2
+surface,region,"7,5",near Mt.Ordeals,y,10,4,5,32,03A,y,07,SwordRat,2
+surface,region,"7,5",near Mt.Ordeals,y,10,4,6,16,039,y,28,Raven,1
+surface,region,"7,5",near Mt.Ordeals,y,10,4,6,16,039,y,24,Cocktric,3
+surface,region,"7,5",near Mt.Ordeals,y,10,4,7,4,039,y,28,Raven,1
+surface,region,"7,5",near Mt.Ordeals,y,10,4,7,4,039,y,24,Cocktric,3
+surface,region,"0,6",near Cave Eblana,y,8,6,0,43,088,y,61,Roc,1
+surface,region,"0,6",near Cave Eblana,y,8,6,0,43,088,y,26,Roc Baby,2
+surface,region,"0,6",near Cave Eblana,y,8,6,1,43,08B,y,60,HugeCell,3
+surface,region,"0,6",near Cave Eblana,y,8,6,2,43,0D2,y,5A,FlameDog,2
+surface,region,"0,6",near Cave Eblana,y,8,6,2,43,0D2,y,19,BlackLiz,2
+surface,region,"0,6",near Cave Eblana,y,8,6,3,43,091,y,59,Ironback,2
+surface,region,"0,6",near Cave Eblana,y,8,6,3,43,091,y,19,BlackLiz,2
+surface,region,"0,6",near Cave Eblana,y,8,6,4,32,089,y,61,Roc,1
+surface,region,"0,6",near Cave Eblana,y,8,6,4,32,089,y,26,Roc Baby,3
+surface,region,"0,6",near Cave Eblana,y,8,6,5,32,08A,y,60,HugeCell,3
+surface,region,"0,6",near Cave Eblana,y,8,6,5,32,08A,y,60,HugeCell,1
+surface,region,"0,6",near Cave Eblana,y,8,6,6,16,0D2,y,5A,FlameDog,2
+surface,region,"0,6",near Cave Eblana,y,8,6,6,16,0D2,y,19,BlackLiz,2
+surface,region,"0,6",near Cave Eblana,y,8,6,7,4,091,y,59,Ironback,2
+surface,region,"0,6",near Cave Eblana,y,8,6,7,4,091,y,19,BlackLiz,2
+surface,region,"1,6",near Eblan,y,8,6,0,43,088,y,61,Roc,1
+surface,region,"1,6",near Eblan,y,8,6,0,43,088,y,26,Roc Baby,2
+surface,region,"1,6",near Eblan,y,8,6,1,43,08B,y,60,HugeCell,3
+surface,region,"1,6",near Eblan,y,8,6,2,43,0D2,y,5A,FlameDog,2
+surface,region,"1,6",near Eblan,y,8,6,2,43,0D2,y,19,BlackLiz,2
+surface,region,"1,6",near Eblan,y,8,6,3,43,091,y,59,Ironback,2
+surface,region,"1,6",near Eblan,y,8,6,3,43,091,y,19,BlackLiz,2
+surface,region,"1,6",near Eblan,y,8,6,4,32,089,y,61,Roc,1
+surface,region,"1,6",near Eblan,y,8,6,4,32,089,y,26,Roc Baby,3
+surface,region,"1,6",near Eblan,y,8,6,5,32,08A,y,60,HugeCell,3
+surface,region,"1,6",near Eblan,y,8,6,5,32,08A,y,60,HugeCell,1
+surface,region,"1,6",near Eblan,y,8,6,6,16,0D2,y,5A,FlameDog,2
+surface,region,"1,6",near Eblan,y,8,6,6,16,0D2,y,19,BlackLiz,2
+surface,region,"1,6",near Eblan,y,8,6,7,4,091,y,59,Ironback,2
+surface,region,"1,6",near Eblan,y,8,6,7,4,091,y,19,BlackLiz,2
+surface,region,"2,6",near Agart,y,8,6,0,43,088,y,61,Roc,1
+surface,region,"2,6",near Agart,y,8,6,0,43,088,y,26,Roc Baby,2
+surface,region,"2,6",near Agart,y,8,6,1,43,08B,y,60,HugeCell,3
+surface,region,"2,6",near Agart,y,8,6,2,43,0D2,y,5A,FlameDog,2
+surface,region,"2,6",near Agart,y,8,6,2,43,0D2,y,19,BlackLiz,2
+surface,region,"2,6",near Agart,y,8,6,3,43,091,y,59,Ironback,2
+surface,region,"2,6",near Agart,y,8,6,3,43,091,y,19,BlackLiz,2
+surface,region,"2,6",near Agart,y,8,6,4,32,089,y,61,Roc,1
+surface,region,"2,6",near Agart,y,8,6,4,32,089,y,26,Roc Baby,3
+surface,region,"2,6",near Agart,y,8,6,5,32,08A,y,60,HugeCell,3
+surface,region,"2,6",near Agart,y,8,6,5,32,08A,y,60,HugeCell,1
+surface,region,"2,6",near Agart,y,8,6,6,16,0D2,y,5A,FlameDog,2
+surface,region,"2,6",near Agart,y,8,6,6,16,0D2,y,19,BlackLiz,2
+surface,region,"2,6",near Agart,y,8,6,7,4,091,y,59,Ironback,2
+surface,region,"2,6",near Agart,y,8,6,7,4,091,y,19,BlackLiz,2
+surface,region,"3,6",Agart,y,8,6,0,43,088,y,61,Roc,1
+surface,region,"3,6",Agart,y,8,6,0,43,088,y,26,Roc Baby,2
+surface,region,"3,6",Agart,y,8,6,1,43,08B,y,60,HugeCell,3
+surface,region,"3,6",Agart,y,8,6,2,43,0D2,y,5A,FlameDog,2
+surface,region,"3,6",Agart,y,8,6,2,43,0D2,y,19,BlackLiz,2
+surface,region,"3,6",Agart,y,8,6,3,43,091,y,59,Ironback,2
+surface,region,"3,6",Agart,y,8,6,3,43,091,y,19,BlackLiz,2
+surface,region,"3,6",Agart,y,8,6,4,32,089,y,61,Roc,1
+surface,region,"3,6",Agart,y,8,6,4,32,089,y,26,Roc Baby,3
+surface,region,"3,6",Agart,y,8,6,5,32,08A,y,60,HugeCell,3
+surface,region,"3,6",Agart,y,8,6,5,32,08A,y,60,HugeCell,1
+surface,region,"3,6",Agart,y,8,6,6,16,0D2,y,5A,FlameDog,2
+surface,region,"3,6",Agart,y,8,6,6,16,0D2,y,19,BlackLiz,2
+surface,region,"3,6",Agart,y,8,6,7,4,091,y,59,Ironback,2
+surface,region,"3,6",Agart,y,8,6,7,4,091,y,19,BlackLiz,2
+surface,region,"4,6",Mysidia,y,8,4,0,43,038,y,28,Raven,1
+surface,region,"4,6",Mysidia,y,8,4,1,43,01D,y,07,SwordRat,2
+surface,region,"4,6",Mysidia,y,8,4,1,43,01D,y,00,Imp,2
+surface,region,"4,6",Mysidia,y,8,4,1,43,01D,y,08,TinyMage,2
+surface,region,"4,6",Mysidia,y,8,4,2,43,034,y,1B,Imp Cap.,3
+surface,region,"4,6",Mysidia,y,8,4,2,43,034,y,1F,Needler,1
+surface,region,"4,6",Mysidia,y,8,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"4,6",Mysidia,y,8,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"4,6",Mysidia,y,8,4,3,43,036,y,00,Imp,2
+surface,region,"4,6",Mysidia,y,8,4,4,32,038,y,28,Raven,1
+surface,region,"4,6",Mysidia,y,8,4,5,32,03A,y,1F,Needler,2
+surface,region,"4,6",Mysidia,y,8,4,5,32,03A,y,07,SwordRat,2
+surface,region,"4,6",Mysidia,y,8,4,6,16,039,y,28,Raven,1
+surface,region,"4,6",Mysidia,y,8,4,6,16,039,y,24,Cocktric,3
+surface,region,"4,6",Mysidia,y,8,4,7,4,039,y,28,Raven,1
+surface,region,"4,6",Mysidia,y,8,4,7,4,039,y,24,Cocktric,3
+surface,region,"5,6",near Mysidia,y,10,4,0,43,038,y,28,Raven,1
+surface,region,"5,6",near Mysidia,y,10,4,1,43,01D,y,07,SwordRat,2
+surface,region,"5,6",near Mysidia,y,10,4,1,43,01D,y,00,Imp,2
+surface,region,"5,6",near Mysidia,y,10,4,1,43,01D,y,08,TinyMage,2
+surface,region,"5,6",near Mysidia,y,10,4,2,43,034,y,1B,Imp Cap.,3
+surface,region,"5,6",near Mysidia,y,10,4,2,43,034,y,1F,Needler,1
+surface,region,"5,6",near Mysidia,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"5,6",near Mysidia,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"5,6",near Mysidia,y,10,4,3,43,036,y,00,Imp,2
+surface,region,"5,6",near Mysidia,y,10,4,4,32,038,y,28,Raven,1
+surface,region,"5,6",near Mysidia,y,10,4,5,32,03A,y,1F,Needler,2
+surface,region,"5,6",near Mysidia,y,10,4,5,32,03A,y,07,SwordRat,2
+surface,region,"5,6",near Mysidia,y,10,4,6,16,039,y,28,Raven,1
+surface,region,"5,6",near Mysidia,y,10,4,6,16,039,y,24,Cocktric,3
+surface,region,"5,6",near Mysidia,y,10,4,7,4,039,y,28,Raven,1
+surface,region,"5,6",near Mysidia,y,10,4,7,4,039,y,24,Cocktric,3
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,0,43,038,y,28,Raven,1
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,1,43,01D,y,07,SwordRat,2
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,1,43,01D,y,00,Imp,2
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,1,43,01D,y,08,TinyMage,2
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,2,43,034,y,1B,Imp Cap.,3
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,2,43,034,y,1F,Needler,1
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,3,43,036,y,00,Imp,2
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,4,32,038,y,28,Raven,1
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,5,32,03A,y,1F,Needler,2
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,5,32,03A,y,07,SwordRat,2
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,6,16,039,y,28,Raven,1
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,6,16,039,y,24,Cocktric,3
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,7,4,039,y,28,Raven,1
+surface,region,"6,6","Mt.Ordeals, Chocobo's Forest",y,10,4,7,4,039,y,24,Cocktric,3
+surface,region,"7,6",near Mt.Ordeals,y,10,4,0,43,038,y,28,Raven,1
+surface,region,"7,6",near Mt.Ordeals,y,10,4,1,43,01D,y,07,SwordRat,2
+surface,region,"7,6",near Mt.Ordeals,y,10,4,1,43,01D,y,00,Imp,2
+surface,region,"7,6",near Mt.Ordeals,y,10,4,1,43,01D,y,08,TinyMage,2
+surface,region,"7,6",near Mt.Ordeals,y,10,4,2,43,034,y,1B,Imp Cap.,3
+surface,region,"7,6",near Mt.Ordeals,y,10,4,2,43,034,y,1F,Needler,1
+surface,region,"7,6",near Mt.Ordeals,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"7,6",near Mt.Ordeals,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"7,6",near Mt.Ordeals,y,10,4,3,43,036,y,00,Imp,2
+surface,region,"7,6",near Mt.Ordeals,y,10,4,4,32,038,y,28,Raven,1
+surface,region,"7,6",near Mt.Ordeals,y,10,4,5,32,03A,y,1F,Needler,2
+surface,region,"7,6",near Mt.Ordeals,y,10,4,5,32,03A,y,07,SwordRat,2
+surface,region,"7,6",near Mt.Ordeals,y,10,4,6,16,039,y,28,Raven,1
+surface,region,"7,6",near Mt.Ordeals,y,10,4,6,16,039,y,24,Cocktric,3
+surface,region,"7,6",near Mt.Ordeals,y,10,4,7,4,039,y,28,Raven,1
+surface,region,"7,6",near Mt.Ordeals,y,10,4,7,4,039,y,24,Cocktric,3
+surface,region,"0,7",Cave Eblana,y,8,6,0,43,088,y,61,Roc,1
+surface,region,"0,7",Cave Eblana,y,8,6,0,43,088,y,26,Roc Baby,2
+surface,region,"0,7",Cave Eblana,y,8,6,1,43,08B,y,60,HugeCell,3
+surface,region,"0,7",Cave Eblana,y,8,6,2,43,0D2,y,5A,FlameDog,2
+surface,region,"0,7",Cave Eblana,y,8,6,2,43,0D2,y,19,BlackLiz,2
+surface,region,"0,7",Cave Eblana,y,8,6,3,43,091,y,59,Ironback,2
+surface,region,"0,7",Cave Eblana,y,8,6,3,43,091,y,19,BlackLiz,2
+surface,region,"0,7",Cave Eblana,y,8,6,4,32,089,y,61,Roc,1
+surface,region,"0,7",Cave Eblana,y,8,6,4,32,089,y,26,Roc Baby,3
+surface,region,"0,7",Cave Eblana,y,8,6,5,32,08A,y,60,HugeCell,3
+surface,region,"0,7",Cave Eblana,y,8,6,5,32,08A,y,60,HugeCell,1
+surface,region,"0,7",Cave Eblana,y,8,6,6,16,0D2,y,5A,FlameDog,2
+surface,region,"0,7",Cave Eblana,y,8,6,6,16,0D2,y,19,BlackLiz,2
+surface,region,"0,7",Cave Eblana,y,8,6,7,4,091,y,59,Ironback,2
+surface,region,"0,7",Cave Eblana,y,8,6,7,4,091,y,19,BlackLiz,2
+surface,region,"1,7",Eblan,y,8,6,0,43,088,y,61,Roc,1
+surface,region,"1,7",Eblan,y,8,6,0,43,088,y,26,Roc Baby,2
+surface,region,"1,7",Eblan,y,8,6,1,43,08B,y,60,HugeCell,3
+surface,region,"1,7",Eblan,y,8,6,2,43,0D2,y,5A,FlameDog,2
+surface,region,"1,7",Eblan,y,8,6,2,43,0D2,y,19,BlackLiz,2
+surface,region,"1,7",Eblan,y,8,6,3,43,091,y,59,Ironback,2
+surface,region,"1,7",Eblan,y,8,6,3,43,091,y,19,BlackLiz,2
+surface,region,"1,7",Eblan,y,8,6,4,32,089,y,61,Roc,1
+surface,region,"1,7",Eblan,y,8,6,4,32,089,y,26,Roc Baby,3
+surface,region,"1,7",Eblan,y,8,6,5,32,08A,y,60,HugeCell,3
+surface,region,"1,7",Eblan,y,8,6,5,32,08A,y,60,HugeCell,1
+surface,region,"1,7",Eblan,y,8,6,6,16,0D2,y,5A,FlameDog,2
+surface,region,"1,7",Eblan,y,8,6,6,16,0D2,y,19,BlackLiz,2
+surface,region,"1,7",Eblan,y,8,6,7,4,091,y,59,Ironback,2
+surface,region,"1,7",Eblan,y,8,6,7,4,091,y,19,BlackLiz,2
+surface,region,"2,7",near Agart,y,8,6,0,43,088,y,61,Roc,1
+surface,region,"2,7",near Agart,y,8,6,0,43,088,y,26,Roc Baby,2
+surface,region,"2,7",near Agart,y,8,6,1,43,08B,y,60,HugeCell,3
+surface,region,"2,7",near Agart,y,8,6,2,43,0D2,y,5A,FlameDog,2
+surface,region,"2,7",near Agart,y,8,6,2,43,0D2,y,19,BlackLiz,2
+surface,region,"2,7",near Agart,y,8,6,3,43,091,y,59,Ironback,2
+surface,region,"2,7",near Agart,y,8,6,3,43,091,y,19,BlackLiz,2
+surface,region,"2,7",near Agart,y,8,6,4,32,089,y,61,Roc,1
+surface,region,"2,7",near Agart,y,8,6,4,32,089,y,26,Roc Baby,3
+surface,region,"2,7",near Agart,y,8,6,5,32,08A,y,60,HugeCell,3
+surface,region,"2,7",near Agart,y,8,6,5,32,08A,y,60,HugeCell,1
+surface,region,"2,7",near Agart,y,8,6,6,16,0D2,y,5A,FlameDog,2
+surface,region,"2,7",near Agart,y,8,6,6,16,0D2,y,19,BlackLiz,2
+surface,region,"2,7",near Agart,y,8,6,7,4,091,y,59,Ironback,2
+surface,region,"2,7",near Agart,y,8,6,7,4,091,y,19,BlackLiz,2
+surface,region,"3,7",near Agart,y,8,6,0,43,088,y,61,Roc,1
+surface,region,"3,7",near Agart,y,8,6,0,43,088,y,26,Roc Baby,2
+surface,region,"3,7",near Agart,y,8,6,1,43,08B,y,60,HugeCell,3
+surface,region,"3,7",near Agart,y,8,6,2,43,0D2,y,5A,FlameDog,2
+surface,region,"3,7",near Agart,y,8,6,2,43,0D2,y,19,BlackLiz,2
+surface,region,"3,7",near Agart,y,8,6,3,43,091,y,59,Ironback,2
+surface,region,"3,7",near Agart,y,8,6,3,43,091,y,19,BlackLiz,2
+surface,region,"3,7",near Agart,y,8,6,4,32,089,y,61,Roc,1
+surface,region,"3,7",near Agart,y,8,6,4,32,089,y,26,Roc Baby,3
+surface,region,"3,7",near Agart,y,8,6,5,32,08A,y,60,HugeCell,3
+surface,region,"3,7",near Agart,y,8,6,5,32,08A,y,60,HugeCell,1
+surface,region,"3,7",near Agart,y,8,6,6,16,0D2,y,5A,FlameDog,2
+surface,region,"3,7",near Agart,y,8,6,6,16,0D2,y,19,BlackLiz,2
+surface,region,"3,7",near Agart,y,8,6,7,4,091,y,59,Ironback,2
+surface,region,"3,7",near Agart,y,8,6,7,4,091,y,19,BlackLiz,2
+surface,region,"4,7",near Mysidia,y,8,4,0,43,038,y,28,Raven,1
+surface,region,"4,7",near Mysidia,y,8,4,1,43,01D,y,07,SwordRat,2
+surface,region,"4,7",near Mysidia,y,8,4,1,43,01D,y,00,Imp,2
+surface,region,"4,7",near Mysidia,y,8,4,1,43,01D,y,08,TinyMage,2
+surface,region,"4,7",near Mysidia,y,8,4,2,43,034,y,1B,Imp Cap.,3
+surface,region,"4,7",near Mysidia,y,8,4,2,43,034,y,1F,Needler,1
+surface,region,"4,7",near Mysidia,y,8,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"4,7",near Mysidia,y,8,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"4,7",near Mysidia,y,8,4,3,43,036,y,00,Imp,2
+surface,region,"4,7",near Mysidia,y,8,4,4,32,038,y,28,Raven,1
+surface,region,"4,7",near Mysidia,y,8,4,5,32,03A,y,1F,Needler,2
+surface,region,"4,7",near Mysidia,y,8,4,5,32,03A,y,07,SwordRat,2
+surface,region,"4,7",near Mysidia,y,8,4,6,16,039,y,28,Raven,1
+surface,region,"4,7",near Mysidia,y,8,4,6,16,039,y,24,Cocktric,3
+surface,region,"4,7",near Mysidia,y,8,4,7,4,039,y,28,Raven,1
+surface,region,"4,7",near Mysidia,y,8,4,7,4,039,y,24,Cocktric,3
+surface,region,"5,7",near Mysidia,y,10,4,0,43,038,y,28,Raven,1
+surface,region,"5,7",near Mysidia,y,10,4,1,43,01D,y,07,SwordRat,2
+surface,region,"5,7",near Mysidia,y,10,4,1,43,01D,y,00,Imp,2
+surface,region,"5,7",near Mysidia,y,10,4,1,43,01D,y,08,TinyMage,2
+surface,region,"5,7",near Mysidia,y,10,4,2,43,034,y,1B,Imp Cap.,3
+surface,region,"5,7",near Mysidia,y,10,4,2,43,034,y,1F,Needler,1
+surface,region,"5,7",near Mysidia,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"5,7",near Mysidia,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"5,7",near Mysidia,y,10,4,3,43,036,y,00,Imp,2
+surface,region,"5,7",near Mysidia,y,10,4,4,32,038,y,28,Raven,1
+surface,region,"5,7",near Mysidia,y,10,4,5,32,03A,y,1F,Needler,2
+surface,region,"5,7",near Mysidia,y,10,4,5,32,03A,y,07,SwordRat,2
+surface,region,"5,7",near Mysidia,y,10,4,6,16,039,y,28,Raven,1
+surface,region,"5,7",near Mysidia,y,10,4,6,16,039,y,24,Cocktric,3
+surface,region,"5,7",near Mysidia,y,10,4,7,4,039,y,28,Raven,1
+surface,region,"5,7",near Mysidia,y,10,4,7,4,039,y,24,Cocktric,3
+surface,region,"6,7",near Chocobo's Forest,y,10,4,0,43,038,y,28,Raven,1
+surface,region,"6,7",near Chocobo's Forest,y,10,4,1,43,01D,y,07,SwordRat,2
+surface,region,"6,7",near Chocobo's Forest,y,10,4,1,43,01D,y,00,Imp,2
+surface,region,"6,7",near Chocobo's Forest,y,10,4,1,43,01D,y,08,TinyMage,2
+surface,region,"6,7",near Chocobo's Forest,y,10,4,2,43,034,y,1B,Imp Cap.,3
+surface,region,"6,7",near Chocobo's Forest,y,10,4,2,43,034,y,1F,Needler,1
+surface,region,"6,7",near Chocobo's Forest,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"6,7",near Chocobo's Forest,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"6,7",near Chocobo's Forest,y,10,4,3,43,036,y,00,Imp,2
+surface,region,"6,7",near Chocobo's Forest,y,10,4,4,32,038,y,28,Raven,1
+surface,region,"6,7",near Chocobo's Forest,y,10,4,5,32,03A,y,1F,Needler,2
+surface,region,"6,7",near Chocobo's Forest,y,10,4,5,32,03A,y,07,SwordRat,2
+surface,region,"6,7",near Chocobo's Forest,y,10,4,6,16,039,y,28,Raven,1
+surface,region,"6,7",near Chocobo's Forest,y,10,4,6,16,039,y,24,Cocktric,3
+surface,region,"6,7",near Chocobo's Forest,y,10,4,7,4,039,y,28,Raven,1
+surface,region,"6,7",near Chocobo's Forest,y,10,4,7,4,039,y,24,Cocktric,3
+surface,region,"7,7",near Chocobo's Forest,y,10,4,0,43,038,y,28,Raven,1
+surface,region,"7,7",near Chocobo's Forest,y,10,4,1,43,01D,y,07,SwordRat,2
+surface,region,"7,7",near Chocobo's Forest,y,10,4,1,43,01D,y,00,Imp,2
+surface,region,"7,7",near Chocobo's Forest,y,10,4,1,43,01D,y,08,TinyMage,2
+surface,region,"7,7",near Chocobo's Forest,y,10,4,2,43,034,y,1B,Imp Cap.,3
+surface,region,"7,7",near Chocobo's Forest,y,10,4,2,43,034,y,1F,Needler,1
+surface,region,"7,7",near Chocobo's Forest,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"7,7",near Chocobo's Forest,y,10,4,3,43,036,y,1B,Imp Cap.,2
+surface,region,"7,7",near Chocobo's Forest,y,10,4,3,43,036,y,00,Imp,2
+surface,region,"7,7",near Chocobo's Forest,y,10,4,4,32,038,y,28,Raven,1
+surface,region,"7,7",near Chocobo's Forest,y,10,4,5,32,03A,y,1F,Needler,2
+surface,region,"7,7",near Chocobo's Forest,y,10,4,5,32,03A,y,07,SwordRat,2
+surface,region,"7,7",near Chocobo's Forest,y,10,4,6,16,039,y,28,Raven,1
+surface,region,"7,7",near Chocobo's Forest,y,10,4,6,16,039,y,24,Cocktric,3
+surface,region,"7,7",near Chocobo's Forest,y,10,4,7,4,039,y,28,Raven,1
+surface,region,"7,7",near Chocobo's Forest,y,10,4,7,4,039,y,24,Cocktric,3
+underworld,region,"0,0",Sylvan Cave,y,8,8,0,43,13A,y,11,TrapRose,2
+underworld,region,"0,0",Sylvan Cave,y,8,8,1,43,13B,y,17,RocLarva,2
+underworld,region,"0,0",Sylvan Cave,y,8,8,1,43,13B,y,17,RocLarva,2
+underworld,region,"0,0",Sylvan Cave,y,8,8,2,43,13C,y,76,RockMoth,2
+underworld,region,"0,0",Sylvan Cave,y,8,8,3,43,13D,y,76,RockMoth,2
+underworld,region,"0,0",Sylvan Cave,y,8,8,3,43,13D,y,17,RocLarva,2
+underworld,region,"0,0",Sylvan Cave,y,8,8,4,32,13E,y,11,TrapRose,1
+underworld,region,"0,0",Sylvan Cave,y,8,8,4,32,13E,y,76,RockMoth,2
+underworld,region,"0,0",Sylvan Cave,y,8,8,5,32,13F,y,11,TrapRose,1
+underworld,region,"0,0",Sylvan Cave,y,8,8,5,32,13F,y,76,RockMoth,2
+underworld,region,"0,0",Sylvan Cave,y,8,8,5,32,13F,y,17,RocLarva,2
+underworld,region,"0,0",Sylvan Cave,y,8,8,6,16,139,y,11,TrapRose,1
+underworld,region,"0,0",Sylvan Cave,y,8,8,6,16,139,y,71,Centpede,2
+underworld,region,"0,0",Sylvan Cave,y,8,8,7,4,138,y,71,Centpede,1
+underworld,region,"1,0",near Sylvan Cave,y,8,7,0,43,101,y,4C,Armadilo,2
+underworld,region,"1,0",near Sylvan Cave,y,8,7,1,43,102,y,18,Dark Imp,3
+underworld,region,"1,0",near Sylvan Cave,y,8,7,1,43,102,y,4C,Armadilo,1
+underworld,region,"1,0",near Sylvan Cave,y,8,7,1,43,102,y,19,BlackLiz,1
+underworld,region,"1,0",near Sylvan Cave,y,8,7,2,43,103,y,4C,Armadilo,1
+underworld,region,"1,0",near Sylvan Cave,y,8,7,2,43,103,y,52,Tortoise,2
+underworld,region,"1,0",near Sylvan Cave,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"1,0",near Sylvan Cave,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"1,0",near Sylvan Cave,y,8,7,4,32,105,y,52,Tortoise,1
+underworld,region,"1,0",near Sylvan Cave,y,8,7,4,32,105,y,18,Dark Imp,2
+underworld,region,"1,0",near Sylvan Cave,y,8,7,5,32,106,y,52,Tortoise,2
+underworld,region,"1,0",near Sylvan Cave,y,8,7,5,32,106,y,4C,Armadilo,1
+underworld,region,"1,0",near Sylvan Cave,y,8,7,5,32,106,y,19,BlackLiz,1
+underworld,region,"1,0",near Sylvan Cave,y,8,7,6,16,107,y,19,BlackLiz,3
+underworld,region,"1,0",near Sylvan Cave,y,8,7,7,4,107,y,19,BlackLiz,3
+underworld,region,"2,0",near Sylvan Cave,y,8,7,0,43,101,y,4C,Armadilo,2
+underworld,region,"2,0",near Sylvan Cave,y,8,7,1,43,102,y,18,Dark Imp,3
+underworld,region,"2,0",near Sylvan Cave,y,8,7,1,43,102,y,4C,Armadilo,1
+underworld,region,"2,0",near Sylvan Cave,y,8,7,1,43,102,y,19,BlackLiz,1
+underworld,region,"2,0",near Sylvan Cave,y,8,7,2,43,103,y,4C,Armadilo,1
+underworld,region,"2,0",near Sylvan Cave,y,8,7,2,43,103,y,52,Tortoise,2
+underworld,region,"2,0",near Sylvan Cave,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"2,0",near Sylvan Cave,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"2,0",near Sylvan Cave,y,8,7,4,32,105,y,52,Tortoise,1
+underworld,region,"2,0",near Sylvan Cave,y,8,7,4,32,105,y,18,Dark Imp,2
+underworld,region,"2,0",near Sylvan Cave,y,8,7,5,32,106,y,52,Tortoise,2
+underworld,region,"2,0",near Sylvan Cave,y,8,7,5,32,106,y,4C,Armadilo,1
+underworld,region,"2,0",near Sylvan Cave,y,8,7,5,32,106,y,19,BlackLiz,1
+underworld,region,"2,0",near Sylvan Cave,y,8,7,6,16,107,y,19,BlackLiz,3
+underworld,region,"2,0",near Sylvan Cave,y,8,7,7,4,107,y,19,BlackLiz,3
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,0,43,101,y,4C,Armadilo,2
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,1,43,102,y,18,Dark Imp,3
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,1,43,102,y,4C,Armadilo,1
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,1,43,102,y,19,BlackLiz,1
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,2,43,103,y,4C,Armadilo,1
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,2,43,103,y,52,Tortoise,2
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,4,32,105,y,52,Tortoise,1
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,4,32,105,y,18,Dark Imp,2
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,5,32,106,y,52,Tortoise,2
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,5,32,106,y,4C,Armadilo,1
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,5,32,106,y,19,BlackLiz,1
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,6,16,107,y,19,BlackLiz,3
+underworld,region,"3,0",near Castle of Dwarves,y,8,7,7,4,107,y,19,BlackLiz,3
+underworld,region,"0,1",near Sylvan Cave,y,8,10,0,43,1D8,y,11,TrapRose,1
+underworld,region,"0,1",near Sylvan Cave,y,8,10,0,43,1D8,y,48,GlomWing,2
+underworld,region,"0,1",near Sylvan Cave,y,8,10,0,43,1D8,y,74,Crawler,2
+underworld,region,"0,1",near Sylvan Cave,y,8,10,1,43,1D9,y,50,Medusa,1
+underworld,region,"0,1",near Sylvan Cave,y,8,10,1,43,1D9,y,5B,Gorgon,1
+underworld,region,"0,1",near Sylvan Cave,y,8,10,1,43,1D9,y,5C,Stoneman,1
+underworld,region,"0,1",near Sylvan Cave,y,8,10,2,43,1DA,y,6F,Talantla,1
+underworld,region,"0,1",near Sylvan Cave,y,8,10,2,43,1DA,y,6D,BlackCat,2
+underworld,region,"0,1",near Sylvan Cave,y,8,10,3,43,1DB,y,19,BlackLiz,1
+underworld,region,"0,1",near Sylvan Cave,y,8,10,4,32,1DC,y,3B,Lamia,1
+underworld,region,"0,1",near Sylvan Cave,y,8,10,5,32,1DD,y,4F,HugeNaga,1
+underworld,region,"0,1",near Sylvan Cave,y,8,10,6,16,1DE,y,85,Green D.,1
+underworld,region,"0,1",near Sylvan Cave,y,8,10,7,4,1DF,y,8D,Yellow D,1
+underworld,region,"1,1",near Land of Monsters,y,8,7,0,43,101,y,4C,Armadilo,2
+underworld,region,"1,1",near Land of Monsters,y,8,7,1,43,102,y,18,Dark Imp,3
+underworld,region,"1,1",near Land of Monsters,y,8,7,1,43,102,y,4C,Armadilo,1
+underworld,region,"1,1",near Land of Monsters,y,8,7,1,43,102,y,19,BlackLiz,1
+underworld,region,"1,1",near Land of Monsters,y,8,7,2,43,103,y,4C,Armadilo,1
+underworld,region,"1,1",near Land of Monsters,y,8,7,2,43,103,y,52,Tortoise,2
+underworld,region,"1,1",near Land of Monsters,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"1,1",near Land of Monsters,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"1,1",near Land of Monsters,y,8,7,4,32,105,y,52,Tortoise,1
+underworld,region,"1,1",near Land of Monsters,y,8,7,4,32,105,y,18,Dark Imp,2
+underworld,region,"1,1",near Land of Monsters,y,8,7,5,32,106,y,52,Tortoise,2
+underworld,region,"1,1",near Land of Monsters,y,8,7,5,32,106,y,4C,Armadilo,1
+underworld,region,"1,1",near Land of Monsters,y,8,7,5,32,106,y,19,BlackLiz,1
+underworld,region,"1,1",near Land of Monsters,y,8,7,6,16,107,y,19,BlackLiz,3
+underworld,region,"1,1",near Land of Monsters,y,8,7,7,4,107,y,19,BlackLiz,3
+underworld,region,"2,1",near Dwarf Base,y,8,7,0,43,101,y,4C,Armadilo,2
+underworld,region,"2,1",near Dwarf Base,y,8,7,1,43,102,y,18,Dark Imp,3
+underworld,region,"2,1",near Dwarf Base,y,8,7,1,43,102,y,4C,Armadilo,1
+underworld,region,"2,1",near Dwarf Base,y,8,7,1,43,102,y,19,BlackLiz,1
+underworld,region,"2,1",near Dwarf Base,y,8,7,2,43,103,y,4C,Armadilo,1
+underworld,region,"2,1",near Dwarf Base,y,8,7,2,43,103,y,52,Tortoise,2
+underworld,region,"2,1",near Dwarf Base,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"2,1",near Dwarf Base,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"2,1",near Dwarf Base,y,8,7,4,32,105,y,52,Tortoise,1
+underworld,region,"2,1",near Dwarf Base,y,8,7,4,32,105,y,18,Dark Imp,2
+underworld,region,"2,1",near Dwarf Base,y,8,7,5,32,106,y,52,Tortoise,2
+underworld,region,"2,1",near Dwarf Base,y,8,7,5,32,106,y,4C,Armadilo,1
+underworld,region,"2,1",near Dwarf Base,y,8,7,5,32,106,y,19,BlackLiz,1
+underworld,region,"2,1",near Dwarf Base,y,8,7,6,16,107,y,19,BlackLiz,3
+underworld,region,"2,1",near Dwarf Base,y,8,7,7,4,107,y,19,BlackLiz,3
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,0,43,101,y,4C,Armadilo,2
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,1,43,102,y,18,Dark Imp,3
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,1,43,102,y,4C,Armadilo,1
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,1,43,102,y,19,BlackLiz,1
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,2,43,103,y,4C,Armadilo,1
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,2,43,103,y,52,Tortoise,2
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,4,32,105,y,52,Tortoise,1
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,4,32,105,y,18,Dark Imp,2
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,5,32,106,y,52,Tortoise,2
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,5,32,106,y,4C,Armadilo,1
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,5,32,106,y,19,BlackLiz,1
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,6,16,107,y,19,BlackLiz,3
+underworld,region,"3,1",near Castle of Dwarves,y,8,7,7,4,107,y,19,BlackLiz,3
+underworld,region,"0,2",Land of Monsters,y,8,8,0,43,13A,y,11,TrapRose,2
+underworld,region,"0,2",Land of Monsters,y,8,8,1,43,13B,y,17,RocLarva,2
+underworld,region,"0,2",Land of Monsters,y,8,8,1,43,13B,y,17,RocLarva,2
+underworld,region,"0,2",Land of Monsters,y,8,8,2,43,13C,y,76,RockMoth,2
+underworld,region,"0,2",Land of Monsters,y,8,8,3,43,13D,y,76,RockMoth,2
+underworld,region,"0,2",Land of Monsters,y,8,8,3,43,13D,y,17,RocLarva,2
+underworld,region,"0,2",Land of Monsters,y,8,8,4,32,13E,y,11,TrapRose,1
+underworld,region,"0,2",Land of Monsters,y,8,8,4,32,13E,y,76,RockMoth,2
+underworld,region,"0,2",Land of Monsters,y,8,8,5,32,13F,y,11,TrapRose,1
+underworld,region,"0,2",Land of Monsters,y,8,8,5,32,13F,y,76,RockMoth,2
+underworld,region,"0,2",Land of Monsters,y,8,8,5,32,13F,y,17,RocLarva,2
+underworld,region,"0,2",Land of Monsters,y,8,8,6,16,139,y,11,TrapRose,1
+underworld,region,"0,2",Land of Monsters,y,8,8,6,16,139,y,71,Centpede,2
+underworld,region,"0,2",Land of Monsters,y,8,8,7,4,138,y,71,Centpede,1
+underworld,region,"1,2",near Land of Monsters,y,8,7,0,43,101,y,4C,Armadilo,2
+underworld,region,"1,2",near Land of Monsters,y,8,7,1,43,102,y,18,Dark Imp,3
+underworld,region,"1,2",near Land of Monsters,y,8,7,1,43,102,y,4C,Armadilo,1
+underworld,region,"1,2",near Land of Monsters,y,8,7,1,43,102,y,19,BlackLiz,1
+underworld,region,"1,2",near Land of Monsters,y,8,7,2,43,103,y,4C,Armadilo,1
+underworld,region,"1,2",near Land of Monsters,y,8,7,2,43,103,y,52,Tortoise,2
+underworld,region,"1,2",near Land of Monsters,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"1,2",near Land of Monsters,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"1,2",near Land of Monsters,y,8,7,4,32,105,y,52,Tortoise,1
+underworld,region,"1,2",near Land of Monsters,y,8,7,4,32,105,y,18,Dark Imp,2
+underworld,region,"1,2",near Land of Monsters,y,8,7,5,32,106,y,52,Tortoise,2
+underworld,region,"1,2",near Land of Monsters,y,8,7,5,32,106,y,4C,Armadilo,1
+underworld,region,"1,2",near Land of Monsters,y,8,7,5,32,106,y,19,BlackLiz,1
+underworld,region,"1,2",near Land of Monsters,y,8,7,6,16,107,y,19,BlackLiz,3
+underworld,region,"1,2",near Land of Monsters,y,8,7,7,4,107,y,19,BlackLiz,3
+underworld,region,"2,2",Dwarf Base,y,8,7,0,43,101,y,4C,Armadilo,2
+underworld,region,"2,2",Dwarf Base,y,8,7,1,43,102,y,18,Dark Imp,3
+underworld,region,"2,2",Dwarf Base,y,8,7,1,43,102,y,4C,Armadilo,1
+underworld,region,"2,2",Dwarf Base,y,8,7,1,43,102,y,19,BlackLiz,1
+underworld,region,"2,2",Dwarf Base,y,8,7,2,43,103,y,4C,Armadilo,1
+underworld,region,"2,2",Dwarf Base,y,8,7,2,43,103,y,52,Tortoise,2
+underworld,region,"2,2",Dwarf Base,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"2,2",Dwarf Base,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"2,2",Dwarf Base,y,8,7,4,32,105,y,52,Tortoise,1
+underworld,region,"2,2",Dwarf Base,y,8,7,4,32,105,y,18,Dark Imp,2
+underworld,region,"2,2",Dwarf Base,y,8,7,5,32,106,y,52,Tortoise,2
+underworld,region,"2,2",Dwarf Base,y,8,7,5,32,106,y,4C,Armadilo,1
+underworld,region,"2,2",Dwarf Base,y,8,7,5,32,106,y,19,BlackLiz,1
+underworld,region,"2,2",Dwarf Base,y,8,7,6,16,107,y,19,BlackLiz,3
+underworld,region,"2,2",Dwarf Base,y,8,7,7,4,107,y,19,BlackLiz,3
+underworld,region,"3,2",Castle of Dwarves,y,8,7,0,43,101,y,4C,Armadilo,2
+underworld,region,"3,2",Castle of Dwarves,y,8,7,1,43,102,y,18,Dark Imp,3
+underworld,region,"3,2",Castle of Dwarves,y,8,7,1,43,102,y,4C,Armadilo,1
+underworld,region,"3,2",Castle of Dwarves,y,8,7,1,43,102,y,19,BlackLiz,1
+underworld,region,"3,2",Castle of Dwarves,y,8,7,2,43,103,y,4C,Armadilo,1
+underworld,region,"3,2",Castle of Dwarves,y,8,7,2,43,103,y,52,Tortoise,2
+underworld,region,"3,2",Castle of Dwarves,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"3,2",Castle of Dwarves,y,8,7,3,43,104,y,18,Dark Imp,2
+underworld,region,"3,2",Castle of Dwarves,y,8,7,4,32,105,y,52,Tortoise,1
+underworld,region,"3,2",Castle of Dwarves,y,8,7,4,32,105,y,18,Dark Imp,2
+underworld,region,"3,2",Castle of Dwarves,y,8,7,5,32,106,y,52,Tortoise,2
+underworld,region,"3,2",Castle of Dwarves,y,8,7,5,32,106,y,4C,Armadilo,1
+underworld,region,"3,2",Castle of Dwarves,y,8,7,5,32,106,y,19,BlackLiz,1
+underworld,region,"3,2",Castle of Dwarves,y,8,7,6,16,107,y,19,BlackLiz,3
+underworld,region,"3,2",Castle of Dwarves,y,8,7,7,4,107,y,19,BlackLiz,3
+underworld,region,"0,3",near Land of Monsters,y,8,8,0,43,13A,y,11,TrapRose,2
+underworld,region,"0,3",near Land of Monsters,y,8,8,1,43,13B,y,17,RocLarva,2
+underworld,region,"0,3",near Land of Monsters,y,8,8,1,43,13B,y,17,RocLarva,2
+underworld,region,"0,3",near Land of Monsters,y,8,8,2,43,13C,y,76,RockMoth,2
+underworld,region,"0,3",near Land of Monsters,y,8,8,3,43,13D,y,76,RockMoth,2
+underworld,region,"0,3",near Land of Monsters,y,8,8,3,43,13D,y,17,RocLarva,2
+underworld,region,"0,3",near Land of Monsters,y,8,8,4,32,13E,y,11,TrapRose,1
+underworld,region,"0,3",near Land of Monsters,y,8,8,4,32,13E,y,76,RockMoth,2
+underworld,region,"0,3",near Land of Monsters,y,8,8,5,32,13F,y,11,TrapRose,1
+underworld,region,"0,3",near Land of Monsters,y,8,8,5,32,13F,y,76,RockMoth,2
+underworld,region,"0,3",near Land of Monsters,y,8,8,5,32,13F,y,17,RocLarva,2
+underworld,region,"0,3",near Land of Monsters,y,8,8,6,16,139,y,11,TrapRose,1
+underworld,region,"0,3",near Land of Monsters,y,8,8,6,16,139,y,71,Centpede,2
+underworld,region,"0,3",near Land of Monsters,y,8,8,7,4,138,y,71,Centpede,1
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,0,43,13A,y,11,TrapRose,2
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,1,43,13B,y,17,RocLarva,2
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,1,43,13B,y,17,RocLarva,2
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,2,43,13C,y,76,RockMoth,2
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,3,43,13D,y,76,RockMoth,2
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,3,43,13D,y,17,RocLarva,2
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,4,32,13E,y,11,TrapRose,1
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,4,32,13E,y,76,RockMoth,2
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,5,32,13F,y,11,TrapRose,1
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,5,32,13F,y,76,RockMoth,2
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,5,32,13F,y,17,RocLarva,2
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,6,16,139,y,11,TrapRose,1
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,6,16,139,y,71,Centpede,2
+underworld,region,"1,3","Tomra, Sealed Cave",y,8,8,7,4,138,y,71,Centpede,1
+underworld,region,"2,3",near Tomra,y,8,8,0,43,13A,y,11,TrapRose,2
+underworld,region,"2,3",near Tomra,y,8,8,1,43,13B,y,17,RocLarva,2
+underworld,region,"2,3",near Tomra,y,8,8,1,43,13B,y,17,RocLarva,2
+underworld,region,"2,3",near Tomra,y,8,8,2,43,13C,y,76,RockMoth,2
+underworld,region,"2,3",near Tomra,y,8,8,3,43,13D,y,76,RockMoth,2
+underworld,region,"2,3",near Tomra,y,8,8,3,43,13D,y,17,RocLarva,2
+underworld,region,"2,3",near Tomra,y,8,8,4,32,13E,y,11,TrapRose,1
+underworld,region,"2,3",near Tomra,y,8,8,4,32,13E,y,76,RockMoth,2
+underworld,region,"2,3",near Tomra,y,8,8,5,32,13F,y,11,TrapRose,1
+underworld,region,"2,3",near Tomra,y,8,8,5,32,13F,y,76,RockMoth,2
+underworld,region,"2,3",near Tomra,y,8,8,5,32,13F,y,17,RocLarva,2
+underworld,region,"2,3",near Tomra,y,8,8,6,16,139,y,11,TrapRose,1
+underworld,region,"2,3",near Tomra,y,8,8,6,16,139,y,71,Centpede,2
+underworld,region,"2,3",near Tomra,y,8,8,7,4,138,y,71,Centpede,1
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,0,43,13A,y,11,TrapRose,2
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,1,43,13B,y,17,RocLarva,2
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,1,43,13B,y,17,RocLarva,2
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,2,43,13C,y,76,RockMoth,2
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,3,43,13D,y,76,RockMoth,2
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,3,43,13D,y,17,RocLarva,2
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,4,32,13E,y,11,TrapRose,1
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,4,32,13E,y,76,RockMoth,2
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,5,32,13F,y,11,TrapRose,1
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,5,32,13F,y,76,RockMoth,2
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,5,32,13F,y,17,RocLarva,2
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,6,16,139,y,11,TrapRose,1
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,6,16,139,y,71,Centpede,2
+underworld,region,"3,3",Kokkol{C9} the Smith's,y,8,8,7,4,138,y,71,Centpede,1
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,0,43,170,y,7F,MoonCell,2
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,0,43,170,y,82,Pudding,2
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,1,43,174,y,99,Procyote,1
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,1,43,174,y,82,Pudding,2
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,2,43,1BE,y,1C,Slime,1
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,2,43,1BE,y,81,Tofu,1
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,2,43,1BE,y,82,Pudding,1
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,3,43,1BD,y,69,Balloon,2
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,3,43,1BD,y,6A,Grenade,2
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,4,32,173,y,99,Procyote,1
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,4,32,173,y,8F,Juclyote,2
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,5,32,172,y,8F,Juclyote,2
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,5,32,172,y,7F,MoonCell,2
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,5,32,172,y,6A,Grenade,1
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,6,16,175,y,8F,Juclyote,1
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,6,16,175,y,99,Procyote,2
+moon,region,"0,0","Lunar's Lair, Lunar Path",y,8,9,7,4,177,y,72,Red Worm,2
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,0,43,170,y,7F,MoonCell,2
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,0,43,170,y,82,Pudding,2
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,1,43,174,y,99,Procyote,1
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,1,43,174,y,82,Pudding,2
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,2,43,1BE,y,1C,Slime,1
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,2,43,1BE,y,81,Tofu,1
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,2,43,1BE,y,82,Pudding,1
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,3,43,1BD,y,69,Balloon,2
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,3,43,1BD,y,6A,Grenade,2
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,4,32,173,y,99,Procyote,1
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,4,32,173,y,8F,Juclyote,2
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,5,32,172,y,8F,Juclyote,2
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,5,32,172,y,7F,MoonCell,2
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,5,32,172,y,6A,Grenade,1
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,6,16,175,y,8F,Juclyote,1
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,6,16,175,y,99,Procyote,2
+moon,region,"1,0","Cave Bahamut, Lunar Path",y,8,9,7,4,177,y,72,Red Worm,2
+moon,region,"0,1",near Lunar's Lair,y,8,9,0,43,170,y,7F,MoonCell,2
+moon,region,"0,1",near Lunar's Lair,y,8,9,0,43,170,y,82,Pudding,2
+moon,region,"0,1",near Lunar's Lair,y,8,9,1,43,174,y,99,Procyote,1
+moon,region,"0,1",near Lunar's Lair,y,8,9,1,43,174,y,82,Pudding,2
+moon,region,"0,1",near Lunar's Lair,y,8,9,2,43,1BE,y,1C,Slime,1
+moon,region,"0,1",near Lunar's Lair,y,8,9,2,43,1BE,y,81,Tofu,1
+moon,region,"0,1",near Lunar's Lair,y,8,9,2,43,1BE,y,82,Pudding,1
+moon,region,"0,1",near Lunar's Lair,y,8,9,3,43,1BD,y,69,Balloon,2
+moon,region,"0,1",near Lunar's Lair,y,8,9,3,43,1BD,y,6A,Grenade,2
+moon,region,"0,1",near Lunar's Lair,y,8,9,4,32,173,y,99,Procyote,1
+moon,region,"0,1",near Lunar's Lair,y,8,9,4,32,173,y,8F,Juclyote,2
+moon,region,"0,1",near Lunar's Lair,y,8,9,5,32,172,y,8F,Juclyote,2
+moon,region,"0,1",near Lunar's Lair,y,8,9,5,32,172,y,7F,MoonCell,2
+moon,region,"0,1",near Lunar's Lair,y,8,9,5,32,172,y,6A,Grenade,1
+moon,region,"0,1",near Lunar's Lair,y,8,9,6,16,175,y,8F,Juclyote,1
+moon,region,"0,1",near Lunar's Lair,y,8,9,6,16,175,y,99,Procyote,2
+moon,region,"0,1",near Lunar's Lair,y,8,9,7,4,177,y,72,Red Worm,2
+moon,region,"1,1",near Lunar Path,y,8,9,0,43,170,y,7F,MoonCell,2
+moon,region,"1,1",near Lunar Path,y,8,9,0,43,170,y,82,Pudding,2
+moon,region,"1,1",near Lunar Path,y,8,9,1,43,174,y,99,Procyote,1
+moon,region,"1,1",near Lunar Path,y,8,9,1,43,174,y,82,Pudding,2
+moon,region,"1,1",near Lunar Path,y,8,9,2,43,1BE,y,1C,Slime,1
+moon,region,"1,1",near Lunar Path,y,8,9,2,43,1BE,y,81,Tofu,1
+moon,region,"1,1",near Lunar Path,y,8,9,2,43,1BE,y,82,Pudding,1
+moon,region,"1,1",near Lunar Path,y,8,9,3,43,1BD,y,69,Balloon,2
+moon,region,"1,1",near Lunar Path,y,8,9,3,43,1BD,y,6A,Grenade,2
+moon,region,"1,1",near Lunar Path,y,8,9,4,32,173,y,99,Procyote,1
+moon,region,"1,1",near Lunar Path,y,8,9,4,32,173,y,8F,Juclyote,2
+moon,region,"1,1",near Lunar Path,y,8,9,5,32,172,y,8F,Juclyote,2
+moon,region,"1,1",near Lunar Path,y,8,9,5,32,172,y,7F,MoonCell,2
+moon,region,"1,1",near Lunar Path,y,8,9,5,32,172,y,6A,Grenade,1
+moon,region,"1,1",near Lunar Path,y,8,9,6,16,175,y,8F,Juclyote,1
+moon,region,"1,1",near Lunar Path,y,8,9,6,16,175,y,99,Procyote,2
+moon,region,"1,1",near Lunar Path,y,8,9,7,4,177,y,72,Red Worm,2
+surface,map,03A,Old Water-way,y,8,14,0,43,04A,y,2B,Piranha,2
+surface,map,03A,Old Water-way,y,8,14,0,43,04A,y,49,FangShel,1
+surface,map,03A,Old Water-way,y,8,14,0,43,04A,y,0E,EvilShel,1
+surface,map,03A,Old Water-way,y,8,14,1,43,04B,y,10,Pike,3
+surface,map,03A,Old Water-way,y,8,14,1,43,04B,y,2B,Piranha,3
+surface,map,03A,Old Water-way,y,8,14,2,43,04C,y,37,Crocdile,1
+surface,map,03A,Old Water-way,y,8,14,2,43,04C,y,2B,Piranha,2
+surface,map,03A,Old Water-way,y,8,14,3,43,04D,y,49,FangShel,3
+surface,map,03A,Old Water-way,y,8,14,3,43,04D,y,2A,Aligator,1
+surface,map,03A,Old Water-way,y,8,14,3,43,04D,y,37,Crocdile,1
+surface,map,03A,Old Water-way,y,8,14,4,32,04E,y,2B,Piranha,2
+surface,map,03A,Old Water-way,y,8,14,4,32,04E,y,36,ElecFish,2
+surface,map,03A,Old Water-way,y,8,14,5,32,04F,y,37,Crocdile,1
+surface,map,03A,Old Water-way,y,8,14,5,32,04F,y,36,ElecFish,3
+surface,map,03A,Old Water-way,y,8,14,6,16,050,y,39,AquaWorm,1
+surface,map,03A,Old Water-way,y,8,14,6,16,050,y,2B,Piranha,3
+surface,map,03A,Old Water-way,y,8,14,7,4,050,y,39,AquaWorm,1
+surface,map,03A,Old Water-way,y,8,14,7,4,050,y,2B,Piranha,3
+surface,map,03B,Old Water-way: B3F,y,8,15,0,43,051,y,38,Hydra,2
+surface,map,03B,Old Water-way: B3F,y,8,15,1,43,04D,y,49,FangShel,3
+surface,map,03B,Old Water-way: B3F,y,8,15,1,43,04D,y,2A,Aligator,1
+surface,map,03B,Old Water-way: B3F,y,8,15,1,43,04D,y,37,Crocdile,1
+surface,map,03B,Old Water-way: B3F,y,8,15,2,43,04F,y,37,Crocdile,1
+surface,map,03B,Old Water-way: B3F,y,8,15,2,43,04F,y,36,ElecFish,3
+surface,map,03B,Old Water-way: B3F,y,8,15,3,43,052,y,37,Crocdile,2
+surface,map,03B,Old Water-way: B3F,y,8,15,4,32,050,y,39,AquaWorm,1
+surface,map,03B,Old Water-way: B3F,y,8,15,4,32,050,y,2B,Piranha,3
+surface,map,03B,Old Water-way: B3F,y,8,15,5,32,053,y,39,AquaWorm,1
+surface,map,03B,Old Water-way: B3F,y,8,15,5,32,053,y,36,ElecFish,3
+surface,map,03B,Old Water-way: B3F,y,8,15,6,16,054,y,39,AquaWorm,1
+surface,map,03B,Old Water-way: B3F,y,8,15,6,16,054,y,38,Hydra,1
+surface,map,03B,Old Water-way: B3F,y,8,15,6,16,054,y,37,Crocdile,1
+surface,map,03B,Old Water-way: B3F,y,8,15,7,4,054,y,39,AquaWorm,1
+surface,map,03B,Old Water-way: B3F,y,8,15,7,4,054,y,38,Hydra,1
+surface,map,03B,Old Water-way: B3F,y,8,15,7,4,054,y,37,Crocdile,1
+surface,map,03C,Old Water-way: B1F,y,8,16,0,43,055,y,3A,Guard,2
+surface,map,03C,Old Water-way: B1F,y,8,16,1,43,056,y,3A,Guard,1
+surface,map,03C,Old Water-way: B1F,y,8,16,1,43,056,y,38,Hydra,2
+surface,map,03C,Old Water-way: B1F,y,8,16,2,43,051,y,38,Hydra,2
+surface,map,03C,Old Water-way: B1F,y,8,16,3,43,056,y,3A,Guard,1
+surface,map,03C,Old Water-way: B1F,y,8,16,3,43,056,y,38,Hydra,2
+surface,map,03C,Old Water-way: B1F,y,8,16,4,32,054,y,39,AquaWorm,1
+surface,map,03C,Old Water-way: B1F,y,8,16,4,32,054,y,38,Hydra,1
+surface,map,03C,Old Water-way: B1F,y,8,16,4,32,054,y,37,Crocdile,1
+surface,map,03C,Old Water-way: B1F,y,8,16,5,32,054,y,39,AquaWorm,1
+surface,map,03C,Old Water-way: B1F,y,8,16,5,32,054,y,38,Hydra,1
+surface,map,03C,Old Water-way: B1F,y,8,16,5,32,054,y,37,Crocdile,1
+surface,map,03C,Old Water-way: B1F,y,8,16,6,16,057,y,39,AquaWorm,2
+surface,map,03C,Old Water-way: B1F,y,8,16,7,4,057,y,39,AquaWorm,2
+surface,map,03E,Old Water-way: B2F,y,8,16,0,43,055,y,3A,Guard,2
+surface,map,03E,Old Water-way: B2F,y,8,16,1,43,056,y,3A,Guard,1
+surface,map,03E,Old Water-way: B2F,y,8,16,1,43,056,y,38,Hydra,2
+surface,map,03E,Old Water-way: B2F,y,8,16,2,43,051,y,38,Hydra,2
+surface,map,03E,Old Water-way: B2F,y,8,16,3,43,056,y,3A,Guard,1
+surface,map,03E,Old Water-way: B2F,y,8,16,3,43,056,y,38,Hydra,2
+surface,map,03E,Old Water-way: B2F,y,8,16,4,32,054,y,39,AquaWorm,1
+surface,map,03E,Old Water-way: B2F,y,8,16,4,32,054,y,38,Hydra,1
+surface,map,03E,Old Water-way: B2F,y,8,16,4,32,054,y,37,Crocdile,1
+surface,map,03E,Old Water-way: B2F,y,8,16,5,32,054,y,39,AquaWorm,1
+surface,map,03E,Old Water-way: B2F,y,8,16,5,32,054,y,38,Hydra,1
+surface,map,03E,Old Water-way: B2F,y,8,16,5,32,054,y,37,Crocdile,1
+surface,map,03E,Old Water-way: B2F,y,8,16,6,16,057,y,39,AquaWorm,2
+surface,map,03E,Old Water-way: B2F,y,8,16,7,4,057,y,39,AquaWorm,2
+surface,map,06C,Misty Cave,y,7,0,0,43,000,y,00,Imp,3
+surface,map,06C,Misty Cave,y,7,0,1,43,004,y,00,Imp,3
+surface,map,06C,Misty Cave,y,7,0,1,43,004,y,07,SwordRat,1
+surface,map,06C,Misty Cave,y,7,0,2,43,006,y,00,Imp,3
+surface,map,06C,Misty Cave,y,7,0,2,43,006,y,00,Imp,1
+surface,map,06C,Misty Cave,y,7,0,3,43,007,y,04,Larva,3
+surface,map,06C,Misty Cave,y,7,0,4,32,005,y,07,SwordRat,2
+surface,map,06C,Misty Cave,y,7,0,4,32,005,y,00,Imp,2
+surface,map,06C,Misty Cave,y,7,0,5,32,008,y,0A,SandMoth,2
+surface,map,06C,Misty Cave,y,7,0,5,32,008,y,04,Larva,2
+surface,map,06C,Misty Cave,y,7,0,6,16,0D0,y,00,Imp,3
+surface,map,06C,Misty Cave,y,7,0,6,16,0D0,y,00,Imp,3
+surface,map,06C,Misty Cave,y,7,0,7,4,0D1,y,07,SwordRat,3
+surface,map,06C,Misty Cave,y,7,0,7,4,0D1,y,07,SwordRat,3
+surface,map,06F,Watery Pass-South,y,7,1,0,43,00C,y,0E,EvilShel,3
+surface,map,06F,Watery Pass-South,y,7,1,0,43,00C,y,29,WaterBug,1
+surface,map,06F,Watery Pass-South,y,7,1,1,43,00D,y,10,Pike,3
+surface,map,06F,Watery Pass-South,y,7,1,2,43,00E,y,0D,CaveToad,3
+surface,map,06F,Watery Pass-South,y,7,1,3,43,00F,y,10,Pike,2
+surface,map,06F,Watery Pass-South,y,7,1,3,43,00F,y,0E,EvilShel,2
+surface,map,06F,Watery Pass-South,y,7,1,4,32,00C,y,0E,EvilShel,3
+surface,map,06F,Watery Pass-South,y,7,1,4,32,00C,y,29,WaterBug,1
+surface,map,06F,Watery Pass-South,y,7,1,5,32,00D,y,10,Pike,3
+surface,map,06F,Watery Pass-South,y,7,1,6,16,010,y,0F,Zombie,3
+surface,map,06F,Watery Pass-South,y,7,1,6,16,010,y,0F,Zombie,1
+surface,map,06F,Watery Pass-South,y,7,1,7,4,010,y,0F,Zombie,3
+surface,map,06F,Watery Pass-South,y,7,1,7,4,010,y,0F,Zombie,1
+surface,map,070,Watery Pass-South: B2F,y,7,1,0,43,00C,y,0E,EvilShel,3
+surface,map,070,Watery Pass-South: B2F,y,7,1,0,43,00C,y,29,WaterBug,1
+surface,map,070,Watery Pass-South: B2F,y,7,1,1,43,00D,y,10,Pike,3
+surface,map,070,Watery Pass-South: B2F,y,7,1,2,43,00E,y,0D,CaveToad,3
+surface,map,070,Watery Pass-South: B2F,y,7,1,3,43,00F,y,10,Pike,2
+surface,map,070,Watery Pass-South: B2F,y,7,1,3,43,00F,y,0E,EvilShel,2
+surface,map,070,Watery Pass-South: B2F,y,7,1,4,32,00C,y,0E,EvilShel,3
+surface,map,070,Watery Pass-South: B2F,y,7,1,4,32,00C,y,29,WaterBug,1
+surface,map,070,Watery Pass-South: B2F,y,7,1,5,32,00D,y,10,Pike,3
+surface,map,070,Watery Pass-South: B2F,y,7,1,6,16,010,y,0F,Zombie,3
+surface,map,070,Watery Pass-South: B2F,y,7,1,6,16,010,y,0F,Zombie,1
+surface,map,070,Watery Pass-South: B2F,y,7,1,7,4,010,y,0F,Zombie,3
+surface,map,070,Watery Pass-South: B2F,y,7,1,7,4,010,y,0F,Zombie,1
+surface,map,071,Watery Pass-South: B3F,y,7,2,0,43,00D,y,10,Pike,3
+surface,map,071,Watery Pass-South: B3F,y,7,2,1,43,00E,y,0D,CaveToad,3
+surface,map,071,Watery Pass-South: B3F,y,7,2,2,43,00F,y,10,Pike,2
+surface,map,071,Watery Pass-South: B3F,y,7,2,2,43,00F,y,0E,EvilShel,2
+surface,map,071,Watery Pass-South: B3F,y,7,2,3,43,010,y,0F,Zombie,3
+surface,map,071,Watery Pass-South: B3F,y,7,2,3,43,010,y,0F,Zombie,1
+surface,map,071,Watery Pass-South: B3F,y,7,2,4,32,011,y,10,Pike,2
+surface,map,071,Watery Pass-South: B3F,y,7,2,4,32,011,y,0E,EvilShel,2
+surface,map,071,Watery Pass-South: B3F,y,7,2,4,32,011,y,29,WaterBug,2
+surface,map,071,Watery Pass-South: B3F,y,7,2,5,32,012,y,13,Jelly,3
+surface,map,071,Watery Pass-South: B3F,y,7,2,5,32,012,y,13,Jelly,1
+surface,map,071,Watery Pass-South: B3F,y,7,2,6,16,013,y,08,TinyMage,2
+surface,map,071,Watery Pass-South: B3F,y,7,2,6,16,013,y,15,WaterHag,2
+surface,map,071,Watery Pass-South: B3F,y,7,2,6,16,013,y,15,WaterHag,2
+surface,map,071,Watery Pass-South: B3F,y,7,2,7,4,013,y,08,TinyMage,2
+surface,map,071,Watery Pass-South: B3F,y,7,2,7,4,013,y,15,WaterHag,2
+surface,map,071,Watery Pass-South: B3F,y,7,2,7,4,013,y,15,WaterHag,2
+surface,map,072,Watery Pass-North: B2F,y,8,2,0,43,00D,y,10,Pike,3
+surface,map,072,Watery Pass-North: B2F,y,8,2,1,43,00E,y,0D,CaveToad,3
+surface,map,072,Watery Pass-North: B2F,y,8,2,2,43,00F,y,10,Pike,2
+surface,map,072,Watery Pass-North: B2F,y,8,2,2,43,00F,y,0E,EvilShel,2
+surface,map,072,Watery Pass-North: B2F,y,8,2,3,43,010,y,0F,Zombie,3
+surface,map,072,Watery Pass-North: B2F,y,8,2,3,43,010,y,0F,Zombie,1
+surface,map,072,Watery Pass-North: B2F,y,8,2,4,32,011,y,10,Pike,2
+surface,map,072,Watery Pass-North: B2F,y,8,2,4,32,011,y,0E,EvilShel,2
+surface,map,072,Watery Pass-North: B2F,y,8,2,4,32,011,y,29,WaterBug,2
+surface,map,072,Watery Pass-North: B2F,y,8,2,5,32,012,y,13,Jelly,3
+surface,map,072,Watery Pass-North: B2F,y,8,2,5,32,012,y,13,Jelly,1
+surface,map,072,Watery Pass-North: B2F,y,8,2,6,16,013,y,08,TinyMage,2
+surface,map,072,Watery Pass-North: B2F,y,8,2,6,16,013,y,15,WaterHag,2
+surface,map,072,Watery Pass-North: B2F,y,8,2,6,16,013,y,15,WaterHag,2
+surface,map,072,Watery Pass-North: B2F,y,8,2,7,4,013,y,08,TinyMage,2
+surface,map,072,Watery Pass-North: B2F,y,8,2,7,4,013,y,15,WaterHag,2
+surface,map,072,Watery Pass-North: B2F,y,8,2,7,4,013,y,15,WaterHag,2
+surface,map,073,Watery Pass-North,y,8,3,0,43,010,y,0F,Zombie,3
+surface,map,073,Watery Pass-North,y,8,3,0,43,010,y,0F,Zombie,1
+surface,map,073,Watery Pass-North,y,8,3,1,43,011,y,10,Pike,2
+surface,map,073,Watery Pass-North,y,8,3,1,43,011,y,0E,EvilShel,2
+surface,map,073,Watery Pass-North,y,8,3,1,43,011,y,29,WaterBug,2
+surface,map,073,Watery Pass-North,y,8,3,2,43,012,y,13,Jelly,3
+surface,map,073,Watery Pass-North,y,8,3,2,43,012,y,13,Jelly,1
+surface,map,073,Watery Pass-North,y,8,3,3,43,014,y,0D,CaveToad,2
+surface,map,073,Watery Pass-North,y,8,3,3,43,014,y,0D,CaveToad,2
+surface,map,073,Watery Pass-North,y,8,3,4,32,015,y,0D,CaveToad,2
+surface,map,073,Watery Pass-North,y,8,3,4,32,015,y,12,Mad Toad,2
+surface,map,073,Watery Pass-North,y,8,3,5,32,016,y,2A,Aligator,1
+surface,map,073,Watery Pass-North,y,8,3,5,32,016,y,10,Pike,2
+surface,map,073,Watery Pass-North,y,8,3,6,16,013,y,08,TinyMage,2
+surface,map,073,Watery Pass-North,y,8,3,6,16,013,y,15,WaterHag,2
+surface,map,073,Watery Pass-North,y,8,3,6,16,013,y,15,WaterHag,2
+surface,map,073,Watery Pass-North,y,8,3,7,4,013,y,08,TinyMage,2
+surface,map,073,Watery Pass-North,y,8,3,7,4,013,y,15,WaterHag,2
+surface,map,073,Watery Pass-North,y,8,3,7,4,013,y,15,WaterHag,2
+surface,map,075,Lake: B2F,y,8,4,0,43,012,y,13,Jelly,3
+surface,map,075,Lake: B2F,y,8,4,0,43,012,y,13,Jelly,1
+surface,map,075,Lake: B2F,y,8,4,1,43,016,y,2A,Aligator,1
+surface,map,075,Lake: B2F,y,8,4,1,43,016,y,10,Pike,2
+surface,map,075,Lake: B2F,y,8,4,2,43,013,y,08,TinyMage,2
+surface,map,075,Lake: B2F,y,8,4,2,43,013,y,15,WaterHag,2
+surface,map,075,Lake: B2F,y,8,4,2,43,013,y,15,WaterHag,2
+surface,map,075,Lake: B2F,y,8,4,3,43,018,y,0F,Zombie,3
+surface,map,075,Lake: B2F,y,8,4,3,43,018,y,0F,Zombie,3
+surface,map,075,Lake: B2F,y,8,4,4,32,017,y,2A,Aligator,2
+surface,map,075,Lake: B2F,y,8,4,5,32,019,y,2A,Aligator,1
+surface,map,075,Lake: B2F,y,8,4,5,32,019,y,29,WaterBug,2
+surface,map,075,Lake: B2F,y,8,4,6,16,01A,y,12,Mad Toad,3
+surface,map,075,Lake: B2F,y,8,4,6,16,01A,y,12,Mad Toad,1
+surface,map,075,Lake: B2F,y,8,4,7,4,01B,y,08,TinyMage,3
+surface,map,075,Lake: B2F,y,8,4,7,4,01B,y,08,TinyMage,1
+surface,map,076,Lake,y,8,4,0,43,012,y,13,Jelly,3
+surface,map,076,Lake,y,8,4,0,43,012,y,13,Jelly,1
+surface,map,076,Lake,y,8,4,1,43,016,y,2A,Aligator,1
+surface,map,076,Lake,y,8,4,1,43,016,y,10,Pike,2
+surface,map,076,Lake,y,8,4,2,43,013,y,08,TinyMage,2
+surface,map,076,Lake,y,8,4,2,43,013,y,15,WaterHag,2
+surface,map,076,Lake,y,8,4,2,43,013,y,15,WaterHag,2
+surface,map,076,Lake,y,8,4,3,43,018,y,0F,Zombie,3
+surface,map,076,Lake,y,8,4,3,43,018,y,0F,Zombie,3
+surface,map,076,Lake,y,8,4,4,32,017,y,2A,Aligator,2
+surface,map,076,Lake,y,8,4,5,32,019,y,2A,Aligator,1
+surface,map,076,Lake,y,8,4,5,32,019,y,29,WaterBug,2
+surface,map,076,Lake,y,8,4,6,16,01A,y,12,Mad Toad,3
+surface,map,076,Lake,y,8,4,6,16,01A,y,12,Mad Toad,1
+surface,map,076,Lake,y,8,4,7,4,01B,y,08,TinyMage,3
+surface,map,076,Lake,y,8,4,7,4,01B,y,08,TinyMage,1
+surface,map,077,Antlion: B1F,y,8,5,0,43,000,y,00,Imp,3
+surface,map,077,Antlion: B1F,y,8,5,1,43,020,y,00,Imp,3
+surface,map,077,Antlion: B1F,y,8,5,1,43,020,y,1B,Imp Cap.,1
+surface,map,077,Antlion: B1F,y,8,5,2,43,021,y,1A,Turtle,1
+surface,map,077,Antlion: B1F,y,8,5,2,43,021,y,00,Imp,2
+surface,map,077,Antlion: B1F,y,8,5,3,43,022,y,14,Cream,2
+surface,map,077,Antlion: B1F,y,8,5,3,43,022,y,14,Cream,2
+surface,map,077,Antlion: B1F,y,8,5,4,32,023,y,01,Basilisk,1
+surface,map,077,Antlion: B1F,y,8,5,4,32,023,y,00,Imp,3
+surface,map,077,Antlion: B1F,y,8,5,5,32,024,y,1A,Turtle,2
+surface,map,077,Antlion: B1F,y,8,5,6,16,025,y,16,Weeper,1
+surface,map,077,Antlion: B1F,y,8,5,6,16,025,y,1A,Turtle,1
+surface,map,077,Antlion: B1F,y,8,5,6,16,025,y,01,Basilisk,1
+surface,map,077,Antlion: B1F,y,8,5,7,4,025,y,16,Weeper,1
+surface,map,077,Antlion: B1F,y,8,5,7,4,025,y,1A,Turtle,1
+surface,map,077,Antlion: B1F,y,8,5,7,4,025,y,01,Basilisk,1
+surface,map,078,Antlion: B2F,y,8,6,0,43,022,y,14,Cream,2
+surface,map,078,Antlion: B2F,y,8,6,0,43,022,y,14,Cream,2
+surface,map,078,Antlion: B2F,y,8,6,1,43,023,y,01,Basilisk,1
+surface,map,078,Antlion: B2F,y,8,6,1,43,023,y,00,Imp,3
+surface,map,078,Antlion: B2F,y,8,6,2,43,024,y,1A,Turtle,2
+surface,map,078,Antlion: B2F,y,8,6,3,43,025,y,16,Weeper,1
+surface,map,078,Antlion: B2F,y,8,6,3,43,025,y,1A,Turtle,1
+surface,map,078,Antlion: B2F,y,8,6,3,43,025,y,01,Basilisk,1
+surface,map,078,Antlion: B2F,y,8,6,4,32,026,y,01,Basilisk,1
+surface,map,078,Antlion: B2F,y,8,6,4,32,026,y,1A,Turtle,1
+surface,map,078,Antlion: B2F,y,8,6,5,32,027,y,16,Weeper,2
+surface,map,078,Antlion: B2F,y,8,6,6,16,01F,y,0C,SandWorm,2
+surface,map,078,Antlion: B2F,y,8,6,7,4,01E,y,0C,SandWorm,1
+surface,map,078,Antlion: B2F,y,8,6,7,4,01E,y,0B,Sandpede,1
+surface,map,079,Antlion: Antlion's Nest,y,8,6,0,43,022,y,14,Cream,2
+surface,map,079,Antlion: Antlion's Nest,y,8,6,0,43,022,y,14,Cream,2
+surface,map,079,Antlion: Antlion's Nest,y,8,6,1,43,023,y,01,Basilisk,1
+surface,map,079,Antlion: Antlion's Nest,y,8,6,1,43,023,y,00,Imp,3
+surface,map,079,Antlion: Antlion's Nest,y,8,6,2,43,024,y,1A,Turtle,2
+surface,map,079,Antlion: Antlion's Nest,y,8,6,3,43,025,y,16,Weeper,1
+surface,map,079,Antlion: Antlion's Nest,y,8,6,3,43,025,y,1A,Turtle,1
+surface,map,079,Antlion: Antlion's Nest,y,8,6,3,43,025,y,01,Basilisk,1
+surface,map,079,Antlion: Antlion's Nest,y,8,6,4,32,026,y,01,Basilisk,1
+surface,map,079,Antlion: Antlion's Nest,y,8,6,4,32,026,y,1A,Turtle,1
+surface,map,079,Antlion: Antlion's Nest,y,8,6,5,32,027,y,16,Weeper,2
+surface,map,079,Antlion: Antlion's Nest,y,8,6,6,16,01F,y,0C,SandWorm,2
+surface,map,079,Antlion: Antlion's Nest,y,8,6,7,4,01E,y,0C,SandWorm,1
+surface,map,079,Antlion: Antlion's Nest,y,8,6,7,4,01E,y,0B,Sandpede,1
+surface,map,07E,Mt.Hobs-West,y,8,7,0,43,028,y,23,Skelton,3
+surface,map,07E,Mt.Hobs-West,y,8,7,0,43,028,y,23,Skelton,1
+surface,map,07E,Mt.Hobs-West,y,8,7,1,43,029,y,22,Spirit,2
+surface,map,07E,Mt.Hobs-West,y,8,7,2,43,02A,y,25,Gargoyle,1
+surface,map,07E,Mt.Hobs-West,y,8,7,2,43,02A,y,24,Cocktric,2
+surface,map,07E,Mt.Hobs-West,y,8,7,3,43,02B,y,55,Bomb,3
+surface,map,07E,Mt.Hobs-West,y,8,7,4,32,02C,y,24,Cocktric,3
+surface,map,07E,Mt.Hobs-West,y,8,7,5,32,02D,y,25,Gargoyle,2
+surface,map,07E,Mt.Hobs-West,y,8,7,6,16,02E,y,56,GrayBomb,2
+surface,map,07E,Mt.Hobs-West,y,8,7,6,16,02E,y,55,Bomb,2
+surface,map,07E,Mt.Hobs-West,y,8,7,7,4,02E,y,56,GrayBomb,2
+surface,map,07E,Mt.Hobs-West,y,8,7,7,4,02E,y,55,Bomb,2
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,0,43,02A,y,25,Gargoyle,1
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,0,43,02A,y,24,Cocktric,2
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,1,43,029,y,22,Spirit,2
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,2,43,02E,y,56,GrayBomb,2
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,2,43,02E,y,55,Bomb,2
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,3,43,028,y,23,Skelton,3
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,3,43,028,y,23,Skelton,1
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,4,32,02C,y,24,Cocktric,3
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,5,32,02F,y,22,Spirit,2
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,5,32,02F,y,23,Skelton,2
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,6,16,02D,y,25,Gargoyle,2
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,7,4,033,y,22,Spirit,3
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,7,4,033,y,23,Skelton,2
+surface,map,07F,Mt.Hobs-West: Summit,y,8,8,7,4,033,y,2F,Red Bone,1
+surface,map,080,Mt.Hobs-East,y,8,9,0,43,02F,y,22,Spirit,2
+surface,map,080,Mt.Hobs-East,y,8,9,0,43,02F,y,23,Skelton,2
+surface,map,080,Mt.Hobs-East,y,8,9,1,43,02D,y,25,Gargoyle,2
+surface,map,080,Mt.Hobs-East,y,8,9,2,43,02E,y,56,GrayBomb,2
+surface,map,080,Mt.Hobs-East,y,8,9,2,43,02E,y,55,Bomb,2
+surface,map,080,Mt.Hobs-East,y,8,9,3,43,02A,y,25,Gargoyle,1
+surface,map,080,Mt.Hobs-East,y,8,9,3,43,02A,y,24,Cocktric,2
+surface,map,080,Mt.Hobs-East,y,8,9,4,32,031,y,2F,Red Bone,1
+surface,map,080,Mt.Hobs-East,y,8,9,4,32,031,y,23,Skelton,3
+surface,map,080,Mt.Hobs-East,y,8,9,5,32,024,y,1A,Turtle,2
+surface,map,080,Mt.Hobs-East,y,8,9,6,16,02D,y,25,Gargoyle,2
+surface,map,080,Mt.Hobs-East,y,8,9,7,4,032,y,56,GrayBomb,2
+surface,map,080,Mt.Hobs-East,y,8,9,7,4,032,y,55,Bomb,2
+surface,map,080,Mt.Hobs-East,y,8,9,7,4,032,y,55,Bomb,2
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,0,43,02A,y,25,Gargoyle,1
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,0,43,02A,y,24,Cocktric,2
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,1,43,029,y,22,Spirit,2
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,2,43,02E,y,56,GrayBomb,2
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,2,43,02E,y,55,Bomb,2
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,3,43,028,y,23,Skelton,3
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,3,43,028,y,23,Skelton,1
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,4,32,02C,y,24,Cocktric,3
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,5,32,02F,y,22,Spirit,2
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,5,32,02F,y,23,Skelton,2
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,6,16,02D,y,25,Gargoyle,2
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,7,4,033,y,22,Spirit,3
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,7,4,033,y,23,Skelton,2
+surface,map,081,Mt.Hobs-West: unnamed room,y,8,8,7,4,033,y,2F,Red Bone,1
+surface,map,084,Mt.Ordeals,y,8,10,0,43,02F,y,22,Spirit,2
+surface,map,084,Mt.Ordeals,y,8,10,0,43,02F,y,23,Skelton,2
+surface,map,084,Mt.Ordeals,y,8,10,1,43,031,y,2F,Red Bone,1
+surface,map,084,Mt.Ordeals,y,8,10,1,43,031,y,23,Skelton,3
+surface,map,084,Mt.Ordeals,y,8,10,2,43,033,y,22,Spirit,3
+surface,map,084,Mt.Ordeals,y,8,10,2,43,033,y,23,Skelton,2
+surface,map,084,Mt.Ordeals,y,8,10,2,43,033,y,2F,Red Bone,1
+surface,map,084,Mt.Ordeals,y,8,10,3,43,03C,y,22,Spirit,3
+surface,map,084,Mt.Ordeals,y,8,10,3,43,03C,y,2E,Soul,1
+surface,map,084,Mt.Ordeals,y,8,10,4,32,03D,y,2E,Soul,2
+surface,map,084,Mt.Ordeals,y,8,10,4,32,03D,y,2F,Red Bone,2
+surface,map,084,Mt.Ordeals,y,8,10,5,32,03E,y,23,Skelton,3
+surface,map,084,Mt.Ordeals,y,8,10,5,32,03E,y,2F,Red Bone,2
+surface,map,084,Mt.Ordeals,y,8,10,6,16,03F,y,5D,Lilith,1
+surface,map,084,Mt.Ordeals,y,8,10,6,16,03F,y,2F,Red Bone,2
+surface,map,084,Mt.Ordeals,y,8,10,7,4,03F,y,5D,Lilith,1
+surface,map,084,Mt.Ordeals,y,8,10,7,4,03F,y,2F,Red Bone,2
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,0,43,040,y,30,Ghoul,1
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,0,43,040,y,2F,Red Bone,2
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,0,43,040,y,23,Skelton,2
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,1,43,041,y,22,Spirit,2
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,1,43,041,y,2E,Soul,2
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,1,43,041,y,2F,Red Bone,2
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,2,43,042,y,0F,Zombie,2
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,2,43,042,y,30,Ghoul,2
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,3,43,043,y,30,Ghoul,2
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,3,43,043,y,2E,Soul,2
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,4,32,044,y,32,Revenant,1
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,4,32,044,y,30,Ghoul,3
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,5,32,045,y,0F,Zombie,3
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,5,32,045,y,30,Ghoul,2
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,5,32,045,y,32,Revenant,2
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,6,16,03F,y,5D,Lilith,1
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,6,16,03F,y,2F,Red Bone,2
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,7,4,03F,y,5D,Lilith,1
+surface,map,085,Mt.Ordeals: 3rd station,y,8,11,7,4,03F,y,2F,Red Bone,2
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,0,43,043,y,30,Ghoul,2
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,0,43,043,y,2E,Soul,2
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,1,43,044,y,32,Revenant,1
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,1,43,044,y,30,Ghoul,3
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,2,43,045,y,0F,Zombie,3
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,2,43,045,y,30,Ghoul,2
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,2,43,045,y,32,Revenant,2
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,3,43,047,y,2E,Soul,2
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,3,43,047,y,30,Ghoul,2
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,3,43,047,y,32,Revenant,2
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,4,32,03F,y,5D,Lilith,1
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,4,32,03F,y,2F,Red Bone,2
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,5,32,046,y,5D,Lilith,1
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,6,16,048,y,2E,Soul,3
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,6,16,048,y,30,Ghoul,1
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,6,16,048,y,32,Revenant,1
+surface,map,086,Mt.Ordeals: 7th station,y,8,12,7,4,049,y,5D,Lilith,2
+surface,map,087,Mt.Ordeals: Summit,y,8,12,0,43,043,y,30,Ghoul,2
+surface,map,087,Mt.Ordeals: Summit,y,8,12,0,43,043,y,2E,Soul,2
+surface,map,087,Mt.Ordeals: Summit,y,8,12,1,43,044,y,32,Revenant,1
+surface,map,087,Mt.Ordeals: Summit,y,8,12,1,43,044,y,30,Ghoul,3
+surface,map,087,Mt.Ordeals: Summit,y,8,12,2,43,045,y,0F,Zombie,3
+surface,map,087,Mt.Ordeals: Summit,y,8,12,2,43,045,y,30,Ghoul,2
+surface,map,087,Mt.Ordeals: Summit,y,8,12,2,43,045,y,32,Revenant,2
+surface,map,087,Mt.Ordeals: Summit,y,8,12,3,43,047,y,2E,Soul,2
+surface,map,087,Mt.Ordeals: Summit,y,8,12,3,43,047,y,30,Ghoul,2
+surface,map,087,Mt.Ordeals: Summit,y,8,12,3,43,047,y,32,Revenant,2
+surface,map,087,Mt.Ordeals: Summit,y,8,12,4,32,03F,y,5D,Lilith,1
+surface,map,087,Mt.Ordeals: Summit,y,8,12,4,32,03F,y,2F,Red Bone,2
+surface,map,087,Mt.Ordeals: Summit,y,8,12,5,32,046,y,5D,Lilith,1
+surface,map,087,Mt.Ordeals: Summit,y,8,12,6,16,048,y,2E,Soul,3
+surface,map,087,Mt.Ordeals: Summit,y,8,12,6,16,048,y,30,Ghoul,1
+surface,map,087,Mt.Ordeals: Summit,y,8,12,6,16,048,y,32,Revenant,1
+surface,map,087,Mt.Ordeals: Summit,y,8,12,7,4,049,y,5D,Lilith,2
+surface,map,08C,Cave Magnes,y,8,17,0,43,059,y,42,Panther,1
+surface,map,08C,Cave Magnes,y,8,17,0,43,059,y,3C,StingRat,3
+surface,map,08C,Cave Magnes,y,8,17,1,43,05B,y,3D,Python,1
+surface,map,08C,Cave Magnes,y,8,17,1,43,05B,y,3C,StingRat,2
+surface,map,08C,Cave Magnes,y,8,17,2,43,05C,y,41,Ogre,1
+surface,map,08C,Cave Magnes,y,8,17,2,43,05C,y,42,Panther,2
+surface,map,08C,Cave Magnes,y,8,17,3,43,05D,y,41,Ogre,2
+surface,map,08C,Cave Magnes,y,8,17,4,32,05E,y,05,Cave Bat,3
+surface,map,08C,Cave Magnes,y,8,17,5,32,05F,y,42,Panther,2
+surface,map,08C,Cave Magnes,y,8,17,6,16,060,y,3F,Mage,2
+surface,map,08C,Cave Magnes,y,8,17,7,4,060,y,3F,Mage,2
+surface,map,08D,Cave Magnes: B2F,y,8,18,0,43,05C,y,41,Ogre,1
+surface,map,08D,Cave Magnes: B2F,y,8,18,0,43,05C,y,42,Panther,2
+surface,map,08D,Cave Magnes: B2F,y,8,18,1,43,061,y,34,CaveNaga,1
+surface,map,08D,Cave Magnes: B2F,y,8,18,1,43,061,y,41,Ogre,1
+surface,map,08D,Cave Magnes: B2F,y,8,18,2,43,062,y,34,CaveNaga,1
+surface,map,08D,Cave Magnes: B2F,y,8,18,2,43,062,y,3D,Python,2
+surface,map,08D,Cave Magnes: B2F,y,8,18,3,43,063,y,41,Ogre,3
+surface,map,08D,Cave Magnes: B2F,y,8,18,4,32,05E,y,05,Cave Bat,3
+surface,map,08D,Cave Magnes: B2F,y,8,18,5,32,05F,y,42,Panther,2
+surface,map,08D,Cave Magnes: B2F,y,8,18,6,16,060,y,3F,Mage,2
+surface,map,08D,Cave Magnes: B2F,y,8,18,7,4,060,y,3F,Mage,2
+surface,map,08E,Cave Magnes: unnamed room,y,8,18,0,43,05C,y,41,Ogre,1
+surface,map,08E,Cave Magnes: unnamed room,y,8,18,0,43,05C,y,42,Panther,2
+surface,map,08E,Cave Magnes: unnamed room,y,8,18,1,43,061,y,34,CaveNaga,1
+surface,map,08E,Cave Magnes: unnamed room,y,8,18,1,43,061,y,41,Ogre,1
+surface,map,08E,Cave Magnes: unnamed room,y,8,18,2,43,062,y,34,CaveNaga,1
+surface,map,08E,Cave Magnes: unnamed room,y,8,18,2,43,062,y,3D,Python,2
+surface,map,08E,Cave Magnes: unnamed room,y,8,18,3,43,063,y,41,Ogre,3
+surface,map,08E,Cave Magnes: unnamed room,y,8,18,4,32,05E,y,05,Cave Bat,3
+surface,map,08E,Cave Magnes: unnamed room,y,8,18,5,32,05F,y,42,Panther,2
+surface,map,08E,Cave Magnes: unnamed room,y,8,18,6,16,060,y,3F,Mage,2
+surface,map,08E,Cave Magnes: unnamed room,y,8,18,7,4,060,y,3F,Mage,2
+surface,map,08F,Cave Magnes: B3F,y,8,19,0,43,062,y,34,CaveNaga,1
+surface,map,08F,Cave Magnes: B3F,y,8,19,0,43,062,y,3D,Python,2
+surface,map,08F,Cave Magnes: B3F,y,8,19,1,43,063,y,41,Ogre,3
+surface,map,08F,Cave Magnes: B3F,y,8,19,2,43,05F,y,42,Panther,2
+surface,map,08F,Cave Magnes: B3F,y,8,19,3,43,060,y,3F,Mage,2
+surface,map,08F,Cave Magnes: B3F,y,8,19,4,32,05E,y,05,Cave Bat,3
+surface,map,08F,Cave Magnes: B3F,y,8,19,5,32,064,y,33,VampGirl,1
+surface,map,08F,Cave Magnes: B3F,y,8,19,5,32,064,y,05,Cave Bat,3
+surface,map,08F,Cave Magnes: B3F,y,8,19,6,16,065,y,3F,Mage,1
+surface,map,08F,Cave Magnes: B3F,y,8,19,6,16,065,y,42,Panther,1
+surface,map,08F,Cave Magnes: B3F,y,8,19,6,16,065,y,41,Ogre,1
+surface,map,08F,Cave Magnes: B3F,y,8,19,7,4,065,y,3F,Mage,1
+surface,map,08F,Cave Magnes: B3F,y,8,19,7,4,065,y,42,Panther,1
+surface,map,08F,Cave Magnes: B3F,y,8,19,7,4,065,y,41,Ogre,1
+surface,map,090,Cave Magnes: unnamed room,y,8,19,0,43,062,y,34,CaveNaga,1
+surface,map,090,Cave Magnes: unnamed room,y,8,19,0,43,062,y,3D,Python,2
+surface,map,090,Cave Magnes: unnamed room,y,8,19,1,43,063,y,41,Ogre,3
+surface,map,090,Cave Magnes: unnamed room,y,8,19,2,43,05F,y,42,Panther,2
+surface,map,090,Cave Magnes: unnamed room,y,8,19,3,43,060,y,3F,Mage,2
+surface,map,090,Cave Magnes: unnamed room,y,8,19,4,32,05E,y,05,Cave Bat,3
+surface,map,090,Cave Magnes: unnamed room,y,8,19,5,32,064,y,33,VampGirl,1
+surface,map,090,Cave Magnes: unnamed room,y,8,19,5,32,064,y,05,Cave Bat,3
+surface,map,090,Cave Magnes: unnamed room,y,8,19,6,16,065,y,3F,Mage,1
+surface,map,090,Cave Magnes: unnamed room,y,8,19,6,16,065,y,42,Panther,1
+surface,map,090,Cave Magnes: unnamed room,y,8,19,6,16,065,y,41,Ogre,1
+surface,map,090,Cave Magnes: unnamed room,y,8,19,7,4,065,y,3F,Mage,1
+surface,map,090,Cave Magnes: unnamed room,y,8,19,7,4,065,y,42,Panther,1
+surface,map,090,Cave Magnes: unnamed room,y,8,19,7,4,065,y,41,Ogre,1
+surface,map,091,Cave Magnes: unnamed room,y,8,20,0,43,066,y,42,Panther,2
+surface,map,091,Cave Magnes: unnamed room,y,8,20,0,43,066,y,41,Ogre,2
+surface,map,091,Cave Magnes: unnamed room,y,8,20,1,43,064,y,33,VampGirl,1
+surface,map,091,Cave Magnes: unnamed room,y,8,20,1,43,064,y,05,Cave Bat,3
+surface,map,091,Cave Magnes: unnamed room,y,8,20,2,43,067,y,34,CaveNaga,2
+surface,map,091,Cave Magnes: unnamed room,y,8,20,2,43,067,y,3D,Python,2
+surface,map,091,Cave Magnes: unnamed room,y,8,20,3,43,068,y,33,VampGirl,2
+surface,map,091,Cave Magnes: unnamed room,y,8,20,3,43,068,y,05,Cave Bat,3
+surface,map,091,Cave Magnes: unnamed room,y,8,20,4,32,069,y,42,Panther,2
+surface,map,091,Cave Magnes: unnamed room,y,8,20,4,32,069,y,41,Ogre,1
+surface,map,091,Cave Magnes: unnamed room,y,8,20,4,32,069,y,34,CaveNaga,1
+surface,map,091,Cave Magnes: unnamed room,y,8,20,5,32,06A,y,33,VampGirl,1
+surface,map,091,Cave Magnes: unnamed room,y,8,20,5,32,06A,y,05,Cave Bat,3
+surface,map,091,Cave Magnes: unnamed room,y,8,20,5,32,06A,y,05,Cave Bat,3
+surface,map,091,Cave Magnes: unnamed room,y,8,20,6,16,065,y,3F,Mage,1
+surface,map,091,Cave Magnes: unnamed room,y,8,20,6,16,065,y,42,Panther,1
+surface,map,091,Cave Magnes: unnamed room,y,8,20,6,16,065,y,41,Ogre,1
+surface,map,091,Cave Magnes: unnamed room,y,8,20,7,4,065,y,3F,Mage,1
+surface,map,091,Cave Magnes: unnamed room,y,8,20,7,4,065,y,42,Panther,1
+surface,map,091,Cave Magnes: unnamed room,y,8,20,7,4,065,y,41,Ogre,1
+surface,map,093,Cave Magnes: B4F,y,8,20,0,43,066,y,42,Panther,2
+surface,map,093,Cave Magnes: B4F,y,8,20,0,43,066,y,41,Ogre,2
+surface,map,093,Cave Magnes: B4F,y,8,20,1,43,064,y,33,VampGirl,1
+surface,map,093,Cave Magnes: B4F,y,8,20,1,43,064,y,05,Cave Bat,3
+surface,map,093,Cave Magnes: B4F,y,8,20,2,43,067,y,34,CaveNaga,2
+surface,map,093,Cave Magnes: B4F,y,8,20,2,43,067,y,3D,Python,2
+surface,map,093,Cave Magnes: B4F,y,8,20,3,43,068,y,33,VampGirl,2
+surface,map,093,Cave Magnes: B4F,y,8,20,3,43,068,y,05,Cave Bat,3
+surface,map,093,Cave Magnes: B4F,y,8,20,4,32,069,y,42,Panther,2
+surface,map,093,Cave Magnes: B4F,y,8,20,4,32,069,y,41,Ogre,1
+surface,map,093,Cave Magnes: B4F,y,8,20,4,32,069,y,34,CaveNaga,1
+surface,map,093,Cave Magnes: B4F,y,8,20,5,32,06A,y,33,VampGirl,1
+surface,map,093,Cave Magnes: B4F,y,8,20,5,32,06A,y,05,Cave Bat,3
+surface,map,093,Cave Magnes: B4F,y,8,20,5,32,06A,y,05,Cave Bat,3
+surface,map,093,Cave Magnes: B4F,y,8,20,6,16,065,y,3F,Mage,1
+surface,map,093,Cave Magnes: B4F,y,8,20,6,16,065,y,42,Panther,1
+surface,map,093,Cave Magnes: B4F,y,8,20,6,16,065,y,41,Ogre,1
+surface,map,093,Cave Magnes: B4F,y,8,20,7,4,065,y,3F,Mage,1
+surface,map,093,Cave Magnes: B4F,y,8,20,7,4,065,y,42,Panther,1
+surface,map,093,Cave Magnes: B4F,y,8,20,7,4,065,y,41,Ogre,1
+surface,map,098,Tower of Zot,n,8,21,0,43,06B,y,46,Marion,1
+surface,map,098,Tower of Zot,n,8,21,0,43,06B,y,47,Puppet,1
+surface,map,098,Tower of Zot,n,8,21,0,43,06B,y,47,Puppet,2
+surface,map,098,Tower of Zot,n,8,21,1,43,06D,y,44,Centaur,1
+surface,map,098,Tower of Zot,n,8,21,1,43,06D,y,78,IceBeast,2
+surface,map,098,Tower of Zot,n,8,21,2,43,071,y,1C,Slime,2
+surface,map,098,Tower of Zot,n,8,21,2,43,071,y,1C,Slime,2
+surface,map,098,Tower of Zot,n,8,21,3,43,06F,y,44,Centaur,3
+surface,map,098,Tower of Zot,n,8,21,4,32,074,y,70,Gremlin,2
+surface,map,098,Tower of Zot,n,8,21,4,32,074,y,75,Ice Liz,2
+surface,map,098,Tower of Zot,n,8,21,5,32,075,y,58,Carapace,2
+surface,map,098,Tower of Zot,n,8,21,5,32,075,y,75,Ice Liz,2
+surface,map,098,Tower of Zot,n,8,21,6,16,070,y,44,Centaur,1
+surface,map,098,Tower of Zot,n,8,21,6,16,070,y,70,Gremlin,2
+surface,map,098,Tower of Zot,n,8,21,7,4,073,y,13,Jelly,1
+surface,map,098,Tower of Zot,n,8,21,7,4,073,y,1C,Slime,2
+surface,map,098,Tower of Zot,n,8,21,7,4,073,y,14,Cream,1
+surface,map,099,Tower of Zot: 2F,n,8,22,0,43,06B,y,46,Marion,1
+surface,map,099,Tower of Zot: 2F,n,8,22,0,43,06B,y,47,Puppet,1
+surface,map,099,Tower of Zot: 2F,n,8,22,0,43,06B,y,47,Puppet,2
+surface,map,099,Tower of Zot: 2F,n,8,22,1,43,06D,y,44,Centaur,1
+surface,map,099,Tower of Zot: 2F,n,8,22,1,43,06D,y,78,IceBeast,2
+surface,map,099,Tower of Zot: 2F,n,8,22,2,43,06F,y,44,Centaur,3
+surface,map,099,Tower of Zot: 2F,n,8,22,3,43,075,y,58,Carapace,2
+surface,map,099,Tower of Zot: 2F,n,8,22,3,43,075,y,75,Ice Liz,2
+surface,map,099,Tower of Zot: 2F,n,8,22,4,32,072,y,75,Ice Liz,1
+surface,map,099,Tower of Zot: 2F,n,8,22,4,32,072,y,1C,Slime,3
+surface,map,099,Tower of Zot: 2F,n,8,22,5,32,070,y,44,Centaur,1
+surface,map,099,Tower of Zot: 2F,n,8,22,5,32,070,y,70,Gremlin,2
+surface,map,099,Tower of Zot: 2F,n,8,22,6,16,06C,y,46,Marion,1
+surface,map,099,Tower of Zot: 2F,n,8,22,6,16,06C,y,47,Puppet,1
+surface,map,099,Tower of Zot: 2F,n,8,22,6,16,06C,y,47,Puppet,3
+surface,map,099,Tower of Zot: 2F,n,8,22,7,4,073,y,13,Jelly,1
+surface,map,099,Tower of Zot: 2F,n,8,22,7,4,073,y,1C,Slime,2
+surface,map,099,Tower of Zot: 2F,n,8,22,7,4,073,y,14,Cream,1
+surface,map,09A,Tower of Zot: 3F,n,8,23,0,43,06B,y,46,Marion,1
+surface,map,09A,Tower of Zot: 3F,n,8,23,0,43,06B,y,47,Puppet,1
+surface,map,09A,Tower of Zot: 3F,n,8,23,0,43,06B,y,47,Puppet,2
+surface,map,09A,Tower of Zot: 3F,n,8,23,1,43,06E,y,44,Centaur,2
+surface,map,09A,Tower of Zot: 3F,n,8,23,1,43,06E,y,78,IceBeast,2
+surface,map,09A,Tower of Zot: 3F,n,8,23,2,43,072,y,75,Ice Liz,1
+surface,map,09A,Tower of Zot: 3F,n,8,23,2,43,072,y,1C,Slime,3
+surface,map,09A,Tower of Zot: 3F,n,8,23,3,43,076,y,43,SwordMan,2
+surface,map,09A,Tower of Zot: 3F,n,8,23,4,32,06C,y,46,Marion,1
+surface,map,09A,Tower of Zot: 3F,n,8,23,4,32,06C,y,47,Puppet,1
+surface,map,09A,Tower of Zot: 3F,n,8,23,4,32,06C,y,47,Puppet,3
+surface,map,09A,Tower of Zot: 3F,n,8,23,5,32,077,y,43,SwordMan,1
+surface,map,09A,Tower of Zot: 3F,n,8,23,5,32,077,y,75,Ice Liz,2
+surface,map,09A,Tower of Zot: 3F,n,8,23,6,16,073,y,13,Jelly,1
+surface,map,09A,Tower of Zot: 3F,n,8,23,6,16,073,y,1C,Slime,2
+surface,map,09A,Tower of Zot: 3F,n,8,23,6,16,073,y,14,Cream,1
+surface,map,09A,Tower of Zot: 3F,n,8,23,7,4,07F,y,7A,Witch,1
+surface,map,09A,Tower of Zot: 3F,n,8,23,7,4,07F,y,78,IceBeast,2
+surface,map,09A,Tower of Zot: 3F,n,8,23,7,4,07F,y,4D,EpeeGirl,1
+surface,map,09C,Tower of Zot: 4F,n,8,24,0,43,06C,y,46,Marion,1
+surface,map,09C,Tower of Zot: 4F,n,8,24,0,43,06C,y,47,Puppet,1
+surface,map,09C,Tower of Zot: 4F,n,8,24,0,43,06C,y,47,Puppet,3
+surface,map,09C,Tower of Zot: 4F,n,8,24,1,43,07A,y,4D,EpeeGirl,2
+surface,map,09C,Tower of Zot: 4F,n,8,24,1,43,07A,y,43,SwordMan,2
+surface,map,09C,Tower of Zot: 4F,n,8,24,2,43,06E,y,44,Centaur,2
+surface,map,09C,Tower of Zot: 4F,n,8,24,2,43,06E,y,78,IceBeast,2
+surface,map,09C,Tower of Zot: 4F,n,8,24,3,43,071,y,1C,Slime,2
+surface,map,09C,Tower of Zot: 4F,n,8,24,3,43,071,y,1C,Slime,2
+surface,map,09C,Tower of Zot: 4F,n,8,24,4,32,07B,y,4D,EpeeGirl,3
+surface,map,09C,Tower of Zot: 4F,n,8,24,5,32,074,y,70,Gremlin,2
+surface,map,09C,Tower of Zot: 4F,n,8,24,5,32,074,y,75,Ice Liz,2
+surface,map,09C,Tower of Zot: 4F,n,8,24,6,16,079,y,43,SwordMan,1
+surface,map,09C,Tower of Zot: 4F,n,8,24,6,16,079,y,78,IceBeast,2
+surface,map,09C,Tower of Zot: 4F,n,8,24,7,4,07F,y,7A,Witch,1
+surface,map,09C,Tower of Zot: 4F,n,8,24,7,4,07F,y,78,IceBeast,2
+surface,map,09C,Tower of Zot: 4F,n,8,24,7,4,07F,y,4D,EpeeGirl,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,0,43,06C,y,46,Marion,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,0,43,06C,y,47,Puppet,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,0,43,06C,y,47,Puppet,3
+surface,map,09D,Tower of Zot: 5F,n,8,25,1,43,081,y,7A,Witch,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,1,43,081,y,4D,EpeeGirl,2
+surface,map,09D,Tower of Zot: 5F,n,8,25,2,43,080,y,7A,Witch,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,2,43,080,y,43,SwordMan,2
+surface,map,09D,Tower of Zot: 5F,n,8,25,2,43,080,y,4D,EpeeGirl,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,3,43,07D,y,4D,EpeeGirl,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,3,43,07D,y,75,Ice Liz,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,3,43,07D,y,78,IceBeast,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,4,32,06D,y,44,Centaur,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,4,32,06D,y,78,IceBeast,2
+surface,map,09D,Tower of Zot: 5F,n,8,25,5,32,079,y,43,SwordMan,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,5,32,079,y,78,IceBeast,2
+surface,map,09D,Tower of Zot: 5F,n,8,25,6,16,073,y,13,Jelly,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,6,16,073,y,1C,Slime,2
+surface,map,09D,Tower of Zot: 5F,n,8,25,6,16,073,y,14,Cream,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,7,4,07F,y,7A,Witch,1
+surface,map,09D,Tower of Zot: 5F,n,8,25,7,4,07F,y,78,IceBeast,2
+surface,map,09D,Tower of Zot: 5F,n,8,25,7,4,07F,y,4D,EpeeGirl,1
+surface,map,0A7,Tower of Bab-il: 1F,y,8,36,0,43,098,y,63,Mad Ogre,2
+surface,map,0A7,Tower of Bab-il: 1F,y,8,36,1,43,0B3,y,62,Sorcerer,1
+surface,map,0A7,Tower of Bab-il: 1F,y,8,36,1,43,0B3,y,63,Mad Ogre,1
+surface,map,0A7,Tower of Bab-il: 1F,y,8,36,1,43,0B3,y,4E,BladeMan,2
+surface,map,0A7,Tower of Bab-il: 1F,y,8,36,2,43,0A0,y,3B,Lamia,1
+surface,map,0A7,Tower of Bab-il: 1F,y,8,36,3,43,0A6,y,69,Balloon,3
+surface,map,0A7,Tower of Bab-il: 1F,y,8,36,4,32,0A7,y,69,Balloon,2
+surface,map,0A7,Tower of Bab-il: 1F,y,8,36,4,32,0A7,y,69,Balloon,2
+surface,map,0A7,Tower of Bab-il: 1F,y,8,36,5,32,09B,y,6D,BlackCat,2
+surface,map,0A7,Tower of Bab-il: 1F,y,8,36,6,16,0B6,y,62,Sorcerer,1
+surface,map,0A7,Tower of Bab-il: 1F,y,8,36,6,16,0B6,y,85,Green D.,1
+surface,map,0A7,Tower of Bab-il: 1F,y,8,36,6,16,0B6,y,4E,BladeMan,2
+surface,map,0A7,Tower of Bab-il: 1F,y,8,36,7,4,0B2,y,85,Green D.,1
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,0,43,0B4,y,62,Sorcerer,1
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,0,43,0B4,y,6D,BlackCat,1
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,0,43,0B4,y,4E,BladeMan,2
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,1,43,0A7,y,69,Balloon,2
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,1,43,0A7,y,69,Balloon,2
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,2,43,09E,y,63,Mad Ogre,1
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,2,43,09E,y,6D,BlackCat,2
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,3,43,0A0,y,3B,Lamia,1
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,4,32,0A8,y,63,Mad Ogre,1
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,4,32,0A8,y,6D,BlackCat,1
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,4,32,0A8,y,69,Balloon,2
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,5,32,09C,y,6D,BlackCat,3
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,6,16,0B6,y,62,Sorcerer,1
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,6,16,0B6,y,85,Green D.,1
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,6,16,0B6,y,4E,BladeMan,2
+surface,map,0A8,Tower of Bab-il: B2F,y,8,37,7,4,0B2,y,85,Green D.,1
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,0,43,0B5,y,62,Sorcerer,1
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,0,43,0B5,y,4E,BladeMan,1
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,0,43,0B5,y,4E,BladeMan,2
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,1,43,09F,y,63,Mad Ogre,2
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,1,43,09F,y,6D,BlackCat,2
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,2,43,0A8,y,63,Mad Ogre,1
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,2,43,0A8,y,6D,BlackCat,1
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,2,43,0A8,y,69,Balloon,2
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,3,43,0A0,y,3B,Lamia,1
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,4,32,099,y,63,Mad Ogre,3
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,5,32,0A9,y,3E,Grudger,1
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,5,32,0A9,y,63,Mad Ogre,1
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,5,32,0A9,y,69,Balloon,2
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,6,16,0B6,y,62,Sorcerer,1
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,6,16,0B6,y,85,Green D.,1
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,6,16,0B6,y,4E,BladeMan,2
+surface,map,0A9,Tower of Bab-il: B3F,y,8,38,7,4,0B2,y,85,Green D.,1
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,0,43,0B3,y,62,Sorcerer,1
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,0,43,0B3,y,63,Mad Ogre,1
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,0,43,0B3,y,4E,BladeMan,2
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,1,43,0A4,y,6D,BlackCat,2
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,1,43,0A4,y,3B,Lamia,1
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,2,43,0AC,y,69,Balloon,3
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,2,43,0AC,y,3E,Grudger,1
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,3,43,0A0,y,3B,Lamia,1
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,4,32,09D,y,3B,Lamia,1
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,4,32,09D,y,6D,BlackCat,1
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,4,32,09D,y,63,Mad Ogre,1
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,5,32,0A6,y,69,Balloon,3
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,6,16,0B6,y,62,Sorcerer,1
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,6,16,0B6,y,85,Green D.,1
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,6,16,0B6,y,4E,BladeMan,2
+surface,map,0AA,Tower of Bab-il: B4F,y,8,39,7,4,0B2,y,85,Green D.,1
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,0,43,0B4,y,62,Sorcerer,1
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,0,43,0B4,y,6D,BlackCat,1
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,0,43,0B4,y,4E,BladeMan,2
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,1,43,0AC,y,69,Balloon,3
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,1,43,0AC,y,3E,Grudger,1
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,2,43,0A5,y,6D,BlackCat,2
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,2,43,0A5,y,3B,Lamia,2
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,3,43,0A0,y,3B,Lamia,1
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,4,32,0AE,y,4E,BladeMan,3
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,5,32,0AA,y,3E,Grudger,2
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,6,16,0B6,y,62,Sorcerer,1
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,6,16,0B6,y,85,Green D.,1
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,6,16,0B6,y,4E,BladeMan,2
+surface,map,0AC,Tower of Bab-il: B5F,y,8,40,7,4,0B2,y,85,Green D.,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,0,43,0B5,y,62,Sorcerer,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,0,43,0B5,y,4E,BladeMan,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,0,43,0B5,y,4E,BladeMan,2
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,1,43,0AF,y,6D,BlackCat,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,1,43,0AF,y,4E,BladeMan,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,1,43,0AF,y,63,Mad Ogre,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,2,43,0A3,y,3B,Lamia,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,2,43,0A3,y,63,Mad Ogre,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,3,43,0A0,y,3B,Lamia,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,4,32,0B1,y,63,Mad Ogre,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,4,32,0B1,y,4E,BladeMan,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,4,32,0B1,y,6D,BlackCat,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,5,32,0AD,y,3E,Grudger,2
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,5,32,0AD,y,3B,Lamia,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,6,16,0B6,y,62,Sorcerer,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,6,16,0B6,y,85,Green D.,1
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,6,16,0B6,y,4E,BladeMan,2
+surface,map,0AD,map 0AD (no triggers): unnamed room,n,8,41,7,4,0B2,y,85,Green D.,1
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,0,43,0B3,y,62,Sorcerer,1
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,0,43,0B3,y,63,Mad Ogre,1
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,0,43,0B3,y,4E,BladeMan,2
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,1,43,0AC,y,69,Balloon,3
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,1,43,0AC,y,3E,Grudger,1
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,2,43,0B1,y,63,Mad Ogre,1
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,2,43,0B1,y,4E,BladeMan,1
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,2,43,0B1,y,6D,BlackCat,1
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,3,43,0A0,y,3B,Lamia,1
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,4,32,0AB,y,3E,Grudger,3
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,5,32,0A5,y,6D,BlackCat,2
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,5,32,0A5,y,3B,Lamia,2
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,6,16,0B6,y,62,Sorcerer,1
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,6,16,0B6,y,85,Green D.,1
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,6,16,0B6,y,4E,BladeMan,2
+surface,map,0AE,map 0AE (no triggers): B7F,n,8,42,7,4,0B2,y,85,Green D.,1
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,0,43,0B8,y,96,Searcher,1
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,0,43,0B8,y,88,Machine,1
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,1,43,0B9,y,96,Searcher,1
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,1,43,0B9,y,88,Machine,1
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,1,43,0B9,y,88,Machine,2
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,2,43,0BA,y,88,Machine,2
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,2,43,0BA,y,68,Beamer,1
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,3,43,0BB,y,88,Machine,2
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,3,43,0BB,y,68,Beamer,2
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,4,32,0BC,y,96,Searcher,1
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,4,32,0BC,y,91,Horseman,1
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,4,32,0BC,y,88,Machine,2
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,5,32,0BD,y,91,Horseman,1
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,5,32,0BD,y,88,Machine,2
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,6,16,0BE,y,89,MacGiant,1
+surface,map,0B5,Giant of Babil: Mouth,y,9,58,7,4,0BF,y,89,MacGiant,1
+surface,map,0B6,Giant of Babil: Neck,y,9,58,0,43,0B8,y,96,Searcher,1
+surface,map,0B6,Giant of Babil: Neck,y,9,58,0,43,0B8,y,88,Machine,1
+surface,map,0B6,Giant of Babil: Neck,y,9,58,1,43,0B9,y,96,Searcher,1
+surface,map,0B6,Giant of Babil: Neck,y,9,58,1,43,0B9,y,88,Machine,1
+surface,map,0B6,Giant of Babil: Neck,y,9,58,1,43,0B9,y,88,Machine,2
+surface,map,0B6,Giant of Babil: Neck,y,9,58,2,43,0BA,y,88,Machine,2
+surface,map,0B6,Giant of Babil: Neck,y,9,58,2,43,0BA,y,68,Beamer,1
+surface,map,0B6,Giant of Babil: Neck,y,9,58,3,43,0BB,y,88,Machine,2
+surface,map,0B6,Giant of Babil: Neck,y,9,58,3,43,0BB,y,68,Beamer,2
+surface,map,0B6,Giant of Babil: Neck,y,9,58,4,32,0BC,y,96,Searcher,1
+surface,map,0B6,Giant of Babil: Neck,y,9,58,4,32,0BC,y,91,Horseman,1
+surface,map,0B6,Giant of Babil: Neck,y,9,58,4,32,0BC,y,88,Machine,2
+surface,map,0B6,Giant of Babil: Neck,y,9,58,5,32,0BD,y,91,Horseman,1
+surface,map,0B6,Giant of Babil: Neck,y,9,58,5,32,0BD,y,88,Machine,2
+surface,map,0B6,Giant of Babil: Neck,y,9,58,6,16,0BE,y,89,MacGiant,1
+surface,map,0B6,Giant of Babil: Neck,y,9,58,7,4,0BF,y,89,MacGiant,1
+surface,map,0B7,Giant of Babil: Chest,y,9,59,0,43,0BC,y,96,Searcher,1
+surface,map,0B7,Giant of Babil: Chest,y,9,59,0,43,0BC,y,91,Horseman,1
+surface,map,0B7,Giant of Babil: Chest,y,9,59,0,43,0BC,y,88,Machine,2
+surface,map,0B7,Giant of Babil: Chest,y,9,59,1,43,0BB,y,88,Machine,2
+surface,map,0B7,Giant of Babil: Chest,y,9,59,1,43,0BB,y,68,Beamer,2
+surface,map,0B7,Giant of Babil: Chest,y,9,59,2,43,0C0,y,91,Horseman,1
+surface,map,0B7,Giant of Babil: Chest,y,9,59,2,43,0C0,y,68,Beamer,2
+surface,map,0B7,Giant of Babil: Chest,y,9,59,3,43,0C1,y,91,Horseman,1
+surface,map,0B7,Giant of Babil: Chest,y,9,59,3,43,0C1,y,68,Beamer,1
+surface,map,0B7,Giant of Babil: Chest,y,9,59,3,43,0C1,y,88,Machine,1
+surface,map,0B7,Giant of Babil: Chest,y,9,59,4,32,0C2,y,96,Searcher,1
+surface,map,0B7,Giant of Babil: Chest,y,9,59,4,32,0C2,y,89,MacGiant,1
+surface,map,0B7,Giant of Babil: Chest,y,9,59,5,32,0BE,y,89,MacGiant,1
+surface,map,0B7,Giant of Babil: Chest,y,9,59,6,16,0BF,y,89,MacGiant,1
+surface,map,0B7,Giant of Babil: Chest,y,9,59,7,4,0C3,y,89,MacGiant,1
+surface,map,0B7,Giant of Babil: Chest,y,9,59,7,4,0C3,y,91,Horseman,1
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,0,43,0C0,y,91,Horseman,1
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,0,43,0C0,y,68,Beamer,2
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,1,43,0C1,y,91,Horseman,1
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,1,43,0C1,y,68,Beamer,1
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,1,43,0C1,y,88,Machine,1
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,2,43,0C4,y,96,Searcher,1
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,2,43,0C4,y,91,Horseman,1
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,2,43,0C4,y,68,Beamer,2
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,3,43,0C5,y,88,Machine,2
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,3,43,0C5,y,68,Beamer,3
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,4,32,0C2,y,96,Searcher,1
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,4,32,0C2,y,89,MacGiant,1
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,5,32,0C6,y,91,Horseman,2
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,6,16,0C3,y,89,MacGiant,1
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,6,16,0C3,y,91,Horseman,1
+surface,map,0B9,Giant of Babil: Stomach,y,9,60,7,4,0C7,y,6E,D.Machin,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,0,43,0C4,y,96,Searcher,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,0,43,0C4,y,91,Horseman,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,0,43,0C4,y,68,Beamer,2
+surface,map,0BA,Giant of Babil: Passage,y,9,61,1,43,0C8,y,96,Searcher,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,1,43,0C8,y,6E,D.Machin,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,1,43,0C8,y,68,Beamer,2
+surface,map,0BA,Giant of Babil: Passage,y,9,61,2,43,0BD,y,91,Horseman,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,2,43,0BD,y,88,Machine,2
+surface,map,0BA,Giant of Babil: Passage,y,9,61,3,43,0C9,y,89,MacGiant,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,3,43,0C9,y,88,Machine,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,3,43,0C9,y,68,Beamer,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,4,32,0BF,y,89,MacGiant,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,5,32,0CA,y,89,MacGiant,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,5,32,0CA,y,91,Horseman,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,5,32,0CA,y,68,Beamer,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,6,16,0C7,y,6E,D.Machin,1
+surface,map,0BA,Giant of Babil: Passage,y,9,61,7,4,0CE,y,89,MacGiant,2
+surface,map,0BC,Giant of Babil: Lung,y,9,62,0,43,0CC,y,88,Machine,3
+surface,map,0BC,Giant of Babil: Lung,y,9,62,0,43,0CC,y,68,Beamer,2
+surface,map,0BC,Giant of Babil: Lung,y,9,62,1,43,0CD,y,68,Beamer,1
+surface,map,0BC,Giant of Babil: Lung,y,9,62,1,43,0CD,y,88,Machine,2
+surface,map,0BC,Giant of Babil: Lung,y,9,62,1,43,0CD,y,91,Horseman,1
+surface,map,0BC,Giant of Babil: Lung,y,9,62,2,43,0C4,y,96,Searcher,1
+surface,map,0BC,Giant of Babil: Lung,y,9,62,2,43,0C4,y,91,Horseman,1
+surface,map,0BC,Giant of Babil: Lung,y,9,62,2,43,0C4,y,68,Beamer,2
+surface,map,0BC,Giant of Babil: Lung,y,9,62,3,43,0C8,y,96,Searcher,1
+surface,map,0BC,Giant of Babil: Lung,y,9,62,3,43,0C8,y,6E,D.Machin,1
+surface,map,0BC,Giant of Babil: Lung,y,9,62,3,43,0C8,y,68,Beamer,2
+surface,map,0BC,Giant of Babil: Lung,y,9,62,4,32,0CE,y,89,MacGiant,2
+surface,map,0BC,Giant of Babil: Lung,y,9,62,5,32,0C7,y,6E,D.Machin,1
+surface,map,0BC,Giant of Babil: Lung,y,9,62,6,16,0CA,y,89,MacGiant,1
+surface,map,0BC,Giant of Babil: Lung,y,9,62,6,16,0CA,y,91,Horseman,1
+surface,map,0BC,Giant of Babil: Lung,y,9,62,6,16,0CA,y,68,Beamer,1
+surface,map,0BC,Giant of Babil: Lung,y,9,62,7,4,0CE,y,89,MacGiant,2
+surface,map,0C7,Cave Eblana,y,8,26,0,43,08C,y,65,GiantBat,3
+surface,map,0C7,Cave Eblana,y,8,26,1,43,08F,y,59,Ironback,2
+surface,map,0C7,Cave Eblana,y,8,26,2,43,092,y,31,Skull,3
+surface,map,0C7,Cave Eblana,y,8,26,3,43,091,y,59,Ironback,2
+surface,map,0C7,Cave Eblana,y,8,26,3,43,091,y,19,BlackLiz,2
+surface,map,0C7,Cave Eblana,y,8,26,4,32,093,y,31,Skull,2
+surface,map,0C7,Cave Eblana,y,8,26,4,32,093,y,31,Skull,2
+surface,map,0C7,Cave Eblana,y,8,26,5,32,08E,y,65,GiantBat,3
+surface,map,0C7,Cave Eblana,y,8,26,5,32,08E,y,05,Cave Bat,3
+surface,map,0C7,Cave Eblana,y,8,26,6,16,096,y,93,Staleman,1
+surface,map,0C7,Cave Eblana,y,8,26,6,16,096,y,31,Skull,2
+surface,map,0C7,Cave Eblana,y,8,26,7,4,095,y,93,Staleman,1
+surface,map,0C9,Pass to Bab-il,y,8,27,0,43,08D,y,65,GiantBat,3
+surface,map,0C9,Pass to Bab-il,y,8,27,0,43,08D,y,65,GiantBat,1
+surface,map,0C9,Pass to Bab-il,y,8,27,1,43,090,y,59,Ironback,1
+surface,map,0C9,Pass to Bab-il,y,8,27,1,43,090,y,4C,Armadilo,1
+surface,map,0C9,Pass to Bab-il,y,8,27,1,43,090,y,19,BlackLiz,1
+surface,map,0C9,Pass to Bab-il,y,8,27,2,43,093,y,31,Skull,2
+surface,map,0C9,Pass to Bab-il,y,8,27,2,43,093,y,31,Skull,2
+surface,map,0C9,Pass to Bab-il,y,8,27,3,43,091,y,59,Ironback,2
+surface,map,0C9,Pass to Bab-il,y,8,27,3,43,091,y,19,BlackLiz,2
+surface,map,0C9,Pass to Bab-il,y,8,27,4,32,092,y,31,Skull,3
+surface,map,0C9,Pass to Bab-il,y,8,27,5,32,08E,y,65,GiantBat,3
+surface,map,0C9,Pass to Bab-il,y,8,27,5,32,08E,y,05,Cave Bat,3
+surface,map,0C9,Pass to Bab-il,y,8,27,6,16,096,y,93,Staleman,1
+surface,map,0C9,Pass to Bab-il,y,8,27,6,16,096,y,31,Skull,2
+surface,map,0C9,Pass to Bab-il,y,8,27,7,4,095,y,93,Staleman,1
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,0,43,08D,y,65,GiantBat,3
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,0,43,08D,y,65,GiantBat,1
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,1,43,090,y,59,Ironback,1
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,1,43,090,y,4C,Armadilo,1
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,1,43,090,y,19,BlackLiz,1
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,2,43,094,y,2F,Red Bone,3
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,2,43,094,y,31,Skull,2
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,3,43,0A0,y,3B,Lamia,1
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,4,32,08E,y,65,GiantBat,3
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,4,32,08E,y,05,Cave Bat,3
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,5,32,091,y,59,Ironback,2
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,5,32,091,y,19,BlackLiz,2
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,6,16,097,y,93,Staleman,1
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,6,16,097,y,31,Skull,2
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,6,16,097,y,2F,Red Bone,2
+surface,map,0CA,Pass to Bab-il: unnamed room,y,8,13,7,4,095,y,93,Staleman,1
+underworld,map,115,Tower of Bab-il: unnamed room,n,63,29,0,43,108,y,46,Marion,1
+underworld,map,115,Tower of Bab-il: unnamed room,n,63,29,0,43,108,y,64,EvilDoll,1
+underworld,map,115,Tower of Bab-il: unnamed room,n,63,29,0,43,108,y,64,EvilDoll,2
+underworld,map,115,Tower of Bab-il: unnamed room,n,63,29,1,43,10C,y,5A,FlameDog,2
+underworld,map,115,Tower of Bab-il: unnamed room,n,63,29,1,43,10C,y,5A,FlameDog,2
+underworld,map,115,Tower of Bab-il: unnamed room,n,63,29,2,43,10D,y,67,FlameMan,1
+underworld,map,115,Tower of Bab-il: unnamed room,n,63,29,2,43,10D,y,5A,FlameDog,2
+underworld,map,115,Tower of Bab-il: unnamed room,n,63,29,3,43,10E,y,67,FlameMan,2
+underworld,map,115,Tower of Bab-il: unnamed room,n,63,29,3,43,10E,y,5A,FlameDog,2
+underworld,map,115,Tower of Bab-il: unnamed room,n,63,29,4,32,10F,y,19,BlackLiz,2
+underworld,map,115,Tower of Bab-il: unnamed room,n,63,29,5,32,110,y,19,BlackLiz,3
+underworld,map,115,Tower of Bab-il: unnamed room,n,63,29,6,16,107,y,19,BlackLiz,3
+underworld,map,115,Tower of Bab-il: unnamed room,n,63,29,7,4,107,y,19,BlackLiz,3
+underworld,map,116,Tower of Bab-il: unnamed room,n,63,30,0,43,10D,y,67,FlameMan,1
+underworld,map,116,Tower of Bab-il: unnamed room,n,63,30,0,43,10D,y,5A,FlameDog,2
+underworld,map,116,Tower of Bab-il: unnamed room,n,63,30,1,43,10F,y,19,BlackLiz,2
+underworld,map,116,Tower of Bab-il: unnamed room,n,63,30,2,43,110,y,19,BlackLiz,3
+underworld,map,116,Tower of Bab-il: unnamed room,n,63,30,3,43,111,y,19,BlackLiz,1
+underworld,map,116,Tower of Bab-il: unnamed room,n,63,30,4,32,112,y,52,Tortoise,2
+underworld,map,116,Tower of Bab-il: unnamed room,n,63,30,4,32,112,y,19,BlackLiz,1
+underworld,map,116,Tower of Bab-il: unnamed room,n,63,30,5,32,113,y,52,Tortoise,2
+underworld,map,116,Tower of Bab-il: unnamed room,n,63,30,5,32,113,y,19,BlackLiz,2
+underworld,map,116,Tower of Bab-il: unnamed room,n,63,30,6,16,107,y,19,BlackLiz,3
+underworld,map,116,Tower of Bab-il: unnamed room,n,63,30,7,4,115,y,81,Tofu,3
+underworld,map,116,Tower of Bab-il: unnamed room,n,63,30,7,4,115,y,81,Tofu,3
+underworld,map,117,Tower of Bab-il: unnamed room,n,63,31,0,43,111,y,19,BlackLiz,1
+underworld,map,117,Tower of Bab-il: unnamed room,n,63,31,1,43,112,y,52,Tortoise,2
+underworld,map,117,Tower of Bab-il: unnamed room,n,63,31,1,43,112,y,19,BlackLiz,1
+underworld,map,117,Tower of Bab-il: unnamed room,n,63,31,2,43,113,y,52,Tortoise,2
+underworld,map,117,Tower of Bab-il: unnamed room,n,63,31,2,43,113,y,19,BlackLiz,2
+underworld,map,117,Tower of Bab-il: unnamed room,n,63,31,3,43,116,y,57,Chimera,1
+underworld,map,117,Tower of Bab-il: unnamed room,n,63,31,3,43,116,y,81,Tofu,3
+underworld,map,117,Tower of Bab-il: unnamed room,n,63,31,4,32,117,y,57,Chimera,1
+underworld,map,117,Tower of Bab-il: unnamed room,n,63,31,5,32,118,y,57,Chimera,2
+underworld,map,117,Tower of Bab-il: unnamed room,n,63,31,6,16,107,y,19,BlackLiz,3
+underworld,map,117,Tower of Bab-il: unnamed room,n,63,31,7,4,115,y,81,Tofu,3
+underworld,map,117,Tower of Bab-il: unnamed room,n,63,31,7,4,115,y,81,Tofu,3
+underworld,map,118,Tower of Bab-il: unnamed room,n,63,32,0,43,116,y,57,Chimera,1
+underworld,map,118,Tower of Bab-il: unnamed room,n,63,32,0,43,116,y,81,Tofu,3
+underworld,map,118,Tower of Bab-il: unnamed room,n,63,32,1,43,117,y,57,Chimera,1
+underworld,map,118,Tower of Bab-il: unnamed room,n,63,32,2,43,118,y,57,Chimera,2
+underworld,map,118,Tower of Bab-il: unnamed room,n,63,32,3,43,119,y,57,Chimera,1
+underworld,map,118,Tower of Bab-il: unnamed room,n,63,32,3,43,119,y,67,FlameMan,1
+underworld,map,118,Tower of Bab-il: unnamed room,n,63,32,4,32,11A,y,57,Chimera,1
+underworld,map,118,Tower of Bab-il: unnamed room,n,63,32,4,32,11A,y,67,FlameMan,2
+underworld,map,118,Tower of Bab-il: unnamed room,n,63,32,5,32,11B,y,57,Chimera,1
+underworld,map,118,Tower of Bab-il: unnamed room,n,63,32,5,32,11B,y,5A,FlameDog,2
+underworld,map,118,Tower of Bab-il: unnamed room,n,63,32,6,16,107,y,19,BlackLiz,3
+underworld,map,118,Tower of Bab-il: unnamed room,n,63,32,7,4,115,y,81,Tofu,3
+underworld,map,118,Tower of Bab-il: unnamed room,n,63,32,7,4,115,y,81,Tofu,3
+underworld,map,11D,unknown map 11D: D,n,8,43,0,43,128,y,3B,Lamia,1
+underworld,map,11D,unknown map 11D: D,n,8,43,0,43,128,y,5E,Q.Lamia,1
+underworld,map,11D,unknown map 11D: D,n,8,43,1,43,134,y,62,Sorcerer,1
+underworld,map,11D,unknown map 11D: D,n,8,43,1,43,134,y,5E,Q.Lamia,1
+underworld,map,11D,unknown map 11D: D,n,8,43,1,43,134,y,6D,BlackCat,2
+underworld,map,11D,unknown map 11D: D,n,8,43,2,43,136,y,3E,Grudger,1
+underworld,map,11D,unknown map 11D: D,n,8,43,2,43,136,y,4E,BladeMan,2
+underworld,map,11D,unknown map 11D: D,n,8,43,3,43,129,y,3B,Lamia,3
+underworld,map,11D,unknown map 11D: D,n,8,43,3,43,129,y,5E,Q.Lamia,1
+underworld,map,11D,unknown map 11D: D,n,8,43,4,32,130,y,4E,BladeMan,1
+underworld,map,11D,unknown map 11D: D,n,8,43,4,32,130,y,6D,BlackCat,1
+underworld,map,11D,unknown map 11D: D,n,8,43,4,32,130,y,5E,Q.Lamia,1
+underworld,map,11D,unknown map 11D: D,n,8,43,5,32,12C,y,84,Ironman,1
+underworld,map,11D,unknown map 11D: D,n,8,43,6,16,132,y,62,Sorcerer,1
+underworld,map,11D,unknown map 11D: D,n,8,43,6,16,132,y,5E,Q.Lamia,1
+underworld,map,11D,unknown map 11D: D,n,8,43,6,16,132,y,6D,BlackCat,2
+underworld,map,11D,unknown map 11D: D,n,8,43,7,4,12F,y,85,Green D.,1
+underworld,map,11E,unknown map 11E: 7F,n,8,44,0,43,133,y,62,Sorcerer,1
+underworld,map,11E,unknown map 11E: 7F,n,8,44,0,43,133,y,84,Ironman,1
+underworld,map,11E,unknown map 11E: 7F,n,8,44,0,43,133,y,6D,BlackCat,2
+underworld,map,11E,unknown map 11E: 7F,n,8,44,1,43,135,y,3E,Grudger,2
+underworld,map,11E,unknown map 11E: 7F,n,8,44,1,43,135,y,4E,BladeMan,2
+underworld,map,11E,unknown map 11E: 7F,n,8,44,2,43,12A,y,5E,Q.Lamia,1
+underworld,map,11E,unknown map 11E: 7F,n,8,44,2,43,12A,y,3B,Lamia,1
+underworld,map,11E,unknown map 11E: 7F,n,8,44,2,43,12A,y,6D,BlackCat,2
+underworld,map,11E,unknown map 11E: 7F,n,8,44,3,43,12B,y,5E,Q.Lamia,1
+underworld,map,11E,unknown map 11E: 7F,n,8,44,3,43,12B,y,3B,Lamia,1
+underworld,map,11E,unknown map 11E: 7F,n,8,44,3,43,12B,y,3B,Lamia,2
+underworld,map,11E,unknown map 11E: 7F,n,8,44,4,32,137,y,3E,Grudger,1
+underworld,map,11E,unknown map 11E: 7F,n,8,44,4,32,137,y,6D,BlackCat,2
+underworld,map,11E,unknown map 11E: 7F,n,8,44,4,32,137,y,4E,BladeMan,1
+underworld,map,11E,unknown map 11E: 7F,n,8,44,5,32,12E,y,84,Ironman,1
+underworld,map,11E,unknown map 11E: 7F,n,8,44,5,32,12E,y,4E,BladeMan,2
+underworld,map,11E,unknown map 11E: 7F,n,8,44,6,16,132,y,62,Sorcerer,1
+underworld,map,11E,unknown map 11E: 7F,n,8,44,6,16,132,y,5E,Q.Lamia,1
+underworld,map,11E,unknown map 11E: 7F,n,8,44,6,16,132,y,6D,BlackCat,2
+underworld,map,11E,unknown map 11E: 7F,n,8,44,7,4,12F,y,85,Green D.,1
+underworld,map,11F,unknown map 11F: 6F,n,8,45,0,43,133,y,62,Sorcerer,1
+underworld,map,11F,unknown map 11F: 6F,n,8,45,0,43,133,y,84,Ironman,1
+underworld,map,11F,unknown map 11F: 6F,n,8,45,0,43,133,y,6D,BlackCat,2
+underworld,map,11F,unknown map 11F: 6F,n,8,45,1,43,12A,y,5E,Q.Lamia,1
+underworld,map,11F,unknown map 11F: 6F,n,8,45,1,43,12A,y,3B,Lamia,1
+underworld,map,11F,unknown map 11F: 6F,n,8,45,1,43,12A,y,6D,BlackCat,2
+underworld,map,11F,unknown map 11F: 6F,n,8,45,2,43,137,y,3E,Grudger,1
+underworld,map,11F,unknown map 11F: 6F,n,8,45,2,43,137,y,6D,BlackCat,2
+underworld,map,11F,unknown map 11F: 6F,n,8,45,2,43,137,y,4E,BladeMan,1
+underworld,map,11F,unknown map 11F: 6F,n,8,45,3,43,135,y,3E,Grudger,2
+underworld,map,11F,unknown map 11F: 6F,n,8,45,3,43,135,y,4E,BladeMan,2
+underworld,map,11F,unknown map 11F: 6F,n,8,45,4,32,12D,y,84,Ironman,2
+underworld,map,11F,unknown map 11F: 6F,n,8,45,5,32,131,y,84,Ironman,1
+underworld,map,11F,unknown map 11F: 6F,n,8,45,5,32,131,y,6D,BlackCat,2
+underworld,map,11F,unknown map 11F: 6F,n,8,45,6,16,132,y,62,Sorcerer,1
+underworld,map,11F,unknown map 11F: 6F,n,8,45,6,16,132,y,5E,Q.Lamia,1
+underworld,map,11F,unknown map 11F: 6F,n,8,45,6,16,132,y,6D,BlackCat,2
+underworld,map,11F,unknown map 11F: 6F,n,8,45,7,4,12F,y,85,Green D.,1
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,0,43,108,y,46,Marion,1
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,0,43,108,y,64,EvilDoll,1
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,0,43,108,y,64,EvilDoll,2
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,1,43,109,y,46,Marion,1
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,1,43,109,y,64,EvilDoll,1
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,1,43,109,y,64,EvilDoll,3
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,2,43,105,y,52,Tortoise,1
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,2,43,105,y,18,Dark Imp,2
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,3,43,104,y,18,Dark Imp,2
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,3,43,104,y,18,Dark Imp,2
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,4,32,10A,y,5A,FlameDog,2
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,5,32,10B,y,5A,FlameDog,3
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,6,16,107,y,19,BlackLiz,3
+underworld,map,121,Tower of Bab-il: 1F,n,7,28,7,4,107,y,19,BlackLiz,3
+underworld,map,122,Tower of Bab-il: 2F,n,7,29,0,43,108,y,46,Marion,1
+underworld,map,122,Tower of Bab-il: 2F,n,7,29,0,43,108,y,64,EvilDoll,1
+underworld,map,122,Tower of Bab-il: 2F,n,7,29,0,43,108,y,64,EvilDoll,2
+underworld,map,122,Tower of Bab-il: 2F,n,7,29,1,43,10C,y,5A,FlameDog,2
+underworld,map,122,Tower of Bab-il: 2F,n,7,29,1,43,10C,y,5A,FlameDog,2
+underworld,map,122,Tower of Bab-il: 2F,n,7,29,2,43,10D,y,67,FlameMan,1
+underworld,map,122,Tower of Bab-il: 2F,n,7,29,2,43,10D,y,5A,FlameDog,2
+underworld,map,122,Tower of Bab-il: 2F,n,7,29,3,43,10E,y,67,FlameMan,2
+underworld,map,122,Tower of Bab-il: 2F,n,7,29,3,43,10E,y,5A,FlameDog,2
+underworld,map,122,Tower of Bab-il: 2F,n,7,29,4,32,10F,y,19,BlackLiz,2
+underworld,map,122,Tower of Bab-il: 2F,n,7,29,5,32,110,y,19,BlackLiz,3
+underworld,map,122,Tower of Bab-il: 2F,n,7,29,6,16,107,y,19,BlackLiz,3
+underworld,map,122,Tower of Bab-il: 2F,n,7,29,7,4,107,y,19,BlackLiz,3
+underworld,map,123,Tower of Bab-il: 3F,n,7,30,0,43,10D,y,67,FlameMan,1
+underworld,map,123,Tower of Bab-il: 3F,n,7,30,0,43,10D,y,5A,FlameDog,2
+underworld,map,123,Tower of Bab-il: 3F,n,7,30,1,43,10F,y,19,BlackLiz,2
+underworld,map,123,Tower of Bab-il: 3F,n,7,30,2,43,110,y,19,BlackLiz,3
+underworld,map,123,Tower of Bab-il: 3F,n,7,30,3,43,111,y,19,BlackLiz,1
+underworld,map,123,Tower of Bab-il: 3F,n,7,30,4,32,112,y,52,Tortoise,2
+underworld,map,123,Tower of Bab-il: 3F,n,7,30,4,32,112,y,19,BlackLiz,1
+underworld,map,123,Tower of Bab-il: 3F,n,7,30,5,32,113,y,52,Tortoise,2
+underworld,map,123,Tower of Bab-il: 3F,n,7,30,5,32,113,y,19,BlackLiz,2
+underworld,map,123,Tower of Bab-il: 3F,n,7,30,6,16,107,y,19,BlackLiz,3
+underworld,map,123,Tower of Bab-il: 3F,n,7,30,7,4,115,y,81,Tofu,3
+underworld,map,123,Tower of Bab-il: 3F,n,7,30,7,4,115,y,81,Tofu,3
+underworld,map,124,Tower of Bab-il: 4F,n,7,31,0,43,111,y,19,BlackLiz,1
+underworld,map,124,Tower of Bab-il: 4F,n,7,31,1,43,112,y,52,Tortoise,2
+underworld,map,124,Tower of Bab-il: 4F,n,7,31,1,43,112,y,19,BlackLiz,1
+underworld,map,124,Tower of Bab-il: 4F,n,7,31,2,43,113,y,52,Tortoise,2
+underworld,map,124,Tower of Bab-il: 4F,n,7,31,2,43,113,y,19,BlackLiz,2
+underworld,map,124,Tower of Bab-il: 4F,n,7,31,3,43,116,y,57,Chimera,1
+underworld,map,124,Tower of Bab-il: 4F,n,7,31,3,43,116,y,81,Tofu,3
+underworld,map,124,Tower of Bab-il: 4F,n,7,31,4,32,117,y,57,Chimera,1
+underworld,map,124,Tower of Bab-il: 4F,n,7,31,5,32,118,y,57,Chimera,2
+underworld,map,124,Tower of Bab-il: 4F,n,7,31,6,16,107,y,19,BlackLiz,3
+underworld,map,124,Tower of Bab-il: 4F,n,7,31,7,4,115,y,81,Tofu,3
+underworld,map,124,Tower of Bab-il: 4F,n,7,31,7,4,115,y,81,Tofu,3
+underworld,map,125,Tower of Bab-il: 5F,n,7,32,0,43,116,y,57,Chimera,1
+underworld,map,125,Tower of Bab-il: 5F,n,7,32,0,43,116,y,81,Tofu,3
+underworld,map,125,Tower of Bab-il: 5F,n,7,32,1,43,117,y,57,Chimera,1
+underworld,map,125,Tower of Bab-il: 5F,n,7,32,2,43,118,y,57,Chimera,2
+underworld,map,125,Tower of Bab-il: 5F,n,7,32,3,43,119,y,57,Chimera,1
+underworld,map,125,Tower of Bab-il: 5F,n,7,32,3,43,119,y,67,FlameMan,1
+underworld,map,125,Tower of Bab-il: 5F,n,7,32,4,32,11A,y,57,Chimera,1
+underworld,map,125,Tower of Bab-il: 5F,n,7,32,4,32,11A,y,67,FlameMan,2
+underworld,map,125,Tower of Bab-il: 5F,n,7,32,5,32,11B,y,57,Chimera,1
+underworld,map,125,Tower of Bab-il: 5F,n,7,32,5,32,11B,y,5A,FlameDog,2
+underworld,map,125,Tower of Bab-il: 5F,n,7,32,6,16,107,y,19,BlackLiz,3
+underworld,map,125,Tower of Bab-il: 5F,n,7,32,7,4,115,y,81,Tofu,3
+underworld,map,125,Tower of Bab-il: 5F,n,7,32,7,4,115,y,81,Tofu,3
+underworld,map,126,Tower of Bab-il: 6F,n,7,33,0,43,121,y,87,Alert,1
+underworld,map,126,Tower of Bab-il: 6F,n,7,33,0,43,121,y,40,Naga,1
+underworld,map,126,Tower of Bab-il: 6F,n,7,33,1,43,122,y,87,Alert,1
+underworld,map,126,Tower of Bab-il: 6F,n,7,33,1,43,122,y,5A,FlameDog,1
+underworld,map,126,Tower of Bab-il: 6F,n,7,33,2,43,118,y,57,Chimera,2
+underworld,map,126,Tower of Bab-il: 6F,n,7,33,3,43,11C,y,5C,Stoneman,1
+underworld,map,126,Tower of Bab-il: 6F,n,7,33,3,43,11C,y,50,Medusa,1
+underworld,map,126,Tower of Bab-il: 6F,n,7,33,4,32,11B,y,57,Chimera,1
+underworld,map,126,Tower of Bab-il: 6F,n,7,33,4,32,11B,y,5A,FlameDog,2
+underworld,map,126,Tower of Bab-il: 6F,n,7,33,5,32,11D,y,50,Medusa,2
+underworld,map,126,Tower of Bab-il: 6F,n,7,33,6,16,107,y,19,BlackLiz,3
+underworld,map,126,Tower of Bab-il: 6F,n,7,33,7,4,115,y,81,Tofu,3
+underworld,map,126,Tower of Bab-il: 6F,n,7,33,7,4,115,y,81,Tofu,3
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,0,43,11C,y,5C,Stoneman,1
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,0,43,11C,y,50,Medusa,1
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,1,43,11D,y,50,Medusa,2
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,2,43,121,y,87,Alert,1
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,2,43,121,y,40,Naga,1
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,3,43,122,y,87,Alert,1
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,3,43,122,y,5A,FlameDog,1
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,4,32,11E,y,5C,Stoneman,2
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,5,32,11F,y,87,Alert,1
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,5,32,11F,y,57,Chimera,1
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,6,16,115,y,81,Tofu,3
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,6,16,115,y,81,Tofu,3
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,7,4,115,y,81,Tofu,3
+underworld,map,127,Tower of Bab-il: 7F,n,7,34,7,4,115,y,81,Tofu,3
+underworld,map,128,Tower of Bab-il: 8F,n,7,35,0,43,121,y,87,Alert,1
+underworld,map,128,Tower of Bab-il: 8F,n,7,35,0,43,121,y,40,Naga,1
+underworld,map,128,Tower of Bab-il: 8F,n,7,35,1,43,11B,y,57,Chimera,1
+underworld,map,128,Tower of Bab-il: 8F,n,7,35,1,43,11B,y,5A,FlameDog,2
+underworld,map,128,Tower of Bab-il: 8F,n,7,35,2,43,118,y,57,Chimera,2
+underworld,map,128,Tower of Bab-il: 8F,n,7,35,3,43,11E,y,5C,Stoneman,2
+underworld,map,128,Tower of Bab-il: 8F,n,7,35,4,32,120,y,87,Alert,1
+underworld,map,128,Tower of Bab-il: 8F,n,7,35,4,32,120,y,5C,Stoneman,1
+underworld,map,128,Tower of Bab-il: 8F,n,7,35,5,32,11F,y,87,Alert,1
+underworld,map,128,Tower of Bab-il: 8F,n,7,35,5,32,11F,y,57,Chimera,1
+underworld,map,128,Tower of Bab-il: 8F,n,7,35,6,16,114,y,81,Tofu,3
+underworld,map,128,Tower of Bab-il: 8F,n,7,35,6,16,114,y,81,Tofu,1
+underworld,map,128,Tower of Bab-il: 8F,n,7,35,7,4,118,y,57,Chimera,2
+underworld,map,129,map 129 (no triggers): D,n,4,57,0,43,178,y,D9,Dummy,1
+underworld,map,129,map 129 (no triggers): D,n,4,57,1,43,17C,y,DD,Dummy,1
+underworld,map,129,map 129 (no triggers): D,n,4,57,2,43,17A,y,DB,Dummy,1
+underworld,map,129,map 129 (no triggers): D,n,4,57,3,43,179,y,D7,Dummy,1
+underworld,map,129,map 129 (no triggers): D,n,4,57,4,32,17E,y,DE,Dummy,1
+underworld,map,129,map 129 (no triggers): D,n,4,57,5,32,17B,y,DA,Dummy,1
+underworld,map,129,map 129 (no triggers): D,n,4,57,6,16,17D,y,DC,Dummy,1
+underworld,map,129,map 129 (no triggers): D,n,4,57,7,4,17D,y,DC,Dummy,1
+underworld,map,136,Land of Monsters,y,9,51,0,43,14C,y,73,Red Eye,2
+underworld,map,136,Land of Monsters,y,9,51,1,43,158,y,66,Arachne,1
+underworld,map,136,Land of Monsters,y,9,51,2,43,151,y,4B,Warrior,2
+underworld,map,136,Land of Monsters,y,9,51,2,43,151,y,8E,Fiend,2
+underworld,map,136,Land of Monsters,y,9,51,3,43,153,y,79,Conjurer,1
+underworld,map,136,Land of Monsters,y,9,51,3,43,153,y,00,Imp,1
+underworld,map,136,Land of Monsters,y,9,51,4,32,154,y,79,Conjurer,1
+underworld,map,136,Land of Monsters,y,9,51,4,32,154,y,76,RockMoth,1
+underworld,map,136,Land of Monsters,y,9,51,5,32,156,y,79,Conjurer,1
+underworld,map,136,Land of Monsters,y,9,51,5,32,156,y,4F,HugeNaga,1
+underworld,map,136,Land of Monsters,y,9,51,6,16,157,y,79,Conjurer,1
+underworld,map,136,Land of Monsters,y,9,51,6,16,157,y,9D,Clapper,1
+underworld,map,136,Land of Monsters,y,9,51,7,4,15A,y,9D,Clapper,1
+underworld,map,137,Land of Monsters: B2F,y,9,52,0,43,14F,y,27,Hooligan,1
+underworld,map,137,Land of Monsters: B2F,y,9,52,1,43,158,y,66,Arachne,1
+underworld,map,137,Land of Monsters: B2F,y,9,52,2,43,151,y,4B,Warrior,2
+underworld,map,137,Land of Monsters: B2F,y,9,52,2,43,151,y,8E,Fiend,2
+underworld,map,137,Land of Monsters: B2F,y,9,52,3,43,154,y,79,Conjurer,1
+underworld,map,137,Land of Monsters: B2F,y,9,52,3,43,154,y,76,RockMoth,1
+underworld,map,137,Land of Monsters: B2F,y,9,52,4,32,155,y,79,Conjurer,1
+underworld,map,137,Land of Monsters: B2F,y,9,52,4,32,155,y,66,Arachne,1
+underworld,map,137,Land of Monsters: B2F,y,9,52,5,32,156,y,79,Conjurer,1
+underworld,map,137,Land of Monsters: B2F,y,9,52,5,32,156,y,4F,HugeNaga,1
+underworld,map,137,Land of Monsters: B2F,y,9,52,6,16,157,y,79,Conjurer,1
+underworld,map,137,Land of Monsters: B2F,y,9,52,6,16,157,y,9D,Clapper,1
+underworld,map,137,Land of Monsters: B2F,y,9,52,7,4,15A,y,9D,Clapper,1
+underworld,map,138,Land of Monsters: B3F,y,9,53,0,43,14D,y,73,Red Eye,3
+underworld,map,138,Land of Monsters: B3F,y,9,53,1,43,159,y,66,Arachne,2
+underworld,map,138,Land of Monsters: B3F,y,9,53,2,43,152,y,4B,Warrior,2
+underworld,map,138,Land of Monsters: B3F,y,9,53,2,43,152,y,8E,Fiend,2
+underworld,map,138,Land of Monsters: B3F,y,9,53,2,43,152,y,8E,Fiend,2
+underworld,map,138,Land of Monsters: B3F,y,9,53,3,43,150,y,27,Hooligan,2
+underworld,map,138,Land of Monsters: B3F,y,9,53,4,32,155,y,79,Conjurer,1
+underworld,map,138,Land of Monsters: B3F,y,9,53,4,32,155,y,66,Arachne,1
+underworld,map,138,Land of Monsters: B3F,y,9,53,5,32,156,y,79,Conjurer,1
+underworld,map,138,Land of Monsters: B3F,y,9,53,5,32,156,y,4F,HugeNaga,1
+underworld,map,138,Land of Monsters: B3F,y,9,53,6,16,157,y,79,Conjurer,1
+underworld,map,138,Land of Monsters: B3F,y,9,53,6,16,157,y,9D,Clapper,1
+underworld,map,138,Land of Monsters: B3F,y,9,53,7,4,15B,y,9D,Clapper,2
+underworld,map,145,Sylvan Cave,y,8,46,0,43,140,y,7C,ToadLady,1
+underworld,map,145,Sylvan Cave,y,8,46,0,43,140,y,5F,TinyToad,3
+underworld,map,145,Sylvan Cave,y,8,46,1,43,145,y,54,Ghost,3
+underworld,map,145,Sylvan Cave,y,8,46,2,43,148,y,54,Ghost,3
+underworld,map,145,Sylvan Cave,y,8,46,2,43,148,y,7D,DarkTree,2
+underworld,map,145,Sylvan Cave,y,8,46,3,43,142,y,8B,Molbol,2
+underworld,map,145,Sylvan Cave,y,8,46,4,32,146,y,54,Ghost,2
+underworld,map,145,Sylvan Cave,y,8,46,4,32,146,y,54,Ghost,2
+underworld,map,145,Sylvan Cave,y,8,46,5,32,141,y,7C,ToadLady,1
+underworld,map,145,Sylvan Cave,y,8,46,5,32,141,y,5F,TinyToad,3
+underworld,map,145,Sylvan Cave,y,8,46,5,32,141,y,5F,TinyToad,3
+underworld,map,145,Sylvan Cave,y,8,46,6,16,14A,y,71,Centpede,1
+underworld,map,145,Sylvan Cave,y,8,46,6,16,14A,y,8B,Molbol,2
+underworld,map,145,Sylvan Cave,y,8,46,7,4,143,y,8B,Molbol,3
+underworld,map,146,Sylvan Cave: B2F,y,8,47,0,43,141,y,7C,ToadLady,1
+underworld,map,146,Sylvan Cave: B2F,y,8,47,0,43,141,y,5F,TinyToad,3
+underworld,map,146,Sylvan Cave: B2F,y,8,47,0,43,141,y,5F,TinyToad,3
+underworld,map,146,Sylvan Cave: B2F,y,8,47,1,43,14B,y,7D,DarkTree,2
+underworld,map,146,Sylvan Cave: B2F,y,8,47,1,43,14B,y,8B,Molbol,2
+underworld,map,146,Sylvan Cave: B2F,y,8,47,2,43,148,y,54,Ghost,3
+underworld,map,146,Sylvan Cave: B2F,y,8,47,2,43,148,y,7D,DarkTree,2
+underworld,map,146,Sylvan Cave: B2F,y,8,47,3,43,149,y,7D,DarkTree,2
+underworld,map,146,Sylvan Cave: B2F,y,8,47,3,43,149,y,8B,Molbol,1
+underworld,map,146,Sylvan Cave: B2F,y,8,47,3,43,149,y,54,Ghost,1
+underworld,map,146,Sylvan Cave: B2F,y,8,47,4,32,140,y,7C,ToadLady,1
+underworld,map,146,Sylvan Cave: B2F,y,8,47,4,32,140,y,5F,TinyToad,3
+underworld,map,146,Sylvan Cave: B2F,y,8,47,5,32,147,y,8B,Molbol,1
+underworld,map,146,Sylvan Cave: B2F,y,8,47,5,32,147,y,54,Ghost,1
+underworld,map,146,Sylvan Cave: B2F,y,8,47,5,32,147,y,7D,DarkTree,1
+underworld,map,146,Sylvan Cave: B2F,y,8,47,6,16,143,y,8B,Molbol,3
+underworld,map,146,Sylvan Cave: B2F,y,8,47,7,4,144,y,8B,Molbol,1
+underworld,map,146,Sylvan Cave: B2F,y,8,47,7,4,144,y,54,Ghost,2
+underworld,map,147,Sylvan Cave: B3F,y,8,46,0,43,140,y,7C,ToadLady,1
+underworld,map,147,Sylvan Cave: B3F,y,8,46,0,43,140,y,5F,TinyToad,3
+underworld,map,147,Sylvan Cave: B3F,y,8,46,1,43,145,y,54,Ghost,3
+underworld,map,147,Sylvan Cave: B3F,y,8,46,2,43,148,y,54,Ghost,3
+underworld,map,147,Sylvan Cave: B3F,y,8,46,2,43,148,y,7D,DarkTree,2
+underworld,map,147,Sylvan Cave: B3F,y,8,46,3,43,142,y,8B,Molbol,2
+underworld,map,147,Sylvan Cave: B3F,y,8,46,4,32,146,y,54,Ghost,2
+underworld,map,147,Sylvan Cave: B3F,y,8,46,4,32,146,y,54,Ghost,2
+underworld,map,147,Sylvan Cave: B3F,y,8,46,5,32,141,y,7C,ToadLady,1
+underworld,map,147,Sylvan Cave: B3F,y,8,46,5,32,141,y,5F,TinyToad,3
+underworld,map,147,Sylvan Cave: B3F,y,8,46,5,32,141,y,5F,TinyToad,3
+underworld,map,147,Sylvan Cave: B3F,y,8,46,6,16,14A,y,71,Centpede,1
+underworld,map,147,Sylvan Cave: B3F,y,8,46,6,16,14A,y,8B,Molbol,2
+underworld,map,147,Sylvan Cave: B3F,y,8,46,7,4,143,y,8B,Molbol,3
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,0,43,141,y,7C,ToadLady,1
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,0,43,141,y,5F,TinyToad,3
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,0,43,141,y,5F,TinyToad,3
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,1,43,14B,y,7D,DarkTree,2
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,1,43,14B,y,8B,Molbol,2
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,2,43,148,y,54,Ghost,3
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,2,43,148,y,7D,DarkTree,2
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,3,43,149,y,7D,DarkTree,2
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,3,43,149,y,8B,Molbol,1
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,3,43,149,y,54,Ghost,1
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,4,32,140,y,7C,ToadLady,1
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,4,32,140,y,5F,TinyToad,3
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,5,32,147,y,8B,Molbol,1
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,5,32,147,y,54,Ghost,1
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,5,32,147,y,7D,DarkTree,1
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,6,16,143,y,8B,Molbol,3
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,7,4,144,y,8B,Molbol,1
+underworld,map,148,Sylvan Cave: unnamed room,y,8,47,7,4,144,y,54,Ghost,2
+underworld,map,14A,Sealed Cave: B1F,y,4,48,0,43,160,y,77,Were Bat,2
+underworld,map,14A,Sealed Cave: B1F,y,4,48,0,43,160,y,77,Were Bat,2
+underworld,map,14A,Sealed Cave: B1F,y,4,48,1,43,162,y,45,VampLady,1
+underworld,map,14A,Sealed Cave: B1F,y,4,48,1,43,162,y,77,Were Bat,3
+underworld,map,14A,Sealed Cave: B1F,y,4,48,2,43,166,y,4A,Screamer,2
+underworld,map,14A,Sealed Cave: B1F,y,4,48,3,43,161,y,77,Were Bat,3
+underworld,map,14A,Sealed Cave: B1F,y,4,48,4,32,163,y,45,VampLady,1
+underworld,map,14A,Sealed Cave: B1F,y,4,48,4,32,163,y,77,Were Bat,3
+underworld,map,14A,Sealed Cave: B1F,y,4,48,4,32,163,y,77,Were Bat,3
+underworld,map,14A,Sealed Cave: B1F,y,4,48,5,32,168,y,4F,HugeNaga,2
+underworld,map,14A,Sealed Cave: B1F,y,4,48,6,16,168,y,4F,HugeNaga,2
+underworld,map,14A,Sealed Cave: B1F,y,4,48,7,4,168,y,4F,HugeNaga,2
+underworld,map,14B,Sealed Cave: unnamed room,y,4,48,0,43,160,y,77,Were Bat,2
+underworld,map,14B,Sealed Cave: unnamed room,y,4,48,0,43,160,y,77,Were Bat,2
+underworld,map,14B,Sealed Cave: unnamed room,y,4,48,1,43,162,y,45,VampLady,1
+underworld,map,14B,Sealed Cave: unnamed room,y,4,48,1,43,162,y,77,Were Bat,3
+underworld,map,14B,Sealed Cave: unnamed room,y,4,48,2,43,166,y,4A,Screamer,2
+underworld,map,14B,Sealed Cave: unnamed room,y,4,48,3,43,161,y,77,Were Bat,3
+underworld,map,14B,Sealed Cave: unnamed room,y,4,48,4,32,163,y,45,VampLady,1
+underworld,map,14B,Sealed Cave: unnamed room,y,4,48,4,32,163,y,77,Were Bat,3
+underworld,map,14B,Sealed Cave: unnamed room,y,4,48,4,32,163,y,77,Were Bat,3
+underworld,map,14B,Sealed Cave: unnamed room,y,4,48,5,32,168,y,4F,HugeNaga,2
+underworld,map,14B,Sealed Cave: unnamed room,y,4,48,6,16,168,y,4F,HugeNaga,2
+underworld,map,14B,Sealed Cave: unnamed room,y,4,48,7,4,168,y,4F,HugeNaga,2
+underworld,map,14C,Sealed Cave: unnamed room,y,4,48,0,43,160,y,77,Were Bat,2
+underworld,map,14C,Sealed Cave: unnamed room,y,4,48,0,43,160,y,77,Were Bat,2
+underworld,map,14C,Sealed Cave: unnamed room,y,4,48,1,43,162,y,45,VampLady,1
+underworld,map,14C,Sealed Cave: unnamed room,y,4,48,1,43,162,y,77,Were Bat,3
+underworld,map,14C,Sealed Cave: unnamed room,y,4,48,2,43,166,y,4A,Screamer,2
+underworld,map,14C,Sealed Cave: unnamed room,y,4,48,3,43,161,y,77,Were Bat,3
+underworld,map,14C,Sealed Cave: unnamed room,y,4,48,4,32,163,y,45,VampLady,1
+underworld,map,14C,Sealed Cave: unnamed room,y,4,48,4,32,163,y,77,Were Bat,3
+underworld,map,14C,Sealed Cave: unnamed room,y,4,48,4,32,163,y,77,Were Bat,3
+underworld,map,14C,Sealed Cave: unnamed room,y,4,48,5,32,168,y,4F,HugeNaga,2
+underworld,map,14C,Sealed Cave: unnamed room,y,4,48,6,16,168,y,4F,HugeNaga,2
+underworld,map,14C,Sealed Cave: unnamed room,y,4,48,7,4,168,y,4F,HugeNaga,2
+underworld,map,14D,Sealed Cave: B2F,y,4,48,0,43,160,y,77,Were Bat,2
+underworld,map,14D,Sealed Cave: B2F,y,4,48,0,43,160,y,77,Were Bat,2
+underworld,map,14D,Sealed Cave: B2F,y,4,48,1,43,162,y,45,VampLady,1
+underworld,map,14D,Sealed Cave: B2F,y,4,48,1,43,162,y,77,Were Bat,3
+underworld,map,14D,Sealed Cave: B2F,y,4,48,2,43,166,y,4A,Screamer,2
+underworld,map,14D,Sealed Cave: B2F,y,4,48,3,43,161,y,77,Were Bat,3
+underworld,map,14D,Sealed Cave: B2F,y,4,48,4,32,163,y,45,VampLady,1
+underworld,map,14D,Sealed Cave: B2F,y,4,48,4,32,163,y,77,Were Bat,3
+underworld,map,14D,Sealed Cave: B2F,y,4,48,4,32,163,y,77,Were Bat,3
+underworld,map,14D,Sealed Cave: B2F,y,4,48,5,32,168,y,4F,HugeNaga,2
+underworld,map,14D,Sealed Cave: B2F,y,4,48,6,16,168,y,4F,HugeNaga,2
+underworld,map,14D,Sealed Cave: B2F,y,4,48,7,4,168,y,4F,HugeNaga,2
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,0,43,161,y,77,Were Bat,3
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,1,43,163,y,45,VampLady,1
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,1,43,163,y,77,Were Bat,3
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,1,43,163,y,77,Were Bat,3
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,2,43,167,y,7E,Mantcore,1
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,2,43,167,y,4A,Screamer,1
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,3,43,168,y,4F,HugeNaga,2
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,4,32,164,y,45,VampLady,2
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,4,32,164,y,77,Were Bat,3
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,5,32,169,y,4A,Screamer,1
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,5,32,169,y,4F,HugeNaga,1
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,6,16,160,y,77,Were Bat,2
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,6,16,160,y,77,Were Bat,2
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,7,4,162,y,45,VampLady,1
+underworld,map,14E,Sealed Cave: unnamed room,y,4,49,7,4,162,y,77,Were Bat,3
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,0,43,161,y,77,Were Bat,3
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,1,43,163,y,45,VampLady,1
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,1,43,163,y,77,Were Bat,3
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,1,43,163,y,77,Were Bat,3
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,2,43,167,y,7E,Mantcore,1
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,2,43,167,y,4A,Screamer,1
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,3,43,168,y,4F,HugeNaga,2
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,4,32,164,y,45,VampLady,2
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,4,32,164,y,77,Were Bat,3
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,5,32,169,y,4A,Screamer,1
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,5,32,169,y,4F,HugeNaga,1
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,6,16,160,y,77,Were Bat,2
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,6,16,160,y,77,Were Bat,2
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,7,4,162,y,45,VampLady,1
+underworld,map,14F,Sealed Cave: unnamed room,y,4,49,7,4,162,y,77,Were Bat,3
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,0,43,161,y,77,Were Bat,3
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,1,43,163,y,45,VampLady,1
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,1,43,163,y,77,Were Bat,3
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,1,43,163,y,77,Were Bat,3
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,2,43,167,y,7E,Mantcore,1
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,2,43,167,y,4A,Screamer,1
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,3,43,168,y,4F,HugeNaga,2
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,4,32,164,y,45,VampLady,2
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,4,32,164,y,77,Were Bat,3
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,5,32,169,y,4A,Screamer,1
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,5,32,169,y,4F,HugeNaga,1
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,6,16,160,y,77,Were Bat,2
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,6,16,160,y,77,Were Bat,2
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,7,4,162,y,45,VampLady,1
+underworld,map,150,Sealed Cave: unnamed room,y,4,49,7,4,162,y,77,Were Bat,3
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,0,43,161,y,77,Were Bat,3
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,1,43,163,y,45,VampLady,1
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,1,43,163,y,77,Were Bat,3
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,1,43,163,y,77,Were Bat,3
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,2,43,167,y,7E,Mantcore,1
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,2,43,167,y,4A,Screamer,1
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,3,43,168,y,4F,HugeNaga,2
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,4,32,164,y,45,VampLady,2
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,4,32,164,y,77,Were Bat,3
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,5,32,169,y,4A,Screamer,1
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,5,32,169,y,4F,HugeNaga,1
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,6,16,160,y,77,Were Bat,2
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,6,16,160,y,77,Were Bat,2
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,7,4,162,y,45,VampLady,1
+underworld,map,151,Sealed Cave: unnamed room,y,4,49,7,4,162,y,77,Were Bat,3
+underworld,map,152,Sealed Cave: B3F,y,4,49,0,43,161,y,77,Were Bat,3
+underworld,map,152,Sealed Cave: B3F,y,4,49,1,43,163,y,45,VampLady,1
+underworld,map,152,Sealed Cave: B3F,y,4,49,1,43,163,y,77,Were Bat,3
+underworld,map,152,Sealed Cave: B3F,y,4,49,1,43,163,y,77,Were Bat,3
+underworld,map,152,Sealed Cave: B3F,y,4,49,2,43,167,y,7E,Mantcore,1
+underworld,map,152,Sealed Cave: B3F,y,4,49,2,43,167,y,4A,Screamer,1
+underworld,map,152,Sealed Cave: B3F,y,4,49,3,43,168,y,4F,HugeNaga,2
+underworld,map,152,Sealed Cave: B3F,y,4,49,4,32,164,y,45,VampLady,2
+underworld,map,152,Sealed Cave: B3F,y,4,49,4,32,164,y,77,Were Bat,3
+underworld,map,152,Sealed Cave: B3F,y,4,49,5,32,169,y,4A,Screamer,1
+underworld,map,152,Sealed Cave: B3F,y,4,49,5,32,169,y,4F,HugeNaga,1
+underworld,map,152,Sealed Cave: B3F,y,4,49,6,16,160,y,77,Were Bat,2
+underworld,map,152,Sealed Cave: B3F,y,4,49,6,16,160,y,77,Were Bat,2
+underworld,map,152,Sealed Cave: B3F,y,4,49,7,4,162,y,45,VampLady,1
+underworld,map,152,Sealed Cave: B3F,y,4,49,7,4,162,y,77,Were Bat,3
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,0,43,160,y,77,Were Bat,2
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,0,43,160,y,77,Were Bat,2
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,1,43,164,y,45,VampLady,2
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,1,43,164,y,77,Were Bat,3
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,2,43,167,y,7E,Mantcore,1
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,2,43,167,y,4A,Screamer,1
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,3,43,16A,y,4F,HugeNaga,1
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,3,43,16A,y,4A,Screamer,2
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,4,32,162,y,45,VampLady,1
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,4,32,162,y,77,Were Bat,3
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,5,32,169,y,4A,Screamer,1
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,5,32,169,y,4F,HugeNaga,1
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,6,16,164,y,45,VampLady,2
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,6,16,164,y,77,Were Bat,3
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,7,4,169,y,4A,Screamer,1
+underworld,map,153,Sealed Cave: unnamed room,y,4,50,7,4,169,y,4F,HugeNaga,1
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,0,43,160,y,77,Were Bat,2
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,0,43,160,y,77,Were Bat,2
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,1,43,164,y,45,VampLady,2
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,1,43,164,y,77,Were Bat,3
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,2,43,167,y,7E,Mantcore,1
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,2,43,167,y,4A,Screamer,1
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,3,43,16A,y,4F,HugeNaga,1
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,3,43,16A,y,4A,Screamer,2
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,4,32,162,y,45,VampLady,1
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,4,32,162,y,77,Were Bat,3
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,5,32,169,y,4A,Screamer,1
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,5,32,169,y,4F,HugeNaga,1
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,6,16,164,y,45,VampLady,2
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,6,16,164,y,77,Were Bat,3
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,7,4,169,y,4A,Screamer,1
+underworld,map,154,Sealed Cave: unnamed room,y,4,50,7,4,169,y,4F,HugeNaga,1
+moon,map,15A,Cave Bahamut,y,9,55,0,43,180,y,97,Warlock,1
+moon,map,15A,Cave Bahamut,y,9,55,1,43,180,y,97,Warlock,1
+moon,map,15A,Cave Bahamut,y,9,55,2,43,181,y,97,Warlock,1
+moon,map,15A,Cave Bahamut,y,9,55,2,43,181,y,8A,Kary,1
+moon,map,15A,Cave Bahamut,y,9,55,3,43,183,y,92,RedGiant,1
+moon,map,15A,Cave Bahamut,y,9,55,4,32,181,y,97,Warlock,1
+moon,map,15A,Cave Bahamut,y,9,55,4,32,181,y,8A,Kary,1
+moon,map,15A,Cave Bahamut,y,9,55,5,32,182,y,97,Warlock,1
+moon,map,15A,Cave Bahamut,y,9,55,5,32,182,y,8A,Kary,2
+moon,map,15A,Cave Bahamut,y,9,55,6,16,184,y,97,Warlock,1
+moon,map,15A,Cave Bahamut,y,9,55,6,16,184,y,8A,Kary,1
+moon,map,15A,Cave Bahamut,y,9,55,6,16,184,y,92,RedGiant,1
+moon,map,15A,Cave Bahamut,y,9,55,7,4,185,y,92,RedGiant,2
+moon,map,15B,Cave Bahamut: B2F,y,9,56,0,43,187,y,35,D.Bone,1
+moon,map,15B,Cave Bahamut: B2F,y,9,56,1,43,187,y,35,D.Bone,1
+moon,map,15B,Cave Bahamut: B2F,y,9,56,2,43,188,y,8C,Ging-Ryu,1
+moon,map,15B,Cave Bahamut: B2F,y,9,56,3,43,188,y,8C,Ging-Ryu,1
+moon,map,15B,Cave Bahamut: B2F,y,9,56,4,32,189,y,35,D.Bone,1
+moon,map,15B,Cave Bahamut: B2F,y,9,56,4,32,189,y,97,Warlock,1
+moon,map,15B,Cave Bahamut: B2F,y,9,56,5,32,185,y,92,RedGiant,2
+moon,map,15B,Cave Bahamut: B2F,y,9,56,6,16,186,y,97,Warlock,2
+moon,map,15B,Cave Bahamut: B2F,y,9,56,6,16,186,y,92,RedGiant,1
+moon,map,15B,Cave Bahamut: B2F,y,9,56,7,4,18A,y,9C,King-Ryu,2
+moon,map,15C,Cave Bahamut: B3F,y,9,66,0,43,187,y,35,D.Bone,1
+moon,map,15C,Cave Bahamut: B3F,y,9,66,1,43,187,y,35,D.Bone,1
+moon,map,15C,Cave Bahamut: B3F,y,9,66,2,43,188,y,8C,Ging-Ryu,1
+moon,map,15C,Cave Bahamut: B3F,y,9,66,3,43,188,y,8C,Ging-Ryu,1
+moon,map,15C,Cave Bahamut: B3F,y,9,66,4,32,189,y,35,D.Bone,1
+moon,map,15C,Cave Bahamut: B3F,y,9,66,4,32,189,y,97,Warlock,1
+moon,map,15C,Cave Bahamut: B3F,y,9,66,5,32,185,y,92,RedGiant,2
+moon,map,15C,Cave Bahamut: B3F,y,9,66,6,16,186,y,97,Warlock,2
+moon,map,15C,Cave Bahamut: B3F,y,9,66,6,16,186,y,92,RedGiant,1
+moon,map,15C,Cave Bahamut: B3F,y,9,66,7,4,18A,y,9C,King-Ryu,2
+moon,map,163,Lunar Path,y,8,74,0,43,176,y,72,Red Worm,1
+moon,map,163,Lunar Path,y,8,74,0,43,176,y,99,Procyote,1
+moon,map,163,Lunar Path,y,8,74,0,43,176,y,8F,Juclyote,1
+moon,map,163,Lunar Path,y,8,74,1,43,1BF,y,72,Red Worm,1
+moon,map,163,Lunar Path,y,8,74,1,43,1BF,y,6A,Grenade,3
+moon,map,163,Lunar Path,y,8,74,2,43,1BE,y,1C,Slime,1
+moon,map,163,Lunar Path,y,8,74,2,43,1BE,y,81,Tofu,1
+moon,map,163,Lunar Path,y,8,74,2,43,1BE,y,82,Pudding,1
+moon,map,163,Lunar Path,y,8,74,3,43,1BD,y,69,Balloon,2
+moon,map,163,Lunar Path,y,8,74,3,43,1BD,y,6A,Grenade,2
+moon,map,163,Lunar Path,y,8,74,4,32,174,y,99,Procyote,1
+moon,map,163,Lunar Path,y,8,74,4,32,174,y,82,Pudding,2
+moon,map,163,Lunar Path,y,8,74,5,32,173,y,99,Procyote,1
+moon,map,163,Lunar Path,y,8,74,5,32,173,y,8F,Juclyote,2
+moon,map,163,Lunar Path,y,8,74,6,16,177,y,72,Red Worm,2
+moon,map,163,Lunar Path,y,8,74,7,4,177,y,72,Red Worm,2
+moon,map,164,Lunar Path,y,8,75,0,43,1BC,y,82,Pudding,2
+moon,map,164,Lunar Path,y,8,75,0,43,1BC,y,6A,Grenade,2
+moon,map,164,Lunar Path,y,8,75,1,43,1BB,y,82,Pudding,2
+moon,map,164,Lunar Path,y,8,75,1,43,1BB,y,82,Pudding,2
+moon,map,164,Lunar Path,y,8,75,2,43,175,y,8F,Juclyote,1
+moon,map,164,Lunar Path,y,8,75,2,43,175,y,99,Procyote,2
+moon,map,164,Lunar Path,y,8,75,3,43,175,y,8F,Juclyote,1
+moon,map,164,Lunar Path,y,8,75,3,43,175,y,99,Procyote,2
+moon,map,164,Lunar Path,y,8,75,4,32,176,y,72,Red Worm,1
+moon,map,164,Lunar Path,y,8,75,4,32,176,y,99,Procyote,1
+moon,map,164,Lunar Path,y,8,75,4,32,176,y,8F,Juclyote,1
+moon,map,164,Lunar Path,y,8,75,5,32,177,y,72,Red Worm,2
+moon,map,164,Lunar Path,y,8,75,6,16,177,y,72,Red Worm,2
+moon,map,164,Lunar Path,y,8,75,7,4,177,y,72,Red Worm,2
+moon,map,167,Lunar Subterrane: B1,n,7,64,0,43,180,y,97,Warlock,1
+moon,map,167,Lunar Subterrane: B1,n,7,64,1,43,180,y,97,Warlock,1
+moon,map,167,Lunar Subterrane: B1,n,7,64,2,43,181,y,97,Warlock,1
+moon,map,167,Lunar Subterrane: B1,n,7,64,2,43,181,y,8A,Kary,1
+moon,map,167,Lunar Subterrane: B1,n,7,64,3,43,183,y,92,RedGiant,1
+moon,map,167,Lunar Subterrane: B1,n,7,64,4,32,181,y,97,Warlock,1
+moon,map,167,Lunar Subterrane: B1,n,7,64,4,32,181,y,8A,Kary,1
+moon,map,167,Lunar Subterrane: B1,n,7,64,5,32,182,y,97,Warlock,1
+moon,map,167,Lunar Subterrane: B1,n,7,64,5,32,182,y,8A,Kary,2
+moon,map,167,Lunar Subterrane: B1,n,7,64,6,16,184,y,97,Warlock,1
+moon,map,167,Lunar Subterrane: B1,n,7,64,6,16,184,y,8A,Kary,1
+moon,map,167,Lunar Subterrane: B1,n,7,64,6,16,184,y,92,RedGiant,1
+moon,map,167,Lunar Subterrane: B1,n,7,64,7,4,185,y,92,RedGiant,2
+moon,map,168,Lunar Subterrane: B2,n,7,65,0,43,181,y,97,Warlock,1
+moon,map,168,Lunar Subterrane: B2,n,7,65,0,43,181,y,8A,Kary,1
+moon,map,168,Lunar Subterrane: B2,n,7,65,1,43,182,y,97,Warlock,1
+moon,map,168,Lunar Subterrane: B2,n,7,65,1,43,182,y,8A,Kary,2
+moon,map,168,Lunar Subterrane: B2,n,7,65,2,43,183,y,92,RedGiant,1
+moon,map,168,Lunar Subterrane: B2,n,7,65,3,43,184,y,97,Warlock,1
+moon,map,168,Lunar Subterrane: B2,n,7,65,3,43,184,y,8A,Kary,1
+moon,map,168,Lunar Subterrane: B2,n,7,65,3,43,184,y,92,RedGiant,1
+moon,map,168,Lunar Subterrane: B2,n,7,65,4,32,184,y,97,Warlock,1
+moon,map,168,Lunar Subterrane: B2,n,7,65,4,32,184,y,8A,Kary,1
+moon,map,168,Lunar Subterrane: B2,n,7,65,4,32,184,y,92,RedGiant,1
+moon,map,168,Lunar Subterrane: B2,n,7,65,5,32,185,y,92,RedGiant,2
+moon,map,168,Lunar Subterrane: B2,n,7,65,6,16,185,y,92,RedGiant,2
+moon,map,168,Lunar Subterrane: B2,n,7,65,7,4,186,y,97,Warlock,2
+moon,map,168,Lunar Subterrane: B2,n,7,65,7,4,186,y,92,RedGiant,1
+moon,map,169,Lunar Subterrane: B3,n,7,66,0,43,187,y,35,D.Bone,1
+moon,map,169,Lunar Subterrane: B3,n,7,66,1,43,187,y,35,D.Bone,1
+moon,map,169,Lunar Subterrane: B3,n,7,66,2,43,188,y,8C,Ging-Ryu,1
+moon,map,169,Lunar Subterrane: B3,n,7,66,3,43,188,y,8C,Ging-Ryu,1
+moon,map,169,Lunar Subterrane: B3,n,7,66,4,32,189,y,35,D.Bone,1
+moon,map,169,Lunar Subterrane: B3,n,7,66,4,32,189,y,97,Warlock,1
+moon,map,169,Lunar Subterrane: B3,n,7,66,5,32,185,y,92,RedGiant,2
+moon,map,169,Lunar Subterrane: B3,n,7,66,6,16,186,y,97,Warlock,2
+moon,map,169,Lunar Subterrane: B3,n,7,66,6,16,186,y,92,RedGiant,1
+moon,map,169,Lunar Subterrane: B3,n,7,66,7,4,18A,y,9C,King-Ryu,2
+moon,map,16A,Lunar Subterrane: B4,n,8,67,0,43,187,y,35,D.Bone,1
+moon,map,16A,Lunar Subterrane: B4,n,8,67,1,43,188,y,8C,Ging-Ryu,1
+moon,map,16A,Lunar Subterrane: B4,n,8,67,2,43,189,y,35,D.Bone,1
+moon,map,16A,Lunar Subterrane: B4,n,8,67,2,43,189,y,97,Warlock,1
+moon,map,16A,Lunar Subterrane: B4,n,8,67,3,43,189,y,35,D.Bone,1
+moon,map,16A,Lunar Subterrane: B4,n,8,67,3,43,189,y,97,Warlock,1
+moon,map,16A,Lunar Subterrane: B4,n,8,67,4,32,18A,y,9C,King-Ryu,2
+moon,map,16A,Lunar Subterrane: B4,n,8,67,5,32,18A,y,9C,King-Ryu,2
+moon,map,16A,Lunar Subterrane: B4,n,8,67,6,16,185,y,92,RedGiant,2
+moon,map,16A,Lunar Subterrane: B4,n,8,67,7,4,18B,y,97,Warlock,3
+moon,map,16B,Lunar Subterrane: B5,n,8,68,0,43,18C,y,9B,Blue D.,1
+moon,map,16B,Lunar Subterrane: B5,n,8,68,1,43,18C,y,9B,Blue D.,1
+moon,map,16B,Lunar Subterrane: B5,n,8,68,2,43,18D,y,94,FatalEye,1
+moon,map,16B,Lunar Subterrane: B5,n,8,68,3,43,18D,y,94,FatalEye,1
+moon,map,16B,Lunar Subterrane: B5,n,8,68,4,32,18B,y,97,Warlock,3
+moon,map,16B,Lunar Subterrane: B5,n,8,68,5,32,18A,y,9C,King-Ryu,2
+moon,map,16B,Lunar Subterrane: B5,n,8,68,6,16,18E,y,9B,Blue D.,2
+moon,map,16B,Lunar Subterrane: B5,n,8,68,7,4,18F,y,8C,Ging-Ryu,1
+moon,map,16B,Lunar Subterrane: B5,n,8,68,7,4,18F,y,92,RedGiant,1
+moon,map,16C,Lunar Subterrane: B6,n,8,69,0,43,18B,y,97,Warlock,3
+moon,map,16C,Lunar Subterrane: B6,n,8,69,1,43,18C,y,9B,Blue D.,1
+moon,map,16C,Lunar Subterrane: B6,n,8,69,2,43,18D,y,94,FatalEye,1
+moon,map,16C,Lunar Subterrane: B6,n,8,69,3,43,18F,y,8C,Ging-Ryu,1
+moon,map,16C,Lunar Subterrane: B6,n,8,69,3,43,18F,y,92,RedGiant,1
+moon,map,16C,Lunar Subterrane: B6,n,8,69,4,32,18E,y,9B,Blue D.,2
+moon,map,16C,Lunar Subterrane: B6,n,8,69,5,32,18F,y,8C,Ging-Ryu,1
+moon,map,16C,Lunar Subterrane: B6,n,8,69,5,32,18F,y,92,RedGiant,1
+moon,map,16C,Lunar Subterrane: B6,n,8,69,6,16,190,y,94,FatalEye,2
+moon,map,16C,Lunar Subterrane: B6,n,8,69,7,4,18A,y,9C,King-Ryu,2
+moon,map,16D,Lunar Subterrane: B7,n,8,70,0,43,191,y,51,D.Fossil,1
+moon,map,16D,Lunar Subterrane: B7,n,8,70,1,43,191,y,51,D.Fossil,1
+moon,map,16D,Lunar Subterrane: B7,n,8,70,2,43,192,y,9C,King-Ryu,1
+moon,map,16D,Lunar Subterrane: B7,n,8,70,3,43,192,y,9C,King-Ryu,1
+moon,map,16D,Lunar Subterrane: B7,n,8,70,4,32,193,y,9C,King-Ryu,1
+moon,map,16D,Lunar Subterrane: B7,n,8,70,4,32,193,y,8C,Ging-Ryu,1
+moon,map,16D,Lunar Subterrane: B7,n,8,70,5,32,193,y,9C,King-Ryu,1
+moon,map,16D,Lunar Subterrane: B7,n,8,70,5,32,193,y,8C,Ging-Ryu,1
+moon,map,16D,Lunar Subterrane: B7,n,8,70,6,16,194,y,20,Tricker,1
+moon,map,16D,Lunar Subterrane: B7,n,8,70,7,4,195,y,20,Tricker,1
+moon,map,16E,Lunar Subterrane: unnamed room,n,8,72,0,43,197,y,90,EvilMask,1
+moon,map,16E,Lunar Subterrane: unnamed room,n,8,72,1,43,197,y,90,EvilMask,1
+moon,map,16E,Lunar Subterrane: unnamed room,n,8,72,2,43,1A3,y,A0,Behemoth,1
+moon,map,16E,Lunar Subterrane: unnamed room,n,8,72,3,43,1A3,y,A0,Behemoth,1
+moon,map,16E,Lunar Subterrane: unnamed room,n,8,72,4,32,199,y,9F,Red D.,1
+moon,map,16E,Lunar Subterrane: unnamed room,n,8,72,5,32,199,y,9F,Red D.,1
+moon,map,16E,Lunar Subterrane: unnamed room,n,8,72,6,16,199,y,9F,Red D.,1
+moon,map,16E,Lunar Subterrane: unnamed room,n,8,72,7,4,19A,y,9F,Red D.,2
+moon,map,16F,Lunar Subterrane: unnamed room,n,8,72,0,43,197,y,90,EvilMask,1
+moon,map,16F,Lunar Subterrane: unnamed room,n,8,72,1,43,197,y,90,EvilMask,1
+moon,map,16F,Lunar Subterrane: unnamed room,n,8,72,2,43,1A3,y,A0,Behemoth,1
+moon,map,16F,Lunar Subterrane: unnamed room,n,8,72,3,43,1A3,y,A0,Behemoth,1
+moon,map,16F,Lunar Subterrane: unnamed room,n,8,72,4,32,199,y,9F,Red D.,1
+moon,map,16F,Lunar Subterrane: unnamed room,n,8,72,5,32,199,y,9F,Red D.,1
+moon,map,16F,Lunar Subterrane: unnamed room,n,8,72,6,16,199,y,9F,Red D.,1
+moon,map,16F,Lunar Subterrane: unnamed room,n,8,72,7,4,19A,y,9F,Red D.,2
+moon,map,170,Lunar Subterrane: unnamed room,n,8,73,0,43,1A3,y,A0,Behemoth,1
+moon,map,170,Lunar Subterrane: unnamed room,n,8,73,1,43,19F,y,9F,Red D.,3
+moon,map,170,Lunar Subterrane: unnamed room,n,8,73,2,43,19B,y,9F,Red D.,1
+moon,map,170,Lunar Subterrane: unnamed room,n,8,73,2,43,19B,y,A0,Behemoth,1
+moon,map,170,Lunar Subterrane: unnamed room,n,8,73,3,43,19C,y,90,EvilMask,1
+moon,map,170,Lunar Subterrane: unnamed room,n,8,73,4,32,19D,y,A0,Behemoth,2
+moon,map,170,Lunar Subterrane: unnamed room,n,8,73,5,32,19D,y,A0,Behemoth,2
+moon,map,170,Lunar Subterrane: unnamed room,n,8,73,6,16,19E,y,90,EvilMask,2
+moon,map,170,Lunar Subterrane: unnamed room,n,8,73,7,4,19E,y,90,EvilMask,2
+moon,map,171,Lunar Subterrane: unnamed room,n,8,63,0,43,1A2,y,83,Mind,1
+moon,map,171,Lunar Subterrane: unnamed room,n,8,63,1,43,1A1,y,80,Breath,1
+moon,map,171,Lunar Subterrane: unnamed room,n,8,63,2,43,1A1,y,80,Breath,1
+moon,map,171,Lunar Subterrane: unnamed room,n,8,63,3,43,1A2,y,83,Mind,1
+moon,map,171,Lunar Subterrane: unnamed room,n,8,63,4,32,1A1,y,80,Breath,1
+moon,map,171,Lunar Subterrane: unnamed room,n,8,63,5,32,1A2,y,83,Mind,1
+moon,map,171,Lunar Subterrane: unnamed room,n,8,63,6,16,1A2,y,83,Mind,1
+moon,map,171,Lunar Subterrane: unnamed room,n,8,63,7,4,1A1,y,80,Breath,1
+moon,map,173,Lunar Subterrane: unnamed room,n,10,68,0,43,18C,y,9B,Blue D.,1
+moon,map,173,Lunar Subterrane: unnamed room,n,10,68,1,43,18C,y,9B,Blue D.,1
+moon,map,173,Lunar Subterrane: unnamed room,n,10,68,2,43,18D,y,94,FatalEye,1
+moon,map,173,Lunar Subterrane: unnamed room,n,10,68,3,43,18D,y,94,FatalEye,1
+moon,map,173,Lunar Subterrane: unnamed room,n,10,68,4,32,18B,y,97,Warlock,3
+moon,map,173,Lunar Subterrane: unnamed room,n,10,68,5,32,18A,y,9C,King-Ryu,2
+moon,map,173,Lunar Subterrane: unnamed room,n,10,68,6,16,18E,y,9B,Blue D.,2
+moon,map,173,Lunar Subterrane: unnamed room,n,10,68,7,4,18F,y,8C,Ging-Ryu,1
+moon,map,173,Lunar Subterrane: unnamed room,n,10,68,7,4,18F,y,92,RedGiant,1
+moon,map,174,Lunar Subterrane: unnamed room,n,10,70,0,43,191,y,51,D.Fossil,1
+moon,map,174,Lunar Subterrane: unnamed room,n,10,70,1,43,191,y,51,D.Fossil,1
+moon,map,174,Lunar Subterrane: unnamed room,n,10,70,2,43,192,y,9C,King-Ryu,1
+moon,map,174,Lunar Subterrane: unnamed room,n,10,70,3,43,192,y,9C,King-Ryu,1
+moon,map,174,Lunar Subterrane: unnamed room,n,10,70,4,32,193,y,9C,King-Ryu,1
+moon,map,174,Lunar Subterrane: unnamed room,n,10,70,4,32,193,y,8C,Ging-Ryu,1
+moon,map,174,Lunar Subterrane: unnamed room,n,10,70,5,32,193,y,9C,King-Ryu,1
+moon,map,174,Lunar Subterrane: unnamed room,n,10,70,5,32,193,y,8C,Ging-Ryu,1
+moon,map,174,Lunar Subterrane: unnamed room,n,10,70,6,16,194,y,20,Tricker,1
+moon,map,174,Lunar Subterrane: unnamed room,n,10,70,7,4,195,y,20,Tricker,1
+moon,map,175,Lunar Subterrane: unnamed room,n,10,70,0,43,191,y,51,D.Fossil,1
+moon,map,175,Lunar Subterrane: unnamed room,n,10,70,1,43,191,y,51,D.Fossil,1
+moon,map,175,Lunar Subterrane: unnamed room,n,10,70,2,43,192,y,9C,King-Ryu,1
+moon,map,175,Lunar Subterrane: unnamed room,n,10,70,3,43,192,y,9C,King-Ryu,1
+moon,map,175,Lunar Subterrane: unnamed room,n,10,70,4,32,193,y,9C,King-Ryu,1
+moon,map,175,Lunar Subterrane: unnamed room,n,10,70,4,32,193,y,8C,Ging-Ryu,1
+moon,map,175,Lunar Subterrane: unnamed room,n,10,70,5,32,193,y,9C,King-Ryu,1
+moon,map,175,Lunar Subterrane: unnamed room,n,10,70,5,32,193,y,8C,Ging-Ryu,1
+moon,map,175,Lunar Subterrane: unnamed room,n,10,70,6,16,194,y,20,Tricker,1
+moon,map,175,Lunar Subterrane: unnamed room,n,10,70,7,4,195,y,20,Tricker,1
+moon,map,176,Lunar Subterrane: unnamed room,n,10,71,0,43,191,y,51,D.Fossil,1
+moon,map,176,Lunar Subterrane: unnamed room,n,10,71,1,43,192,y,9C,King-Ryu,1
+moon,map,176,Lunar Subterrane: unnamed room,n,10,71,2,43,193,y,9C,King-Ryu,1
+moon,map,176,Lunar Subterrane: unnamed room,n,10,71,2,43,193,y,8C,Ging-Ryu,1
+moon,map,176,Lunar Subterrane: unnamed room,n,10,71,3,43,194,y,20,Tricker,1
+moon,map,176,Lunar Subterrane: unnamed room,n,10,71,4,32,193,y,9C,King-Ryu,1
+moon,map,176,Lunar Subterrane: unnamed room,n,10,71,4,32,193,y,8C,Ging-Ryu,1
+moon,map,176,Lunar Subterrane: unnamed room,n,10,71,5,32,194,y,20,Tricker,1
+moon,map,176,Lunar Subterrane: unnamed room,n,10,71,6,16,195,y,20,Tricker,1
+moon,map,176,Lunar Subterrane: unnamed room,n,10,71,7,4,194,y,20,Tricker,1
+moon,map,177,Lunar Subterrane: unnamed room,n,5,76,0,43,191,y,51,D.Fossil,1
+moon,map,177,Lunar Subterrane: unnamed room,n,5,76,1,43,192,y,9C,King-Ryu,1
+moon,map,177,Lunar Subterrane: unnamed room,n,5,76,2,43,193,y,9C,King-Ryu,1
+moon,map,177,Lunar Subterrane: unnamed room,n,5,76,2,43,193,y,8C,Ging-Ryu,1
+moon,map,177,Lunar Subterrane: unnamed room,n,5,76,3,43,194,y,20,Tricker,1
+moon,map,177,Lunar Subterrane: unnamed room,n,5,76,4,32,193,y,9C,King-Ryu,1
+moon,map,177,Lunar Subterrane: unnamed room,n,5,76,4,32,193,y,8C,Ging-Ryu,1
+moon,map,177,Lunar Subterrane: unnamed room,n,5,76,5,32,194,y,20,Tricker,1
+moon,map,177,Lunar Subterrane: unnamed room,n,5,76,6,16,195,y,20,Tricker,1
+moon,map,177,Lunar Subterrane: unnamed room,n,5,76,7,4,196,y,86,PinkPuff,3
+moon,map,177,Lunar Subterrane: unnamed room,n,5,76,7,4,196,y,86,PinkPuff,2
+moon,map,179,Lunar Subterrane: unnamed room,n,10,71,0,43,191,y,51,D.Fossil,1
+moon,map,179,Lunar Subterrane: unnamed room,n,10,71,1,43,192,y,9C,King-Ryu,1
+moon,map,179,Lunar Subterrane: unnamed room,n,10,71,2,43,193,y,9C,King-Ryu,1
+moon,map,179,Lunar Subterrane: unnamed room,n,10,71,2,43,193,y,8C,Ging-Ryu,1
+moon,map,179,Lunar Subterrane: unnamed room,n,10,71,3,43,194,y,20,Tricker,1
+moon,map,179,Lunar Subterrane: unnamed room,n,10,71,4,32,193,y,9C,King-Ryu,1
+moon,map,179,Lunar Subterrane: unnamed room,n,10,71,4,32,193,y,8C,Ging-Ryu,1
+moon,map,179,Lunar Subterrane: unnamed room,n,10,71,5,32,194,y,20,Tricker,1
+moon,map,179,Lunar Subterrane: unnamed room,n,10,71,6,16,195,y,20,Tricker,1
+moon,map,179,Lunar Subterrane: unnamed room,n,10,71,7,4,194,y,20,Tricker,1
+moon,map,17A,Lunar Subterrane: unnamed room,n,10,71,0,43,191,y,51,D.Fossil,1
+moon,map,17A,Lunar Subterrane: unnamed room,n,10,71,1,43,192,y,9C,King-Ryu,1
+moon,map,17A,Lunar Subterrane: unnamed room,n,10,71,2,43,193,y,9C,King-Ryu,1
+moon,map,17A,Lunar Subterrane: unnamed room,n,10,71,2,43,193,y,8C,Ging-Ryu,1
+moon,map,17A,Lunar Subterrane: unnamed room,n,10,71,3,43,194,y,20,Tricker,1
+moon,map,17A,Lunar Subterrane: unnamed room,n,10,71,4,32,193,y,9C,King-Ryu,1
+moon,map,17A,Lunar Subterrane: unnamed room,n,10,71,4,32,193,y,8C,Ging-Ryu,1
+moon,map,17A,Lunar Subterrane: unnamed room,n,10,71,5,32,194,y,20,Tricker,1
+moon,map,17A,Lunar Subterrane: unnamed room,n,10,71,6,16,195,y,20,Tricker,1
+moon,map,17A,Lunar Subterrane: unnamed room,n,10,71,7,4,194,y,20,Tricker,1
+moon,map,17C,Lunar Subterrane: unnamed room,n,10,71,0,43,191,y,51,D.Fossil,1
+moon,map,17C,Lunar Subterrane: unnamed room,n,10,71,1,43,192,y,9C,King-Ryu,1
+moon,map,17C,Lunar Subterrane: unnamed room,n,10,71,2,43,193,y,9C,King-Ryu,1
+moon,map,17C,Lunar Subterrane: unnamed room,n,10,71,2,43,193,y,8C,Ging-Ryu,1
+moon,map,17C,Lunar Subterrane: unnamed room,n,10,71,3,43,194,y,20,Tricker,1
+moon,map,17C,Lunar Subterrane: unnamed room,n,10,71,4,32,193,y,9C,King-Ryu,1
+moon,map,17C,Lunar Subterrane: unnamed room,n,10,71,4,32,193,y,8C,Ging-Ryu,1
+moon,map,17C,Lunar Subterrane: unnamed room,n,10,71,5,32,194,y,20,Tricker,1
+moon,map,17C,Lunar Subterrane: unnamed room,n,10,71,6,16,195,y,20,Tricker,1
+moon,map,17C,Lunar Subterrane: unnamed room,n,10,71,7,4,194,y,20,Tricker,1

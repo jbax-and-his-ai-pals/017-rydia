@@ -283,6 +283,30 @@ Formations: 8 bytes each at `$0E:8000–$0E:8FFF` (512 formations). Confirmed by
 
 **Rule: a per-species `capturable` column in `data/monsters.csv`**, seeded as "appears in at least one formation you can run from". That gives 156 capturable and 66 not. The 66 are bosses, scripted story fights (Soldier, Officer, Fighter, General), the optional Lunar bosses (Plague, D. Lunar, Wyvern, Ogopogo, Pale Dim), Last Arm, TrapDoor, and the auto-battle intro monsters. Two species (`$53` Dummy, `$DF` Egg) are in no formation. Edit the column by hand to curate.
 
+## L13 · Random encounters and map exits
+
+All confirmed from the field encounter routine at `$00:894D–$00:8B2A`. `tools/export_encounters.py` reads them.
+
+| Data | Address | Notes |
+| --- | --- | --- |
+| Surface rate, per region | `$0E:C300` (64) | index `(Y/32)×8 + X/32` |
+| Underworld rate | `$0E:C340` | one byte for the whole map |
+| Moon rate | `$0E:C341` | one byte |
+| Location rate, per map | `$0E:C342` (512) | `0` = no random fights |
+| Surface set, per region | `$0E:C542` (64) | same index as the rate |
+| Underworld set, per region | `$0E:C582` (16) | `(Y/32)×4 + X/32`: 32×32 regions on the 128×128 map, not 32×64 |
+| Moon set, per region | `$0E:C592` (4) | `(Y≥32)×2 + (X≥32)` |
+| Location set, per map | `$0E:C596` (512) | |
+| World-map sets: 8 formations each | `$0E:C796 + set×8` | sets 0–10 |
+| **Location sets: 8 formations each** | **`$0E:C816 + set×8`** | sets 0–76. Yousei's notes put these at `$C796` too; the code reads `$C816` |
+| Location exits / triggers | pointers `$15:8000` (384 maps), data `$15:8300 + ptr` | 5 bytes each: x, y, map, dest x, dest y. Map `$FB` = world map, `$FE` treasure, `$FF` event. Destination high byte = current map's |
+| World-map triggers | `$19:FE60` | same 5-byte records; read by `$00:9B72` |
+
+- **Fight check:** a random byte (`$14:EE00[$86]` + seed `$17EF`) below the rate starts a fight.
+- **Slot pick:** another random byte against thresholds at `$00:8B05` picks one of the set's 8 slots, with chances 43, 43, 43, 43, 32, 32, 16, 4 out of 256.
+- **Formation high byte:** `$1801` = 1 whenever `$1701` ≠ 0. That covers the underworld and moon world maps and maps `$100+`, which use formations `$100–$1FF`.
+- **Forced fights:** when `$C0` ≠ 0, the routine skips the rate check and always takes slot 7, normally the 4/256 slot.
+
 ## In progress: runtime checks (not yet folded into the sections above)
 
 - **L1 answered.**
