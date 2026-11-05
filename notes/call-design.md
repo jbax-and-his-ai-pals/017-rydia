@@ -130,3 +130,17 @@ python tools/mesen/run.py tools/mesen/call.lua <out> --rom build/rydia.sfc --fra
 4. Check effect routines from Rydia's side, one by one, and widen the allowlist.
 5. Tall species (MacGiant, Ging-Ryu, RedGiant, King-Ryu, Clapper) draw only their top 8 rows. Check in play.
 6. The roster editor (its own milestone).
+
+## Open issues (from the user's playtest, Nov 5)
+
+Imp and Imp Captain were tested in play: pacts form and summons work. Two problems:
+
+1. **Field menu shows no Call entries.** `$15C0` is only written at battle start, so outside battle the list is empty. Fix: have `call_roster_add` (`asm/call.asm`, bank `$0A`) also write the Call entries when a pact forms, and refill the list when a save loads or a new game starts.
+2. **A pact formed in battle can't be summoned until the next battle.** This is intended for now: the spell menu is built once at battle start, and its names and MP are cached in `$2C7A`. Same-battle use is possible: after a pact forms, rebuild the affected `$2C7A` entries and re-snapshot the roster. Needs a test with a pact then a cast in one fight.
+
+## Next steps
+
+- Fix issue 1, then add a Mesen check (pact, then open the field menu, then read `$15C0`).
+- Try same-battle summons (issue 2).
+- Then D4: signature abilities from the AI scripts (`call_spell` / `call_power` columns in `data/monsters.csv`). Free ROM is nearly used up, so expand the ROM first. Check that nothing in `data/monsters.csv` is uncommitted in another session before editing it.
+- Roster editor (its own milestone).
