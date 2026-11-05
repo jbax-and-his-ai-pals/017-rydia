@@ -213,15 +213,15 @@ All checked against our ROM: every byte is `$FF`.
 | Range | Size | Note |
 | --- | --- | --- |
 | `$00:FD31–$00:FFAF` | 639 | Bank `$00` (field/event code). Stop before `$00:FFB0` |
-| `$03:FEE3–$03:FFFF` | 285 | Bank `$03` (battle). Pact handler uses `$FEE3–$FF49`; `$FF4A+` (182) free |
+| `$03:FEE3–$03:FFFF` | 285 | Bank `$03` (battle). Pact handler `$FEE3–$FF5F`; Call stubs `$FF60+` |
 | `$0F:B33D–$0F:B3FF` | 195 | After the battle message text. Pact messages use `$B33D–$B35E` |
 | `$0E:B439–$0E:B6BF` | 647 | |
-| `$0E:B98A–$0E:BABF` | 310 | |
-| `$0E:E522–$0E:E5FF` | 222 | |
-| `$0E:E840–$0E:E8FF` | 192 | |
-| `$0E:F0BB–$0E:F1FF` | 325 | |
+| `$0E:B98A–$0E:BABF` | 310 | Call: battle start |
+| `$0E:E522–$0E:E5FF` | 222 | Call: summon graphic |
+| `$0E:E840–$0E:E8FF` | 192 | Call: arrangement, caption |
+| `$0E:F0BB–$0E:F1FF` | 325 | Call: cast, MP, menu names |
 | `$0F:CF40–$0F:D1FF` | 704 | |
-| `$0A:EF00–$0A:EFFF` | 256 | |
+| `$0A:EF00–$0A:EFFF` | 256 | Call: roster add |
 | `$1F:B900–$1F:B9BF` | 192 | |
 | `$09:FFE0–$09:FFFF` | 32 | |
 
@@ -282,6 +282,37 @@ Formations: 8 bytes each at `$0E:8000–$0E:8FFF` (512 formations). Confirmed by
 - Some scripted fights use normal music (Golbez + Shadow `$1A8`, K. Eblan + Q. Eblan `$1AA`).
 
 **Rule: a per-species `capturable` column in `data/monsters.csv`**, seeded as "appears in at least one formation you can run from". That gives 156 capturable and 66 not. The 66 are bosses, scripted story fights (Soldier, Officer, Fighter, General), the optional Lunar bosses (Plague, D. Lunar, Wyvern, Ogopogo, Pale Dim), Last Arm, TrapDoor, and the auto-battle intro monsters. Two species (`$53` Dummy, `$DF` Egg) are in no formation. Edit the column by hand to curate.
+
+## L13 · Spells and summons (Call)
+
+Design and plan: [call-design.md](call-design.md). Code: `asm/call.asm`. Test: `tools/mesen/call.lua`.
+
+| What | Address | Status |
+| --- | --- | --- |
+| Spell data, 6 bytes: targeting/cast time, power, hit, effect (bits 0–6), element/status set, MP (bits 0–6) | `$0F:97A0 + 6 × id` | confirmed |
+| Effect routine pointers (bank `$03`), dispatched by `$03:D2A7` | `$03:E091 + 2 × effect` | confirmed. Effect `$00` = magic damage by power (all black magic, Imp's summon); `$7E` = summon spell, does nothing itself |
+| Menu spell names, icon + 5 letters, IDs `$00–$47` | `$0F:8900 + 6 × id` | confirmed. Battle menu reads them at `$02:A107` (icon), `$02:A11F` (letters) |
+| 8-letter names for IDs `$48+` (summon effect spells, enemy abilities) | `$0F:8AB0 + 8 × (id − $48)` | confirmed. Caption reader `$02:CBAF` |
+| Spell visuals, 4 bytes | `$0F:A050 + 4 × (id − 1)` | confirmed (read at `$02:EB04`) |
+| Copy 6 bytes of `[$80]` record `$E5` to `$289C–$28A1` | `$03:845E` | confirmed. **It moves the ID from `$E5` to `$DF`** and leaves the record size in `$E5` |
+| Battle spell menu: 4 bytes per entry, `+1` spell, `+3` MP; built at battle start | `$2C7A` (`$03:8A44–$8A78`) | confirmed (runtime) |
+| Summon dispatch: spells `$31–$3F` → `$03:E050` | `$03:CD27–$CD38` | confirmed (runtime) |
+| Summon → effect spell: `$4D + (id − $31)`; Asura random `$5A–$5C`; Bahamut `$5D`. Stored in `$26D2` | `$03:E050–$E077` | confirmed (runtime) |
+| The cast copies the effect spell's data, and **charges that copy's MP** | `$03:CDC7` | confirmed (runtime) |
+| Spell visuals entry; effect spells `$4D–$5D` load the summoned monster first | `$02:EABE` → `$02:EA7F` | confirmed (runtime) |
+| Summon graphic tables (index = effect spell − `$4D`): palette, tile address (bank `$0D`), arrangement | `$0D:FE4C`, `$0D:87F0`, `$0D:F260` | confirmed. Imp, Bomb and Mage entries equal their species' own palette and graphic |
+| 3bpp → 4bpp tile decoder: `$02`–`$04` source, X dest, `$00` tile count | `$02:DA3A` | confirmed. The summon path decodes into `$7E:DBE6` |
+| Arrangement uploader: one byte per tile, `row << 4 \| column`, bit 7 set = skip, `$FF` = end. Reads it only while it runs | `$02:8409` | confirmed (code) |
+| **Monster graphics, 4 bytes per species**: size (bits 0–5 → `$0D:FF5E`; bit 6 character-style; bit 7 irregular), palette, graphics | `$0F:CA00 + 4 × species` | confirmed. Graphics at file offset `$48000 + (v & $7FFF) × 8`, i.e. bank `$09 + (v >> 12)`, address `$8000 \| (v & $0FFF) << 3` |
+| Monster sizes, (width, height) in tiles | `$0D:FF5E + 2 × size` | confirmed. All 156 capturable species are plain rectangles, 2×2 to 12×6; 5 are taller than 8 rows |
+| Battle-start hook point, before the spell menu build | `$03:89CB` | confirmed (runtime) |
+| Actor's level (battle record copy) | `$2682` | confirmed (runtime) |
+
+**Call's RAM** (Tellah's parked slot, saved): roster `$119E` (16 × species+1), ring index `$119D`, battle snapshot `$11AE` (16), summon in progress `$11BE`, scratch `$11BF`. Summon drawing also uses `$7E:EB00+` (arrangement) and `$7E:EBE0–$EBE2`, the unused tail of the decode buffer.
+
+**Gotchas met while building it:**
+- asar assembles `bra $02EAA7` (a number, not a label) as the raw offset byte. Put a label at the target instead.
+- Vanilla code often does `TAX` with 8-bit A, so the accumulator's high byte must survive a hook. A hook that left it as `$A8` made `$845E` copy about 43 KB over RAM.
 
 ## In progress: runtime checks (not yet folded into the sections above)
 

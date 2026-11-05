@@ -46,6 +46,7 @@ pact_command:
     lda.w !pact_bits,x      ; record the pact
     ora $A9
     sta.w !pact_bits,x
+    jsl call_roster_add     ; and put it in Call (asm/call.asm); Y = species
     lda $CE                 ; KO: pending swoon for battle slot (monster slot + 5)
     and #$07
     clc
@@ -75,7 +76,7 @@ pact_command:
 pact_mask:
     db $01, $02, $04, $08, $10, $20, $40, $80
 
-assert pc() <= $040000, "Pact handler overflows bank $03 free space"
+assert pc() <= $03FF60, "Pact handler runs into the Call stubs at $03:FF60"
 
 ; Messages. Battle text ends with $00; the pointer table is at $0F:B000 (bank $0F).
 org $0FB000+(2*!msg_pact)

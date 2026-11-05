@@ -40,6 +40,15 @@ Then the summoned monster appears beside Rydia, and the effect spell's own anima
 
 Imp, Bomb and Mage's summon entries are exactly their species' palette and graphic. **All 156 capturable species are plain rectangles** from 2×2 to 12×6 tiles (at most 72 tiles; Bahamut's summon is 48, the decoder does 128). So any pacted species can be drawn through the summon path with a generated row-major arrangement.
 
+## Goal: the whole collection, through an active roster
+
+From the user (Nov 5): every pact must stay reachable. The Call slots are an **active roster** drawn from the permanent collection (the pact bitfield), and the player gets a way to change the roster later, in town or elsewhere.
+
+- This milestone auto-fills the roster (D2). The roster is a species list in save RAM, sized for 16 slots now so a bigger roster needs no save change.
+- A roster editor writes the same list. Candidates: a field-menu screen (the handoff's loadout menu), or a town NPC (Mysidia or the Feymarch) that swaps pacts in and out. That's its own milestone, after Call works.
+
+**Taken** (the user left the route open): D1 (a), D2 (a), D3 (a), D4 (signature spell with the effect-`$00` guard rail), D5 as proposed.
+
 ## Decisions (recommended option first)
 
 **D1. Loadout size and slot spells.** One-byte spell IDs, so the Call list holds a fixed set of "pact slot" spells that resolve to a species at runtime.
@@ -96,3 +105,27 @@ New file `asm/call.asm`, generated tables in `build/gen/data.asm`. Free space: `
 - the target's HP dropped,
 - MP fell by the table's cost,
 - a screenshot shows the species next to Rydia.
+
+## Status
+
+**First slice done** (`asm/call.asm`, test `tools/mesen/call.lua`). Verified headless on the built patch:
+
+| Run | Result |
+| --- | --- |
+| `call.lua`, formation `$21` twice, slot 0 | Battle 1 pacts Imp then Turtle; roster `01 1B`; Call list `31 32`; menu MP 2 and 7. The Imp summon hits for power 21 and takes the Turtle from 150 HP to 0; MP 450 → 448. ALL PASS |
+| same, `SLOT=1` | The Turtle (8×6, bank `$09`) appears beside Rydia in its own colours, caption "Turtle"; power 24; MP 450 → 443. ALL PASS |
+| `pact.lua` `FORMS=21,82` and `FORMS=ED,82 ACTIONS=P,P,F;P` | ALL PASS (Pact still works and refuses as before) |
+
+```
+python tools/mesen/run.py tools/mesen/call.lua <out> --rom build/rydia.sfc --frames 5200 --env SYM=<abs path>/build/rydia.sym SLOT=1
+```
+
+**Built beyond the minimum:** the battle-menu names (first 5 letters of the monster name, e.g. "Turtl") and the 8-letter caption.
+
+**Next, in order:**
+1. `call_spell` / `call_power` / `call_name` columns, an `ai_spells` column from the AI scripts, and per-species tables. Free space is nearly used up, so expand the ROM first.
+2. Play `call_spell`'s animation after the monster appears (`$02:EAFB`).
+3. Field magic menu names for the slots (still vanilla "Imp", "Bomb", …).
+4. Check effect routines from Rydia's side, one by one, and widen the allowlist.
+5. Tall species (MacGiant, Ging-Ryu, RedGiant, King-Ryu, Clapper) draw only their top 8 rows. Check in play.
+6. The roster editor (its own milestone).
