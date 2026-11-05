@@ -83,6 +83,10 @@ Every in-scope `F4`/`F5` now resolves to exactly one bank, and `snapshot.py` rai
 - `169` Lunar Subterrane B3: guardian `1DD` shown.
 - `128`: `127`, `128` hidden.
 
+**Checked statically** (with the snapshot's plot flags):
+- Every surface NPC that's shown again (`027`, `03B`–`044`, `0DE`) runs a talk event with no join, fight or plot flag.
+- Inside the reopened Sealed Cave (maps `144`–`159`), the event-call triggers run `B0`–`B5` or nothing, also with none of those.
+
 ## Party, spells, items, vehicles
 
 - **Party slot 0:** adult Rydia (ID `$11`, sprite `$0B`, back row), built from child Rydia's initial-stats record 2.
