@@ -179,6 +179,14 @@ Repurpose an existing command rather than adding one. Edge's steal command and t
 
 ## Phase 4 — Persistence
 
+**Status (Nov 5): done.** Criterion 5 holds, verified headless in Mesen on the built patch with `tools/mesen/persist.lua`.
+- **The test:** New Game, write pattern A into `$1181–$119C`, save to Save 1 through the game's menu; write pattern B, save to another slot (Save 3); confirm Save 1 still holds A; reset; load Save 1 from the load list. Result: the pact bytes equal pattern A.
+- **Menu notes for scripting:**
+  - Choosing a slot asks Yes/No, then shows "Done!"; the A that dismisses it also closes the save screen.
+  - The load list (New Game, Save1–4) opens with the cursor on the last slot saved.
+  - Neither screen uses `$1A3C` as its slot cursor.
+- **New tool:** `python tools/pacts.py <file.srm>` lists each slot's pacts by name.
+
 - [ ] The bitfield lives at `$1181–$119C`, inside Tellah's parked-character slot (L9): one bit per species, 28 bytes. Saves copy `$1000–$17FF` and checksum `$1000–$17FA`, so saving and loading need no new code. Byte `$1180` stays `$00` so the slot still reads as empty.
 - [ ] Confirm nothing else writes there: Mesen write watch on `$1180–$11BF` across a varied session. If something does, fall back to hooking save and load, or expanding SRAM.
 - [ ] Test: capture, save on the world map, reset in Mesen, load, and confirm the bits. Also confirm two save slots don't share bits.

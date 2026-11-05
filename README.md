@@ -44,6 +44,12 @@ It also re-applies the patch to confirm it reproduces the build byte for byte.
 python tools/export_monsters.py
 ```
 
+List the pacts in each slot of a save file. Mesen 2 keeps battery saves in its `Saves` folder:
+
+```bash
+python tools/pacts.py path/to/rydia.srm
+```
+
 Test a build headless in Mesen (scripts in `tools/mesen/`):
 
 ```bash
