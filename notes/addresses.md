@@ -319,4 +319,4 @@ Formations: 8 bytes each at `$0E:8000–$0E:8FFF` (512 formations). Confirmed by
   - **Verdict: `$1181–$119C` is safe for the pact bitfield.**
 - **Phase 3 verified** (`tools/mesen/pact.lua`, on the built patch): findings are folded into L4, L5, L7, L8 and L10.
   - The harness drives the real menu with `$D7`/`$1823`/`$60` and checks RAM after each Pact. Its fixture rewrites event `$10` to load the overworld, then fight each formation in `FORMS` and reload the map. Without the reload the screen stays garbled after the last fight, with Fight as well as Pact.
-  - Runs: `FORMS=21,82` (Turtle + 2 Imps, then 1 Imp) and `FORMS=ED,82 ACTIONS="P,P,F;P"` (Officer + Soldiers: refused twice, then won with Fight).
+  - Runs: `FORMS=21,82` (Turtle + 2 Imps, then 1 Imp) and `FORMS=ED,82 ACTIONS="P,P,F;P"` (Officer + Soldiers: refused twice, then won with Fight) and `FORMS=E0` (Antlion, a boss: refused four times, fight goes on). `result.txt` ends `ALL PASS` only if every battle started and at least one Pact ran.

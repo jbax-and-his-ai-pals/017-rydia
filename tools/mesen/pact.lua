@@ -57,12 +57,13 @@ emu.addMemoryCallback(function()
 end, EXEC, off(0x00E394), off(0x00E394), emu.cpuType.snes, ROM)
 
 -- Pact handler: entry, return to the dispatcher's caller, and after $03:B1B0.
-local cur = nil
+local cur, pacts = nil, 0
 emu.addMemoryCallback(function()
   local ce = H.ram(0xCE)
   local s = ce & 7
   local ty = H.ram(0x29B5 + s)
   local sp = ty < 3 and H.ram(0x29AD + ty) or 0xFF
+  pacts = pacts + 1
   cur = { ce = ce, slot = s, species = sp, cap = sp < 0xE0 and capturable(sp), had = sp < 0xE0 and bit_set(sp),
           left = H.ram(0x29CD), before = bits(), frame = H.frame }
   out("pact #%d (battle %d): target $CE=%02X slot %d species %02X capturable=%s already=%s left=%d",
@@ -162,6 +163,9 @@ end
 table.insert(H.on_finish, function()
   out("end: battles started %d of %d, $29CD=%02X, $00A8=%02X, bitfield %s", battle, #forms, H.ram(0x29CD), H.ram(0xA8), bits())
   H.shot("end")
+  -- guard against a run that tests nothing (menu driving broke, fixture didn't fight)
+  check(battle >= #forms, "all %d battles started (%d)", #forms, battle)
+  check(pacts > 0, "Pact ran %d times", pacts)
   out("%s: %d failed checks", fails == 0 and "ALL PASS" or "FAILURES", fails)
   local fo = io.open(H.OUT .. "/result.txt", "w")
   fo:write(table.concat(results, "\n") .. "\n"); fo:close()

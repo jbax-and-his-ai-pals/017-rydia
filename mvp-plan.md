@@ -146,12 +146,13 @@ Free Enterprise, the open-world FF4 randomizer, is a useful reference for which 
 - **Verified:**
   - Turtle + 2 Imps: three Pacts covered two species, a repeat species and the last monster. The battle ends with the same `$00A8` as a Fight-only win, and the next fight follows.
   - Officer + 3 Soldiers (not capturable): two refusals, then Fight wins.
+  - Antlion (`$E0`, a boss): four refusals in a row, and the fight goes on.
 - **Edge cases:**
   - Last monster: the battle ends normally and **EXP is awarded**, because kills are counted.
   - Multiple types: the right species is recorded per slot.
   - Already pacted: still works.
   - Target already dead, or an ally targeted: the handler returns quietly with no message. Not exercised at runtime.
-  - Silence and actual boss formations: not tested. Refusal is per species, so a boss species is refused the same way.
+  - Silence: not tested.
 
 Repurpose an existing command rather than adding one. Edge's steal command and the scan-type command both target a single enemy and show a message, and their owners won't be in a solo game. Choose in L4, preferring whichever handler is simplest.
 
