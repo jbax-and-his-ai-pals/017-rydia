@@ -10,6 +10,7 @@ the Big Whale" is:
 - the five flags events both set and clear, decided from the story (see FIXED);
 - NPC flags: the game's starting values ($12:F200) with changes applied from
   events up to the Whale, ordered by the highest plot flag each event sets.
+  Each F4/F5 goes to the NPC bank of the map the event runs on (tools/triggers.py).
 See notes/late-game-state.md for the reasoning and known gaps.
 """
 
@@ -17,6 +18,7 @@ from collections import defaultdict
 
 from events import parse_all
 from ff4rom import Rom
+from triggers import load_bank, sources
 
 LAST_FLAG = 0x43          # set by event $9E, the Big Whale rising at Mysidia
 # $53: K. Eblan at Babil (mid-game, high number).
@@ -34,6 +36,15 @@ FIXED = {                 # flags events both set and clear
     0x42: False,          # set $B6 (Kain leaves), cleared by the CPU fight $E6 (Kain returns)
 }
 NPC_INIT = 0x12F200
+# Events that set no plot flag still count as done, except these, which belong
+# to the final dungeon or haven't happened yet in the snapshot:
+NOT_YET = {
+    0x58: "Lunar Subterrane B5 guardian (fight, item, then hides)",
+    0x59: "Lunar Subterrane guardian, map $16E",
+    0xA3: "Lunar Subterrane B3 guardian",
+    0xA4: "Lunar Subterrane guardian, map $17A",
+    0xDD: "moon scene: with $48 set, call $4D on map $161 still runs it",
+}
 
 
 def build(rom: Rom):
@@ -69,38 +80,44 @@ def build(rom: Rom):
         return all(f <= LAST_FLAG or f in EXTRA for f in fs) and not (set(fs) & SKIP)
 
     npc = bytearray(rom.read(NPC_INIT, 64))
+    src = sources(rom)
     latest = {}             # (bank, index) -> (time, set?)
-    unresolved = 0
+    unreachable = []
     for e, branches in events.items():
         fs = [p[0] for op, p in branches[0] if op == 0xF2]
-        if not in_scope(time(e), fs):
+        if not in_scope(time(e), fs) or e in NOT_YET:
             continue
-        bank = None
-        for op, p in branches[0]:
+        ops = [(op, p) for op, p in branches[0] if op in (0xF4, 0xF5, 0xFE)]
+        if not any(op != 0xFE for op, _ in ops):
+            continue
+        if not src[e]:
+            unreachable.append(e)       # nothing in the game runs it
+            continue
+        banks = {b for _, _, b in src[e]}
+        bank = banks.pop() if len(banks) == 1 else None
+        for op, p in ops:
             if op == 0xFE:
-                bank = 1 if p[3] & 0x80 else 0
-            elif op in (0xF4, 0xF5):
-                if bank is None:
-                    unresolved += 1
-                    b = 0
-                else:
-                    b = bank
-                key = (b, p[0])
-                t = time(e) if time(e) is not None else -1
-                if key not in latest or t >= latest[key][0]:
-                    latest[key] = (t, op == 0xF4)
+                bank = load_bank(rom, p)
+                continue
+            if bank is None:
+                raise ValueError(f"event {e:02X}: no single NPC bank for {op:02X} {p[0]:02X}; sources {sorted(src[e], key=str)}")
+            key = (bank, p[0])
+            t = time(e) if time(e) is not None else -1
+            if key not in latest or t >= latest[key][0]:
+                latest[key] = (t, op == 0xF4)
     for (b, i), (_, on) in latest.items():
         n = b * 256 + i
         if on:
             npc[n >> 3] |= 1 << (n & 7)
         else:
             npc[n >> 3] &= ~(1 << (n & 7)) & 0xFF
-    return plot, npc, chosen, len(latest), unresolved
+    return plot, npc, chosen, len(latest), unreachable
 
 
 if __name__ == "__main__":
-    plot, npc, chosen, changed, unresolved = build(Rom())
+    plot, npc, chosen, changed, unreachable = build(Rom())
     print(f"plot flags set: {len(chosen)}")
-    print(f"NPC flags changed from start: {changed} ({unresolved} ops assumed bank 0)")
+    print(f"NPC flags changed from start: {changed}; skipped events nothing runs: "
+          + " ".join(f"{e:02X}" for e in unreachable))
     print("plot $1280:", plot.hex().upper())
     print("npc  $12E0:", npc.hex().upper())

@@ -50,7 +50,7 @@ The save slot is WRAM `$1000–$17FF` (see L9).
 | Party records, 5 × `$40` | `$1000–$113F` | docs |
 | Parked-character records, 5 × `$40` (slot 0 Kain, 1 Tellah, 2 Rosa, 3 Yang, 4 Rydia) | `$1140–$127F` | confirmed (add-character code; see L3) |
 | **Plot flags**, 256: flag *n* is byte `$1280 + n/8`, bit `n%8` | `$1280–$129F` | confirmed (`_get plot flag` `$00:F165`, set `$00:F133`, clear `$00:F0FF`) |
-| **NPC flags**, 512: same layout; `+$20` bytes when `$0FE5` bit 7 is set or `$1701` (map high byte) ≠ 0 | `$12E0–$131F` | confirmed (`$00:F14B` set, `$00:F118` clear, index `$00:F18C`) |
+| **NPC flags**, 512, indexed by NPC ID: same layout; `+$20` bytes when `$0FE5` bit 7 is set or `$1701` (map high byte) ≠ 0. Set = shown | `$12E0–$131F` | confirmed (`$00:F14B` set, `$00:F118` clear, index `$00:F18C`, visibility test `$00:C137`) |
 | Treasure-opened flags | probably `$12A0–$12DF` | open (`_check treasure open` `$00:98EF`) |
 | Inventory, 48 × (item, count) | `$1440–$149F` | docs |
 | Character names | `$1500–$1553` | docs |
@@ -66,7 +66,9 @@ The save slot is WRAM `$1000–$17FF` (see L9).
 | Other vehicles | `$1712–$172F` is heavily used by code | open |
 | Encounter seeds | `$17EE`, `$17EF` | docs (bot) |
 
-Whether a set NPC flag means "shown" or "hidden" is open.
+A set NPC flag means "shown": NPCs that fight or give an item clear their own flag afterwards (e.g. Trap Doors, events `B7`–`C4`).
+
+On world maps `$1701` is `0` on the surface, `1` underground and `2` on the moon (`$00:8502`, `$8544`, `$857C`); `$0FE5` keeps the last local map's value.
 
 ## L3 · Adult Rydia
 
@@ -234,8 +236,13 @@ ROM expansion (asar can do it) gives whole free banks if these run short.
 | Event pointers: 256 × 16-bit offsets from `$12:8200` | `$12:8000–$12:81FF` | confirmed |
 | Event scripts (each ends with `$FF`) | `$12:8200–$12:EFFF` | confirmed |
 | Opcode jump table: `$D0 + i` → handler | `$00:E2E6`, 47 entries (`$D0–$FE`) | confirmed |
-| Triggered-event pointers / data | `$12:F260` / `$12:F460` | docs |
-| NPC placement pointers / data | `$13:8000` / `$13:8300` | docs |
+| Event calls: 256 pointers / data. Cases of plain `xx` (plot flag clear), `FE xx` (set), then `FF yy` (run event `yy`; `0` = nothing). First match wins | `$12:F260` / `$12:F460` | confirmed (`$00:EFA5`) |
+| NPC talk calls: 512 pointers, one per 9-bit NPC ID / data. Same cases; bytes after the last `FF yy` are copied to `$0A49` | `$13:9800` / `$13:9C00` | confirmed (`$00:F03F`, from `$00:B84A` with `$0907,X`) |
+| Map properties, 13 bytes per map ID (copied to `$0FDB`). Byte 3: NPC placement set; byte 10 bit 7 → `$0FE5`; byte 11: title | `$15:9C84` | confirmed (`$00:83EF`) |
+| Map triggers: 384 pointers (maps `$000–$17F`) / data, 5 bytes: `x, y`, then `FF` + event call, or a destination | `$15:8000` / `$15:8300` | confirmed (`$00:9A1E`) |
+| World-map triggers: 3 pointers / data, same 5 bytes | `$19:FE60` / `$19:FE66` | confirmed (`$00:9B77`) |
+| NPC placements: set = properties byte 3 + 256 × bank; 4 bytes (`id, x, y, ?`), ended by `0` | `$13:8000` / `$13:8300` | confirmed (`$00:BE8F`) |
+| Events run from code: `JSR $DF63` at `$00:8081` (`10`), `$8285` (`DB`), `$9422` (`C6`, underworld map only), `$9A0F` (`76`); event calls `2D`/`2F` (`$00:9B52`, vehicle code), `52` (`$A635`), `54` (`$A0DD`) | — | confirmed |
 
 Opcodes (handler addresses confirmed; meanings from Yousei unless marked):
 
