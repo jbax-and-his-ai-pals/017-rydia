@@ -1,0 +1,13 @@
+# Never commit a ROM, a patched ROM, saves or save states.
+rom/
+build/
+*.sfc
+*.smc
+*.srm
+*.mss
+*.bst
+
+# Python
+__pycache__/
+*.pyc
+.venv/
