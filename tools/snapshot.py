@@ -19,15 +19,19 @@ from events import parse_all
 from ff4rom import Rom
 
 LAST_FLAG = 0x43          # set by event $9E, the Big Whale rising at Mysidia
-EXTRA = {0x53, 0x47}      # $53: K. Eblan at Babil (mid-game, high number). $47: FuSoYa's joining
-                          # (event $D0) counts as done, so walking into Lunar's Lair adds no one
+# $53: K. Eblan at Babil (mid-game, high number).
+# $47/$48/$49: the whole Giant of Babil arc counts as done. $47 alone (FuSoYa
+# joined, event $D0) makes event call $4E (+47 -48) run the Giant cutscene $9D
+# on the next Whale trip; $48 is the CPU fight ($E6, which also re-adds Kain)
+# and $49 the Elements fight ($ED), both inside the Giant.
+EXTRA = {0x53, 0x47, 0x48, 0x49}
 SKIP = {0x08}             # Odin's trial: leave it available
 FIXED = {                 # flags events both set and clear
     0x0A: True,           # cleared by $95, set by $96 (later)
     0x30: True,           # underworld passage: opened $84, sealed $96, reopened $C6
     0x32: False,          # set $8B, cleared $96: the Enterprise is usable again
     0x3E: False,          # set $8C (Calbrena), cleared $96
-    0x42: True,           # set $B6 (Kain leaves), cleared only by the final CPU fight
+    0x42: False,          # set $B6 (Kain leaves), cleared by the CPU fight $E6 (Kain returns)
 }
 NPC_INIT = 0x12F200
 

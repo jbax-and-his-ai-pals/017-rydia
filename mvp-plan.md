@@ -86,9 +86,11 @@ This is mostly data and event bytes, plus one small assembly hook (2.2). Since F
 
 **Status (Nov 5): done.** Done-when criterion 1 is met; criterion 2 is met except the Whale's trip to the moon, which needs a manual check.
 - **Access audit** ([notes/access.md](notes/access.md)): all 44 world-map locations start quiet: no scenes, fights or party joins.
-- **Fix found by the audit:** Lunar's Lair added FuSoYa until flag `47` was set.
-- **Travel:** the Falcon reaches the underworld through the hole.
-- **Known gaps:** depth inside dungeons; places with no world-map entrance; the final dungeon's CPU fight still adds Kain; NPC flags in the underworld and moon may be off.
+- **Fixes:**
+  - The audit found Lunar's Lair adding FuSoYa, so flag `47` is set.
+  - Playtest then found the first Whale trip playing the Giant of Babil cutscene, so the whole Giant arc (`47–49`) is now marked done.
+- **Travel:** the Falcon reaches the underworld through the hole. The Whale's trip to the moon needs a manual re-check after the Giant fix.
+- **Known gaps:** depth inside dungeons; places with no world-map entrance; NPC flags in the underworld and moon may be off.
 - The world state comes from the event scripts rather than a real save, using the snapshot route. The flag reasoning is in [notes/late-game-state.md](notes/late-game-state.md).
 - The hook is in `asm/newgame.asm`, with its data generated from `tools/late_game.py`.
 - Verified in Mesen on the built patch: New Game puts level-60 Rydia outside Mysidia, with the Big Whale, Falcon and Enterprise.

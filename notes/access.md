@@ -17,7 +17,9 @@ Phase 2.5. Run with `python tools/build.py` then `python tools/audit_access.py`;
 - 33 are fully quiet.
 - 11 had a map change only: walking up from the arrival spot left the map, or went through a door.
   - In underworld and moon caves, walking out lands on the surface map. That's a quirk of teleporting in, since the game never recorded which world we came from. It doesn't happen when you walk in from the world map.
-- The first run found one scene: Lunar's Lair ran event `D0` (FuSoYa joins). Setting flag `47` fixed it (see [late-game-state.md](late-game-state.md)).
+- The first run found one scene: Lunar's Lair ran event `D0` (FuSoYa joins). Setting flag `47` fixed it.
+- Playtest then showed `47` alone makes the first Big Whale trip play the Giant of Babil cutscene. The whole Giant arc (`47–49`) is now marked done (see [late-game-state.md](late-game-state.md)).
+- Re-audited after both fixes, with the same result.
 
 | World | Entrance | Map | Location | Result |
 | --- | --- | --- | --- | --- |
@@ -69,11 +71,10 @@ Phase 2.5. Run with `python tools/build.py` then `python tools/audit_access.py`;
 ## Travel
 
 - **Surface to underworld: works.** Fly the Falcon onto the hole near Agart (`6A`,`D4`) and land; the party arrives at the underworld return point (`71`,`10`).
-- **Surface to moon: not tested.** The Whale's crystal is hard to reach blind. All five moon locations load and are quiet. Check it by hand.
+- **Surface to moon: needs a re-check by hand.** The first playtest reached the moon but played the Giant of Babil cutscene on the way, which the `47–49` fix addresses. The Whale's crystal is hard to reach blind, so this isn't automated. All five moon locations load and are quiet.
 
 ## Not covered
 
 - **Depth.** Only the arrival spot and a few steps were checked. Scenes deeper inside, locked doors, and NPCs blocking corridors need a walkthrough.
 - **Places with no world-map entrance:** the Tower of Babil, Tower of Zot, Giant of Babil, the Lunar Subterrane's lower floors and Baron's waterway. Some exist only during their story event.
-- **The final dungeon's CPU fight** (event `E6`) still adds Kain.
 - **NPC flags in the underworld and moon** may be wrong (see [late-game-state.md](late-game-state.md)). Expect odd NPCs; report any that block a path.

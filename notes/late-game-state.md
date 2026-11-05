@@ -8,13 +8,22 @@ Only event scripts change plot flags: `F2 xx` sets, `F3 xx` clears. No other cod
 
 Events touch 87 flags: 80 are only ever set, 2 only cleared (`10`, `E1`), and 5 both. Flag numbers follow story order: `00` is the opening, `0D` D.Mist, `33` Dr. Lugae, `41` the Sealed Cave, and `43` the Big Whale (event `9E`). Event numbers do not follow story order.
 
-The snapshot is "just after the Big Whale":
+The snapshot is "after the Giant of Babil, before the final dungeon":
 - **Set:** set-only flags `00–43`, plus:
   - `53`: K. Eblan at the Tower of Babil, a mid-game fight with a high flag number
-  - `47`: FuSoYa joining (event `D0`). Added after the access audit found that walking into Lunar's Lair otherwise runs `D0` and adds FuSoYa to the party.
+  - `47–49`: the whole Giant of Babil arc counts as done. These were added in two steps:
+    1. `47` (FuSoYa joins, event `D0`), because the access audit found that walking into Lunar's Lair otherwise runs `D0` and adds FuSoYa to the party.
+    2. `48` (CPU fight, `E6`) and `49` (Elements fight, `ED`), both inside the Giant. With `47` alone, event call `4E` ("if `47` set and `48` clear, run `9D`") played the 394-command Giant of Babil cutscene on the first Big Whale trip, with the full cast. Reported in play on the trip to the moon.
 - **Not set:**
   - `08` (Odin's trial) and `44–46` (Asura, Leviathan, Bahamut), so the summon trials stay available
-  - everything after the Whale: FuSoYa joins (`47`), Giant of Babil (`49`), moon dungeon, CPU, Zemus
+  - the moon's final dungeon and Zemus (flags `4A` and up)
+
+**Event-call format** (`$12:F260` pointers into `$12:F460`). Each call is a list of cases. Within a case:
+- a plain byte `xx` means "flag `xx` must be clear"
+- `FE xx` means "flag `xx` must be set"
+- `FF yy` ends the case and runs event `yy` if every condition holds
+
+The first matching case wins. Example: call `03` is `FE 0B 09 FF 1A FF 00`: if `0B` is set and `09` is clear, run Baigan's event `1A`; otherwise run event `00`.
 - **Set and cleared flags, decided from the story:**
 
 | Flag | Value | Events |
@@ -23,14 +32,15 @@ The snapshot is "just after the Big Whale":
 | `30` | set | underworld passage: opened `84`, sealed `96` (Cid), reopened `C6` |
 | `32` | clear | set `8B`, cleared `96`. While set, the Enterprise can't be boarded (`$00:9FF5`) |
 | `3E` | clear | set `8C` (Calbrena), cleared `96` |
-| `42` | set | set `B6` (Kain leaves), cleared only by the final CPU fight |
+| `42` | clear | set `B6` (Kain leaves), cleared by the CPU fight `E6` inside the Giant (Kain returns) |
 
-Result: 64 plot flags set.
+Result: 65 plot flags set.
 
 **Party joins.** 17 events add a character (`E7`).
-- 15 set a flag that the snapshot already sets, so they count as done.
+- 16 set a flag the snapshot already sets, so they count as done. That includes `E6`, which re-adds Kain after the CPU.
 - `3B` (Tellah) sets no flag, so whatever triggers it decides whether it can still fire. The audit didn't trigger it.
-- `E6` is the exception. That's the CPU fight at the bottom of the moon's final dungeon, which adds Kain (`$14`) and sets flag `48`. It's left alone because marking the CPU defeated could open the endgame. Reaching it takes the whole final dungeon; if solo play matters there, block it later.
+
+**Still possible:** with `48` set, call `4D` (a trigger at (`10`,`10`) in moon map `161`) runs event `DD`, a 243-command scene. It adds no one; `DC` is the alternative.
 
 ## NPC flags (`$12E0–$131F`)
 
