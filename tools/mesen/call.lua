@@ -4,7 +4,11 @@
 -- Battle 1 uses Pact until it ends; later battles cast Call slot SLOT once,
 -- then Fight.
 -- Env: FORMS (default "21,21"), SYM (path to build/rydia.sym),
---      SLOT (default 0; the cursor moves right SLOT times, so same row only)
+--      SLOT (default 0; the cursor moves right SLOT times, so same row only),
+--      SEED=1: at battle 1, pacts are species 01-05 only, the roster is empty and
+--        Call holds Shiva ($36) in slot 0. Checks the fill from the bitfield,
+--        Shiva moving to entry 5, and new pacts replacing the oldest slots.
+--      BLACK=1: battle 2 first casts the first Black spell and checks its MP.
 -- Writes result.txt: checks plus a PASS/FAIL summary; screenshots call_NNN.png.
 local H = dofile(os.getenv("HARNESS_DIR") .. "/lib.lua")
 local ROM = emu.memType.snesPrgRom
@@ -25,6 +29,8 @@ for i, b in ipairs(ev) do emu.write(off(0x1283E0) + i - 1, b, ROM) end
 
 -- Addresses (asm/call.asm, notes/call-design.md).
 local SLOT = tonumber(os.getenv("SLOT") or "0")
+local SEED = os.getenv("SEED") == "1"
+local BLACK = os.getenv("BLACK") == "1"
 local ROSTER, SNAP, CUR, LIST = 0x119E, 0x11AE, 0x11BE, 0x15C0
 local function sym(name)
   for line in io.lines(os.getenv("SYM")) do
@@ -58,18 +64,30 @@ emu.addMemoryCallback(function()
   if battle > 0 then out("battle %d over: $29CD=%02X roster %s", battle, H.ram(0x29CD), H.dump(ROSTER, 5)) end
   battle = battle + 1
   out("battle %d starts: formation %02X", battle, emu.getState()["cpu.a"] & 0xFF)
+  if SEED and battle == 1 then
+    for a = 0x1181, 0x11AD do H.wram_write(a, 0) end
+    H.wram_write(0x1181, 0x3E)                 -- pacts with species 01-05
+    for a = 0x15C0, 0x15D7 do H.wram_write(a, 0) end
+    H.wram_write(0x15C0, 0x36)                 -- Shiva where pact slot 0 goes
+  elseif SEED and battle == 2 then
+    check(H.dump(ROSTER, 5) == "01 1B 04 05 06" and H.ram(0x119D) == 2,
+      "new pacts replaced the oldest slots: roster %s, next %02X (want 01 1B 04 05 06, 02)", H.dump(ROSTER, 5), H.ram(0x119D))
+  end
 end, EXEC, off(0x00E394), off(0x00E394), emu.cpuType.snes, ROM)
 
 -- After the battle-start hook and the spell menu build ($03:8A7A): roster,
 -- snapshot, Call list and the menu's MP for each slot.
 local menuMp = {}
 emu.addMemoryCallback(function()
-  if battle < 2 then return end
   out("battle %d menu: roster %s snap %s list %s", battle, H.dump(ROSTER, 5), H.dump(SNAP, 5), H.dump(LIST, 8))
   for i = 0, 4 do
     local sp = H.ram(ROSTER + i)
     check(H.ram(SNAP + i) == sp, "slot %d snapshot = roster (%02X)", i, sp)
     check(H.ram(LIST + i) == (sp ~= 0 and 0x31 + i or 0), "Call list entry %d = %02X", i, H.ram(LIST + i))
+  end
+  if SEED and battle == 1 then
+    check(H.dump(ROSTER, 5) == "02 03 04 05 06", "roster filled from the bitfield: %s", H.dump(ROSTER, 5))
+    check(H.ram(LIST + 5) == 0x36, "Shiva moved to Call entry 5 (%02X)", H.ram(LIST + 5))
   end
   -- $2C7A: 4 bytes per entry, +1 spell, +3 MP
   for e = 0, 359 do
@@ -122,10 +140,12 @@ end)
 
 -- Input: drive the real battle menu ($D7 open, $1823 = 1 command list,
 -- $1820 opening animation, $60 command cursor: 0 Fight 1 Black 2 Call 3 Item 4 Pact).
-local step, waitUntil, closingSince, moved = "idle", 0, 0, 0
+local step, waitUntil, closingSince, moved, moves = "idle", 0, 0, 0, 0
+local blackAt = nil
 local mpBefore = nil
 local function want_cmd()
   if battle == 1 then return 4 end
+  if BLACK and not blackAt then return 1 end
   if not cast then return 2 end
   return 0
 end
@@ -149,13 +169,24 @@ H.override = function(f)
     waitUntil = f + 6
     if c < want then return { down = true } end
     if c > want then return { up = true } end
-    if want == 2 then mpBefore = rydia_mp(); step = "spell" else step = "target" end
+    if want == 2 then
+      mpBefore = rydia_mp()
+      if blackAt and not blackAt.checked then
+        blackAt.checked = true
+        check(blackAt.mp - mpBefore == blackAt.cost, "Black %02X: MP %d -> %d (cost %d)", blackAt.id, blackAt.mp, mpBefore, blackAt.cost)
+      end
+      step = "spell"; moved = 0; moves = SLOT
+    elseif want == 1 then
+      local id = H.ram(0x15A8)
+      blackAt = { mp = rydia_mp(), id = id, cost = rom(0x0F97A5 + 6 * id) & 0x7F }
+      step = "spell"; moved = 0; moves = 0
+    else step = "target" end
     waitUntil = f + 30
     return { a = true }
   elseif step == "spell" then
     -- spell list: the cursor starts on slot 0; move right SLOT times, A, then A on the target
     waitUntil = f + 30
-    if moved < SLOT then moved = moved + 1; return { right = true } end
+    if moved < moves then moved = moved + 1; return { right = true } end
     step = "target"
     return { a = true }
   elseif step == "target" then
@@ -174,6 +205,7 @@ table.insert(H.on_finish, function()
   H.shot("end")
   check(battle >= #forms, "all %d battles started (%d)", #forms, battle)
   check(cast ~= nil and cast.done == true, "a summon ran and finished")
+  if BLACK then check(blackAt ~= nil and blackAt.checked == true, "a Black spell was cast and its MP checked") end
   if cast and mpBefore then
     local want = menuMp[cast.spell] or -1
     check(mpBefore - rydia_mp() == want, "MP %d -> %d (cost %d)", mpBefore, rydia_mp(), want)

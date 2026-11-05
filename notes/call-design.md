@@ -73,7 +73,7 @@ Re-pacting a species already in the list leaves it where it is. A save with pact
 - `call_spell`: the spell whose data and animation the summon uses. Usually the monster's signature from its AI script (an enemy ability like `$9A` D.Breath, or a spell it casts). The caption shows the monster's name.
 - `call_power`: base power, replacing the spell's own (blank keeps it).
 - `call_name`: 5 letters for the menu, seeded from the monster name.
-- **Plain attackers** get `strike`: effect `$00` (magic damage by power, as Imp's own summon), no element, one enemy.
+- **Plain attackers** get `strike`: effect `$00` (magic damage by power, as Imp's own summon), no element, one enemy. This is **magic** damage (Rydia's magic against the target's magic defense), not the handoff's physical strike. A physical routine that works with Rydia as the caster can replace it once one is found.
 - **Guard rail:** many enemy abilities use effect routines written for a monster caster (`$1E` Blaze/Maser and `$14` Blizzard/Tornado take tiny powers, so they likely scale off the caster's monster stats). The build accepts only effect routines verified from Rydia's side, starting with `$00`, and falls back to `strike` for the rest until each is checked. The animation still comes from `call_spell`.
 - `tools/export_monsters.py` gains an `ai_spells` column (every spell ID in the species' AI scripts) to curate from.
 
@@ -113,6 +113,7 @@ New file `asm/call.asm`, generated tables in `build/gen/data.asm`. Free space: `
 | Run | Result |
 | --- | --- |
 | `call.lua`, formation `$21` twice, slot 0 | Battle 1 pacts Imp then Turtle; roster `01 1B`; Call list `31 32`; menu MP 2 and 7. The Imp summon hits for power 21 and takes the Turtle from 150 HP to 0; MP 450 → 448. ALL PASS |
+| same, `SEED=1 BLACK=1` | An old save's pacts (species 01–05) fill the empty roster `02 03 04 05 06`; Shiva in Call entry 0 moves to entry 5. The new pacts (Imp, Turtle) replace the two oldest slots: `01 1B 04 05 06`, next `02`. Fire1 still costs 5 MP. ALL PASS |
 | same, `SLOT=1` | The Turtle (8×6, bank `$09`) appears beside Rydia in its own colours, caption "Turtle"; power 24; MP 450 → 443. ALL PASS |
 | `pact.lua` `FORMS=21,82` and `FORMS=ED,82 ACTIONS=P,P,F;P` | ALL PASS (Pact still works and refuses as before) |
 
