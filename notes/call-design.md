@@ -47,10 +47,14 @@ Imp, Bomb and Mage's summon entries are exactly their species' palette and graph
 - (b) More slots (8–16) on unused IDs (`$0C`, `$48–$4C`, `$5F`, `$60`, …). Each needs the summon range check, the menu name reader and cast-time code taught about it. More hooks and more risk; better done with the loadout menu.
 
 **D2. Fill order.** The pact bitfield has no order, so a small list of species goes in Tellah's parked slot after the bitfield (`$119D+`, 35 bytes free there).
-- **(a) Ring buffer:** slots fill in pact order, then each new pact replaces the oldest slot. Slots never shift, so the menu and the summon can't disagree mid-battle.
+- **(a) Ring buffer:** slots fill in pact order, then each new pact replaces the oldest slot. A slot keeps its place in the menu.
 - (b) Newest first: every new pact shifts all slots down one.
 
-Re-pacting a species already in the list leaves it where it is. A save with pacts but an empty list (made before this milestone) gets its first 5 pacted species by ID.
+Either way the battle works from a **snapshot**. The menu (names, MP in `$2C7A`) is built at battle start, so battle start also copies the 5 slot species into battle RAM, and casts resolve from that copy. A pact formed mid-battle shows up in Call from the next battle. So D2 is only about how the list feels.
+
+Re-pacting a species already in the list leaves it where it is. A save with pacts but an empty list (made before this milestone) gets its first 5 pacted species by ID, filled in at battle start.
+
+**Empty slot.** A `$31–$35` entry with no species behind it (from a vanilla path, or before the fill) casts the vanilla summon unchanged.
 
 **D3. Graphic.**
 - **(a) The species' own graphic,** read from `$0F:CA00` at cast time.
@@ -76,7 +80,8 @@ New file `asm/call.asm`, generated tables in `build/gen/data.asm`. Free space: `
 | Piece | Hook | Does |
 | --- | --- | --- |
 | Pact order | end of `pact_command` | add the species to the slot list; set `$15C0+` to `$31…` for each filled slot |
-| Summon start | `$03:E050` (only for `$31–$35`) | remember the slot's species in a battle RAM byte; map as vanilla |
+| Battle start | `$03:8A44`, before `$2C7A` is built | fill an empty list from the bitfield; copy the slot species into a battle-RAM snapshot |
+| Summon start | `$03:E050` (only for `$31–$35`) | look up the slot's species in the snapshot (none: vanilla summon); remember it in a battle RAM byte; map as vanilla |
 | Spell data | `JSR $845E` at `$03:8A59` and `$03:CDC7` | after the copy: slot spell → set MP; pact effect spell → write the ability (`call_spell` data, scaled power) into `$289C–$28A1` |
 | Graphic | `$02:EA7F`'s three table reads | palette, graphic address and bank, arrangement from the species |
 | Caption | `$02:CBAF` | 8-letter monster name for a pact effect spell |
