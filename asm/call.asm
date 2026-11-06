@@ -27,6 +27,7 @@
 !arr_tmp      = $7EEBE0     ; 3 scratch bytes there, used only while drawing
 
 ; Data copied by $03:845E for the current action (6 bytes of spell data).
+!spell_target = $7E289C
 !spell_power  = $7E289D
 !spell_hit    = $7E289E
 !spell_effect = $7E289F
@@ -151,6 +152,7 @@ call_copy:
     lda.l !call_snap,x
     beq .far
     dec a
+    pha                     ; species
     jsr mon_level
     lsr
     inc a
@@ -159,6 +161,8 @@ call_copy:
     and #$80
     ora.l !call_tmp
     sta.l !spell_mp
+    pla
+    jsl call_ability_slot   ; asm/ability.asm: menu targeting
     bra .far
 .effect:
     cmp #!eff_first
@@ -177,30 +181,10 @@ call_copy:
     and #$80
     ora.l !call_tmp
     sta.l !spell_mp
-    pla                     ; power = 10 x (monster level + Rydia's level) / 32
+    pla
     clc
-    adc.l !actor_level
-    rep #$20
-    and.w #$00FF
-    pha
-    asl
-    asl
-    clc
-    adc 1,s                 ; x5
-    plx
-    lsr
-    lsr
-    lsr
-    lsr                     ; /16
-    sep #$20
-    bne +
-    lda #$01
-+   sta.l !spell_power
-    lda #$64
-    sta.l !spell_hit        ; 100%
-    lda #$00
-    sta.l !spell_effect     ; effect $00: magic damage by power (as black magic)
-    sta.l !spell_elem       ; no element or status
+    adc.l !actor_level      ; monster level + Rydia's level
+    jsl call_ability_cast   ; asm/ability.asm: the hit (or the plain strike)
 .out:
     rep #$30
     plx

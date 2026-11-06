@@ -22,6 +22,7 @@ from pathlib import Path
 from check_rom import check
 from ff4rom import ROOT, Rom, find_rom
 import late_game
+import abilities
 
 ASAR = os.environ.get("ASAR", r"C:\tools\asar-1.91\asar.exe")
 FLIPS = os.environ.get("FLIPS", r"C:\tools\flips-v198\flips.exe")
@@ -64,11 +65,19 @@ def gen_data() -> Path:
     ]
     for i in range(0, len(bits), 8):
         lines.append("    db " + ", ".join(f"${b:02X}" for b in bits[i:i + 8]))
+    try:
+        abil, live = abilities.table(Rom(), rows)
+    except ValueError as e:
+        sys.exit(f"data/monsters.csv: {e}")
+    lines.append("call_ability_table:      ; 8 bytes per species, see asm/ability.asm")
+    for i in range(0, len(abil), 16):
+        lines.append("    db " + ", ".join(f"${b:02X}" for b in abil[i:i + 16]))
     lines += ["assert pc() <= !call_data_end, \"generated call data overflows its reserved block\"", ""]
     GEN.mkdir(parents=True, exist_ok=True)
     out = GEN / "data.asm"
     out.write_text("\n".join(lines), encoding="utf-8")
-    print(f"gen:   {out.relative_to(ROOT)} ({sum(r['capturable'].strip().lower() == 'y' for r in rows)} capturable)")
+    print(f"gen:   {out.relative_to(ROOT)} ({sum(r['capturable'].strip().lower() == 'y' for r in rows)} capturable, "
+          f"{len(live)} live abilities)")
     return out
 
 

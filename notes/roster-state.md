@@ -166,5 +166,6 @@ than 10 pages (224 species fit in 10).
 Regression set (all pass, Nov 5): `call.lua` default and `SLOT=1 SEED=1 BLACK=1`,
 `field_call.lua` default and `MODE=repair`, `roster_persist.lua` default and
 `MODE=legacy`, `newgame_roster.lua` (pass `SAVE` as an **absolute** path; Mesen
-can't open a relative one), `pact.lua` both cases, `picker.lua`, and the 15
-Python tests.
+can't open a relative one), `pact.lua` both cases, `picker.lua`, `ability.lua` (default four cases), and
+the Python tests (`tools.test_build`, `tools.mesen.test_run`,
+`tools.test_audit_access`, plus `tools/test_abilities.py` run from `tools/`).

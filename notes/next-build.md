@@ -7,7 +7,8 @@ branch reviews are complete on `codex/harness-and-branch-integration`. See
 [integration-review.md](integration-review.md) for the initial integration and
 [roster-state.md](roster-state.md) for expanded ROM, live field Call display,
 roster lifecycle, and save/load verification. Next are the roster picker and
-signature-ability data work (D-F). **E (picker) is done:** see "Roster picker" in
+signature-ability data work (D-F). **D and F are done** (first ten starters): see
+"Signature abilities" in [call-design.md](call-design.md). **E (picker) is done:** see "Roster picker" in
 [roster-state.md](roster-state.md).
 
 ## Read on the project

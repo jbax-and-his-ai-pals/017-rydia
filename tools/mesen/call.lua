@@ -202,6 +202,14 @@ emu.addMemoryCallback(function()
   out("cast data: $26D2=%02X call_cur=%02X $289C=%s, Rydia Lv %d", H.ram(0x26D2), H.ram(CUR), cast.data, H.ram(0x2682))
   check(H.ram(0x26D2) == 0x4D + cast.spell - 0x31, "effect spell %02X", H.ram(0x26D2))
   check(H.ram(CUR) == sp + 1, "call_cur = species+1 (%02X)", H.ram(CUR))
+  local row = H.symbol("call_ability_table") + 8 * sp
+  cast.live = rom(row) & 1 == 1
+  if cast.live then
+    -- a curated signature ability (data/monsters.csv, asm/ability.asm)
+    check(H.ram(0x289E) == rom(row + 4) and H.ram(0x289F) == rom(row + 5) and H.ram(0x28A0) == rom(row + 6),
+      "signature ability data: hit %02X, effect %02X, element %02X", H.ram(0x289E), H.ram(0x289F), H.ram(0x28A0))
+    return
+  end
   local pw = math.max(1, ((mon_level(sp) + H.ram(0x2682)) * 5) >> 4)
   check(H.ram(0x289D) == pw and H.ram(0x289E) == 0x64 and H.ram(0x289F) == 0 and H.ram(0x28A0) == 0,
     "hit data power %d (want %d), hit %02X, effect %02X, element %02X", H.ram(0x289D), pw, H.ram(0x289E), H.ram(0x289F), H.ram(0x28A0))
@@ -211,7 +219,7 @@ emu.addMemoryCallback(function()
   if not cast or not cast.data or cast.done then return end
   cast.done = true
   local hp = H.ram16(cast.rec + 7)
-  check(hp < cast.hp, "target HP %d -> %d", cast.hp, hp)
+  if not cast.live then check(hp < cast.hp, "target HP %d -> %d", cast.hp, hp) end
   cast.after = H.frame
 end, EXEC, off(0x03B05D), off(0x03B05D), emu.cpuType.snes, ROM)
 

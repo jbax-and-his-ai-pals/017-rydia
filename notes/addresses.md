@@ -408,3 +408,17 @@ All confirmed from the field encounter routine at `$00:894D–$00:8B2A`. `tools/
 - **Phase 3 verified** (`tools/mesen/pact.lua`, on the built patch): findings are folded into L4, L5, L7, L8 and L10.
   - The harness drives the real menu with `$D7`/`$1823`/`$60` and checks RAM after each Pact. Its fixture rewrites event `$10` to load the overworld, then fight each formation in `FORMS` and reload the map. Without the reload the screen stays garbled after the last fight, with Fight as well as Pact.
   - Runs: `FORMS=21,82` (Turtle + 2 Imps, then 1 Imp) and `FORMS=ED,82 ACTIONS="P,P,F;P"` (Officer + Soldiers: refused twice, then won with Fight) and `FORMS=E0` (Antlion, a boss: refused four times, fight goes on). `result.txt` ends `ALL PASS` only if every battle started and at least one Pact ran.
+
+## L15 · Monster AI and summon effects
+
+| What | Address | Status |
+| --- | --- | --- |
+| Monster record byte 8: AI group; byte 9: optional-byte flags (`$80` attack set 3, `$40` defense 3, `$20` weakness 1, `$10` spell power 1, `$08` creature type 1, `$04` counter group 1) | `$0E:A860+` records | confirmed (decoder matches known monsters) |
+| AI groups, FF-separated (condition, sequence) pairs | `$0E:E030` | confirmed |
+| AI sequences, FF-separated codes: `$00-$30` spell, `$31-$5E` spell+`$30`, `$5F-$BF` enemy ability, `$C0+` command, `$E8-$F9 xx` two-byte | `$0E:E900`; second list `$0E:B6C0` | confirmed: `$03:92A1` loads the base, `$03:8443` counts FF terminators |
+| Second AI list used when `$38EF` (= `$1801 & $80`) is set | `$03:80CB` | confirmed. Random encounters store `$1801` = 0/1 (`$00:8A20`, `$00:8A9E`), so they always use the main list |
+| Summon effects on party targets: only Asura's `$5A-$5C` run; others skip as a miss (`$03:D13D`) | `$03:D17B-$D18E` | confirmed (runtime). Hooked at `$03:D180` for live pact abilities |
+| Cure (`$02`): amount from `$03:C9AF` into `$A4/$A5`, bit 15 = heal | `$03:D41C` | confirmed |
+| Spell visual index (`DEC A / REP / ASL`), shared by every spell's visual | `$02:EAFB` | confirmed; nothing branches into `$EAFC-$EAFE`. Hooked for the animation swap |
+
+Decoder: `tools/monster_ai.py` (`python tools/monster_ai.py 01 55`).

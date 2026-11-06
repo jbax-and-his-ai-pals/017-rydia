@@ -23,6 +23,7 @@ incsrc "call.asm"
 incsrc "roster.asm"
 incsrc "field-call.asm"
 incsrc "picker.asm"
+incsrc "ability.asm"
 incsrc "newgame.asm"
 incsrc "gen/data.asm"     ; generated into build/gen by tools/build.py
 incsrc "gen/newgame.asm"

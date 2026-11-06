@@ -14,6 +14,8 @@ import csv
 from pathlib import Path
 
 from ff4rom import ROOT, Rom, decode
+import abilities
+import monster_ai
 
 SPECIES = 224
 NAMES = 0x0E9800       # 8 bytes each
@@ -21,7 +23,9 @@ POINTERS = 0x0EA6A0    # 16-bit, low half of the record address in bank $0E
 FORMATIONS = 0x0E8000  # 8 bytes each
 FORMATION_COUNT = 512
 OUT = ROOT / "data" / "monsters.csv"
-FIELDS = ["id", "name", "level", "hp", "boss", "formations", "runnable", "capturable", "notes"]
+CURATED = ["capturable", "notes", "call_anim", "call_data", "call_power", "call_target", "call_verified"]
+FIELDS = ["id", "name", "level", "hp", "boss", "formations", "runnable", "capturable",
+          "ai_spells", "call_anim", "call_data", "call_power", "call_target", "call_verified", "notes"]
 
 
 def formation_species(rom: Rom):
@@ -56,6 +60,12 @@ def export(rom: Rom) -> list[dict]:
             "capturable": "y" if runnable[s] else "n",
             "notes": "",
         })
+        main_, counter = monster_ai.species_spells(rom, s)
+        spells = main_ + [x for x in counter if x not in main_]
+        rows[-1]["ai_spells"] = "; ".join(f"{x:02X} {monster_ai.spell_name(rom, x).strip()}" for x in spells)
+        rows[-1]["call_anim"], rows[-1]["call_data"] = abilities.suggest(rom, spells)
+        for k in ("call_power", "call_target", "call_verified"):
+            rows[-1][k] = ""
     return rows
 
 
@@ -67,8 +77,10 @@ def main() -> None:
             old = {r["id"]: r for r in csv.DictReader(f)}
         for r in rows:
             if r["id"] in old:
-                r["capturable"] = old[r["id"]].get("capturable", r["capturable"])
-                r["notes"] = old[r["id"]].get("notes", "")
+                for k in CURATED:
+                    v = old[r["id"]].get(k)
+                    if v is not None and (v != "" or k in ("capturable", "notes", "call_verified")):
+                        r[k] = v
                 kept += 1
     OUT.parent.mkdir(exist_ok=True)
     with OUT.open("w", newline="", encoding="utf-8") as f:
