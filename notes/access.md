@@ -14,8 +14,8 @@ Phase 2.5. Run with `python tools/build.py` then `python tools/audit_access.py`;
 
 **No location fires a story scene, fight or party change.**
 
-- 33 are fully quiet.
-- 11 had a map change only: walking up from the arrival spot left the map, or went through a door.
+- 32 are fully quiet.
+- 12 had a map change only: walking up from the arrival spot left the map, or went through a door.
   - In underworld and moon caves, walking out lands on the surface map. That's a quirk of teleporting in, since the game never recorded which world we came from. It doesn't happen when you walk in from the world map.
 - The first run found one scene: Lunar's Lair ran event `D0` (FuSoYa joins). Setting flag `47` fixed it.
 - Playtest then showed `47` alone makes the first Big Whale trip play the Giant of Babil cutscene. The whole Giant arc (`47–49`) is now marked done (see [late-game-state.md](late-game-state.md)).
@@ -60,7 +60,7 @@ Phase 2.5. Run with `python tools/build.py` then `python tools/audit_access.py`;
 | underworld | `68,7B` | `100` | Kokkol' the Smith's | quiet (walked through a door) |
 | underworld | `3E,79` | `101` | Tomra | quiet |
 | underworld | `0D,0E` | `145` | Sylvan Cave | quiet (walked out to the world map) |
-| underworld | `2E,6D` | `144` | Sealed Cave | quiet |
+| underworld | `2E,6D` | `144` | Sealed Cave | quiet (walked into B1F) |
 | underworld | `1B,56` | `136` | Land of Monsters | quiet (walked out to the world map) |
 | moon | `3D,17` | `15A` | Cave Bahamut | quiet (walked out to the world map) |
 | moon | `1C,19` | `160` | Lunar's Lair | quiet |
@@ -77,4 +77,4 @@ Phase 2.5. Run with `python tools/build.py` then `python tools/audit_access.py`;
 
 - **Depth.** Only the arrival spot and a few steps were checked. Scenes deeper inside, locked doors, and NPCs blocking corridors need a walkthrough.
 - **Places with no world-map entrance:** the Tower of Babil, Tower of Zot, Giant of Babil, the Lunar Subterrane's lower floors and Baron's waterway. Some exist only during their story event.
-- **NPC flags in the underworld and moon** may be wrong (see [late-game-state.md](late-game-state.md)). Expect odd NPCs; report any that block a path.
+- **NPC flags** now follow each event's map bank (see [late-game-state.md](late-game-state.md)). That opened the Sealed Cave: its sealed door (NPC `13B`) was still shut before, with no way to open it, because `3C` was already set. The audit had read the bump as quiet.

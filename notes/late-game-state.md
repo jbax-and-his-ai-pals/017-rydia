@@ -13,7 +13,7 @@ The snapshot is "after the Giant of Babil, before the final dungeon":
   - `53`: K. Eblan at the Tower of Babil, a mid-game fight with a high flag number
   - `47–49`: the whole Giant of Babil arc counts as done. These were added in two steps:
     1. `47` (FuSoYa joins, event `D0`), because the access audit found that walking into Lunar's Lair otherwise runs `D0` and adds FuSoYa to the party.
-    2. `48` (CPU fight, `E6`) and `49` (Elements fight, `ED`), both inside the Giant. With `47` alone, event call `4E` ("if `47` set and `48` clear, run `9D`") played the 394-command Giant of Babil cutscene on the first Big Whale trip, with the full cast. Reported in play on the trip to the moon.
+    2. `48` (CPU fight, `E6`) and `49` (Elements fight, `ED`), both inside the Giant. With `47` alone, the Whale crystal's talk call (NPC `16A`: "if `47` set and `48` clear, run `9D`") played the 394-command Giant of Babil cutscene on the first Big Whale trip, with the full cast. Event call `4E` holds the same cases, but nothing uses it. Reported in play on the trip to the moon.
 - **Not set:**
   - `08` (Odin's trial) and `44–46` (Asura, Leviathan, Bahamut), so the summon trials stay available
   - the moon's final dungeon and Zemus (flags `4A` and up)
@@ -44,9 +44,48 @@ Result: 65 plot flags set.
 
 ## NPC flags (`$12E0–$131F`)
 
-New Game copies 64 starting bytes from `$12:F200` (`$00:82C6`). The snapshot applies `F4` (set) and `F5` (clear) from events up to the Whale. When an event both sets and clears a flag, the event that sets the highest plot flag wins.
+New Game copies 64 starting bytes from `$12:F200` (`$00:82C6`). A set flag shows the NPC. The snapshot applies `F4` (set) and `F5` (clear) from events up to the Whale. When an event both sets and clears a flag, the event that sets the highest plot flag wins.
 
-**Known gap:** NPC flags come in two banks of 256. The bank depends on the map the event runs on (bank 1 for map IDs `$100+`). 114 of 127 changes come from events that never load a map first, so they're assumed to be bank 0. Underworld and moon NPCs may therefore show or hide wrongly. The access audit catches any that block a path. The fix is to decode the event-call table (`$12:F260` / `$12:F460`) and the map triggers (`$15:8000`) to learn each event's map.
+**Banks.** NPC IDs and NPC flags come in two banks of 256. The game uses bank 1 when `$0FE5` bit 7 (map properties byte 10) is set or `$1701` is non-zero: `$00:F18C` for `F4`/`F5`, `$00:C137` for the visibility test. So `F4 xx` touches NPC `1xx` when the event runs on:
+- a map `$100+`;
+- one of 17 surface maps with the properties bit: `1F`, `58`, `B1`, `B2`, `D2` (Chocobo's Forest), `DA`, `ED–F7`;
+- the underworld or moon world map, where `$1701` is 1 or 2.
+
+`tools/triggers.py` finds what runs each event (formats in [addresses.md](addresses.md), L11):
+- map triggers and world-map triggers;
+- NPC talk: the NPC's 9-bit ID gives the bank;
+- code: `C6` runs only on the underworld map (`$00:811C`); vehicle code runs event call `2D` on the surface and `2F` underground.
+
+After `FE` (load map), the new map decides the bank. `FE FB` is bank 0 and `FC`/`FD` are bank 1, whatever bit 7 of the fourth parameter says. The old code got event `A5` wrong because of that.
+
+Every in-scope `F4`/`F5` now resolves to exactly one bank, and `snapshot.py` raises an error if one doesn't. Before, 114 of 127 changes were guessed as bank 0.
+
+**What changed** (32 NPCs differ from the bank-0 guess; `python tools/snapshot.py`):
+- Surface NPCs the guess had hidden are back at their start values: Baron's weapon shop (`042`, `043`), inns and houses (`03B`–`044`), Mysidia (`0DE`).
+- Now hidden on the surface:
+  - `00F`: Calbrena's event `8C` runs on map `109`, so its `F4 0F` shows `10F`, and event `64`'s clear is the latest.
+  - `0F9`: `C6` runs on the underworld map, so its `F4 F9` hits `1F9`, which no map places. That was a no-op in vanilla too.
+- Underground, now hidden as their events intend: `127`/`128` (map `128`), `11B` (Crystal Rooms), `13B` (the Sealed Cave's sealed door, which was shut for good before; now walking in reaches B1F), and the Sealed Cave Trap Doors (`13D`–`14A`, `168`).
+
+**Events that set no plot flag** still count as done. For example, `3B` hides Tellah's NPC, so talking to him can't add him to the party. Exceptions:
+- `NOT_YET` in `snapshot.py`:
+  - `58`, `59`, `A3`, `A4`: the Lunar Subterrane guardians (fight, item, then the NPC hides). They're in the final dungeon, so they stay.
+  - `DD`: the moon scene that call `4D` still runs with `48` set.
+- Skipped because nothing runs them: `DE`, `DF`, `E0`, `F8`, the talk events of NPCs that no map places.
+
+**Open choice:** under that rule the Sealed Cave Trap Doors (`13D`–`14A` and `168` on B1F–B5F, fights `5C`/`5E`) start hidden, as if already fought. To keep them as Pact targets, add events `B7`–`C4` and `EC` to `NOT_YET`.
+
+**Assumption:** surface world-map events (`42`, `83`, and `66` through call `2D`) use bank 0. That needs `$0FE5` bit 7 clear, which holds unless the player has just left one of the 17 bit-7 surface maps. Placements agree: `83`'s NPCs are on map `C1`, which it loads next. Every event that leaves for a world map leaves from a map with the bit clear.
+
+**Checked in Mesen** (`tools/mesen/npc_check.lua`, built patch). Each map was loaded through event `$10`, logging what `$00:C137` reads:
+- `00C` weapon shop: `042`, `043` shown; both visible in the screenshot.
+- `14A` Sealed Cave B1F: Trap Doors `13D`, `13E` hidden.
+- `169` Lunar Subterrane B3: guardian `1DD` shown.
+- `128`: `127`, `128` hidden.
+
+**Checked statically** (with the snapshot's plot flags):
+- Every surface NPC that's shown again (`027`, `03B`–`044`, `0DE`) runs a talk event with no join, fight or plot flag.
+- Inside the reopened Sealed Cave (maps `144`–`159`), the event-call triggers run `B0`–`B5` or nothing, also with none of those.
 
 ## Party, spells, items, vehicles
 

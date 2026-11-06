@@ -36,7 +36,7 @@ underworld,"5B,53",10F,Dwarf Base,quiet,,map=03:010F end=03:010F party=91
 underworld,"68,7B",100,Kokkol{C9} the Smith's,check,map 03:0100 -> 03:0102 at +376,map=03:0100 end=03:0102 party=91
 underworld,"3E,79",101,Tomra,quiet,,map=03:0101 end=03:0101 party=91
 underworld,"0D,0E",145,Sylvan Cave,check,map 03:0145 -> 00:0145 at +288; map 00:0145 -> 00:0045 at +338,map=03:0145 end=00:0045 party=91
-underworld,"2E,6D",144,Sealed Cave,quiet,,map=03:0144 end=03:0144 party=91
+underworld,"2E,6D",144,Sealed Cave,check,map 03:0144 -> 03:014A at +424,map=03:0144 end=03:014A party=91
 underworld,"1B,56",136,Land of Monsters,check,map 03:0136 -> 00:0136 at +288; map 00:0136 -> 00:0036 at +338,map=03:0136 end=00:0036 party=91
 moon,"3D,17",15A,Cave Bahamut,check,map 03:015A -> 00:015A at +288; map 00:015A -> 00:005A at +338,map=03:015A end=00:005A party=91
 moon,"1C,19",160,Lunar's Lair,quiet,,map=03:0160 end=03:0160 party=91
