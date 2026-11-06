@@ -45,9 +45,10 @@ emu.addMemoryCallback(function()
     names[id]=names[id] or {}; names[id][letter]=s["cpu.a"] & 0xFF
   end
 end,EXEC,off(nameReturn),off(nameReturn),emu.cpuType.snes,ROM)
+local NAMES = H.symbol("call_name_table")   -- curated 5-letter Call names
 local function name_ok(id, sp)
   for letter=0,4 do
-    if not names[id] or names[id][letter] ~= rom(0x0E9800+sp*8+letter) then return false end
+    if not names[id] or names[id][letter] ~= rom(NAMES+sp*5+letter) then return false end
   end
   return true
 end

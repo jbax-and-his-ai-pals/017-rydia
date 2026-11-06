@@ -86,6 +86,13 @@ def gen_data() -> Path:
             tiles = [y * 0x20 + (w - 1 - x) * 2 for y in range(h) for x in range(w)]
             lines.append(f"summon_map_{w}_{h}:")
             lines.append("    db " + ", ".join(f"${t:02X}" for t in tiles))
+    try:
+        cnames = abilities.names(Rom(), rows)
+    except ValueError as e:
+        sys.exit(f"data/monsters.csv: {e}")
+    lines.append("call_name_table:         ; 5 letters per species (call_name), Call menus")
+    for i in range(0, len(cnames), 15):
+        lines.append("    db " + ", ".join(f"${b:02X}" for b in cnames[i:i + 15]))
     lines.append("call_ability_table:      ; 8 bytes per species, see asm/ability.asm")
     for i in range(0, len(abil), 16):
         lines.append("    db " + ", ".join(f"${b:02X}" for b in abil[i:i + 16]))

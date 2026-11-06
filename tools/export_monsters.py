@@ -23,9 +23,9 @@ POINTERS = 0x0EA6A0    # 16-bit, low half of the record address in bank $0E
 FORMATIONS = 0x0E8000  # 8 bytes each
 FORMATION_COUNT = 512
 OUT = ROOT / "data" / "monsters.csv"
-CURATED = ["capturable", "notes", "call_anim", "call_data", "call_power", "call_target", "call_verified"]
+CURATED = ["capturable", "notes", "call_name", "call_anim", "call_data", "call_power", "call_target", "call_verified"]
 FIELDS = ["id", "name", "level", "hp", "boss", "formations", "runnable", "capturable",
-          "ai_spells", "call_anim", "call_data", "call_power", "call_target", "call_verified", "notes"]
+          "ai_spells", "call_name", "call_anim", "call_data", "call_power", "call_target", "call_verified", "notes"]
 
 
 def formation_species(rom: Rom):
@@ -64,7 +64,7 @@ def export(rom: Rom) -> list[dict]:
         spells = main_ + [x for x in counter if x not in main_]
         rows[-1]["ai_spells"] = "; ".join(f"{x:02X} {monster_ai.spell_name(rom, x).strip()}" for x in spells)
         rows[-1]["call_anim"], rows[-1]["call_data"] = abilities.suggest(rom, spells)
-        for k in ("call_power", "call_target", "call_verified"):
+        for k in ("call_name", "call_power", "call_target", "call_verified"):
             rows[-1][k] = ""
     return rows
 

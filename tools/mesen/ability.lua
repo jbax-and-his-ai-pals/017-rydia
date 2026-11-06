@@ -162,6 +162,7 @@ H.override = function(f)
     step = want == 2 and "spell" or "target"; waitUntil = f + 30
     return { a = true }
   elseif step == "spell" then
+    if battle == 1 then H.shot("battle-call-menu") end
     step = "target"; waitUntil = f + 30
     return { a = true }
   elseif step == "target" then

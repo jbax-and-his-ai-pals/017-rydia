@@ -237,15 +237,18 @@ call_menu_name:
     dec a
     rep #$20
     and.w #$00FF
-    asl
+    pha
     asl
     asl
     clc
-    adc 1,s
+    adc 1,s                 ; species x 5
+    plx
+    clc
+    adc 1,s                 ; + letter
     tax
     pla
     sep #$20
-    lda.l $0E9800,x
+    lda.l call_name_table,x ; curated 5-letter Call names (data/monsters.csv)
     plx
     rtl
 .empty:

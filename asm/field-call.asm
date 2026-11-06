@@ -90,16 +90,19 @@ call_field_name:
     dec a
     rep #$20
     and.w #$00FF
-    asl
+    pha
     asl
     asl
     clc
-    adc 1,s
+    adc 1,s                 ; species x 5
+    plx
+    clc
+    adc 1,s                 ; + byte in the record
     tax
     pla
     sep #$20
     beq .icon
-    lda.l $0E9800-1,x       ; letter n is name byte n-1
+    lda.l call_name_table-1,x   ; letter n is Call-name byte n-1
     bra .return
 .icon:
     lda.l $0F8900+(6*!slot_first)   ; the summon icon

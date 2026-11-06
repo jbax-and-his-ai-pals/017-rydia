@@ -1,6 +1,10 @@
 """Signature abilities: from data/monsters.csv columns to the ROM table.
 
 Columns (all optional; blank = plain strike):
+- call_name      the summon's name in the Call menus (battle and field), at
+                 most 5 characters, unique among capturable species. Blank:
+                 the first 5 letters of the monster name. The caption while the
+                 summon acts still shows the full 8-letter monster name.
 - ai_spells      exported by tools/export_monsters.py: every spell in the species'
                  AI, main then counter ("6C Petrify; 6B Beak"). Read-only.
 - call_anim      hex spell whose animation plays after the monster appears.
@@ -18,6 +22,7 @@ Columns (all optional; blank = plain strike):
 The exporter fills call_anim / call_data as suggestions from the AI.
 """
 
+import ff4rom
 from ff4rom import Rom
 
 SPELLS = 0x0F97A0
@@ -82,3 +87,27 @@ def table(rom: Rom, rows: list[dict]) -> tuple[bytes, list[str]]:
                                              d[2], d[3], d[4], 0])
         live.append(f"{s:02X} {r['name']}")
     return bytes(out), live
+
+
+NAME_LEN = 5
+
+
+def names(rom: Rom, rows: list[dict]) -> bytes:
+    """call_name_table: 5 encoded letters per species, padded with spaces."""
+    enc = {v: k for k, v in ff4rom._TEXT.items()}
+    out = bytearray([0xFF] * (NAME_LEN * SPECIES))
+    seen = {}
+    for r in rows:
+        s = int(r["id"], 16)
+        name = (r.get("call_name") or "").rstrip() or ff4rom.decode(rom.read(0x0E9800 + 8 * s, 8))[:NAME_LEN].rstrip()
+        if len(name) > NAME_LEN:
+            raise ValueError(f"species {r['id']}: call_name {name!r} is longer than {NAME_LEN}")
+        bad = [c for c in name if c not in enc]
+        if bad:
+            raise ValueError(f"species {r['id']}: call_name {name!r} has characters the font lacks: {bad}")
+        if r.get("capturable", "").strip().lower() == "y":
+            if name in seen:
+                raise ValueError(f"species {r['id']}: call_name {name!r} repeats species {seen[name]}")
+            seen[name] = r["id"]
+        out[NAME_LEN * s:NAME_LEN * s + len(name)] = bytes(enc[c] for c in name)
+    return bytes(out)

@@ -121,7 +121,7 @@ table.insert(H.on_frame,function(f)
     if sp~=0 then
       local id=0x30+i
       for letter=0,4 do
-        check(names[id] and names[id][letter]==rom(0x0E9800+(sp-1)*8+letter),"rendered slot %d letter %d matches species",i,letter)
+        check(names[id] and names[id][letter]==rom(H.symbol("call_name_table")+(sp-1)*5+letter),"rendered slot %d letter %d matches the species' Call name",i,letter)
       end
       local ptr=rom(0x0EA6A0+2*(sp-1)) | (rom(0x0EA6A1+2*(sp-1))<<8)
       local mp=1+((rom(0x0E0000|ptr)&0x7F)>>1)
