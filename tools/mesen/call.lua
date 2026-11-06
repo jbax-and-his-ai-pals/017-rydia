@@ -33,14 +33,7 @@ local SLOT = tonumber(os.getenv("SLOT") or "0")
 local SEED = os.getenv("SEED") == "1"
 local BLACK = os.getenv("BLACK") == "1"
 local ROSTER, SNAP, CUR, LIST = 0x119E, 0x11AE, 0x11BE, 0x15C0
-local function sym(name)
-  for line in io.lines(os.getenv("SYM")) do
-    local b, a, n = line:match("^(%x%x):(%x%x%x%x) (%S+)")
-    if n == name then return (tonumber(b, 16) << 16) | tonumber(a, 16) end
-  end
-  error("no symbol " .. name)
-end
-local SUMMON = sym("call_summon")
+local SUMMON = H.symbol("call_summon")
 
 local results, fails = {}, 0
 local function out(fmt, ...) local s = string.format(fmt, ...); results[#results + 1] = s; H.log("%s", s) end
@@ -59,8 +52,60 @@ local function mon_name(s)
 end
 local function rydia_mp() return H.ram16(0x2000 + 0x0B) end
 
--- Battles.
+-- Find the real Pact->roster JSL in the emitted bank-$03 handler. Compare the
+-- caller state at that instruction and its return address to test the ABI.
+local roster_add = H.symbol("call_roster_add")
+local roster_add_site
+for a = 0x03FEE3, 0x03FF60 - 4 do
+  if rom(a) == 0x22 and rom(a + 1) == (roster_add & 0xFF)
+      and rom(a + 2) == ((roster_add >> 8) & 0xFF)
+      and rom(a + 3) == ((roster_add >> 16) & 0xFF) then
+    roster_add_site = a
+    break
+  end
+end
+assert(roster_add_site, "could not locate Pact JSL to call_roster_add")
+local abi_regs = {
+  { "A", "a" }, { "X", "x" }, { "Y", "y" }, { "PS", "ps" },
+  { "DBR", "dbr" }, { "D", "d" }, { "SP", "sp" },
+}
+local abi_before, abi_species, abiChecks = nil, nil, 0
+local latestAddedSpecies, latestAddedBattle = nil, nil
 local battle = 0
+local function cpu_snapshot()
+  local state, snap = emu.getState(), {}
+  for _, reg in ipairs(abi_regs) do snap[reg[2]] = state["cpu." .. reg[2]] end
+  return snap
+end
+local function abi_values_equal(before, after)
+  if not before or not after then return false end
+  for _, reg in ipairs(abi_regs) do
+    local key = reg[2]
+    if before[key] == nil or after[key] == nil or before[key] ~= after[key] then return false end
+  end
+  return true
+end
+emu.addMemoryCallback(function()
+  abi_before = cpu_snapshot()
+  abi_species = (abi_before.y or 0) & 0xFF
+end, EXEC, off(roster_add_site), off(roster_add_site), emu.cpuType.snes, ROM)
+emu.addMemoryCallback(function()
+  local after = cpu_snapshot()
+  local same = abi_values_equal(abi_before, after)
+  check(same, "call_roster_add preserves A/X/Y/PS/DBR/D/SP at $%06X (species %02X)", roster_add_site, abi_species or 0)
+  abiChecks = abiChecks + 1
+  out("roster_add ABI before A/X/Y/PS/DBR/D/SP=%s/%s/%s/%s/%s/%s/%s after=%s/%s/%s/%s/%s/%s/%s",
+    tostring(abi_before and abi_before.a), tostring(abi_before and abi_before.x), tostring(abi_before and abi_before.y),
+    tostring(abi_before and abi_before.ps), tostring(abi_before and abi_before.dbr), tostring(abi_before and abi_before.d),
+    tostring(abi_before and abi_before.sp), tostring(after.a), tostring(after.x), tostring(after.y),
+    tostring(after.ps), tostring(after.dbr), tostring(after.d), tostring(after.sp))
+  latestAddedSpecies, latestAddedBattle = abi_species, battle
+  abi_before, abi_species = nil, nil
+end, EXEC, off(roster_add_site + 4), off(roster_add_site + 4), emu.cpuType.snes, ROM)
+
+-- Battles.
+local battleSnapshots = {}
+local successfulPactChecks = 0
 emu.addMemoryCallback(function()
   if battle > 0 then out("battle %d over: $29CD=%02X roster %s", battle, H.ram(0x29CD), H.dump(ROSTER, 5)) end
   battle = battle + 1
@@ -81,6 +126,7 @@ end, EXEC, off(0x00E394), off(0x00E394), emu.cpuType.snes, ROM)
 local menuMp = {}
 emu.addMemoryCallback(function()
   out("battle %d menu: roster %s snap %s list %s", battle, H.dump(ROSTER, 5), H.dump(SNAP, 5), H.dump(LIST, 8))
+  battleSnapshots[battle] = H.dump(SNAP, 5)
   for i = 0, 4 do
     local sp = H.ram(ROSTER + i)
     check(H.ram(SNAP + i) == sp, "slot %d snapshot = roster (%02X)", i, sp)
@@ -101,6 +147,32 @@ emu.addMemoryCallback(function()
     end
   end
 end, EXEC, off(0x038A7A), off(0x038A7A), emu.cpuType.snes, ROM)
+
+-- After Pact resolves, the saved battle snapshot must stay fixed while the
+-- field-facing Call spell IDs immediately reflect the updated active roster.
+emu.addMemoryCallback(function()
+  if H.ram(0x26D1) ~= 0x14 then return end
+  local saved = battleSnapshots[battle]
+  local current = H.dump(SNAP, 5)
+  check(saved ~= nil and current == saved,
+    "battle %d Pact leaves snapshot unchanged: %s (menu %s)", battle, current, saved or "missing")
+  local listOK = true
+  for i = 0, 4 do
+    local species1 = H.ram(ROSTER + i)
+    local expected = species1 ~= 0 and (0x31 + i) or 0
+    if H.ram(LIST + i) ~= expected then listOK = false end
+  end
+  check(listOK, "battle %d Pact immediately projects roster %s to Call list %s",
+    battle, H.dump(ROSTER, 5), H.dump(LIST, 5))
+  if latestAddedSpecies ~= nil and latestAddedBattle == battle then
+    local captured1 = latestAddedSpecies + 1
+    local found = false
+    for i = 0, 4 do if H.ram(ROSTER + i) == captured1 then found = true end end
+    check(found, "captured species %02X is in live roster %s", latestAddedSpecies, H.dump(ROSTER, 5))
+    if saved ~= nil and current == saved and listOK and found then successfulPactChecks = successfulPactChecks + 1 end
+  end
+  latestAddedSpecies, latestAddedBattle = nil, nil
+end, EXEC, off(0x03B05D), off(0x03B05D), emu.cpuType.snes, ROM)
 
 -- The summon.
 local cast = nil
@@ -205,6 +277,8 @@ table.insert(H.on_finish, function()
   out("end: battles %d of %d, roster %s next %02X, Rydia MP %d", battle, #forms, H.dump(ROSTER, 5), H.ram(0x119D), rydia_mp())
   H.shot("end")
   check(battle >= #forms, "all %d battles started (%d)", #forms, battle)
+  check(abiChecks > 0, "call_roster_add ABI checked at least once (%d)", abiChecks)
+  check(successfulPactChecks > 0, "a successful mid-battle Pact updated the live Call list and preserved its snapshot (%d)", successfulPactChecks)
   check(cast ~= nil and cast.done == true, "a summon ran and finished")
   if battle >= #forms and cast ~= nil and cast.done == true then H.mark_scenario_complete() end
   if BLACK then check(blackAt ~= nil and blackAt.checked == true, "a Black spell was cast and its MP checked") end

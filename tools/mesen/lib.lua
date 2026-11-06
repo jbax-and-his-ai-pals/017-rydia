@@ -49,6 +49,20 @@ function H.pc()
   return ((s["cpu.k"] or 0) << 16) | (s["cpu.pc"] or 0)
 end
 
+-- Resolve labels from the current build, including code/data in expanded banks.
+local symbols = nil
+function H.symbol(name)
+  if not symbols then
+    symbols = {}
+    local path = os.getenv("SYM") or (assert(os.getenv("HARNESS_DIR")) .. "/../../build/rydia.sym")
+    for line in io.lines(path) do
+      local bank, addr, label = line:match("^(%x%x):(%x%x%x%x) (%S+)")
+      if label then symbols[label] = (tonumber(bank, 16) << 16) | tonumber(addr, 16) end
+    end
+  end
+  return assert(symbols[name], "no build symbol " .. name)
+end
+
 -- Input script.
 local inputs, idx, cur = {}, 0, {}
 local path = os.getenv("INPUT")

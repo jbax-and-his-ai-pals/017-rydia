@@ -71,7 +71,7 @@ def writes(rom: Rom) -> list[tuple[int, bytes]]:
         (CALL_LIST_ADDR, spell_list(CALL_LIST)),
         (0x1440, b"".join(bytes([i, n]) for i, n in ITEMS) + bytes(2 * (48 - len(ITEMS)))),
         (0x16A0, GOLD.to_bytes(3, "little")),
-        (0x1181, bytes(28)),               # pact bitfield, cleared
+        (0x1180, bytes(0x40)),             # empty Tellah ID, pacts, roster/ring and transient state
     ]
     for base, (x, y) in VEHICLES.items():
         out.append((base, bytes([1, x, y, 0])))

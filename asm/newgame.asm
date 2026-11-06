@@ -36,6 +36,7 @@ rydia_new_game:
     plp                     ; back to 8-bit A, 16-bit X/Y
     lda #$00                ; character slot 0, as $00:92D0 does
     jsl $038006             ; calculate character stats
+    jsl call_roster_restore ; initialize the derived field list and battle-only state
     ; Black out the field palette buffer ($0CDB, 512 bytes, uploaded to CGRAM
     ; every frame). Loading the overworld streams graphics over several frames
     ; and switches the screen on between them ($00:8FD4). In normal play the

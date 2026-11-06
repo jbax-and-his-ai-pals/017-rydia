@@ -42,7 +42,8 @@ local function check(ok, fmt, ...)
 end
 local function bits() return H.dump(0x1180, 29) end
 local function bit_set(n) return (H.ram(0x1181 + (n >> 3)) >> (n & 7)) & 1 == 1 end
-local function capturable(n) return (rom(0x0EB439 + (n >> 3)) >> (n & 7)) & 1 == 1 end
+local CAPTURABLE = H.symbol("capturable_table")
+local function capturable(n) return (rom(CAPTURABLE + (n >> 3)) >> (n & 7)) & 1 == 1 end
 
 -- Battles.
 local battle, battleAt, actionNo = 0, nil, 0
