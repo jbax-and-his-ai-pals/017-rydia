@@ -189,6 +189,8 @@ at the top of `tools/abilities.py`.
 
 Every animation was checked in screenshots: the effect plays on the intended side and the battle finishes. The ten are chosen from surface encounters (`data/encounters.csv`) for different roles. More species go live by curating the CSV and running `ability.lua` with their IDs.
 
+**Fixed after the first playtest:** summons larger than their slot's vanilla summon were clipped and scrambled, and summons with a borrowed animation stayed on screen until the next round. Both fixed (see addresses.md, "Summon sprite placement and exit").
+
 **Not done:** a physical strike for plain attackers (still magic damage); tuning; the other 71 species with suggested data; checking WaterBug's Heal against an actual status; same-battle summons.
 
 **Testing them in play (the default for now, per the user):** `python tools/build.py`

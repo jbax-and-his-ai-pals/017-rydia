@@ -28,7 +28,153 @@ org $03D180                 ; was LDA $26D2 / CMP #$5A / BCC / CMP #$5D / BCC $D
     bcs ability_party_go
     bra ability_party_vanilla
 
+; Summons leave and Rydia returns in $02:BE89 (when $F35A says a summon is out).
+; Vanilla summon motions jump there; a spell visual ends with JMP $E704. $BE89
+; starts with JSR $E704 and does nothing else without a summon, so ending every
+; visual there lets a pact summon with a borrowed animation leave too.
+org $02EB51                 ; was JMP $E704
+    jmp $BE89
+
+; Summon start position and sprite grid: vanilla copies 4 bytes per summon
+; from $13:FA59 (X, Y, width and height in 16-pixel units) into $F321-$F324.
+; A pact summon then gets a grid sized to its own graphic.
+org $02EAE1                 ; was JSL $03FD53
+    jsl call_summon_pos
+
+; The summon sprite builder ($01:FE64) takes each 16x16 sprite's tile from a
+; per-summon map ($0D:F660 + 2 x $F328). A pact summon uses a generated map
+; for the grid its position hook set (summon_map_ptrs in build/gen/data.asm).
+org $01FE80                 ; vanilla continues here
+summon_map_done:
+org $01FE6B                 ; was LDA $F328 / ASL / TAX / LDA $0DF660,X / STA $1C /
+    jsl call_summon_map     ;     LDA $0DF661,X / STA $1D / LDA #$0D / STA $1E
+    bra summon_map_done
+
 org !ability_code
+
+; Sprite map pointer into $1C-$1E (M=8, X=16; DP as the caller's).
+call_summon_map:
+    jsr pact_grid
+    bcc .vanilla
+    lda.l $7EF323           ; W
+    dec a
+    asl
+    asl
+    clc
+    adc.l $7EF324           ; + H
+    dec a
+    asl
+    rep #$20
+    and.w #$00FF
+    tax
+    lda.l summon_map_ptrs,x
+    sta $1C
+    sep #$20
+    lda.b #summon_map_ptrs>>16
+    sta $1E
+    rtl
+.vanilla:
+    lda.l $7EF328
+    asl
+    tax
+    lda.l $0DF660,x
+    sta $1C
+    lda.l $0DF661,x
+    sta $1D
+    lda #$0D
+    sta $1E
+    rtl
+
+; Carry set when the summon being drawn is a pact summon with a plain
+; rectangular graphic (its position and grid come from call_summon_pos).
+; Keeps X and A's high byte; A's low byte is clobbered.
+pact_grid:
+    lda.l $7EF325
+    cmp #!call_slots
+    bcs .no
+    lda.l !call_cur
+    beq .no
+    phx
+    dec a
+    rep #$20
+    and.w #$00FF
+    asl
+    asl
+    tax
+    sep #$20
+    lda.l $0FCA00,x
+    plx
+    bit #$C0
+    bne .no
+    sec
+    rts
+.no:
+    clc
+    rts
+
+; After $03:FD53: for a pact summon, X = 240 - 8 x width, Y = 108 - 8 x rows
+; (rows at most 8, as drawn), grid = tiles / 2. Keeps all registers.
+call_summon_pos:
+    jsl $03FD53
+    php
+    rep #$30
+    pha
+    phx
+    sep #$20
+    lda.l $7EF325           ; summon index (effect spell - $4D), set by $03:FD53
+    cmp #!call_slots
+    bcs .done
+    lda.l !call_cur
+    beq .done
+    dec a
+    rep #$20
+    and.w #$00FF
+    asl
+    asl
+    tax
+    sep #$20
+    lda.l $0FCA00,x         ; size byte; character-style or irregular: leave vanilla
+    bit #$C0
+    bne .done
+    and #$3F
+    asl
+    rep #$20
+    and.w #$00FF
+    tax
+    sep #$20
+    lda.l $0DFF5E,x         ; width in tiles
+    pha
+    lsr
+    sta.l $7EF323           ; grid width (16-pixel units)
+    pla
+    asl
+    asl
+    asl
+    eor #$FF
+    sec
+    adc #240                ; 240 - 8 x width
+    sta.l $7EF321
+    lda.l $0DFF5F,x         ; height in tiles, drawn up to 8
+    cmp #$09
+    bcc +
+    lda #$08
++   pha
+    lsr
+    sta.l $7EF324           ; grid height
+    pla
+    asl
+    asl
+    asl
+    eor #$FF
+    sec
+    adc #108                ; 108 - 8 x rows
+    sta.l $7EF322
+.done:
+    rep #$30
+    plx
+    pla
+    plp
+    rtl
 
 ; Battle menu build (A = species, M=8): a live ability sets the slot's
 ; targeting bits in $289C, which become its $2C7A menu entry.

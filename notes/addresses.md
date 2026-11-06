@@ -422,3 +422,15 @@ All confirmed from the field encounter routine at `$00:894D–$00:8B2A`. `tools/
 | Spell visual index (`DEC A / REP / ASL`), shared by every spell's visual | `$02:EAFB` | confirmed; nothing branches into `$EAFC-$EAFE`. Hooked for the animation swap |
 
 Decoder: `tools/monster_ai.py` (`python tools/monster_ai.py 01 55`).
+
+### Summon sprite placement and exit
+
+| What | Address | Status |
+| --- | --- | --- |
+| Summon start: X, Y, grid width and height (16x16 sprites) per summon, copied to `$F321-$F324` by `$03:FD53`; `$F325` = summon index | `$13:FA59 + 4 x (effect spell - $4D)` | confirmed (runtime) |
+| Summon sprite builder: W x H grid from `$F323/$F324`, tile per sprite from map `$0D:F660 + 2 x $F328`, read by `$03:F7E8` (`$FE`/`$FF` special) | `$01:FE64` | confirmed. Maps are mirrored row-major: tile = y x `$20` + (W-1-x) x 2 |
+| Summon motion handlers per effect spell (`$4D` → `$0A` ... `$5D` → `$1A`), table `$02:EB76`; they end with `JMP $BE89` | `$02:EB3D` | confirmed |
+| Summon leaves, Rydia returns, when `$F35A` is set | `$02:BE89` | confirmed. Spell visuals ended with `JMP $E704` at `$02:EB51`, so a borrowed animation left the summon on screen; now `JMP $BE89` |
+| Summon X step (16 px over 8 frames) | `$01:FDA1` / `$01:FDB1` | confirmed |
+
+A pact summon used the vanilla slot summon's grid and map, which clipped and scrambled anything larger than that summon. `call_summon_pos` (hooked at `$02:EAE1`) now sets X = 240 - 8 x width, Y = 108 - 8 x rows and a grid from the species' size; `call_summon_map` (`$01:FE6B`) picks a generated map (`summon_map_ptrs`, bank `$21`). Verified on SandMoth 8x6, Sandpede 6x8, FlameDog 8x6, Cave Bat 6x4.

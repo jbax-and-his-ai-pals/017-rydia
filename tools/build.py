@@ -76,6 +76,16 @@ def gen_data() -> Path:
         abil, live = abilities.table(Rom(), rows)
     except ValueError as e:
         sys.exit(f"data/monsters.csv: {e}")
+    # Summon sprite maps (asm/ability.asm): for a grid of W x H 16x16 sprites,
+    # the tile of each sprite, row by row, mirrored (summons face left).
+    lines.append("summon_map_ptrs:         ; (W-1)*4 + (H-1), W 1-8, H 1-4")
+    for w in range(1, 9):
+        lines.append("    dw " + ", ".join(f"summon_map_{w}_{h}&$FFFF" for h in range(1, 5)))
+    for w in range(1, 9):
+        for h in range(1, 5):
+            tiles = [y * 0x20 + (w - 1 - x) * 2 for y in range(h) for x in range(w)]
+            lines.append(f"summon_map_{w}_{h}:")
+            lines.append("    db " + ", ".join(f"${t:02X}" for t in tiles))
     lines.append("call_ability_table:      ; 8 bytes per species, see asm/ability.asm")
     for i in range(0, len(abil), 16):
         lines.append("    db " + ", ".join(f"${b:02X}" for b in abil[i:i + 16]))
