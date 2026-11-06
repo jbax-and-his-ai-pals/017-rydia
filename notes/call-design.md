@@ -283,3 +283,50 @@ still shows the full monster name.
 - **Level gate.** A summon above Rydia's level could show an unaffordable MP cost in menus, so the game itself greys it out.
 - **Once per battle.** A small battle-RAM bitfield set at the cast and checked at the menu (needs a menu-disable hook).
 - **Loadout budget.** The picker could limit the active roster's total tier cost, with a budget that grows with Rydia's level. This makes big summons a trade-off rather than just a cost. Picker logic only; no battle changes.
+
+## Design: 24 active slots, eidolons in the roster, the whole bestiary in the pool
+
+**Decided (user, Nov 5):** 24 active slots, and eidolons are roster entries like pacts.
+
+**Three layers**
+1. **Pool (storage):** permanent and never lost. 224 pact bits (`$1181-$119C`, as today) plus 10 eidolon bits (new). Every monster Rydia has ever pacted stays reachable forever.
+2. **Active roster:** 24 saved entries, any mix of monsters and eidolons. An entry is species+1 (1-224), 225+k for eidolon k (Shiva ... Bahamut), or 0 (empty).
+3. **Call list:** derived from the active roster, so menus and battles only ever see it.
+
+**Slots are generic.** The 24 safe spell IDs (`$0C`, `$31-$3F`, `$40-$47`) are slot 0 ... slot 23, whatever they hold. Casting slot *i* checks roster entry *i*:
+- a **monster** goes through the pact path (effect `$4D`, its graphic, ability, MP, name);
+- an **eidolon** is handed to vanilla's own summon (`$03:E050` with that eidolon's spell), so Shiva, Asura's random effect and Bahamut behave exactly as in vanilla. Its name and MP come from the vanilla tables.
+
+**Eidolons join the pool** when vanilla grants one: the trials add the eidolon's spell to the Call list. Each roster sync spots an eidolon spell sitting in the list, sets its pool bit, and adds it to the roster: into an empty slot, or the pool only if all 24 are full.
+
+**Swap, store, retrieve.** All three happen in the field picker, which is extended:
+- **Retrieve:** Y on a slot opens the pool (24 per page, up to 10 monster pages plus an eidolon page). A puts the chosen entry in the slot; an entry active elsewhere swaps (as today).
+- **Store:** a "clear slot" action, e.g. Select on the slot, empties it. The entry stays in the pool.
+- **Markers:** entries already active are marked in the pool view, so the roster is visible while browsing.
+- **New pacts** fill an empty slot; otherwise they go to the pool only (the current rule).
+- **Later:** sort or filter (by level, role, element), a details view, a loadout budget for tiers, and a town NPC as an alternative entry point.
+
+**No battle snapshot.** New pacts never replace an occupied slot, and the picker only runs in the field, so occupied slots can't change during a battle. A pact made mid-battle can only fill a slot whose Call list entry was empty at battle start, so it can't be selected until the next battle. The hooks therefore read the live roster, and the snapshot's 16 bytes are freed.
+
+**Save layout (Tellah's parked slot, 64 bytes)**
+
+| Bytes | Use |
+| --- | --- |
+| `$1180` | 0 (empty character ID) |
+| `$1181-$119C` | pact bits, 224 species (unchanged) |
+| `$119D` | eidolon bits 0-7 (was the ring index, now unused) |
+| `$119E-$11B5` | active roster, 24 entries (slots 0-4 unchanged) |
+| `$11B6` | eidolon bits 8-9 |
+| `$11B7-$11BD` | spare (7) |
+| `$11BE` / `$11BF` | summon in progress / scratch (transient) |
+
+The picker's scratch moves to field-only WRAM next to its page buffer (`$7E:EB60+`).
+
+**Old saves:** loading repairs the roster as today. Slots 5-23 there hold old picker and snapshot bytes, which are transient copies of the five, so the existing check that drops invalid, unowned and duplicate entries cleans them up. Empty slots then fill from the pool.
+
+**Plan, in order**
+1. RAM layout plus a generic slot table. Hooks read the live roster; the snapshot and ring code go.
+2. Routing at `$03:CD20` with the caster check; uniform effect `$4D`; one cast time (`$03:9EB1`).
+3. 24 slots in the projection, the menus and the picker. Retest everything; old-save repair.
+4. Eidolons: pool bits, spotting granted eidolon spells, routing to vanilla summons, names and MP.
+5. Picker: clear slot, active markers, eidolon page.
