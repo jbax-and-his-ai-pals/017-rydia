@@ -72,6 +72,8 @@ an assumption about the retained map-property bit on surface world-map events.
 The persistence test still proves pact bits, not active-roster persistence.
 Field Call display and same-battle summons are unchanged.
 
-Next: establish ROM expansion/allocation and data interfaces, then roster
-initialization, field display, and explicit roster save/load checks. The detailed
-sequence remains in [next-build.md](next-build.md).
+**Subsequent update:** ROM expansion/allocation, roster initialization, live field
+display and explicit roster save/load checks are now implemented and verified;
+see [roster-state.md](roster-state.md). The limits above describe this initial
+integration review's baseline. The detailed sequence remains in
+[next-build.md](next-build.md).

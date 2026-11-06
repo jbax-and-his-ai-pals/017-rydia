@@ -140,7 +140,20 @@ Imp and Imp Captain were tested in play: pacts form and summons work. Two proble
 
 ## Next steps
 
-- Fix issue 1, then add a Mesen check (pact, then open the field menu, then read `$15C0`).
-- Try same-battle summons (issue 2).
-- Then D4: signature abilities from the AI scripts (`call_spell` / `call_power` columns in `data/monsters.csv`). Free ROM is nearly used up, so expand the ROM first. Check that nothing in `data/monsters.csv` is uncommitted in another session before editing it.
-- Roster editor (its own milestone).
+**Update, Nov 5: ROM expansion and roster state/display implemented.** The
+patched output is 2 MiB. Lifecycle code moved to `asm/roster.asm` in bank `$20`;
+generated data and the New Game table moved to bank `$21`. Public state rules,
+allocations and test commands are in [roster-state.md](roster-state.md).
+
+Issue 1 is fixed: successful Pact immediately projects the live Call list; field
+Magic displays the roster's five-letter names and species-dependent MP costs.
+Confirmed Load validates/fills the saved roster and clears transient battle
+state. New Game explicitly clears the entire parked Tellah block. The field
+menu uses live roster state; the ongoing battle still uses its original snapshot.
+
+Same-battle summons (issue 2) remain deferred. The current ring replacement policy
+remains until the roster editor can make every collected species selectable.
+
+Next: roster editor and D4 signature-ability data/animation work. Verify effect
+routines from Rydia's side before widening the allowlist. Tall-monster clipping
+still needs its own visual pass.

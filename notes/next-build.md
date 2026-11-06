@@ -2,10 +2,12 @@
 
 Planning review, November 5, 2026. Baseline: `master` at `a19b1a3`.
 The user selected **roster control + distinct summons** as the next payoff.
-The plan below records the original proposed sequence. Package A and both branch
-reviews are now complete; the branches are integrated on
-`codex/harness-and-branch-integration`. See [integration-review.md](integration-review.md)
-for changes and verification. ROM expansion and roster work are next.
+The plan below records the original proposed sequence. Packages A-C and both
+branch reviews are complete on `codex/harness-and-branch-integration`. See
+[integration-review.md](integration-review.md) for the initial integration and
+[roster-state.md](roster-state.md) for expanded ROM, live field Call display,
+roster lifecycle, and save/load verification. Next are the roster picker and
+signature-ability data work (D-F); there is no picker in the current build.
 
 ## Read on the project
 

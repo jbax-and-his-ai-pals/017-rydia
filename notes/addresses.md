@@ -227,7 +227,13 @@ All checked against our ROM: every byte is `$FF`.
 | `$1F:B900–$1F:B9BF` | 192 | |
 | `$09:FFE0–$09:FFFF` | 32 | |
 
-ROM expansion (asar can do it) gives whole free banks if these run short.
+**Expanded output (Nov 5):** the clean source remains 1 MiB; the patched image is
+2 MiB standard LoROM, with size header `$00:FFD7 = $0B` and unchanged SRAM metadata.
+`asm/layout.asm` reserves `$20:8000-$20:8FFF` for roster lifecycle,
+`$20:9000-$20:9FFF` for field Call, `$21:8000-$21:BFFF` for generated data, and
+`$21:C000-$21:CFFF` for the New Game table. The old roster blocks at `$0E:B98A`
+and `$0A:EF00`, and the old generated-table blocks, are no longer allocated.
+Bank `$01:FF35-$01:FF49` holds the new field/load shims (pristine `$FF` in source).
 
 ## L11 · Events
 
@@ -316,6 +322,26 @@ Design and plan: [call-design.md](call-design.md). Code: `asm/call.asm`. Test: `
 | Actor's level (battle record copy) | `$2682` | confirmed (runtime) |
 
 **Call's RAM** (Tellah's parked slot, saved): roster `$119E` (16 × species+1), ring index `$119D`, battle snapshot `$11AE` (16), summon in progress `$11BE`, scratch `$11BF`. Summon drawing also uses `$7E:EB00+` (arrangement) and `$7E:EBE0–$EBE2`, the unused tail of the decode buffer.
+
+Roster/ownership are authoritative; snapshot/current/scratch are cleared after a
+confirmed Load. New Game explicitly clears `$1180-$11BF`. Lifecycle APIs preserve
+A/X/Y/P/DB, use long reads or a saved/restored `$7E` DB, and do not depend on D.
+List projection temporarily copies 24 bytes through `$7E:EB00` during a
+synchronous update before any summon graphic is drawn.
+
+**Field Call hooks, confirmed by ROM disassembly and Mesen:**
+
+| Hook | Contract |
+| --- | --- |
+| `$01:B223` | Spell-list redraw, original `JSR $84A2`; shim synchronizes the live roster/list and replays that call |
+| `$01:B320` | Five-letter name reader, original `LDA $0000,Y`; M8, X/Y16, DB `$0F`, D `$0100`, Y = `$8901 + 6*spell + letter`. Shim returns live species letter; original `$8E34` conversion still runs |
+| `$01:B422` | Shared MP display/affordability read, original `LDA $0F97A5,X`; M8, X16, X = `6*spell`. Pact slot uses live species cost; others retain vanilla. Result cached at `$1B93` |
+| `$01:9650` | Confirmed and checksum-validated title Load, original `JSR $D434`; shim restores/repairs roster then replays it. New Game bypasses this branch |
+
+The common save-preview copy at `$01:979A` is `MVN $70,$00` (raw `54 00 70`):
+SRAM to WRAM's bank-0 mirror. It also runs for previews and Save, so it is not the
+roster restore hook. Field Magic's cursor uses row `$1B83`, column `$1B84`;
+selected cost is `$1B93`. The title/load cursor is `$1A3C` (0 New Game, 1 Save 1).
 
 **Gotchas met while building it:**
 - asar assembles `bra $02EAA7` (a number, not a label) as the raw offset byte. Put a label at the target instead.

@@ -34,12 +34,15 @@ python tools/check_rom.py
 python tools/build.py
 ```
 
-This checks the clean ROM, generates `build/gen/data.asm` from `data/monsters.csv`, runs asar on `asm/main.asm`, and writes:
+This checks the clean 1 MiB ROM, expands the patched output to 2 MiB, generates
+`build/gen/data.asm` from `data/monsters.csv`, runs asar on `asm/main.asm`, and writes:
 - `build/rydia.bps`: the patch to distribute
 - `build/rydia.sfc`: a patched ROM for testing only
 - `build/rydia.sym`: symbols for Mesen
 
-It also re-applies the patch to confirm it reproduces the build byte for byte.
+It verifies LoROM/SRAM metadata, the ROM size header and checksum, and re-applies
+the patch to confirm it reproduces the build byte for byte. Expanded allocations
+and the roster state contract are in [notes/roster-state.md](notes/roster-state.md).
 
 `data/monsters.csv` comes from the clean ROM. Re-run the export after adding columns; it keeps hand-edited `capturable` and `notes` values:
 
@@ -72,7 +75,7 @@ scenario has run. Finish callbacks still run after failures to preserve logs.
 Check the Python runner contract without launching Mesen:
 
 ```bash
-python -m unittest tools.mesen.test_run tools.test_audit_access -v
+python -m unittest tools.test_build tools.mesen.test_run tools.test_audit_access -v
 ```
 
 Probe the Lua/process contract through Mesen:
