@@ -268,3 +268,18 @@ still shows the full monster name.
 **Alternatives considered**
 - **One spell ID repeated, identified by cursor position.** It would allow up to 24 slots, but needs battle-menu selection hooks I haven't mapped. Riskier.
 - **Eidolons as pacts in the same roster.** This would free `$36-$3F` for up to 23 slots, but it decides the trial design now.
+
+**Decisions so far (user, Nov 5):** uniform motion; caster check added now (hooks act only for Rydia's Call list).
+
+**Absolute maximum.** The Call list (`$15C0`) and the battle spell menu hold 24 entries, one 3x8 page.
+- **14 with the eidolons kept separate:** 24 - 10. IDs `$31-$35`, `$40-$47` and `$0C` (a white-range dummy no monster uses).
+- **24 if eidolons become roster entries too.** That uses every safe ID below `$48` (`$0C`, `$31-$3F`, `$40-$47`). Above 16, the battle snapshot moves out of the saved block (it's rebuilt every battle) so the roster can take Tellah's slot.
+- **More than 24 needs a paged battle Call menu,** i.e. new menu UI.
+
+**Tiering summons: what the hooks can support.** Each item is a per-species CSV column the build turns into a table, keyed by the species behind a slot:
+- **MP cost.** Already per-species (1 + Lv/2). A `call_tier` column could multiply it, or `call_mp` override it.
+- **Cast time.** Per species, by hooking the cast-time read at `$03:9EB1`, which already knows the slot ID.
+- **Power.** Already per species (`call_power`); a tier could scale it.
+- **Level gate.** A summon above Rydia's level could show an unaffordable MP cost in menus, so the game itself greys it out.
+- **Once per battle.** A small battle-RAM bitfield set at the cast and checked at the menu (needs a menu-disable hook).
+- **Loadout budget.** The picker could limit the active roster's total tier cost, with a budget that grows with Rydia's level. This makes big summons a trade-off rather than just a cost. Picker logic only; no battle changes.
