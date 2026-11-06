@@ -1,10 +1,13 @@
 """Build the patch: clean ROM -> generated data -> asar -> BPS.
 
-Usage: python tools/build.py [--test-pacts]
+Usage: python tools/build.py [--no-test-pacts]
 
---test-pacts: for playtesting only. New Game starts owning every species with
-a live signature ability (data/monsters.csv, call_verified=y); the first five
-fill Call and the rest are in the roster picker (Y in the field Call list).
+By default (for now, while abilities are being playtested) New Game starts
+owning every species with a live signature ability (data/monsters.csv,
+call_verified=y); the first five fill Call and the rest are in the roster
+picker (Y in the field Call list).
+--no-test-pacts: the normal empty start. Build with it before running the
+Mesen regression tests, which expect no pacts at New Game.
 
 Outputs (all in build/, ignored by git):
   rydia.sfc   patched ROM, for testing only; never distribute it
@@ -174,7 +177,7 @@ def main() -> None:
         sys.exit(f"The clean ROM must be exactly {SOURCE_SIZE:,} bytes before expansion")
     rom.write_bytes(clean_data + b"\xFF" * (OUTPUT_SIZE - SOURCE_SIZE))
     gen_data()
-    pacts = test_pacts() if "--test-pacts" in sys.argv[1:] else []
+    pacts = [] if "--no-test-pacts" in sys.argv[1:] else test_pacts()
     if pacts:
         print(f"test:  New Game starts with {len(pacts)} pacts: " + " ".join(f"{s:02X}" for s in pacts))
     gen_newgame(clean, pacts)

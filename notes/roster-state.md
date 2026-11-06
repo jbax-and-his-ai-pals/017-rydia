@@ -163,7 +163,8 @@ while the picker is open.
 Not covered: Rydia not being the selected character (solo game only), and more
 than 10 pages (224 species fit in 10).
 
-Regression set (all pass, Nov 5): `call.lua` default and `SLOT=1 SEED=1 BLACK=1`,
+Regression set (all pass, Nov 5; build with `python tools/build.py --no-test-pacts`
+first, since the default build now starts with test pacts): `call.lua` default and `SLOT=1 SEED=1 BLACK=1`,
 `field_call.lua` default and `MODE=repair`, `roster_persist.lua` default and
 `MODE=legacy`, `newgame_roster.lua` (pass `SAVE` as an **absolute** path; Mesen
 can't open a relative one), `pact.lua` both cases, `picker.lua`, `ability.lua` (default four cases), and
