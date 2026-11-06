@@ -33,6 +33,12 @@ call_picker_poll_stub:
     pha
     lda.l !picker_redraw
     beq .done
+    bpl .list
+    and #$7F                ; bit 7: column labels this frame, list next frame
+    sta.l !picker_redraw
+    jsl call_picker_labels
+    bra .done
+.list:
     lda #$00
     sta.l !picker_redraw
     phx

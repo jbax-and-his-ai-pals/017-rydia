@@ -141,6 +141,23 @@ table.insert(H.on_frame, function(f)
   end
 end)
 
+-- Sounds: the sound driver call ($04:8004) with $1E00 = 02 plays an effect
+-- sound, $1E01 = its ID. A borrowed animation must bring its own sound.
+local sounds = {}
+emu.addMemoryCallback(function()
+  if cast and cast.battle == battle and H.ram(0x1E00) == 0x02 then
+    sounds[#sounds + 1] = H.ram(0x1E01)
+  end
+end, EXEC, off(0x048004), off(0x048004), emu.cpuType.snes, ROM)
+table.insert(H.on_frame, function(f)
+  if cast and cast.case == "fire" and not cast.soundChecked and f - cast.frame == 400 then
+    cast.soundChecked = true
+    local s = table.concat((function() local t = {} for _, v in ipairs(sounds) do t[#t + 1] = string.format("%02X", v) end return t end)(), " ")
+    local want = rom(0x0FA350 + 0x1E - 1)
+    check(s:find(string.format("%02X", want)) ~= nil and not s:find("08"), "fire: plays Fire2's sound %02X, not the Imp punch (sounds %s)", want, s)
+  end
+end)
+
 -- Input: Call slot 0 once per battle, then Fight.
 local step, waitUntil, closingSince = "idle", 0, 0
 local function want_cmd() if cast and cast.battle == battle then return 0 end return 2 end

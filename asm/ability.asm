@@ -17,6 +17,11 @@
 org $02EAFB                 ; spell visuals: was DEC A / REP #$20 / ASL A
     jsl call_ability_visual
 
+; Spell sounds come from their own table ($0F:A350 + spell - 1, X = $F47F),
+; read separately from the visual. A borrowed animation takes its sound too.
+org $02F5EE                 ; was LDA $0FA350,X
+    jsl call_ability_sound
+
 ; Summon effects reach party targets only for Asura ($5A-$5C) in vanilla; other
 ; summons on the party are skipped as a miss. Live pact abilities may too.
 org $03D18B                 ; vanilla: LDA $CE / BPL (party target: skip)
@@ -322,6 +327,44 @@ call_ability_visual:
     dec a
     rep #$20
     asl a
+    rtl
+
+; Sound (M=8, X = spell - 1): the animation spell's sound for a pact effect
+; spell with a live ability, else vanilla. Keeps X and A's high byte.
+call_ability_sound:
+    php
+    rep #$30
+    pha
+    phx
+    sep #$20
+    cpx.w #!eff_first-1
+    bne .vanilla
+    lda.l !call_cur
+    beq .vanilla
+    dec a
+    jsr ability_row
+    bcc .vanilla
+    lda.l call_ability_table+1,x
+    dec a
+    rep #$20
+    and.w #$00FF
+    tax
+    sep #$20
+    lda.l $0FA350,x
+    bra .return
+.vanilla:
+    rep #$20
+    lda 1,s
+    tax
+    sep #$20
+    lda.l $0FA350,x
+.return:
+    sta 3,s
+    rep #$30
+    plx
+    pla
+    plp
+    ora.b #$00
     rtl
 
 ; A = species (M=8). Returns X = its table offset and carry set if live.

@@ -339,3 +339,9 @@ roster, list), `asm/slots.asm` (routing and menus), `asm/field-call.asm`
 - **Rule changes:** empty slots are no longer auto-filled at sync, so a cleared slot stays clear. Only a completely empty roster (an ownership-only save) is filled, on Load. The battle snapshot and the ring index are gone.
 - **Tests:** `tools/mesen/slots24.lua` covers the grant event, vanilla Shiva from slot 0, a pact in slot 23 (token `$0C`), menu MP for both, and Black magic's vanilla MP. `picker.lua` and `roster_persist.lua` were rewritten for 24 slots and eidolons. All 12 regression runs pass.
 - **Test start:** the default build's New Game owns all 32 verified summons; 24 are active and 8 are in the pool.
+
+**Picker legibility and sounds (Nov 6):**
+- **Labels:** while the pool is open, the top-left window reads "Pool" and the page ("1 of 2"); it switches back to Black / Call on exit. The labels are drawn into the label layer, then the list is redrawn the next frame.
+- **Bench first:** the pool lists entries that aren't active before the active ones, so swap candidates come first.
+- **Known:** the active-entry icon is the white-magic icon, which looks like the summon dot in this font. It's a weak marker; a clearer one is still to do.
+- **Sounds:** borrowed animations now play their own sound. A summon was playing the Imp's punch sound under every animation, because sounds come from a separate table keyed on the effect spell (`$4D`). `ability.lua` checks this.

@@ -448,3 +448,12 @@ A pact summon used the vanilla slot summon's grid and map, which clipped and scr
 | Event `E2 list spell`: append a spell at the list's first empty entry, with no bound | `$00:E7D8`, store at `$00:E7F9` | hooked: an eidolon goes to the pool and roster instead |
 | Field menu pad bytes: Select arrives as B (`$0101` bit 7) and Start not at all; raw joypad `$4219` (Select = bit 5) | | confirmed (runtime) |
 | Summon decode buffer `$7E:DBE6-$EBE5` is overwritten by vanilla summons in battle | | confirmed: nothing that must survive a battle may live there |
+
+### Field menu labels, spell sounds
+
+| What | Address | Status |
+| --- | --- | --- |
+| Magic menu column labels: records (2-byte tilemap offset, text, `$00`) at `$01:B1E9+`, drawn once at menu open by `$01:8301` (reads bank `$01`); font helper `$01:8E34` (char < `$42`: top/bottom pair from `$1E:FE1E`; else `$FF` above, the char below) | `$01:AF7A-$AFAA` | confirmed |
+| Label layer: tilemap buffer `$7E:C600` -> VRAM `$7800`; Black line at offset `$0170`, Call line at `$01F0` (glyph row +`$40`). Select it for upload with `$29=$C600`, `$35=$7800`, `$C3=2`, `$34=$20` (`$01:8488`); the list layer is `$01:84A2` (`$B600` -> `$6000`). The selected layer is uploaded each frame | | confirmed (runtime) |
+| Sound driver: `JSL $04:8004`, `$1E00` command (`02` = sound effect: `$1E01` ID, `$1E02` pan), animation sounds queued through `$F412-$F415` and sent by `$01:F15E` | | confirmed (runtime) |
+| Spell sound table, 1 byte per spell: read at `$02:F5EE` (`LDA $0FA350,X`, X = spell - 1). Separate from the 4-byte visual entry (palette, graphics `$02:FE11`, animation, motion handler) | `$0F:A350` | confirmed. Hooked: a pact summon with a live ability plays its animation spell's sound |

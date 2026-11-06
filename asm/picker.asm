@@ -129,7 +129,7 @@ picker_input_body:
     stz.w $1B88
     jsr picker_build_page
     jsr picker_project_body
-    lda #$01
+    lda #$81                ; labels this frame, list next frame
     sta.l !picker_redraw
     rts
 
@@ -172,7 +172,7 @@ picker_input_body:
     lda #$00
     sta.w !picker_roster_base,x
     jsl call_roster_sync
-    lda #$01
+    lda #$01                ; list only
     sta.l !picker_redraw
 .select_done:
     rts
@@ -226,7 +226,7 @@ picker_input_body:
     sta.l $7E0101
     jsr picker_build_page
     jsr picker_project_body
-    lda #$01
+    lda #$81                ; labels this frame, list next frame
     sta.l !picker_redraw
     rts
 
@@ -335,7 +335,7 @@ picker_exit:
     stz.w $1B88
     jsl call_roster_sync
     jsr picker_clear_transients
-    lda #$01
+    lda #$81                ; labels this frame, list next frame
     sta.l !picker_redraw
     rts
 
@@ -404,14 +404,25 @@ picker_build_page:
     bra .page_skip_loop
 
 .enumerate_page:
+    ; Two passes over the pool: entries not in the active roster first (the
+    ; bench, what a slot can take), then the active ones.
     lda.l !picker_tmp2
     sta.l !picker_tmp1
-    ldy.w #1
     ldx.w #0
+    lda #$00
+    sta.l !picker_reserved  ; pass: 0 bench, 1 active
+.pass:
+    ldy.w #1
 .page_species:
     tya
     jsr entry_owned
     bcc .species_next
+    tya
+    jsr in_roster
+    lda #$00
+    rol a
+    cmp.l !picker_reserved
+    bne .species_next
     lda.l !picker_tmp1
     beq .put_species
     dec.w !picker_tmp1&$FFFF
@@ -426,7 +437,34 @@ picker_build_page:
     iny
     cpy.w #!eid_value+!eid_count
     bne .page_species
+    lda.l !picker_reserved
+    bne .page_ready
+    inc a
+    sta.l !picker_reserved
+    bra .pass
 .page_ready:
+    rts
+
+; A = roster value. Carry set iff it is one of the 24 active entries.
+; Keeps A, X, Y.
+in_roster:
+    phx
+    pha
+    ldx.w #0
+-   lda.l !roster,x
+    cmp 1,s
+    beq .yes
+    inx
+    cpx.w #!call_slots
+    bne -
+    pla
+    plx
+    clc
+    rts
+.yes:
+    pla
+    plx
+    sec
     rts
 
 ; Project picker cells as the 24 slot tokens; the field readers resolve a token
@@ -491,6 +529,144 @@ picker_clear_transients:
     stz.w !picker_tmp2&$FFFF
     stz.w !picker_reserved&$FFFF
     stz.w !picker_res1&$FFFF
+    rts
+
+; ---------------------------------------------------------------------------
+; Column labels. While the pool is open the top-left window reads "Pool" (on
+; the Black line) and the page, e.g. "1 of 2" (on the Call line); on exit it
+; goes back to "Black" / "Call". Text goes straight into the label layer's
+; tilemap buffer ($7E:C600, two rows per line: $FF above, the glyph below, as
+; $01:8301/$01:8E34 draw it), then that layer is selected for upload this
+; frame ($01:8488 does the same); the poll stub redraws the list next frame.
+!label_buf   = $7EC600
+!label_black = $0170        ; tilemap offsets of the Black and Call lines
+!label_call  = $01F0
+!label_text  = $7EEB70      ; 12 bytes: Black line, then Call line
+
+call_picker_labels:
+    php
+    phb
+    rep #$30
+    pha
+    phx
+    phy
+    sep #$20
+    lda #$7E
+    pha
+    plb
+    ldx.w #0
+    lda.l !picker_mode
+    beq .restore
+-   lda.l .pool_text,x
+    sta.l !label_text,x
+    inx
+    cpx.w #6
+    bne -
+    ldx.w #6                ; Call line: "a of b", or "aofb" with a 10
+    lda.l !picker_page
+    inc a
+    jsr label_number
+    lda.l !picker_page
+    cmp #9
+    bcs .tight
+    lda.l !picker_pages
+    cmp #10
+    bcs .tight
+    lda #$FF
+    sta.l !label_text,x
+    inx
+.tight:
+    lda #$6A                ; o
+    sta.l !label_text,x
+    inx
+    lda #$61                ; f
+    sta.l !label_text,x
+    inx
+    lda.l !picker_page
+    cmp #9
+    bcs +
+    lda.l !picker_pages
+    cmp #10
+    bcs +
+    lda #$FF
+    sta.l !label_text,x
+    inx
++   lda.l !picker_pages
+    jsr label_number
+-   cpx.w #12
+    bcs .draw
+    lda #$FF
+    sta.l !label_text,x
+    inx
+    bra -
+.restore:
+-   lda.l .vanilla_text,x
+    sta.l !label_text,x
+    inx
+    cpx.w #12
+    bne -
+.draw:
+    ldx.w #!label_black
+    ldy.w #0
+    jsr label_line
+    ldx.w #!label_call
+    ldy.w #6
+    jsr label_line
+    rep #$20                ; select the label layer for upload ($01:8488)
+    lda.w #$C600
+    sta.l $7E0129
+    lda.w #$7800
+    sta.l $7E0135
+    sep #$20
+    lda #$02
+    sta.l $7E01C3
+    lda #$20
+    sta.l $7E0134
+    rep #$30
+    ply
+    plx
+    pla
+    plb
+    plp
+    rtl
+.pool_text:
+    db "Pool", $FF, $FF
+.vanilla_text:
+    db "Black", $FF, "Call", $FF, $FF
+
+; A = 1-10: write its digits at !label_text,x. X advances.
+label_number:
+    cmp #10
+    bcc +
+    lda #$81
+    sta.l !label_text,x
+    inx
+    lda #$80
+    bra ++
++   clc
+    adc #$80
+++  sta.l !label_text,x
+    inx
+    rts
+
+; X = tilemap offset of the line, Y = index of its 6 characters in !label_text.
+label_line:
+    lda #6
+    sta.l !picker_tmp2
+-   lda #$FF
+    sta.l !label_buf,x
+    phx
+    tyx
+    lda.l !label_text,x
+    plx
+    sta.l !label_buf+$40,x
+    inx
+    inx
+    iny
+    lda.l !picker_tmp2
+    dec a
+    sta.l !picker_tmp2
+    bne -
     rts
 
 picker_bit_mask:
