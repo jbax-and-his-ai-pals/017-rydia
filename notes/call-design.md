@@ -190,3 +190,8 @@ at the top of `tools/abilities.py`.
 Every animation was checked in screenshots: the effect plays on the intended side and the battle finishes. The ten are chosen from surface encounters (`data/encounters.csv`) for different roles. More species go live by curating the CSV and running `ability.lua` with their IDs.
 
 **Not done:** a physical strike for plain attackers (still magic damage); tuning; the other 71 species with suggested data; checking WaterBug's Heal against an actual status; same-battle summons.
+
+**Testing them in play:** `python tools/build.py --test-pacts` builds a patch whose
+New Game starts owning every live species (the ten above). The first five fill
+Call; Y in the field Call list reaches the rest. Plain `python tools/build.py`
+keeps the normal empty start, which the regression tests expect.

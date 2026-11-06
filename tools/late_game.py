@@ -59,8 +59,20 @@ def spell_list(ids: list[int]) -> bytes:
     return bytes(ids + [0] * (24 - len(ids)))
 
 
-def writes(rom: Rom) -> list[tuple[int, bytes]]:
-    """(WRAM address, bytes) pairs, applied in order."""
+def pact_block(pacts=()) -> bytes:
+    """Tellah's parked slot ($1180-$11BF): ID 0, then pacts with the given species,
+    ring index 0, and the first five of them in the Call roster (species+1)."""
+    block = bytearray(0x40)
+    for s in pacts:
+        block[1 + (s >> 3)] |= 1 << (s & 7)
+    for i, s in enumerate(sorted(pacts)[:5]):
+        block[0x1E + i] = s + 1
+    return bytes(block)
+
+
+def writes(rom: Rom, pacts=()) -> list[tuple[int, bytes]]:
+    """(WRAM address, bytes) pairs, applied in order. pacts: species to start
+    with (testing only; the normal new game has none)."""
     plot, npc, *_ = build_flags(rom)
     out = [
         (0x1000, rydia_record(rom)),
@@ -71,7 +83,7 @@ def writes(rom: Rom) -> list[tuple[int, bytes]]:
         (CALL_LIST_ADDR, spell_list(CALL_LIST)),
         (0x1440, b"".join(bytes([i, n]) for i, n in ITEMS) + bytes(2 * (48 - len(ITEMS)))),
         (0x16A0, GOLD.to_bytes(3, "little")),
-        (0x1180, bytes(0x40)),             # empty Tellah ID, pacts, roster/ring and transient state
+        (0x1180, pact_block(pacts)),       # empty Tellah ID, pacts, roster/ring and transient state
     ]
     for base, (x, y) in VEHICLES.items():
         out.append((base, bytes([1, x, y, 0])))
