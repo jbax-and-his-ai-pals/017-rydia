@@ -5,6 +5,9 @@ A Final Fantasy IV (SNES) hack: Rydia alone in an open world, forming pacts with
 - Design: [handoff.md](handoff.md)
 - MVP plan: [mvp-plan.md](mvp-plan.md)
 - Addresses and lookups: [notes/addresses.md](notes/addresses.md)
+- Next build: [notes/next-build.md](notes/next-build.md)
+- Branch review and verification: [notes/integration-review.md](notes/integration-review.md)
+- Monster locations: [notes/monster-locations.md](notes/monster-locations.md), regenerated with `python tools/export_encounters.py`
 
 ## Layout
 
@@ -55,6 +58,32 @@ Test a build headless in Mesen (scripts in `tools/mesen/`):
 ```bash
 python tools/mesen/run.py tools/mesen/peep.lua build/mesen-out --rom build/rydia.sfc --frames 800 --env MODE=idle
 ```
+
+The runner exits successfully only when Mesen exits successfully and the current
+Lua run writes a passing `harness-status.txt`. It clears stale status, log and
+result files before launch. Pact, Call, save/load and access checks also require
+their scenario to complete; a frame limit alone cannot pass them. Trace and
+screenshot scripts can still finish successfully at their requested frame limit.
+
+For new checks, call `H.require_scenario_completion()`, report assertions with
+`H.fail(reason)`, and call `H.mark_scenario_complete()` only after the required
+scenario has run. Finish callbacks still run after failures to preserve logs.
+
+Check the Python runner contract without launching Mesen:
+
+```bash
+python -m unittest tools.mesen.test_run tools.test_audit_access -v
+```
+
+Probe the Lua/process contract through Mesen:
+
+```bash
+python tools/mesen/run.py tools/mesen/harness_probe.lua build/harness-probe --rom build/rydia.sfc --frames 8 --env PROBE_MODE=pass
+```
+
+`PROBE_MODE=pass` exits 0; `fail`, `incomplete`, `finish-error` and
+`nested-finish` deliberately exit nonzero. Artifacts are for diagnosis; callers
+must honor the runner's exit status.
 
 ## Tools
 

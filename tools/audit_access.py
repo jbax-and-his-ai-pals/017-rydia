@@ -50,16 +50,24 @@ def main() -> None:
     locs = locations(Rom())
     if a.only is not None:
         locs = [loc for loc in locs if loc["map"] == a.only]
+    if not locs:
+        sys.exit("No world-map entrance matches the requested map")
     rows = []
+    failed = False
     for n, loc in enumerate(locs, 1):
         out = OUT_DIR / f"{loc['map']:03X}"
-        subprocess.run([sys.executable, str(ROOT / "tools" / "mesen" / "run.py"),
+        run = subprocess.run([sys.executable, str(ROOT / "tools" / "mesen" / "run.py"),
                         str(ROOT / "tools" / "mesen" / "audit.lua"), str(out), "--rom", str(rom_path),
                         "--frames", "1400", "--timeout", "120", "--env", f"EVENT={loc['event'].hex().upper()}"],
                        capture_output=True)
-        res = (out / "result.txt").read_text().splitlines() if (out / "result.txt").exists() else ["(no result)"]
+        res = (out / "result.txt").read_text().splitlines() if (out / "result.txt").exists() else []
+        res = res or ["(no result)"]
         notes = [line for line in res[1:]]
         status = "quiet" if res[0].startswith("map=") and not notes else ("no result" if res == ["(no result)"] else "check")
+        if run.returncode != 0:
+            failed = True
+            status = "runner failed"
+            notes.append(f"runner exit {run.returncode}")
         rows.append({"world": loc["world"], "entrance": f"{loc['x']:02X},{loc['y']:02X}", "map": f"{loc['map']:03X}",
                      "name": loc["name"], "status": status, "details": "; ".join(notes), "start": res[0]})
         print(f"[{n}/{len(locs)}] {loc['world']:<10} {loc['map']:03X} {loc['name']:<24} {status} {'; '.join(notes)[:80]}")
@@ -67,6 +75,8 @@ def main() -> None:
         w = csv.DictWriter(f, fieldnames=list(rows[0]))
         w.writeheader()
         w.writerows(rows)
+    if failed:
+        sys.exit("Access audit incomplete: at least one Mesen run failed; see notes/access.csv")
 
 
 if __name__ == "__main__":

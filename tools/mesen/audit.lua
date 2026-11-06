@@ -2,6 +2,7 @@
 -- EVENT instead of the overworld. Idle, then walk up a few steps, logging any
 -- event, fight, party change or map change after arrival. Writes result.txt.
 local H = dofile(os.getenv("HARNESS_DIR") .. "/lib.lua")
+H.require_scenario_completion()
 local ROM, EXEC = emu.memType.snesPrgRom, emu.callbackType.exec
 local function off(snes) return ((snes >> 16) & 0x7F) * 0x8000 + ((snes & 0xFFFF) - 0x8000) end
 
@@ -45,6 +46,7 @@ table.insert(H.on_frame, function(f)
     fo:write(string.format("map=%s end=%s party=%02X\n", firstMap or "?", m, H.ram(0x1000)))
     for _, s in ipairs(notes) do fo:write(s .. "\n") end
     fo:close()
+    H.mark_scenario_complete()
     H.finish(0)
   end
 end)
