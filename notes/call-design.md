@@ -198,3 +198,44 @@ builds a patch whose New Game starts owning every live species (the ten above).
 The first five fill Call; Y in the field Call list reaches the rest. Newly
 verified species join automatically. `python tools/build.py --no-test-pacts`
 gives the normal empty start, which the Mesen regression tests expect.
+
+**Batch 2 (live, Nov 5), 22 more:**
+
+| Species | Animation → data | Role |
+| --- | --- | --- |
+| 01 Basil | Petrify → Stone | stone |
+| 03 FlEye | Fatal | instant death |
+| 04 Larva | Psych | drain MP |
+| 06 Trent | Stop | stop |
+| 08 TMage | Lit-1 | lightning |
+| 0C SWorm | Tornado → Weak | cut HP |
+| 11 Rose | Pollen | damage, all enemies |
+| 20 Trick | Heat Ray | damage |
+| 35 DBone | Ice-2 | ice |
+| 3A Guard | Piggy | pig |
+| 3F Mage | Blast → Drain | drain HP |
+| 40 Naga | Tongue | paralyze |
+| 4E BlMan | Wall | reflect on an ally |
+| 54 Ghost | Sleep | sleep |
+| 57 Chimr | Blaze → Fire3 | fire |
+| 5E QLmia | Charm | confuse |
+| 5F TToad | Poison | poison |
+| 78 IBest | Blizzard → Ice-3, all enemies | ice, all |
+| 7A Witch | Fast | haste an ally |
+| 7C TLady | Size | mini |
+| 85 GrnD. | Thunder → Lit-3 | lightning |
+| 8B Molbl | Bad Breath | many statuses |
+
+All 22 were cast in Mesen (`ability.lua`, four parallel runs), checked for damage
+or status, and reviewed on contact sheets (`tools/mesen/contact_sheet.py`
+tiles one frame per cast). The Turtle resists Pig, Mini and Bad Breath; those
+three were rechecked against a lone Imp (`FORM=82`). **A summon whose effect
+misses every target shows only the summoning circle,** as vanilla summons do
+(`$34C5` = 0 at `$02:EAF1`).
+
+**Call names:** `call_name` (data/monsters.csv) gives every capturable monster
+a unique name of up to 5 letters for the battle and field Call menus and the
+picker. Families share a pattern: CBat/GBat/WBat, GrnD./BluD./RedD./YelD.,
+FlEye/RdEye/FtEye, SMoth/RMoth, Stone vs Stale. The build rejects names over 5
+letters, glyphs the font lacks, and repeats. The caption while a summon acts
+still shows the full monster name.

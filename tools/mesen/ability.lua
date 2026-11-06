@@ -8,7 +8,9 @@
 --   <hex>   a species: its built row (data/monsters.csv, call_verified=y) is cast
 --           as is; checks the data, damage for damage effects, and that the
 --           battle finishes. Shots every 25 frames show the animation.
--- Env: CASES (default "fire,all,sleep,heal"; e.g. "02,05,0B")
+-- Env: CASES (default "fire,all,sleep,heal"; e.g. "02,05,0B"),
+--      FORM (hex formation, default 21; e.g. 82 = one Imp, for statuses the
+--      Turtle resists)
 local H = dofile(os.getenv("HARNESS_DIR") .. "/lib.lua")
 H.require_scenario_completion()
 local ROM, EXEC = emu.memType.snesPrgRom, emu.callbackType.exec
@@ -29,8 +31,9 @@ local SPELL = { fire = 0x1E, all = 0x20, sleep = 0x29, heal = 0x0F }
 
 local START = {0xFE,0xFB,0x9A,0xC8,0x00}
 local ev = {table.unpack(START)}
+local FORM = tonumber(os.getenv("FORM") or "21", 16)
 for _ = 1, #cases do
-  ev[#ev+1]=0xEC; ev[#ev+1]=0x21
+  ev[#ev+1]=0xEC; ev[#ev+1]=FORM
   for _,b in ipairs(START) do ev[#ev+1]=b end
 end
 ev[#ev+1]=0xFF
