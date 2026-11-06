@@ -82,3 +82,34 @@ What a player should feel when crossing into a new chapter:
 2. **EXP:** remove it completely (rank only), or keep a small EXP curve alongside rank?
 3. **Guardians:** use FF4's boss order as above, or theme them per region (each guardian matching the region's eidolon)?
 4. **End goal:** complete the bestiary, defeat a final trial (Zeromus as a summon-only fight?), or both?
+
+## Decisions so far (user, Nov 6)
+
+- **Start:** Mist, on foot.
+- **Setting:** long after FF4, years or more. Everything from FF4 is resolved; this is a new situation and challenge. It can nod to the past but doesn't depend on it.
+- **Capture curve:** one formula for the whole game. The first region's monsters are easy and straightforward to pact; later ones need the conditions set up (low HP, a status, level, a per-species difficulty or preference in the CSV).
+- **Growth (proposed, pending a final yes):** normal FF4 XP and levels, plus a large XP bonus for the first pact with each species, so collecting is the fastest way to level. Summons level with use, and echoes help. Rank-only was considered and set aside as too foreign.
+- **Guardians:** each region's gate is a mostly standard monster from the *next* region, or an enhanced version of one. Beating it means you're ready for that region, and a new guardian can be a little easier than the previous one, since it previews new content rather than capping old. Reused graphics; FF4's eidolons (Asura, Leviathan, Odin, Bahamut, ...) can still have their own trials.
+- **Bestiary:** a "seen" record. Monsters you've met appear in the pool list greyed out until captured, so the list is your progress. Save space for the 28 seen bytes to be found, or save RAM expanded.
+- **Guide NPCs:** plain-spoken, not riddles. They talk about the world, what's nearby, tips, a known weakness.
+- **Goal:** a final trial ends the game. Completing the bestiary stays its own motivation, supported by the seen list, the guides and per-region progress.
+
+## Still to decide
+
+1. **Growth:** confirm XP plus a first-pact bonus.
+2. **The moon.** At the end of FF4 the Lunarians' moon leaves Earth's sky; *The After Years* brings it back. Our game is set long after and doesn't need either story. Options:
+   - **(a)** It's in the sky again, unexplained or with one line ("the second moon returned some years ago"). The Big Whale reaches it; the moon maps and monsters become the late game.
+   - **(b)** The moon is gone and the late game happens elsewhere. The moon's monsters would then need homes on Earth or in the underworld, losing those maps.
+   - **(c)** It returns during the game, as the event that opens the final chapter.
+   - Recommended: (a) or (c). The moon holds the strongest monsters and Bahamut, and reusing its maps costs nothing.
+3. **Rydia's start:** level and kit (e.g. Lv 1-3, Fire and Sleep, starter gear and items).
+4. **Black magic:** learned by level as vanilla child Rydia does, or a fixed small set?
+5. **Party:** solo for the whole game, or companions later? (Solo means a KO is game over, and Stone or Silence are deadly.)
+6. **Summon growth:** levels from use, echoes, or both, and a level cap.
+7. **Roster budget:** yes or no, and how strict early on.
+8. **Gear and shops:** keep FF4's town shops as they are (Rydia's equipment progression), or curate them per chapter?
+9. **Final trial:** where (Feymarch, the moon's depths, somewhere new), and what unlocks it (all eidolons, a bestiary share, a level).
+10. **Encounters:** keep FF4's tables, or redesign per region (rare spawns, making every capturable species findable before the final trial)?
+11. **Capturable list:** prune oddities (the seven debug "Dummy" species, scripted story enemies) and decide which bosses stay unpactable.
+12. **Difficulty target:** relaxed collecting game, or a real challenge with some failure?
+13. **Names:** the game, and terms such as Pact, Call, Pool and guide.
