@@ -239,3 +239,32 @@ picker. Families share a pattern: CBat/GBat/WBat, GrnD./BluD./RedD./YelD.,
 FlEye/RdEye/FtEye, SMoth/RMoth, Stone vs Stale. The build rejects names over 5
 letters, glyphs the font lacks, and repeats. The caption while a summon acts
 still shows the full monster name.
+
+## Design: more than 5 active summons (proposal, Nov 5)
+
+**What limits it today**
+1. **Slot spell IDs.** Each active slot is its own spell ID in Rydia's Call list (`$31-$35`).
+2. **Effect spells.** Slot *i* becomes effect spell `$4D+i`, and the hooks check those ranges. Each also brings its vanilla motion (Imp's punch, Bomb's, Cockatrice's, ...), so slots move differently today.
+3. **Save bytes.** The roster and snapshot each reserve 16 bytes, but the picker's scratch RAM (`$11A3-$11AD`) sits inside the roster's.
+4. **Shared list.** The Call list has 24 entries, shared with the eidolons (`$36-$3F`, 10 of them).
+
+**Key simplification: one effect spell for every slot.** The graphic, name, ability, position and exit hooks all find the species through `call_cur`, not the effect spell. If every pact slot maps to effect spell `$4D`, limit 2 disappears and every summon uses the same motion.
+
+**Spell IDs for extra slots** (checked against every monster AI sequence and the battle code):
+- **`$40-$47`** (Comet, Flare, Flame, Flood, Blitz, Smoke, Pin, Image): no monster casts them, and nobody in the solo game has them. They're below `$48`, so the menus treat them as normal 6-byte-name spells.
+- Not usable: IDs `$B0+` are also item IDs in battle (`$03:CDBE`). IDs `$48+` switch to 8-letter names in parts of the battle menu (`$02:A087`). The eidolons `$36-$3F` are staying.
+- So **13 slots: `$31-$35` and `$40-$47`.** With all 10 eidolons that's 23 of the list's 24 entries.
+
+**Changes**
+- **Routing.** Hook the summon dispatch (`$03:CD20-$CD38`): a pact slot ID cast with Rydia's Call command becomes a summon with effect `$4D`. Today `$40+` would be cast as Black magic.
+- **Slot table.** One table maps slot ID to slot index and back. Every hook (MP, targeting, names, picker, roster projection) uses it instead of `$31 + i` arithmetic.
+- **Cast time.** One cast time for every pact slot (today `$33` waits 2 and `$35` waits 3), by hooking `$03:9EB1`. Per-species cast times could come later as a CSV column.
+- **RAM.** Move the picker's scratch to field-only WRAM next to its page buffer (`$7E:EB60+`, extending the existing no-foreign-writes check). The roster and snapshot then have their full 16 bytes, and the active size becomes a single constant.
+- **Picker.** The target slot is the cursor index if it's below N. The grid shows the N slots in rows of 3.
+- **Saves.** Old saves keep their five; the new slots fill from owned species on load or at battle start.
+
+**Caveat: party members.** `$40-$47` are FuSoYa's and Edge's spells. If the story later adds them, the hooks must also check the caster (Rydia's Call list). That's a small check to add now or later.
+
+**Alternatives considered**
+- **One spell ID repeated, identified by cursor position.** It would allow up to 24 slots, but needs battle-menu selection hooks I haven't mapped. Riskier.
+- **Eidolons as pacts in the same roster.** This would free `$36-$3F` for up to 23 slots, but it decides the trial design now.
