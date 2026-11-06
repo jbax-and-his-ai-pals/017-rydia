@@ -11,6 +11,7 @@
 --      BLACK=1: battle 2 first casts the first Black spell and checks its MP.
 -- Writes result.txt: checks plus a PASS/FAIL summary; screenshots call_NNN.png.
 local H = dofile(os.getenv("HARNESS_DIR") .. "/lib.lua")
+H.require_scenario_completion()
 local ROM = emu.memType.snesPrgRom
 local EXEC = emu.callbackType.exec
 local function off(snes) return ((snes >> 16) & 0x7F) * 0x8000 + ((snes & 0xFFFF) - 0x8000) end
@@ -44,7 +45,7 @@ local SUMMON = sym("call_summon")
 local results, fails = {}, 0
 local function out(fmt, ...) local s = string.format(fmt, ...); results[#results + 1] = s; H.log("%s", s) end
 local function check(ok, fmt, ...)
-  if not ok then fails = fails + 1 end
+  if not ok then fails = fails + 1; H.fail() end
   out("%s " .. fmt, ok and "PASS" or "FAIL", ...)
 end
 local function mon_level(s)
@@ -205,6 +206,7 @@ table.insert(H.on_finish, function()
   H.shot("end")
   check(battle >= #forms, "all %d battles started (%d)", #forms, battle)
   check(cast ~= nil and cast.done == true, "a summon ran and finished")
+  if battle >= #forms and cast ~= nil and cast.done == true then H.mark_scenario_complete() end
   if BLACK then check(blackAt ~= nil and blackAt.checked == true, "a Black spell was cast and its MP checked") end
   if cast and mpBefore then
     local want = menuMp[cast.spell] or -1

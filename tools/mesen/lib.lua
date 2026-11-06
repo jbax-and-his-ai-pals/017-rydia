@@ -17,6 +17,21 @@ function H.log(fmt, ...)
   logf:flush()
 end
 
+-- A small process contract consumed by run.py. The runner removes this before
+-- launch, so its presence proves this script reached H.finish in this run.
+local status_path = H.OUT .. "/harness-status.txt"
+local statusf = assert(io.open(status_path, "w"))
+statusf:write("running\n"); statusf:close()
+H.failed = false
+function H.fail(reason)
+  H.failed = true
+  if reason then H.log("HARNESS FAILURE: %s", tostring(reason)) end
+end
+H.require_completion = false
+H.scenario_complete = false
+function H.require_scenario_completion() H.require_completion = true end
+function H.mark_scenario_complete() H.scenario_complete = true end
+
 -- Memory helpers. WRAM by absolute offset ($7E:0000 = 0), so mirrors don't matter.
 local WRAM = emu.memType.snesWorkRam
 function H.ram(a) return emu.read(a, WRAM) end
@@ -79,14 +94,32 @@ end, emu.eventType.endFrame)
 H.on_finish = {}
 local finished = false
 function H.finish(code)
-  if finished then return end
+  if finished then
+    if tonumber(code) and tonumber(code) ~= 0 then
+      H.fail("nested finish requested nonzero status " .. tostring(code))
+    end
+    return
+  end
+  -- Set the guard before running user callbacks. A callback may call finish or
+  -- raise an error; neither should recurse or skip the remaining callbacks.
   finished = true
+  code = tonumber(code) or 0
   for _, fn in ipairs(H.on_finish) do
     local ok, err = pcall(fn)
-    if not ok then H.log("on_finish error: %s", tostring(err)); code = 3 end
+    if not ok then
+      H.fail("on_finish error: " .. tostring(err))
+      if code == 0 then code = 3 end
+    end
   end
+  if H.require_completion and not H.scenario_complete then
+    H.fail("required scenario did not complete")
+    if code == 0 then code = 2 end
+  end
+  if H.failed and code == 0 then code = 1 end
   H.log("finished at frame %d", H.frame)
   logf:close()
+  local sf = io.open(status_path, "w")
+  if sf then sf:write(code == 0 and "passed\n" or ("failed " .. code .. "\n")); sf:close() end
   emu.stop(code or 0)
 end
 

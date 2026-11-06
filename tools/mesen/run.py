@@ -56,6 +56,11 @@ def main() -> int:
 
     out = Path(a.out_dir).resolve()
     out.mkdir(parents=True, exist_ok=True)
+    # Remove only harness-owned completion/diagnostic files. A successful old
+    # run must never make a failed launch look successful.
+    status = out / "harness-status.txt"
+    for stale in (status, out / "log.txt", out / "result.txt"):
+        stale.unlink(missing_ok=True)
     rom_src = Path(a.rom) if a.rom else find_rom()
     rom = out / "game.sfc"
     shutil.copyfile(rom_src, rom)
@@ -70,12 +75,20 @@ def main() -> int:
     cmd = [MESEN, "--testRunner", "--doNotSaveSettings",
            "--debug.scriptWindow.allowIoOsAccess=true", f"--timeout={a.timeout}",
            str(Path(a.script).resolve()), str(rom)]
-    result = subprocess.run(cmd, env=env)
+    try:
+        result = subprocess.run(cmd, env=env, timeout=a.timeout)
+        emulator_code = result.returncode
+    except subprocess.TimeoutExpired:
+        emulator_code = 124
+        print(f"Mesen timed out after {a.timeout}s")
     for raw in out.glob("*.raw"):
         raw_to_png(raw)
     log = out / "log.txt"
-    print(f"exit={result.returncode}  log={log if log.exists() else 'none'}")
-    return result.returncode
+    state = status.read_text(encoding="ascii", errors="replace").strip() if status.exists() else "missing"
+    print(f"exit={emulator_code}  harness={state}  log={log if log.exists() else 'none'}")
+    if emulator_code != 0:
+        return emulator_code
+    return 0 if state == "passed" else 1
 
 
 if __name__ == "__main__":

@@ -4,6 +4,7 @@
 -- Menus are driven by RAM (addresses from aexoden/edge): field menu open
 -- $0500, main cursor $1A76 (7 = Save), save/load menu open $1B47, slot cursor $1A3C.
 local H = dofile(os.getenv("HARNESS_DIR") .. "/lib.lua")
+H.require_scenario_completion()
 local ROM, SRAM = emu.memType.snesPrgRom, emu.memType.snesSaveRam
 local function off(snes) return ((snes >> 16) & 0x7F) * 0x8000 + ((snes & 0xFFFF) - 0x8000) end
 
@@ -80,7 +81,7 @@ local steps = {
       local t = {}
       for a = 0, emu.getMemorySize(SRAM) - 1 do t[#t + 1] = string.char(emu.read(a, SRAM)) end
       local fo = io.open(H.OUT .. "/sram.srm", "wb"); fo:write(table.concat(t)); fo:close()
-      if ram_is(A) then H.log("PASS: pact bytes after load = pattern A"); H.shot("loaded"); H.finish(0)
+      if ram_is(A) then H.log("PASS: pact bytes after load = pattern A"); H.shot("loaded"); H.mark_scenario_complete(); H.finish(0)
       else H.log("FAIL: pact bytes after load = %s", H.dump(PACT, N)); H.shot("loaded"); H.finish(1) end
     end },
 }

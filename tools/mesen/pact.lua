@@ -10,6 +10,7 @@
 --            the last entry repeats. Default: P for every battle.
 -- Writes result.txt: one line per Pact action plus a PASS/FAIL summary.
 local H = dofile(os.getenv("HARNESS_DIR") .. "/lib.lua")
+H.require_scenario_completion()
 local ROM = emu.memType.snesPrgRom
 local EXEC = emu.callbackType.exec
 local function off(snes) return ((snes >> 16) & 0x7F) * 0x8000 + ((snes & 0xFFFF) - 0x8000) end
@@ -36,7 +37,7 @@ end
 local results, fails = {}, 0
 local function out(fmt, ...) local s = string.format(fmt, ...); results[#results + 1] = s; H.log("%s", s) end
 local function check(ok, fmt, ...)
-  if not ok then fails = fails + 1 end
+  if not ok then fails = fails + 1; H.fail() end
   out("%s " .. fmt, ok and "PASS" or "FAIL", ...)
 end
 local function bits() return H.dump(0x1180, 29) end
@@ -58,6 +59,7 @@ end, EXEC, off(0x00E394), off(0x00E394), emu.cpuType.snes, ROM)
 
 -- Pact handler: entry, return to the dispatcher's caller, and after $03:B1B0.
 local cur, pacts = nil, 0
+local resolvedByBattle = {}
 emu.addMemoryCallback(function()
   local ce = H.ram(0xCE)
   local s = ce & 7
@@ -101,6 +103,7 @@ emu.addMemoryCallback(function()
     check(after == c.before, "bitfield unchanged: %s", after)
     check(not gone and left == c.left, "slot %d still there, monsters left %d -> %d", c.slot, c.left, left)
   end
+  resolvedByBattle[battle] = (resolvedByBattle[battle] or 0) + 1
   H.shot(string.format("pact%d_%d_a", battle, actionNo + 1))
   c.shotAt = H.frame
   actionNo = actionNo + 1
@@ -166,6 +169,15 @@ table.insert(H.on_finish, function()
   -- guard against a run that tests nothing (menu driving broke, fixture didn't fight)
   check(battle >= #forms, "all %d battles started (%d)", #forms, battle)
   check(pacts > 0, "Pact ran %d times", pacts)
+  local everyBattleResolved = battle >= #forms
+  for b = 1, #forms do
+    local resolved = resolvedByBattle[b] or 0
+    check(resolved > 0, "battle %d has a resolved Pact (%d)", b, resolved)
+    if resolved == 0 then everyBattleResolved = false end
+  end
+  local unfinished = cur ~= nil and not cur.done
+  check(not unfinished, "no unfinished Pact action")
+  if everyBattleResolved and not unfinished then H.mark_scenario_complete() end
   out("%s: %d failed checks", fails == 0 and "ALL PASS" or "FAILURES", fails)
   local fo = io.open(H.OUT .. "/result.txt", "w")
   fo:write(table.concat(results, "\n") .. "\n"); fo:close()
