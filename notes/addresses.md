@@ -434,3 +434,17 @@ Decoder: `tools/monster_ai.py` (`python tools/monster_ai.py 01 55`).
 | Summon X step (16 px over 8 frames) | `$01:FDA1` / `$01:FDB1` | confirmed |
 
 A pact summon used the vanilla slot summon's grid and map, which clipped and scrambled anything larger than that summon. `call_summon_pos` (hooked at `$02:EAE1`) now sets X = 240 - 8 x width, Y = 108 - 8 x rows and a grid from the species' size; `call_summon_map` (`$01:FE6B`) picks a generated map (`summon_map_ptrs`, bank `$21`). Verified on SandMoth 8x6, Sandpede 6x8, FlameDog 8x6, Cave Bat 6x4.
+
+### 24 generic Call slots
+
+| What | Address | Status |
+| --- | --- | --- |
+| Slot tokens: `$31-$3F`, `$40-$47`, `$0C`; `slot_ids` / `slot_of` tables | generated, bank `$21` | confirmed (runtime) |
+| Roster 24 entries; eidolon pool bits; picker mode/redraw/raw-Select | `$119E-$11B5`; `$11B6-$11B7`; `$11BA-$11BC` | confirmed |
+| Magic dispatch by spell ID (white < `$19` < black < `$31` <= summon < `$40`) | `$03:CD20` | hooked: `call_route` turns Rydia's slot tokens into `$31` (pact) or the eidolon's own spell |
+| Cast-time read for a queued spell (`$DF` = ID) | `$03:9EB1` | hooked |
+| Battle menu entry read (X = WRAM address of a `$2C7A` entry); icon; letters | `$02:A0D0`; `$02:A107`; `$02:A11F` | hooked; names and icons change only in Rydia's Call column |
+| `$2C7A`: 72 entries per party slot, Call column = entries 48-71; battle record byte 0 bits 0-4 = character ID (adult Rydia `$11`) | | confirmed (runtime) |
+| Event `E2 list spell`: append a spell at the list's first empty entry, with no bound | `$00:E7D8`, store at `$00:E7F9` | hooked: an eidolon goes to the pool and roster instead |
+| Field menu pad bytes: Select arrives as B (`$0101` bit 7) and Start not at all; raw joypad `$4219` (Select = bit 5) | | confirmed (runtime) |
+| Summon decode buffer `$7E:DBE6-$EBE5` is overwritten by vanilla summons in battle | | confirmed: nothing that must survive a battle may live there |

@@ -78,10 +78,9 @@ picker_input_body:
     ; Y opens the picker only from adult Rydia's Call column (column 2).
     lda.l $7E0101
     and #$40
-    beq .not_now
-    lda.l $7E1B81
-    cmp #$02
-    bne .not_now
+    beq .select
+    jsr field_gate           ; only in Rydia's Call list (list 4)
+    bcc .not_now
     lda.l $7E1B88            ; a spell is picked up for a vanilla swap
     bne .not_now
     lda.l $7E0101
@@ -132,6 +131,50 @@ picker_input_body:
     jsr picker_project_body
     lda #$01
     sta.l !picker_redraw
+    rts
+
+    ; Select on a filled slot in Rydia's Call grid stores it back in the pool.
+    ; FF4's menu input folds Select into B ($0101 bit 7), so read the raw
+    ; joypad ($4219 bit 5), take only a new press, and swallow that B.
+.select:
+    lda.l $004219
+    and #$20
+    pha
+    lda.l !picker_prev
+    eor #$FF
+    and 1,s
+    sta.l !picker_tmp0
+    pla
+    sta.l !picker_prev
+    lda.l !picker_tmp0
+    beq .select_done
+    jsr field_gate
+    bcc .select_done
+    lda.l $7E1B87            ; in the grid, nothing picked up
+    beq .select_done
+    lda.l $7E1B88
+    bne .select_done
+    lda.l $7E0101
+    and #$7F
+    sta.l $7E0101
+    lda.l $7E1B83
+    asl a
+    clc
+    adc.l $7E1B83
+    clc
+    adc.l $7E1B84
+    rep #$20
+    and.w #$00FF
+    tax
+    sep #$20
+    cpx.w #!call_slots
+    bcs .select_done
+    lda #$00
+    sta.w !picker_roster_base,x
+    jsl call_roster_sync
+    lda #$01
+    sta.l !picker_redraw
+.select_done:
     rts
 
 .picker_modal:
@@ -216,8 +259,7 @@ picker_input_body:
     sta.l !picker_tmp0
 
     ; Validate ownership again before mutating the saved active roster.
-    dec a
-    jsr picker_has_pact
+    jsr entry_owned
     bcc .input_done
 
     ; If the chosen pact is already active in another slot, swap it with the
@@ -300,21 +342,22 @@ picker_exit:
 ; ---------------------------------------------------------------------------
 ; Roster page construction and field-list projection.
 
-; Enumerate every owned species in ascending ID order, compute page count, and
-; fill the current 24-cell page with species+1 (zero marks an empty cell).
+; Enumerate the pool: every owned roster value in ascending order (species+1
+; 1-224, then eidolons 225-234). Compute the page count and fill the current
+; 24-cell page with those values (zero marks an empty cell).
 picker_build_page:
     stz.w !picker_total&$FFFF
-    ldy.w #0
+    ldy.w #1
 .count_owned:
     tya
-    jsr picker_has_pact
+    jsr entry_owned
     bcc .count_next
     lda.l !picker_total
     inc a
     sta.l !picker_total
 .count_next:
     iny
-    cpy.w #224
+    cpy.w #!eid_value+!eid_count
     bne .count_owned
 
     lda.l !picker_total
@@ -363,11 +406,11 @@ picker_build_page:
 .enumerate_page:
     lda.l !picker_tmp2
     sta.l !picker_tmp1
-    ldy.w #0
+    ldy.w #1
     ldx.w #0
 .page_species:
     tya
-    jsr picker_has_pact
+    jsr entry_owned
     bcc .species_next
     lda.l !picker_tmp1
     beq .put_species
@@ -375,28 +418,25 @@ picker_build_page:
     bra .species_next
 .put_species:
     tya
-    inc a
     sta.w !picker_buf_base,x
     inx
     cpx.w #24
     beq .page_ready
 .species_next:
     iny
-    cpy.w #224
+    cpy.w #!eid_value+!eid_count
     bne .page_species
 .page_ready:
     rts
 
-; Project picker cells as synthetic spell IDs $31-$48. The field-call name/MP
-; readers are extended by the separate field-call hook glue.
+; Project picker cells as the 24 slot tokens; the field readers resolve a token
+; to its page cell while the picker is open.
 picker_project_body:
     ldx.w #0
 .project_cell:
     lda.w !picker_buf_base,x
     beq .project_empty
-    txa
-    clc
-    adc #!slot_first
+    lda.l slot_ids,x
     bra .project_store
 .project_empty:
     lda #$00

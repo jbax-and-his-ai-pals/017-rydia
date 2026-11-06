@@ -55,62 +55,74 @@ assert pc() <= $020000, "Field Call shims exceed bank $01 free space"
 
 org !field_call_code
 
-; Return the live pact's menu letter, or exactly the displaced ROM read.
-; Save full A (including its hidden high byte), X/Y and P. Only the low A
-; byte and N/Z change, matching the original 8-bit LDA. DB/D are untouched.
+; Field Call readers. They act only while the field menu shows Rydia's Call
+; list (list 4); there a slot token reads the live roster entry behind it (or,
+; while the picker is open, the page cell). Save full A (with its hidden high
+; byte), X/Y and P; only the low A byte and N/Z change, as the displaced
+; 8-bit LDA. DB/D are untouched.
+
+; Icon and letters: Y = $8900 + spell x 6 + n (n 0 icon, 1-5 letters), DB = $0F.
 call_field_name:
     php
     rep #$30
     pha
     phx
     phy
-    tya
-    cmp.w #($8900+(!slot_first*6))
-    bcc .vanilla
-    jsr field_cell_count    ; A = 6 x cells shown (5 slots, or 24 picker cells)
-    sec
-    sbc.w #($8900+(!slot_first*6))
-    cmp 1,s
-    plx                     ; drop the count; X is reset below, carry kept
-    bcs .vanilla
-    ldx.w #0
-.divide:
-    cmp.w #6
-    bcc .slot
-    sbc.w #6
-    inx
-    bra .divide
-.slot:
-    pha                     ; byte within the record: 0 icon, 1-5 letters
     sep #$20
-    jsr field_cell_species  ; A = species+1 for cell X, 0 = none
-    beq .empty
-    cmp #225
-    bcs .empty
-    dec a
+    jsr field_gate
+    bcc .vanilla
+    rep #$20
+    lda 1,s                 ; saved Y
+    sec
+    sbc.w #$8900
+    tax
+    sep #$20
+    bcc .vanilla
+    jsr x_div6              ; A = spell, Y = n
+    jsr field_value         ; A = entry
+    bcc .vanilla
+    cpy.w #0
+    beq .icon
+    cmp #!eid_value
+    bcs .eidolon
+    dec a                   ; species: call_name_table + species x 5 + n - 1
     rep #$20
     and.w #$00FF
-    pha
+    sta.l !call_div
     asl
     asl
     clc
-    adc 1,s                 ; species x 5
-    plx
+    adc.l !call_div
+    sta.l !call_div
+    tya
     clc
-    adc 1,s                 ; + byte in the record
+    adc.l !call_div
     tax
-    pla
     sep #$20
-    beq .icon
-    lda.l call_name_table-1,x   ; letter n is Call-name byte n-1
+    lda.l call_name_table-1,x
+    bra .return
+.eidolon:
+    jsr eidolon_x6          ; X = spell x 6: its vanilla name
+    rep #$20
+    tya
+    sta.l !call_div
+    txa
+    clc
+    adc.l !call_div
+    tax
+    sep #$20
+    lda.l $0F8900,x
     bra .return
 .icon:
-    lda.l $0F8900+(6*!slot_first)   ; the summon icon
+    jsr entry_active        ; picker: already in the roster?
+    lda.l !summon_icon
+    bcc .return
+    lda.l $0F8900+6         ; marked with the white magic icon
     bra .return
-.empty:
-    rep #$20
-    pla
 .vanilla:
+    rep #$20
+    lda 1,s
+    tay
     sep #$20
     lda.w $0000,y
 .return:
@@ -123,55 +135,35 @@ call_field_name:
     ora.b #$00              ; original reader's N/Z; preserve other flags
     rtl
 
-; Shared vanilla field MP helper serves display and affordability. Preserve
-; full A/X/Y/P as above except the returned byte/N/Z. Caller masks bit 7.
+; Shared vanilla field MP helper (display and affordability), X = spell x 6.
+; Caller masks bit 7.
 call_field_mp:
     php
     rep #$30
     pha
     phx
     phy
-    cpx.w #(!slot_first*6)
+    sep #$20
+    jsr field_gate
     bcc .vanilla
-    txa
-    jsr field_cell_count
-    txa
-    sec
-    sbc.w #(!slot_first*6)
-    cmp 1,s
-    plx                     ; drop the count; X is reset below, carry kept
-    bcs .vanilla
-    ldx.w #0
-.divide:
-    cmp.w #6
-    bcc .slot
-    sbc.w #6
-    inx
-    bra .divide
-.slot:
-    sep #$20
-    jsr field_cell_species
-    beq .vanilla_original_x
-    cmp #225
-    bcs .vanilla_original_x
+    jsr x_div6              ; A = spell
+    jsr field_value
+    bcc .vanilla
+    cmp #!eid_value
+    bcs .eidolon
     dec a
-    rep #$20
-    and.w #$00FF
-    asl
-    tax
-    lda.l $0EA6A0,x         ; species record pointer (bank $0E)
-    tax
-    sep #$20
-    lda.l $0E0000,x
-    and #$7F
+    jsr mon_level20         ; MP = 1 + level / 2
     lsr
     inc a
     bra .return
-.vanilla_original_x:
-    rep #$20
-    lda 3,s                 ; saved X word
-    tax
+.eidolon:
+    jsr eidolon_x6
+    lda.l $0F97A5,x
+    bra .return
 .vanilla:
+    rep #$20
+    lda 3,s                 ; saved X
+    tax
     sep #$20
     lda.l $0F97A5,x
 .return:
@@ -184,36 +176,80 @@ call_field_mp:
     ora.b #$00
     rtl
 
-; Returns (on the stack, as a word under the return address) 6 x the number
-; of Call cells with pacts behind them: 5 slots, or 24 while the picker is open.
-; Call with M=16. Keeps A, X, Y; pushes one word the caller must pull.
-field_cell_count:
-    pha                     ; placeholder word, becomes the count
-    pha                     ; saved A
-    lda 5,s                 ; return address
-    sta 3,s
-    sep #$20
-    lda.l !picker_mode
+; Carry set when the field Magic menu's current column is list 4 (Rydia's
+; Call list). Keeps X, Y. M=8.
+field_gate:
+    phx
+    lda.l $7E1B81
     rep #$20
-    beq .slots
-    lda.w #24*6
-    bra .store
-.slots:
-    lda.w #!call_slots*6
-.store:
-    sta 5,s
-    pla
+    and.w #$00FF
+    tax
+    sep #$20
+    lda.l $7E1B7E,x
+    plx
+    cmp #$04
+    beq .yes
+    clc
+    rts
+.yes:
+    sec
     rts
 
-; X = cell. Returns A = species+1 behind it (live roster, or the picker page),
-; with N/Z set from it. M=8.
-field_cell_species:
+; A = spell. Carry set and A = the entry behind a slot token (the live roster,
+; or the picker's page cell while it is open); clear for none. Keeps X, Y.
+field_value:
+    phx
+    rep #$20
+    and.w #$00FF
+    tax
+    sep #$20
+    lda.l slot_of,x
+    cmp #$FF
+    beq .no
+    rep #$20
+    and.w #$00FF
+    tax
+    sep #$20
     lda.l !picker_mode
     beq .roster
     lda.l !picker_buf,x
-    rts
+    bra .got
 .roster:
     lda.l !roster,x
+.got:
+    beq .no
+    plx
+    sec
+    rts
+.no:
+    plx
+    clc
+    rts
+
+; A = entry. Carry set when the picker is open and the entry is already in the
+; active roster. Keeps A, X, Y.
+entry_active:
+    pha
+    phx
+    sta.l !call_div
+    lda.l !picker_mode
+    beq .no
+    ldx.w #0
+-   lda.l !roster,x
+    cmp.l !call_div
+    beq .yes
+    inx
+    cpx.w #!call_slots
+    bne -
+.no:
+    plx
+    pla
+    clc
+    rts
+.yes:
+    plx
+    pla
+    sec
     rts
 
 assert pc() <= !field_call_code_end, "Field Call code exceeds its expanded allocation"

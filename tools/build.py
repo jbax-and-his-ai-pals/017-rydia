@@ -90,6 +90,19 @@ def gen_data() -> Path:
         cnames = abilities.names(Rom(), rows)
     except ValueError as e:
         sys.exit(f"data/monsters.csv: {e}")
+    # Generic Call slots (asm/slots.asm): slot i is spell slot_ids[i]; slot_of
+    # maps a spell ID back to its slot, $FF for none. Slots 0-4 keep $31-$35 so
+    # old saves' first five stay where they were.
+    slot_ids = list(range(0x31, 0x40)) + list(range(0x40, 0x48)) + [0x0C]
+    assert len(slot_ids) == 24 and len(set(slot_ids)) == 24
+    slot_of = [0xFF] * 256
+    for i, sp in enumerate(slot_ids):
+        slot_of[sp] = i
+    lines.append("slot_ids:                ; 24 slot tokens, see asm/slots.asm")
+    lines.append("    db " + ", ".join(f"${b:02X}" for b in slot_ids))
+    lines.append("slot_of:                 ; spell ID -> slot, $FF none")
+    for i in range(0, 256, 16):
+        lines.append("    db " + ", ".join(f"${b:02X}" for b in slot_of[i:i + 16]))
     lines.append("call_name_table:         ; 5 letters per species (call_name), Call menus")
     for i in range(0, len(cnames), 15):
         lines.append("    db " + ", ".join(f"${b:02X}" for b in cnames[i:i + 15]))

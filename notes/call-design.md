@@ -330,3 +330,12 @@ The picker's scratch moves to field-only WRAM next to its page buffer (`$7E:EB60
 3. 24 slots in the projection, the menus and the picker. Retest everything; old-save repair.
 4. Eidolons: pool bits, spotting granted eidolon spells, routing to vanilla summons, names and MP.
 5. Picker: clear slot, active markers, eidolon page.
+
+**Built (Nov 5):** steps 1-5 of the plan above, in `asm/roster.asm` (pool,
+roster, list), `asm/slots.asm` (routing and menus), `asm/field-call.asm`
+(field readers) and `asm/picker.asm`.
+- **Picker controls:** Y on a slot opens the pool; L/R page; A puts the entry in the slot, swapping if it's active elsewhere; B or Y cancels. **Select** on a filled slot stores it back in the pool. FF4 folds Select into B, so the picker reads the raw joypad (`$4219`).
+- **Marker:** entries already active show the white-magic icon in the pool view.
+- **Rule changes:** empty slots are no longer auto-filled at sync, so a cleared slot stays clear. Only a completely empty roster (an ownership-only save) is filled, on Load. The battle snapshot and the ring index are gone.
+- **Tests:** `tools/mesen/slots24.lua` covers the grant event, vanilla Shiva from slot 0, a pact in slot 23 (token `$0C`), menu MP for both, and Black magic's vanilla MP. `picker.lua` and `roster_persist.lua` were rewritten for 24 slots and eidolons. All 12 regression runs pass.
+- **Test start:** the default build's New Game owns all 32 verified summons; 24 are active and 8 are in the pool.

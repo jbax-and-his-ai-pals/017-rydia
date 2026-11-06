@@ -68,7 +68,7 @@ emu.addMemoryCallback(function()
     for i = 0, 7 do row[i + 1] = rom(TABLE + 8 * SP + i) end
     check(row[1] & 1 == 1, "%s: species row is live in the build", case)
   end
-  for a = 0x1181, 0x11A2 do H.wram_write(a, 0) end
+  for a = 0x1181, 0x11B7 do H.wram_write(a, 0) end   -- pool and all 24 roster entries
   H.wram_write(0x1181 + (SP >> 3), 1 << (SP & 7))   -- own only this species
   H.wram_write(0x119E, SP + 1)        -- in slot 0
   out("battle %d (%s): row %02X %02X %02X %02X %02X %02X %02X", battle, case,
@@ -91,11 +91,12 @@ local cast = nil
 local function mon_hp() local t = {} for s = 0, 7 do t[s] = H.ram(0x29B5 + s) ~= 0xFF and H.ram16(0x2000 + 0x80 * (s + 5) + 7) or nil end return t end
 emu.addMemoryCallback(function()
   if not case or (cast and cast.battle == battle) then return end
+  if H.ram(0x2680) & 0x1F ~= 0x11 or H.ram(0x26D2) ~= 0x31 then return end   -- Rydia casting slot 0
   local ce = H.ram(0xCE)
   cast = { battle = battle, case = case, ce = ce, hp = mon_hp(), rhp = H.ram16(0x2007), frame = H.frame }
   local s = ce & 7
   cast.status = H.dump(0x2000 + 0x80 * (s + 5) + 3, 4)
-end, EXEC, off(H.symbol("call_summon")), off(H.symbol("call_summon")), emu.cpuType.snes, ROM)
+end, EXEC, off(H.symbol("call_route")), off(H.symbol("call_route")), emu.cpuType.snes, ROM)
 
 emu.addMemoryCallback(function()
   if not cast or cast.battle ~= battle or cast.data then return end

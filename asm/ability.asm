@@ -90,7 +90,7 @@ call_summon_map:
 ; Keeps X and A's high byte; A's low byte is clobbered.
 pact_grid:
     lda.l $7EF325
-    cmp #!call_slots
+    cmp #!eff_count          ; summon index: pact slots all use effect $4D (index 0)
     bcs .no
     lda.l !call_cur
     beq .no
@@ -122,7 +122,7 @@ call_summon_pos:
     phx
     sep #$20
     lda.l $7EF325           ; summon index (effect spell - $4D), set by $03:FD53
-    cmp #!call_slots
+    cmp #!eff_count          ; summon index: pact slots all use effect $4D (index 0)
     bcs .done
     lda.l !call_cur
     beq .done
@@ -271,7 +271,7 @@ call_ability_party:
 .pact:
     cmp #!eff_first
     bcc .no
-    cmp #!eff_first+!call_slots
+    cmp #!eff_first+!eff_count
     bcs .no
     lda.l !call_cur
     beq .no
@@ -305,7 +305,7 @@ call_ability_visual:
     lda 3,s
     cmp #!eff_first
     bcc .done
-    cmp #!eff_first+!call_slots
+    cmp #!eff_first+!eff_count
     bcs .done
     lda.l !call_cur
     beq .done

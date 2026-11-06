@@ -1,13 +1,17 @@
--- Field Call roster picker (asm/picker.asm), through the real field menu.
--- Pact in formation $21, then own species 00-1D (30, so two pages), open
+-- Field Call roster picker (asm/picker.asm) through the real field menu, with
+-- 24 generic slots. Pact in formation $21 (roster 01 1B), then give Rydia
+-- species 00-1D and two eidolons (Shiva, Bahamut) in the pool, open
 -- Magic > Rydia > Call, and:
---   1. Y on slot 1 opens the picker: page 0 lists species 00-17 as $31-$48.
---   2. R pages to species 18-1D.
+--   1. Y on slot 1 opens the pool: page 0 is species 00-17 on the 24 tokens.
+--   2. R pages to species 18-1D, then Shiva and Bahamut.
 --   3. A on cell 0 puts species 18 in slot 1 and closes on slot 1.
---   4. Y on slot 0, A on species 03 (active in slot 4) swaps the two slots.
---   5. Y then B cancels: nothing changes.
--- Also: MP and the battle snapshot are untouched, and no code outside the
--- expanded banks writes the page buffer ($7E:EB00-$EB5F) while it's open.
+--   4. Left, Y, R, A on cell 7 puts Bahamut in slot 0.
+--   5. Y, R, A on cell 0 (species 18, active in slot 1) into slot 0: they swap.
+--   6. Y then B cancels: nothing changes.
+--   7. Select on slot 0 clears it (stored in the pool).
+-- Also: MP and the summon in progress are untouched, active entries are
+-- marked in the pool view, and no code outside bank $20 writes the picker's
+-- buffers ($7E:EB00-$EB6A) while it is open.
 local H = dofile(os.getenv("HARNESS_DIR") .. "/lib.lua")
 H.require_scenario_completion()
 local ROM, EXEC = emu.memType.snesPrgRom, emu.callbackType.exec
@@ -28,48 +32,54 @@ for _,b in ipairs(START) do ev[#ev+1]=b end
 ev[#ev+1]=0xFF
 for i,b in ipairs(ev) do emu.write(off(0x1283E0)+i-1,b,ROM) end
 
-local ROSTER, LIST, MODE = 0x119E, 0x15C0, 0x11A3
+local ROSTER, LIST = 0x119E, 0x15C0
+local MODE, PAGE, TOTAL, PAGES, TARGET = 0x11BA, 0xEB61, 0xEB62, 0xEB63, 0xEB64
+local SLOT_IDS, NAMES = H.symbol("slot_ids"), H.symbol("call_name_table")
 local battle, returned = false, nil
 emu.addMemoryCallback(function() battle=true end,EXEC,off(0x00E394),off(0x00E394),emu.cpuType.snes,ROM)
 emu.addMemoryCallback(function() if battle then returned=H.frame end end,
   EXEC,off(0x00EDB1),off(0x00EDB1),emu.cpuType.snes,ROM)
 
--- Rendered letters: the name shim's return (A = letter, Y = $8901 + 6*id + n).
-local names = {}
+-- Rendered bytes at the name shim's return: A, with Y = $8900 + 6 x spell + n.
+local names, icons = {}, {}
 local nameReturn = H.symbol("call_field_name_stub")+4
 emu.addMemoryCallback(function()
   local s=emu.getState()
-  local n=s["cpu.y"]-0x8901
-  local id,letter=n//6,n%6
-  if id>=0x31 and id<=0x48 and letter<5 then
-    names[id]=names[id] or {}; names[id][letter]=s["cpu.a"] & 0xFF
-  end
+  local n=s["cpu.y"]-0x8900
+  local id,k=n//6,n%6
+  if k==0 then icons[id]=s["cpu.a"] & 0xFF
+  else names[id]=names[id] or {}; names[id][k-1]=s["cpu.a"] & 0xFF end
 end,EXEC,off(nameReturn),off(nameReturn),emu.cpuType.snes,ROM)
-local NAMES = H.symbol("call_name_table")   -- curated 5-letter Call names
-local function name_ok(id, sp)
-  for letter=0,4 do
-    if not names[id] or names[id][letter] ~= rom(NAMES+sp*5+letter) then return false end
-  end
+local function token(cell) return rom(SLOT_IDS+cell) end
+local function species_named(cell, sp)
+  local id=token(cell)
+  for l=0,4 do if not names[id] or names[id][l]~=rom(NAMES+sp*5+l) then return false end end
+  return true
+end
+local function eidolon_named(cell, spell)
+  local id=token(cell)
+  for l=0,4 do if not names[id] or names[id][l]~=rom(0x0F8901+6*spell+l) then return false end end
   return true
 end
 
--- Foreign writes to the page buffer while the picker is open.
 local foreign = {}
 emu.addMemoryCallback(function()
   if H.ram(MODE) == 0 then return end
   local pc = H.pc()
   if (pc >> 16) ~= 0x20 then foreign[string.format("%06X", pc)] = true end
-end, emu.callbackType.write, 0xEB00, 0xEB5F, emu.cpuType.snes, emu.memType.snesWorkRam)
+end, emu.callbackType.write, 0xEB00, 0xEB6A, emu.cpuType.snes, emu.memType.snesWorkRam)
 
 local presses = {
   [210]={x=true}, [270]={down=true}, [300]={a=true}, [350]={a=true},
   [430]={down=true}, [460]={a=true}, [520]={right=true},
   [580]={y=true}, [670]={r=true}, [750]={a=true},
-  [840]={left=true}, [870]={y=true}, [930]={down=true}, [960]={a=true},
-  [1050]={y=true}, [1110]={b=true},
+  [840]={left=true}, [870]={y=true}, [930]={r=true}, [955]={down=true}, [970]={down=true}, [985]={right=true}, [1010]={a=true},
+  [1090]={y=true}, [1150]={r=true}, [1210]={a=true},
+  [1290]={y=true}, [1350]={b=true},
+  [1420]={select=true},
 }
 local step,waitUntil,closingSince="idle",0,0
-local snap, mp0 = nil, nil
+local cur0, mp0 = nil, nil
 H.override=function(f)
   if not battle then
     if f>=320 and f%16<2 then return {a=true} end
@@ -79,9 +89,10 @@ H.override=function(f)
     local t=f-returned
     if t==180 then
       for i,v in ipairs({0xFF,0xFF,0xFF,0x3F}) do H.wram_write(0x1180+i,v) end  -- species 00-1D
-      snap=H.dump(0x11AE,16); mp0=H.ram16(0x100B)
+      H.wram_write(0x11B6, 0x01); H.wram_write(0x11B7, 0x02)                  -- Shiva, Bahamut
+      cur0=H.ram(0x11BE); mp0=H.ram16(0x100B)
     end
-    if t==570 or t==660 or t==740 then names={} end
+    if t==570 or t==660 then names={}; icons={} end
     return presses[t] or {}
   end
   if f<waitUntil then return {} end
@@ -105,46 +116,48 @@ H.override=function(f)
 end
 
 local function list(n) return H.dump(LIST, n) end
+local function roster(n) return H.dump(ROSTER, n) end
 table.insert(H.on_frame,function(f)
   if not returned then return end
   local t=f-returned
   if t==560 then
-    check(H.dump(ROSTER,5)=="01 1B 02 03 04","roster before the picker: %s",H.dump(ROSTER,5))
+    check(roster(5)=="01 1B 00 00 00","roster before the picker (no auto-fill): %s",roster(5))
     check(H.ram(0x1B81)==2 and H.ram(0x1B87)==1 and H.ram(0x1B83)==0 and H.ram(0x1B84)==1,
       "in the Call grid on slot 1 (col %d, grid %d, row %d, column %d)",H.ram(0x1B81),H.ram(0x1B87),H.ram(0x1B83),H.ram(0x1B84))
   elseif t==640 then
     H.shot("picker-page0")
-    local d={} for l=0,4 do d[#d+1]=string.format("%02X",(names[0x31] or {})[l] or 0) end
-    H.log("page buffer %s; $31 letters %s; $1B93=%d", H.dump(0xEB00,24), table.concat(d," "), H.ram(0x1B93))
-    check(H.ram(MODE)==1 and H.ram(0x11A7)==1,"picker open for slot 1 (mode %d, slot %d)",H.ram(MODE),H.ram(0x11A7))
-    check(H.ram(0x11A5)==30 and H.ram(0x11A6)==2 and H.ram(0x11A4)==0,"30 pacts on 2 pages (%d, %d), page %d",H.ram(0x11A5),H.ram(0x11A6),H.ram(0x11A4))
-    local want={} for i=0,23 do want[#want+1]=string.format("%02X",0x31+i) end
-    check(list(24)==table.concat(want," "),"page 0 cells are $31-$48: %s",list(24))
-    local ok=true for i=0,23 do ok=ok and name_ok(0x31+i,i) end
-    check(ok,"page 0 shows species 00-17 by name")
-    check(H.ram(0x1B83)==0 and H.ram(0x1B84)==0 and H.ram(0x1B87)==1,"picker cursor on cell 0")
+    check(H.ram(MODE)==1 and H.ram(TARGET)==1,"picker open for slot 1 (mode %d, slot %d)",H.ram(MODE),H.ram(TARGET))
+    check(H.ram(TOTAL)==32 and H.ram(PAGES)==2 and H.ram(PAGE)==0,"32 in the pool on 2 pages (%d, %d), page %d",H.ram(TOTAL),H.ram(PAGES),H.ram(PAGE))
+    local ok=true for c=0,23 do ok=ok and H.ram(LIST+c)==token(c) end
+    check(ok,"page 0 cells are the 24 slot tokens: %s",list(8))
+    ok=true for c=0,23 do ok=ok and species_named(c,c) end
+    check(ok,"page 0 shows species 00-17 by Call name")
+    check(icons[token(0)]~=nil and icons[token(0)]~=icons[token(2)],"active entries are marked (cell 0 %s, cell 2 %s)",tostring(icons[token(0)]),tostring(icons[token(2)]))
   elseif t==720 then
     H.shot("picker-page1")
-    check(H.ram(0x11A4)==1,"R pages to page 1 (%d)",H.ram(0x11A4))
-    check(list(8)=="31 32 33 34 35 36 00 00","page 1 has 6 cells: %s",list(8))
-    local ok=true for i=0,5 do ok=ok and name_ok(0x31+i,0x18+i) end
-    check(ok,"page 1 shows species 18-1D by name")
+    check(H.ram(PAGE)==1,"R pages to page 1 (%d)",H.ram(PAGE))
+    local want={} for c=0,7 do want[#want+1]=string.format("%02X",token(c)) end
+    check(list(8)==table.concat(want," ") and H.ram(LIST+8)==0,"page 1 has 8 cells: %s",list(9))
+    local ok=true for c=0,5 do ok=ok and species_named(c,0x18+c) end
+    check(ok and eidolon_named(6,0x36) and eidolon_named(7,0x3F),"page 1 shows species 18-1D, then Shiva and Bahamut")
   elseif t==810 then
-    H.shot("picker-chosen")
-    check(H.ram(MODE)==0,"A closes the picker")
-    check(H.dump(ROSTER,5)=="01 19 02 03 04","species 18 now in slot 1: %s",H.dump(ROSTER,5))
-    check(list(8)=="31 32 33 34 35 00 00 00","Call list back to the five slots: %s",list(8))
+    check(H.ram(MODE)==0 and roster(3)=="01 19 00","species 18 now in slot 1: %s",roster(3))
+    check(list(3)==string.format("%02X %02X 00",token(0),token(1)),"Call list back to the roster: %s",list(3))
     check(H.ram(0x1B87)==1 and H.ram(0x1B83)==0 and H.ram(0x1B84)==1,"cursor back on slot 1 in the grid")
-    check(name_ok(0x32,0x18),"slot 1 shows species 18's name")
-  elseif t==1020 then
-    check(H.dump(ROSTER,5)=="04 19 02 03 01","choosing an active pact swaps it: %s",H.dump(ROSTER,5))
-  elseif t==1170 then
-    check(H.ram(MODE)==0 and H.dump(ROSTER,5)=="04 19 02 03 01","B cancels without changes: %s",H.dump(ROSTER,5))
-    check(list(8)=="31 32 33 34 35 00 00 00","Call list restored after cancel: %s",list(8))
+  elseif t==1070 then
+    H.shot("picker-bahamut")
+    check(roster(3)=="EA 19 00","Bahamut (234) in slot 0: %s",roster(3))
+  elseif t==1270 then
+    check(roster(3)=="19 EA 00","choosing an active entry swaps it: %s",roster(3))
+  elseif t==1400 then
+    check(H.ram(MODE)==0 and roster(3)=="19 EA 00","B cancels without changes: %s",roster(3))
+  elseif t==1480 then
+    check(roster(3)=="00 EA 00" and H.ram(LIST)==0,"Select stores slot 0 in the pool: %s",roster(3))
+    check(H.ram(0x1181+3)&0x01~=0,"species 18 is still in the pool")
     check(H.ram16(0x100B)==mp0,"MP unchanged (%d)",H.ram16(0x100B))
-    check(H.dump(0x11AE,16)==snap,"battle snapshot unchanged")
+    check(H.ram(0x11BE)==cur0,"summon in progress unchanged")
     local k={} for pc in pairs(foreign) do k[#k+1]=pc end
-    check(#k==0,"no foreign writes to the page buffer while open (%s)",table.concat(k," "))
+    check(#k==0,"no foreign writes to the picker buffers while open (%s)",table.concat(k," "))
     H.shot("picker-end")
     H.mark_scenario_complete()
     H.finish(fails==0 and 0 or 1)

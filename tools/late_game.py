@@ -60,12 +60,12 @@ def spell_list(ids: list[int]) -> bytes:
 
 
 def pact_block(pacts=()) -> bytes:
-    """Tellah's parked slot ($1180-$11BF): ID 0, then pacts with the given species,
-    ring index 0, and the first five of them in the Call roster (species+1)."""
+    """Tellah's parked slot ($1180-$11BF): ID 0, then pacts with the given species
+    and the first 24 of them in the Call roster (species+1, from $119E)."""
     block = bytearray(0x40)
     for s in pacts:
         block[1 + (s >> 3)] |= 1 << (s & 7)
-    for i, s in enumerate(sorted(pacts)[:5]):
+    for i, s in enumerate(sorted(pacts)[:24]):
         block[0x1E + i] = s + 1
     return bytes(block)
 

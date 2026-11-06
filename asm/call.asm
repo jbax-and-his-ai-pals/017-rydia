@@ -1,25 +1,28 @@
 ; Call: Rydia summons monsters she has a pact with. See notes/call-design.md.
 ;
-; Spells $31-$35 (vanilla Imp, Bomb, Cockatrice, Mage, Chocobo) are the pact
-; slots. Vanilla already runs them as summons: $03:E050 turns slot spell $31+i
-; into effect spell $4D+i. We keep that path and swap in, per slot, the pacted
-; species' graphic, name, MP cost and a scaled hit.
+; 24 generic slots: Rydia's Call list entry i holds slot token slot_ids[i]
+; (build/gen/data.asm: $31-$3F, $40-$47, $0C) when roster entry i is filled.
+; Casting a token routes by the roster entry (asm/slots.asm): a monster goes
+; through vanilla's summon path as effect spell $4D (Imp's), with its graphic,
+; name, MP and ability swapped in; an eidolon becomes its own vanilla summon.
 ;
 ; Save RAM, in Tellah's parked slot after the pact bitfield ($1180 stays $00):
-;   roster:  species+1 per slot (0 = empty), filled in pact order; when full a
-;            new pact replaces the oldest (roster_next). A roster editor can
-;            later write the same list.
-;   snapshot: the roster as it was at battle start. Menus and casts in a battle
-;            use this, so a pact formed mid-battle joins Call next battle.
-;   call_cur: species+1 of the pact summon being cast (0 = vanilla summon).
+;   roster   24 entries: 0 empty, species+1, or 225+k for eidolon k
+;   eid_bits pool bits for the 10 eidolons ($36-$3F)
+;   call_cur species+1 of the pact summon being cast (0 = vanilla summon)
 
-!call_slots   = 5           ; active roster size (pact slot spells $31..$35)
-!roster_max   = 16          ; bytes reserved for the roster and the snapshot
-!slot_first   = $31         ; slot i is spell $31+i
-!eff_first    = $4D         ; its effect spell
-!roster_next  = $7E119D
-!roster       = $7E119E     ; 16 bytes
-!call_snap    = $7E11AE     ; 16 bytes
+!call_slots   = 24          ; active roster size (slot tokens: slot_ids)
+!eff_first    = $4D         ; every pact slot summons as effect spell $4D
+!eff_count    = 1
+!eid_first    = $36         ; eidolon spells $36-$3F (Shiva ... Bahamut)
+!eid_count    = 10
+!eid_value    = 225         ; roster value of eidolon 0
+!roster       = $7E119E     ; 24 bytes, $119E-$11B5
+!eid_bits     = $7E11B6     ; 2 bytes
+!call_div     = $7E11B8     ; 2 bytes of scratch for slot arithmetic
+!menu_flag    = $7E11BD     ; battle menu: drawing Rydia's Call column
+!rydia_id     = $11         ; adult Rydia's character ID (battle record byte 0, bits 0-4)
+!summon_icon  = $0F8900+(6*$31)  ; Imp's menu icon: the summon icon
 !call_cur     = $7E11BE
 !call_tmp     = $7E11BF
 !call_list    = $7E15C0     ; Rydia's Call spell list (24 bytes)
@@ -42,10 +45,10 @@ org $0389CB                 ; battle start, just before the battle spell menu is
     jsr call_battle_start_stub          ; was TDC / TAX / TAY
 
 org $038A59                 ; battle menu: copy each listed spell's data (for MP)
-    jsr call_copy_stub                  ; was JSR $845E
+    jsr call_copy_menu_stub             ; was JSR $845E
 
-org $03CD33                 ; cast: summon spells $31-$3F
-    jsr call_summon_stub                ; was JSR $E050
+org $03CD20                 ; cast: magic type by spell ID (summons $31-$3F)
+    jsr call_route_stub                 ; was LDA $26D2
 
 org $03CDC7                 ; cast: copy the action's spell data to $289C
     jsr call_copy_stub                  ; was JSR $845E
@@ -57,9 +60,14 @@ call_battle_start_stub:
     tax
     tay
     rts
-call_summon_stub:
-    jsl call_summon
-    jmp $E050
+call_route_stub:
+    jsl call_route              ; asm/slots.asm: slot token -> summon to cast
+    lda $26D2
+    rts
+call_copy_menu_stub:
+    jsr $845E
+    jsl call_copy_menu          ; asm/slots.asm: slot MP and targeting
+    rts
 call_copy_stub:
     jsr $845E
     jsl call_copy
@@ -84,6 +92,11 @@ org $02EAAF                 ; summon graphic: arrangement (A is 16-bit here)
     bra call_gfx_layout
 org $02CBAF                 ; caption at the top while the action runs (8 letters)
     jsl call_caption                    ; was LDA $0F8AB0,X
+org $02A0D0                 ; battle spell menu: an entry's spell (X -> $2C7A entry)
+    jsl call_menu_entry                 ; was LDA $0001,X / STA $26
+    nop
+org $02A107                 ; battle spell menu: icon
+    jsl call_menu_icon                  ; was LDA $0F8900,X
 org $02A11F                 ; battle spell menu: name letters
     jsl call_menu_name                  ; was LDA $0F8901,X
 
@@ -94,35 +107,8 @@ org $02A11F                 ; battle spell menu: name letters
 
 org $0EF0BB                 ; free to $0E:F1FF
 
-; Summon start (A = spell $31-$3F, kept): note which pact, if any, it is.
-call_summon:
-    php
-    rep #$30
-    pha
-    phx
-    sep #$20
-    sec
-    sbc #!slot_first
-    cmp #!call_slots
-    bcs .none               ; not a pact slot (or below $31: wrapped)
-    rep #$20
-    and.w #$00FF
-    tax
-    sep #$20
-    lda.l !call_snap,x
-    bra .set
-.none:
-    lda #$00
-.set:
-    sta.l !call_cur
-    rep #$30
-    plx
-    pla
-    plp
-    rtl
-
-; After $03:845E copied 6 bytes of spell data to $289C ([$80] = table,
-; $DF = spell ID). Slot spell: set its MP. Pact effect spell: write the hit.
+; Cast: after $03:845E copied 6 bytes of spell data to $289C ([$80] = table,
+; $DF = spell ID). The pact effect spell gets the species' MP and hit.
 call_copy:
     php
     rep #$30                ; keep all of A and X: callers TAX with A's high byte
@@ -139,35 +125,9 @@ call_copy:
     brl .out
 .table:
     lda $DF                 ; spell ID ($845E moves it here from $E5)
-    cmp #!slot_first
-    bcc .far
-    cmp #!slot_first+!call_slots
-    bcs .effect
-    sec                     ; slot spell: MP = 1 + monster level / 2
-    sbc #!slot_first
-    rep #$20
-    and.w #$00FF
-    tax
-    sep #$20
-    lda.l !call_snap,x
-    beq .far
-    dec a
-    pha                     ; species
-    jsr mon_level
-    lsr
-    inc a
-    sta.l !call_tmp
-    lda.l !spell_mp
-    and #$80
-    ora.l !call_tmp
-    sta.l !spell_mp
-    pla
-    jsl call_ability_slot   ; asm/ability.asm: menu targeting
-    bra .far
-.effect:
     cmp #!eff_first
     bcc .far
-    cmp #!eff_first+!call_slots
+    cmp #!eff_first+!eff_count
     bcs .far
     lda.l !call_cur
     beq .far
@@ -211,54 +171,6 @@ mon_level:
     and #$7F
     plb
     rts
-
-; Battle spell menu letter (A 8-bit, X = spell x 6 + letter). Pact slots
-; show the first 5 letters of the monster's name.
-call_menu_name:
-    cpx.w #!slot_first*6
-    bcc .vanilla
-    cpx.w #(!slot_first+!call_slots)*6
-    bcs .vanilla
-    phx
-    rep #$20
-    txa
-    sec
-    sbc.w #!slot_first*6
-    ldx.w #0
--   cmp.w #6
-    bcc +
-    sbc.w #6
-    inx
-    bra -
-+   pha                     ; letter
-    sep #$20
-    lda.l !call_snap,x      ; X = slot
-    beq .empty
-    dec a
-    rep #$20
-    and.w #$00FF
-    pha
-    asl
-    asl
-    clc
-    adc 1,s                 ; species x 5
-    plx
-    clc
-    adc 1,s                 ; + letter
-    tax
-    pla
-    sep #$20
-    lda.l call_name_table,x ; curated 5-letter Call names (data/monsters.csv)
-    plx
-    rtl
-.empty:
-    rep #$20
-    pla
-    sep #$20
-    plx
-.vanilla:
-    lda.l $0F8901,x
-    rtl
 
 assert pc() <= $0EF200, "Call block 2 overflows $0E:F0BB-$0E:F1FF"
 
@@ -434,7 +346,7 @@ call_caption:
     beq .vanilla
     cpx.w #(!eff_first-$48)*8
     bcc .vanilla
-    cpx.w #(!eff_first-$48+!call_slots)*8
+    cpx.w #(!eff_first-$48+!eff_count)*8
     bcs .vanilla
     phx
     rep #$20

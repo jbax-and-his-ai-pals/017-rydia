@@ -1,5 +1,7 @@
 # Expanded ROM and roster state contract
 
+> **Superseded in part (Nov 5):** the roster now has 24 generic slots with eidolons, and there is no battle snapshot, ring index or auto-fill. See "24 active slots" in [call-design.md](call-design.md) and "24 generic Call slots" in [addresses.md](addresses.md). The ROM layout and save/load boundaries below still hold.
+
 Implementation contract, November 5, 2026. Builds on `c660bf8`.
 
 ## ROM layout

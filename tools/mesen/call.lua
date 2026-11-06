@@ -5,10 +5,8 @@
 -- then Fight.
 -- Env: FORMS (default "21,21"), SYM (path to build/rydia.sym),
 --      SLOT (default 0; the cursor moves right SLOT times, so same row only),
---      SEED=1: at battle 1, pacts are species 01-05 only, the roster is empty and
---        Call holds Shiva ($36) in slot 0. Checks the fill from the bitfield,
---        Shiva moving to entry 5, and new pacts joining only the collection
---        once all five slots are chosen.
+--      SEED=1: at battle 1, Rydia owns species 01-18 and all 24 roster entries
+--        are filled with them. New pacts must then join only the pool.
 --      BLACK=1: battle 2 first casts the first Black spell and checks its MP.
 -- Writes result.txt: checks plus a PASS/FAIL summary; screenshots call_NNN.png.
 local H = dofile(os.getenv("HARNESS_DIR") .. "/lib.lua")
@@ -33,8 +31,9 @@ for i, b in ipairs(ev) do emu.write(off(0x1283E0) + i - 1, b, ROM) end
 local SLOT = tonumber(os.getenv("SLOT") or "0")
 local SEED = os.getenv("SEED") == "1"
 local BLACK = os.getenv("BLACK") == "1"
-local ROSTER, SNAP, CUR, LIST = 0x119E, 0x11AE, 0x11BE, 0x15C0
-local SUMMON = H.symbol("call_summon")
+local ROSTER, CUR, LIST, NSLOTS = 0x119E, 0x11BE, 0x15C0, 24
+local ROUTE = H.symbol("call_route")
+local SLOT_IDS, SLOT_OF = H.symbol("slot_ids"), H.symbol("slot_of")
 
 local results, fails = {}, 0
 local function out(fmt, ...) local s = string.format(fmt, ...); results[#results + 1] = s; H.log("%s", s) end
@@ -90,7 +89,7 @@ end
 emu.addMemoryCallback(function()
   abi_before = cpu_snapshot()
   abi_species = (abi_before.y or 0) & 0xFF
-  rosterAtAdd = H.dump(ROSTER, 5)
+  rosterAtAdd = H.dump(ROSTER, NSLOTS)
 end, EXEC, off(roster_add_site), off(roster_add_site), emu.cpuType.snes, ROM)
 emu.addMemoryCallback(function()
   local after = cpu_snapshot()
@@ -108,19 +107,21 @@ end, EXEC, off(roster_add_site + 4), off(roster_add_site + 4), emu.cpuType.snes,
 
 -- Battles.
 local battleSnapshots = {}
+local seeded = nil
 local successfulPactChecks = 0
 emu.addMemoryCallback(function()
   if battle > 0 then out("battle %d over: $29CD=%02X roster %s", battle, H.ram(0x29CD), H.dump(ROSTER, 5)) end
   battle = battle + 1
   out("battle %d starts: formation %02X", battle, emu.getState()["cpu.a"] & 0xFF)
   if SEED and battle == 1 then
-    for a = 0x1181, 0x11AD do H.wram_write(a, 0) end
-    H.wram_write(0x1181, 0x3E)                 -- pacts with species 01-05
-    for a = 0x15C0, 0x15D7 do H.wram_write(a, 0) end
-    H.wram_write(0x15C0, 0x36)                 -- Shiva where pact slot 0 goes
+    for a = 0x1181, 0x11B7 do H.wram_write(a, 0) end
+    for sp = 1, 24 do                          -- own species 01-18, all active
+      H.wram_write(0x1181 + (sp >> 3), H.ram(0x1181 + (sp >> 3)) | (1 << (sp & 7)))
+      H.wram_write(ROSTER + sp - 1, sp + 1)
+    end
+    seeded = H.dump(ROSTER, NSLOTS)
   elseif SEED and battle == 2 then
-    check(H.dump(ROSTER, 5) == "02 03 04 05 06",
-      "a full roster keeps its five; new pacts only join the collection: roster %s", H.dump(ROSTER, 5))
+    check(H.dump(ROSTER, NSLOTS) == seeded, "a full roster keeps its 24; new pacts only join the pool")
     check(H.ram(0x1181) & 0x01 ~= 0 and H.ram(0x1184) & 0x04 ~= 0, "the new pacts (00, 1A) are owned")
   end
 end, EXEC, off(0x00E394), off(0x00E394), emu.cpuType.snes, ROM)
@@ -129,22 +130,20 @@ end, EXEC, off(0x00E394), off(0x00E394), emu.cpuType.snes, ROM)
 -- snapshot, Call list and the menu's MP for each slot.
 local menuMp = {}
 emu.addMemoryCallback(function()
-  out("battle %d menu: roster %s snap %s list %s", battle, H.dump(ROSTER, 5), H.dump(SNAP, 5), H.dump(LIST, 8))
-  battleSnapshots[battle] = H.dump(SNAP, 5)
-  for i = 0, 4 do
+  out("battle %d menu: roster %s list %s", battle, H.dump(ROSTER, 8), H.dump(LIST, 8))
+  battleSnapshots[battle] = H.dump(ROSTER, NSLOTS)
+  local listOK = true
+  for i = 0, NSLOTS - 1 do
     local sp = H.ram(ROSTER + i)
-    check(H.ram(SNAP + i) == sp, "slot %d snapshot = roster (%02X)", i, sp)
-    check(H.ram(LIST + i) == (sp ~= 0 and 0x31 + i or 0), "Call list entry %d = %02X", i, H.ram(LIST + i))
+    if H.ram(LIST + i) ~= (sp ~= 0 and rom(SLOT_IDS + i) or 0) then listOK = false end
   end
-  if SEED and battle == 1 then
-    check(H.dump(ROSTER, 5) == "02 03 04 05 06", "roster filled from the bitfield: %s", H.dump(ROSTER, 5))
-    check(H.ram(LIST + 5) == 0x36, "Shiva moved to Call entry 5 (%02X)", H.ram(LIST + 5))
-  end
+  check(listOK, "battle %d: Call list = slot tokens of the filled roster entries", battle)
   -- $2C7A: 4 bytes per entry, +1 spell, +3 MP
   for e = 0, 359 do
     local id = H.ram(0x2C7B + 4 * e)
-    if id >= 0x31 and id <= 0x35 then
-      local sp = H.ram(SNAP + id - 0x31) - 1
+    local slot = rom(SLOT_OF + id)
+    if id ~= 0 and slot ~= 0xFF and H.ram(ROSTER + slot) ~= 0 and H.ram(ROSTER + slot) < 225 then
+      local sp = H.ram(ROSTER + slot) - 1
       local want = 1 + (mon_level(sp) >> 1)
       menuMp[id] = H.ram(0x2C7D + 4 * e)
       check(menuMp[id] == want, "menu MP for %02X (species %02X, Lv %d) = %d (want %d)", id, sp, mon_level(sp), menuMp[id], want)
@@ -157,29 +156,33 @@ end, EXEC, off(0x038A7A), off(0x038A7A), emu.cpuType.snes, ROM)
 emu.addMemoryCallback(function()
   if H.ram(0x26D1) ~= 0x14 then return end
   local saved = battleSnapshots[battle]
-  local current = H.dump(SNAP, 5)
-  check(saved ~= nil and current == saved,
-    "battle %d Pact leaves snapshot unchanged: %s (menu %s)", battle, current, saved or "missing")
+  -- Occupied entries never change mid-battle; a new pact may only fill an empty one.
+  local stable = saved ~= nil
+  for i = 0, NSLOTS - 1 do
+    local was = saved and tonumber(saved:sub(i * 3 + 1, i * 3 + 2), 16) or 0
+    if was ~= 0 and H.ram(ROSTER + i) ~= was then stable = false end
+  end
+  check(stable, "battle %d Pact leaves occupied roster entries unchanged", battle)
   local listOK = true
-  for i = 0, 4 do
+  for i = 0, NSLOTS - 1 do
     local species1 = H.ram(ROSTER + i)
-    local expected = species1 ~= 0 and (0x31 + i) or 0
+    local expected = species1 ~= 0 and rom(SLOT_IDS + i) or 0
     if H.ram(LIST + i) ~= expected then listOK = false end
   end
-  check(listOK, "battle %d Pact immediately projects roster %s to Call list %s",
-    battle, H.dump(ROSTER, 5), H.dump(LIST, 5))
+  check(listOK, "battle %d Pact immediately projects the roster to the Call list (%s)",
+    battle, H.dump(LIST, 8))
   if latestAddedSpecies ~= nil and latestAddedBattle == battle then
     local captured1 = latestAddedSpecies + 1
     local found, full = false, rosterAtAdd ~= nil and not rosterAtAdd:find("00")
-    for i = 0, 4 do if H.ram(ROSTER + i) == captured1 then found = true end end
+    for i = 0, NSLOTS - 1 do if H.ram(ROSTER + i) == captured1 then found = true end end
     if full then
-      -- All five were chosen: the pact joins the collection, the roster stays.
-      found = H.dump(ROSTER, 5) == rosterAtAdd
-      check(found, "full roster %s keeps its five after pacting %02X: %s", rosterAtAdd, latestAddedSpecies, H.dump(ROSTER, 5))
+      -- All entries were chosen: the pact joins the pool, the roster stays.
+      found = H.dump(ROSTER, NSLOTS) == rosterAtAdd
+      check(found, "full roster keeps its entries after pacting %02X", latestAddedSpecies)
     else
       check(found, "captured species %02X is in live roster %s", latestAddedSpecies, H.dump(ROSTER, 5))
     end
-    if saved ~= nil and current == saved and listOK and found then successfulPactChecks = successfulPactChecks + 1 end
+    if stable and listOK and found then successfulPactChecks = successfulPactChecks + 1 end
   end
   latestAddedSpecies, latestAddedBattle = nil, nil
 end, EXEC, off(0x03B05D), off(0x03B05D), emu.cpuType.snes, ROM)
@@ -187,20 +190,24 @@ end, EXEC, off(0x03B05D), off(0x03B05D), emu.cpuType.snes, ROM)
 -- The summon.
 local cast = nil
 emu.addMemoryCallback(function()
-  local a = emu.getState()["cpu.a"] & 0xFF
+  -- call_route runs for every magic cast; keep Rydia's casts of a filled slot token.
+  if H.ram(0x2680) & 0x1F ~= 0x11 then return end
+  local a = H.ram(0x26D2)
+  local slot = rom(SLOT_OF + a)
+  if slot == 0xFF or H.ram(ROSTER + slot) == 0 then return end
   local ce = H.ram(0xCE)
-  local slot = ce & 7
-  local rec = 0x2000 + 0x80 * (slot + 5)
-  cast = { spell = a, species = H.ram(SNAP + a - 0x31) - 1, ce = ce, rec = rec, hp = H.ram16(rec + 7), frame = H.frame }
-  out("summon: spell %02X, target $CE=%02X HP %d, snapshot %s", a, ce, cast.hp, H.dump(SNAP, 5))
-end, EXEC, off(SUMMON), off(SUMMON), emu.cpuType.snes, ROM)
+  local ms = ce & 7
+  local rec = 0x2000 + 0x80 * (ms + 5)
+  cast = { spell = a, slot = slot, species = H.ram(ROSTER + slot) - 1, ce = ce, rec = rec, hp = H.ram16(rec + 7), frame = H.frame }
+  out("summon: token %02X (slot %d), target $CE=%02X HP %d", a, slot, ce, cast.hp)
+end, EXEC, off(ROUTE), off(ROUTE), emu.cpuType.snes, ROM)
 
 emu.addMemoryCallback(function()
   if not cast or cast.data then return end
   cast.data = H.dump(0x289C, 6)
   local sp = cast.species
   out("cast data: $26D2=%02X call_cur=%02X $289C=%s, Rydia Lv %d", H.ram(0x26D2), H.ram(CUR), cast.data, H.ram(0x2682))
-  check(H.ram(0x26D2) == 0x4D + cast.spell - 0x31, "effect spell %02X", H.ram(0x26D2))
+  check(H.ram(0x26D2) == 0x4D, "effect spell %02X (every pact slot summons as $4D)", H.ram(0x26D2))
   check(H.ram(CUR) == sp + 1, "call_cur = species+1 (%02X)", H.ram(CUR))
   local row = H.symbol("call_ability_table") + 8 * sp
   cast.live = rom(row) & 1 == 1
@@ -292,7 +299,7 @@ H.override = function(f)
 end
 
 table.insert(H.on_finish, function()
-  out("end: battles %d of %d, roster %s next %02X, Rydia MP %d", battle, #forms, H.dump(ROSTER, 5), H.ram(0x119D), rydia_mp())
+  out("end: battles %d of %d, roster %s next %02X, Rydia MP %d", battle, #forms, H.dump(ROSTER, 8), H.ram(0x119D), rydia_mp())
   H.shot("end")
   check(battle >= #forms, "all %d battles started (%d)", #forms, battle)
   check(abiChecks > 0, "call_roster_add ABI checked at least once (%d)", abiChecks)
