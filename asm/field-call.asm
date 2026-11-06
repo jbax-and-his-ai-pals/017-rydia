@@ -2,8 +2,12 @@
 ; Confirmed readers: $01:B320 (five letters, DB=$0F, Y=spell*6+$8901+letter)
 ; and $01:B422 (MP, X=spell*6). Both enter with M=8, X/Y=16 and D=$0100.
 
+org $01B0D8                 ; field Magic loop: pad read, was JSR $82C0
+    jsr call_picker_poll_stub
 org $01B223                 ; field Magic list redraw: was JSR $84A2
     jsr call_field_sync_stub
+org $01B302                 ; spell icon, was LDA $0000,Y (three bytes)
+    jsr call_field_name_stub
 org $01B320                 ; was LDA $0000,Y (three bytes)
     jsr call_field_name_stub
 org $01B422                 ; was LDA $0F97A5,X (four bytes)
@@ -18,8 +22,30 @@ call_field_name_stub:
     jsl call_field_name
     rts
 call_field_sync_stub:
-    jsl call_roster_sync
+    jsl call_picker_project     ; live roster, or the open picker page
     jsr $84A2
+    rts
+; After the pad read: let the picker take its buttons, then redraw the
+; current list if it changed (as vanilla does when switching columns).
+call_picker_poll_stub:
+    jsr $82C0
+    jsl call_picker_input
+    pha
+    lda.l !picker_redraw
+    beq .done
+    lda #$00
+    sta.l !picker_redraw
+    phx
+    lda.l $7E1B81            ; column -> spell list number
+    rep #$20
+    and.w #$00FF
+    tax
+    sep #$20
+    lda.l $7E1B7E,x
+    jsr $B223
+    plx
+.done:
+    pla
     rts
 call_field_load_stub:
     jsl call_roster_restore
@@ -39,12 +65,14 @@ call_field_name:
     phx
     phy
     tya
-    cmp.w #($8901+(!slot_first*6))
+    cmp.w #($8900+(!slot_first*6))
     bcc .vanilla
-    cmp.w #($8901+((!slot_first+!call_slots)*6))
-    bcs .vanilla
+    jsr field_cell_count    ; A = 6 x cells shown (5 slots, or 24 picker cells)
     sec
-    sbc.w #($8901+(!slot_first*6))
+    sbc.w #($8900+(!slot_first*6))
+    cmp 1,s
+    plx                     ; drop the count; X is reset below, carry kept
+    bcs .vanilla
     ldx.w #0
 .divide:
     cmp.w #6
@@ -53,9 +81,9 @@ call_field_name:
     inx
     bra .divide
 .slot:
-    pha                     ; letter index, word
+    pha                     ; byte within the record: 0 icon, 1-5 letters
     sep #$20
-    lda.l !roster,x
+    jsr field_cell_species  ; A = species+1 for cell X, 0 = none
     beq .empty
     cmp #225
     bcs .empty
@@ -70,7 +98,11 @@ call_field_name:
     tax
     pla
     sep #$20
-    lda.l $0E9800,x
+    beq .icon
+    lda.l $0E9800-1,x       ; letter n is name byte n-1
+    bra .return
+.icon:
+    lda.l $0F8900+(6*!slot_first)   ; the summon icon
     bra .return
 .empty:
     rep #$20
@@ -98,11 +130,14 @@ call_field_mp:
     phy
     cpx.w #(!slot_first*6)
     bcc .vanilla
-    cpx.w #((!slot_first+!call_slots)*6)
-    bcs .vanilla
+    txa
+    jsr field_cell_count
     txa
     sec
     sbc.w #(!slot_first*6)
+    cmp 1,s
+    plx                     ; drop the count; X is reset below, carry kept
+    bcs .vanilla
     ldx.w #0
 .divide:
     cmp.w #6
@@ -112,7 +147,7 @@ call_field_mp:
     bra .divide
 .slot:
     sep #$20
-    lda.l !roster,x
+    jsr field_cell_species
     beq .vanilla_original_x
     cmp #225
     bcs .vanilla_original_x
@@ -145,5 +180,37 @@ call_field_mp:
     plp
     ora.b #$00
     rtl
+
+; Returns (on the stack, as a word under the return address) 6 x the number
+; of Call cells with pacts behind them: 5 slots, or 24 while the picker is open.
+; Call with M=16. Keeps A, X, Y; pushes one word the caller must pull.
+field_cell_count:
+    pha                     ; placeholder word, becomes the count
+    pha                     ; saved A
+    lda 5,s                 ; return address
+    sta 3,s
+    sep #$20
+    lda.l !picker_mode
+    rep #$20
+    beq .slots
+    lda.w #24*6
+    bra .store
+.slots:
+    lda.w #!call_slots*6
+.store:
+    sta 5,s
+    pla
+    rts
+
+; X = cell. Returns A = species+1 behind it (live roster, or the picker page),
+; with N/Z set from it. M=8.
+field_cell_species:
+    lda.l !picker_mode
+    beq .roster
+    lda.l !picker_buf,x
+    rts
+.roster:
+    lda.l !roster,x
+    rts
 
 assert pc() <= !field_call_code_end, "Field Call code exceeds its expanded allocation"

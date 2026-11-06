@@ -37,7 +37,7 @@ slots from owned species in ID order. An old bitfield-only save gets a usable
 roster immediately after loading. Existing valid roster order and ring position
 survive save/load.
 
-Keep the current ring replacement policy in this step. The proposed switch to
+**Superseded by the picker (below): a full roster now keeps its five.** Keep the current ring replacement policy in this step. The proposed switch to
 preserving a chosen full roster belongs with the future roster picker; changing
 it now would strand newly collected species without a selection UI.
 
@@ -127,3 +127,44 @@ when testing another build. The save file for the last command must come from
 the normal roster-persistence run, since that test first verifies the saved
 active roster before starting New Game. Full dungeon traversal, the roster
 picker, signature abilities and same-battle summons remain separate milestones.
+
+## Roster picker (package E)
+
+`asm/picker.asm` (bank `$20:A000-$20:BFFF`), hooked from `asm/field-call.asm`.
+Verified by `tools/mesen/picker.lua` (21 checks) on the real field menu.
+
+**Use:** field menu > Magic > Rydia > Call. In the grid, put the cursor on a pact
+slot (or anywhere: slot 0) and press **Y**. The grid becomes the whole collection,
+24 pacts per page in species order, with names, the summon icon and MP. **L/R**
+page, **A** puts the pact under the cursor into the slot (if it was active in
+another slot, the two swap), **B** or **Y** cancels. Either way the grid returns to
+the five slots with the cursor on the target slot.
+
+**Rule change:** with all five slots chosen, a new pact joins the collection only
+(`call_roster_add` no longer replaces the oldest slot). Empty slots still fill
+from new pacts first, then from owned species in ID order. `$119D` (ring index)
+is kept and normalized but no longer advances.
+
+| Piece | Where |
+| --- | --- |
+| Pad read hook, after `JSR $82C0` | `$01:B0D8` → `call_picker_poll_stub` (bank `$01` shim): runs `call_picker_input`, then redraws the list with `$01:B223` when the picker asks |
+| List redraw shim | `$01:B223` now calls `call_picker_project` (live roster, or the open page as spell IDs `$31-$48`) |
+| Icon and letters | `$01:B302` and `$01:B320` share `call_field_name`; MP `$01:B422`. In picker mode they cover 24 cells from the page buffer |
+| Pad bytes (D = `$0100`) | `$0100`: A `$80`, X `$40`, L `$20`, R `$10`. `$0101`: B `$80`, Y `$40`, Up `$08`, Down `$04`, Left `$02`, Right `$01` |
+| Magic menu state | `$1B81` column (0 White, 1 Black, 2 Call); `$1B7E+col` spell list number (bit 7 = unavailable); `$1B87` 0 column / 1 grid; `$1B88` 1 = spell picked up for a vanilla swap; `$1B85` its cursor; `$1B83` row, `$1B84` column |
+| Picker RAM | `$11A3` mode, `$11A4` page, `$11A5` total, `$11A6` pages, `$11A7` target slot, `$11A8` redraw, `$11A9-$11AD` scratch. Page buffer `$7E:EB00` (24), saved Call list `$7E:EB40` (24). Load and New Game clear `$11A3-$11AD` |
+
+The picker only opens from the Call column with nothing picked up for a vanilla
+swap. While it's open it swallows A, B, X, Y, L and R, so vanilla never casts,
+swaps, switches column or leaves the menu. Directions go to the vanilla cursor.
+The test also watches `$7E:EB00-$EB5F`: no code outside bank `$20` writes it
+while the picker is open.
+
+Not covered: Rydia not being the selected character (solo game only), and more
+than 10 pages (224 species fit in 10).
+
+Regression set (all pass, Nov 5): `call.lua` default and `SLOT=1 SEED=1 BLACK=1`,
+`field_call.lua` default and `MODE=repair`, `roster_persist.lua` default and
+`MODE=legacy`, `newgame_roster.lua` (pass `SAVE` as an **absolute** path; Mesen
+can't open a relative one), `pact.lua` both cases, `picker.lua`, and the 15
+Python tests.

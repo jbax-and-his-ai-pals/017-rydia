@@ -7,7 +7,8 @@
 --      SLOT (default 0; the cursor moves right SLOT times, so same row only),
 --      SEED=1: at battle 1, pacts are species 01-05 only, the roster is empty and
 --        Call holds Shiva ($36) in slot 0. Checks the fill from the bitfield,
---        Shiva moving to entry 5, and new pacts replacing the oldest slots.
+--        Shiva moving to entry 5, and new pacts joining only the collection
+--        once all five slots are chosen.
 --      BLACK=1: battle 2 first casts the first Black spell and checks its MP.
 -- Writes result.txt: checks plus a PASS/FAIL summary; screenshots call_NNN.png.
 local H = dofile(os.getenv("HARNESS_DIR") .. "/lib.lua")
@@ -71,6 +72,7 @@ local abi_regs = {
 }
 local abi_before, abi_species, abiChecks = nil, nil, 0
 local latestAddedSpecies, latestAddedBattle = nil, nil
+local rosterAtAdd = nil       -- live roster when the latest pact formed
 local battle = 0
 local function cpu_snapshot()
   local state, snap = emu.getState(), {}
@@ -88,6 +90,7 @@ end
 emu.addMemoryCallback(function()
   abi_before = cpu_snapshot()
   abi_species = (abi_before.y or 0) & 0xFF
+  rosterAtAdd = H.dump(ROSTER, 5)
 end, EXEC, off(roster_add_site), off(roster_add_site), emu.cpuType.snes, ROM)
 emu.addMemoryCallback(function()
   local after = cpu_snapshot()
@@ -116,8 +119,9 @@ emu.addMemoryCallback(function()
     for a = 0x15C0, 0x15D7 do H.wram_write(a, 0) end
     H.wram_write(0x15C0, 0x36)                 -- Shiva where pact slot 0 goes
   elseif SEED and battle == 2 then
-    check(H.dump(ROSTER, 5) == "01 1B 04 05 06" and H.ram(0x119D) == 2,
-      "new pacts replaced the oldest slots: roster %s, next %02X (want 01 1B 04 05 06, 02)", H.dump(ROSTER, 5), H.ram(0x119D))
+    check(H.dump(ROSTER, 5) == "02 03 04 05 06",
+      "a full roster keeps its five; new pacts only join the collection: roster %s", H.dump(ROSTER, 5))
+    check(H.ram(0x1181) & 0x01 ~= 0 and H.ram(0x1184) & 0x04 ~= 0, "the new pacts (00, 1A) are owned")
   end
 end, EXEC, off(0x00E394), off(0x00E394), emu.cpuType.snes, ROM)
 
@@ -166,9 +170,15 @@ emu.addMemoryCallback(function()
     battle, H.dump(ROSTER, 5), H.dump(LIST, 5))
   if latestAddedSpecies ~= nil and latestAddedBattle == battle then
     local captured1 = latestAddedSpecies + 1
-    local found = false
+    local found, full = false, rosterAtAdd ~= nil and not rosterAtAdd:find("00")
     for i = 0, 4 do if H.ram(ROSTER + i) == captured1 then found = true end end
-    check(found, "captured species %02X is in live roster %s", latestAddedSpecies, H.dump(ROSTER, 5))
+    if full then
+      -- All five were chosen: the pact joins the collection, the roster stays.
+      found = H.dump(ROSTER, 5) == rosterAtAdd
+      check(found, "full roster %s keeps its five after pacting %02X: %s", rosterAtAdd, latestAddedSpecies, H.dump(ROSTER, 5))
+    else
+      check(found, "captured species %02X is in live roster %s", latestAddedSpecies, H.dump(ROSTER, 5))
+    end
     if saved ~= nil and current == saved and listOK and found then successfulPactChecks = successfulPactChecks + 1 end
   end
   latestAddedSpecies, latestAddedBattle = nil, nil

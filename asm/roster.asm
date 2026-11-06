@@ -304,25 +304,8 @@ call_roster_add:
     inx
     cpx.w #!call_slots
     bne .add_empty
-    lda.l !roster_next
-    cmp #!call_slots
-    bcc .ring_valid
-    lda #$00
-.ring_valid:
-    rep #$20
-    and.w #$00FF
-    tax
-    sep #$20
-    txa
-    inc a
-    cmp #!call_slots
-    bcc .ring_advance
-    lda #$00
-.ring_advance:
-    sta.l !roster_next
-    bra .add_write
+    bra .add_sync           ; all five chosen: the pact joins the collection only
 .add_put:
-.add_write:
     lda.l !call_tmp
     sta.l !roster,x
 .add_sync:
@@ -362,6 +345,13 @@ call_roster_restore:
     inx
     cpx.w #!roster_max
     bne .clear_snapshot
+    ldx.w #0                 ; picker state ($11A3-$11AD) is never meaningful after a load
+.clear_picker:
+    lda #$00
+    sta.l $7E11A3,x
+    inx
+    cpx.w #11
+    bne .clear_picker
     lda #$00
     sta.l !call_cur
     sta.l !call_tmp
