@@ -43,13 +43,13 @@ emu.addMemoryCallback(function() if battle then returned=H.frame end end,
   EXEC,off(0x00EDB1),off(0x00EDB1),emu.cpuType.snes,ROM)
 
 -- Rendered bytes at the name shim's return: A, with Y = $8900 + 6 x spell + n.
-local names, icons = {}, {}
+local names, icons, attrs = {}, {}, {}
 local nameReturn = H.symbol("call_field_name_stub")+4
 emu.addMemoryCallback(function()
   local s=emu.getState()
   local n=s["cpu.y"]-0x8900
   local id,k=n//6,n%6
-  if k==0 then icons[id]=s["cpu.a"] & 0xFF
+  if k==0 then icons[id]=s["cpu.a"] & 0xFF; attrs[id]=H.ram(0x01DB)
   else names[id]=names[id] or {}; names[id][k-1]=s["cpu.a"] & 0xFF end
 end,EXEC,off(nameReturn),off(nameReturn),emu.cpuType.snes,ROM)
 local function token(cell) return rom(SLOT_IDS+cell) end
@@ -94,7 +94,7 @@ H.override=function(f)
       H.wram_write(0x11B6, 0x01); H.wram_write(0x11B7, 0x02)                  -- Shiva, Bahamut
       cur0=H.ram(0x11BE); mp0=H.ram16(0x100B)
     end
-    if t==570 or t==660 then names={}; icons={} end
+    if t==570 or t==660 then names={}; icons={}; attrs={} end
     return presses[t] or {}
   end
   if f<waitUntil then return {} end
@@ -159,7 +159,8 @@ table.insert(H.on_frame,function(f)
     local ok=species_named(0,0x19) and species_named(1,0x1B) and species_named(2,0x1C) and species_named(3,0x1D)
     check(ok and eidolon_named(4,0x36) and eidolon_named(5,0x3F),"page 1: species 19, 1B-1D, Shiva, Bahamut")
     check(species_named(6,0x00) and species_named(7,0x1A),"page 1 ends with the active entries 00 and 1A")
-    check(icons[token(6)]~=nil and icons[token(6)]~=icons[token(0)],"active entries are marked (cell 6 %s, cell 0 %s)",tostring(icons[token(6)]),tostring(icons[token(0)]))
+    check(attrs[token(6)]~=nil and attrs[token(6)]&0x04~=0 and attrs[token(7)]&0x04~=0 and attrs[token(0)]&0x04==0,
+      "bench entries bright, active ones grey (palette cell 6 %s, 7 %s, bench cell 0 %s)",tostring(attrs[token(6)]),tostring(attrs[token(7)]),tostring(attrs[token(0)]))
     check(label_is("call","2 of 2"),"label reads 2 of 2")
   elseif t==810 then
     check(H.ram(MODE)==0 and roster(3)=="01 1A 00","species 19 now in slot 1: %s",roster(3))

@@ -120,10 +120,22 @@ call_field_name:
     lda.l $0F8900,x
     bra .return
 .icon:
-    jsr entry_active        ; picker: already in the roster?
-    lda.l !summon_icon
-    bcc .return
-    lda.l $0F8900+6         ; marked with the white magic icon
+    ; Pool view: bench entries bright, active ones grey. The list sets $DB (the
+    ; entry's palette) just before this read and its letters use it; the field
+    ; greys every summon ($34 | $04) since none can be cast there.
+    pha                     ; the entry
+    lda.l !picker_mode
+    beq +++
+    pla
+    jsr entry_active
+    lda.b $DB
+    and #$FB
+    bcc +
+    ora #$04
++   sta.b $DB
+    bra ++
++++ pla
+++  lda.l !summon_icon
     bra .return
 .vanilla:
     rep #$20

@@ -343,5 +343,5 @@ roster, list), `asm/slots.asm` (routing and menus), `asm/field-call.asm`
 **Picker legibility and sounds (Nov 6):**
 - **Labels:** while the pool is open, the top-left window reads "Pool" and the page ("1 of 2"); it switches back to Black / Call on exit. The labels are drawn into the label layer, then the list is redrawn the next frame.
 - **Bench first:** the pool lists entries that aren't active before the active ones, so swap candidates come first.
-- **Known:** the active-entry icon is the white-magic icon, which looks like the summon dot in this font. It's a weak marker; a clearer one is still to do.
+- **Marker:** in the pool view, bench entries are drawn bright and active ones grey. The field greys every summon (`$34 | $04`, none can be cast there); the icon read sets `$DB` per entry.
 - **Sounds:** borrowed animations now play their own sound. A summon was playing the Imp's punch sound under every animation, because sounds come from a separate table keyed on the effect spell (`$4D`). `ability.lua` checks this.
