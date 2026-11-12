@@ -37,44 +37,71 @@ for reference; where it conflicts with this section, this section wins.
 - **Guardians:** each region's gate is a mostly standard (or enhanced) monster from the *next* region. Beating it means you're ready for that region, and it can be a little easier than the previous guardian. FF4's eidolons can still have their own trials.
 - **Goal:** a final trial ends the game. Completing the bestiary is its own motivation, supported by the seen list, the guides and per-region progress.
 
-**Party**
-- **More than Rydia.** A solo summoner is too thin, so several summoners should complement each other, e.g. some whose pacts lean towards healing and support and others towards damage.
+**Party and summoners (Nov 12)**
+- **Several summoners, recruited over time.** A solo summoner is too thin.
+- **Rydia is the heroine and, in the end, the most powerful summoner.** She is an **omni-summoner**, rare or unique, who can pact any type. Other summoners are bound to one type.
+- **Types:** at least white (healing, support, protection) and black (damage, debuffs); others are possible.
+- **Edge** is the first natural fit, as a black-type summoner. Some romantic tension between him and Rydia is welcome, kept light.
+- **Old skills fade.** Edge, and anyone else who joins, keeps their FF4 commands (Ninja, Throw, ...), but those aren't end-game strong. Each leans into summoning over time, which becomes the main way to fight. Balance is open for discussion.
+- **Collection:** one shared bestiary (the pool), a roster per summoner, and a way to restrict which types each summoner can take.
+- **Captures:** a species may have its own capture conditions, as long as the game teaches the player about them.
 
-### Open: a party of summoners (the biggest open area)
+**Rydia's starting point**
+- **Her old pacts faded,** and she has forgotten most of her black magic through disuse. That's why she isn't overpowered at the start.
+- **Background from *The After Years*** (fan wikis, not checked against the game): in "Rydia's Tale" the Feymarch's eidolons are turned to stone by the mysterious girl and Rydia can't summon them, so she falls back on black magic. Edge quietly helps her repair her bond with Leviathan and Asura. The Edge-Rydia romance stays a tease, never resolved. We don't depend on any of this, but it fits "her pacts faded" and gives Edge a reason to care about summoning.
 
-1. **Who.** Options:
-   - FF4 characters who take up summoning years later. Palom and Porom are a natural black/white pair; Rosa, Edge and others are possible too.
-   - New characters on existing sprites.
-   - Constraint: we only have FF4's sprites, so an adult Palom or Porom still looks like a child. Is that acceptable?
-2. **How they differ.** Options:
-   - Each species has an affinity (white, black, neutral) and only a matching summoner can pact it.
-   - Anyone can pact anything, but the summon acts differently by summoner (a white summoner's version heals or protects).
-   - Each summoner reaches different monsters through their own capture conditions.
-3. **Collection.** One shared bestiary (the pool) with a roster per summoner is the cleanest; separate pools are the alternative.
-4. **Roster size per summoner** (24 each?). Technically each character already has their own spell lists; more rosters need more save space, so expanding save RAM becomes likely.
-5. **When they join:** all at the start, or recruited region by region (natural chapter beats; FF4's party holds 5)?
-6. **What else they keep:** their FF4 commands (Porom's White, Palom's Black, Edge's Ninja), or summoning only?
-7. **Rydia's role:** the teacher and master (e.g. the only one who can pact anything), or one summoner among peers?
+### Proposal: summoner types and the party (for discussion)
 
-### Open: Rydia's power at the start
+**Types.** Every species gets a `type` column in `data/monsters.csv`. Three types would cover the bestiary:
 
-8. **Why she isn't at full strength.** Ideas to discuss:
-   - Her old pacts faded or were released.
-   - She chose to start over while teaching others.
-   - Something changed in the Feymarch.
-   - *The After Years* changed Rydia's situation with her eidolons; worth checking as input for this.
-9. **Starting level and kit.**
+| Type (working name) | What its summons do | Rough share of species |
+| --- | --- | --- |
+| Black | damage, debuffs, death, elements | most monsters with damaging abilities |
+| White | healing, protection, buffs, status cures | monsters with support abilities, plus some new curation |
+| Beast | physical strikes, toughness, simple power | the 44 "fight only" monsters, plus big brutes |
 
-### Open: everything else
+- A third type gives the plain attackers, about a quarter of the bestiary, a natural owner instead of leaving them as filler.
+- Each non-Rydia summoner can pact only their own type. Rydia can pact everything, which makes her the one who completes the bestiary.
 
-10. **Black magic:** does Rydia (or the black summoner) learn it by level, or have a fixed set?
-11. **Roster budget:** yes or no, and how it works across several summoners.
-12. **XP numbers:** how much a first pact and a boss give relative to an ordinary fight.
-13. **Gear and shops:** FF4's town shops as they are, or curated per chapter.
-14. **Final trial:** where, and what unlocks it.
-15. **Encounters:** keep FF4's tables, or redesign per region (rare spawns, every capturable species findable before the final trial).
-16. **Capturable list:** prune the oddities (the seven debug "Dummy" species, scripted story enemies).
-17. **Names:** the game, and terms such as Pact, Call, Pool and guide.
+**Who, and when they join** (recruitment reuses FF4 towns and existing sprites):
+
+| Ch | Where | Joins | Type | Why it fits |
+| --- | --- | --- | --- | --- |
+| 1 | Mist | Rydia | omni | Home; the tutorial region, solo |
+| 2 | Damcyan / Watery Pass | Edge | black | He comes looking for her (*The After Years* gives him a reason) |
+| 3 | Fabul | Yang, or a Fabul monk | beast | Fabul's monks and their discipline |
+| 4 | Mysidia | Porom, or a Mysidian white mage | white | Mysidia is the home of white magic |
+| later | open | a fifth member? | ? | FF4 parties hold 5 |
+
+- **Sprite question:** Porom's only sprite is a child. Either accept that (it's a sprite), or use her sprite for a new Mysidian apprentice. Yang's adult sprite is fine.
+
+**Teaching capture conditions:**
+- **Refusals that hint:** "The Bomb won't listen while it's this angry" means weaken it.
+- **Guide NPCs** describe local monsters' habits.
+- **The seen list** shows a hint once a species has refused you.
+
+**Technical note:** a roster per summoner (24 each, or fewer for the others) plus the seen bits needs more save space than Tellah's parked slot has. Expanding save RAM is the likely answer.
+
+### Open: next round
+
+1. **Types:** white and black only, or add a third such as Beast? And their names (white/black are working names).
+2. **The white summoner:** Porom (child sprite), Rosa, or a new character on an existing sprite?
+3. **A beast (or other third-type) summoner:** Yang or a Fabul monk, or someone else, or no third type?
+4. **Where and when each one joins** (the table above is a first pass).
+5. **Roster size for the others:** 24 each like Rydia, or smaller?
+6. **Rydia's starting level and spells,** and what "forgotten black magic" looks like (a few low spells that return with levels?).
+7. **Tone of the Edge-Rydia scenes:** a few lines at recruitment and guardians, or more?
+8. **Teaching captures:** hinting refusals, guides, seen-list hints, or all three?
+
+### Open: everything else (unchanged)
+
+9. **Roster budget:** yes or no, now across several summoners.
+10. **XP numbers:** how much a first pact and a boss give relative to an ordinary fight.
+11. **Gear and shops:** FF4's town shops as they are, or curated per chapter.
+12. **Final trial:** where, and what unlocks it.
+13. **Encounters:** keep FF4's tables, or redesign per region (rare spawns, every capturable species findable).
+14. **Capturable list:** prune the oddities (the seven debug "Dummy" species, scripted story enemies).
+15. **Names:** the game, and terms such as Pact, Call, Pool and guide.
 
 ## Original draft (Nov 6)
 
