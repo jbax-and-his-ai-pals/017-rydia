@@ -136,6 +136,16 @@ FF2-sized chapters, each bringing a character, a batch of kin and summons, story
 8. **Rydia's starting level and spells,** and how "forgotten black magic" returns.
 9. **Teaching captures:** hinting refusals, guides, seen-list hints, capture styles.
 
+### Open: everything else (unchanged)
+
+10. **Roster budget:** yes or no, now across several summoners.
+11. **XP numbers:** how much a first pact and a boss give relative to an ordinary fight.
+12. **Gear and shops:** FF4's town shops as they are, or curated per chapter.
+13. **Final trial:** where, and what unlocks it.
+14. **Encounters:** keep FF4's tables, or redesign per region (rare spawns, every capturable species findable).
+15. **Capturable list:** prune the oddities (the seven debug "Dummy" species, scripted story enemies).
+16. **Names:** the game, and terms such as Pact, Call, Pool, kin and guide.
+
 ## Original draft (Nov 6)
 
 ### How Rydia grows: what the player learns in the first hour
