@@ -1,6 +1,6 @@
 # Storyboard: the game from the player's side
 
-Draft for discussion, Nov 6, 2026. Nothing here is built yet beyond Pact, Call,
+Draft for discussion, Nov 6, 2026; updated Nov 12. Nothing here is built yet beyond Pact, Call,
 the 24-slot roster, the pool picker and the first 32 signature summons.
 
 Ground rules:
@@ -11,7 +11,74 @@ Ground rules:
 
 Monster levels below come from `data/encounters.csv`: the median, then the range, per area.
 
-## How Rydia grows: what the player learns in the first hour
+## Where we are (Nov 12)
+
+Current decisions and open questions. The original draft further down is kept
+for reference; where it conflicts with this section, this section wins.
+
+### Decided
+
+**World and framing**
+- **Setting:** long after FF4. Everything from FF4 is resolved; this is a new situation and challenge. Light framing for now, with a story possible later.
+- **The moon:** simply back in the sky. Why it returned can come out in a later story; making its return a mid-game event later would also be fine.
+- **Assets:** no new graphics; new text is fine.
+- **Start:** Mist, on foot. Vehicles open new regions.
+- **Difficulty:** low this time around. Revisit if it becomes a sticking point.
+
+**Growth**
+- **XP is the main way to grow.** Monsters give some XP, a first pact with a species gives more, and bosses and guardians give more again.
+- **Summons don't grow** (for now).
+- **Rydia isn't overpowered at the start,** even though she ended FF4 supremely powerful. The in-world reason is still open (below).
+
+**Collection**
+- **Capture:** one formula. Early captures are easy and straightforward; later ones need the conditions set up (low HP, status, level, per-species preferences).
+- **Seen list:** monsters you've met appear greyed out in the pool list until you pact them.
+- **Guide NPCs:** plain-spoken. They cover the world, what's nearby, tips and known weaknesses.
+- **Guardians:** each region's gate is a mostly standard (or enhanced) monster from the *next* region. Beating it means you're ready for that region, and it can be a little easier than the previous guardian. FF4's eidolons can still have their own trials.
+- **Goal:** a final trial ends the game. Completing the bestiary is its own motivation, supported by the seen list, the guides and per-region progress.
+
+**Party**
+- **More than Rydia.** A solo summoner is too thin, so several summoners should complement each other, e.g. some whose pacts lean towards healing and support and others towards damage.
+
+### Open: a party of summoners (the biggest open area)
+
+1. **Who.** Options:
+   - FF4 characters who take up summoning years later. Palom and Porom are a natural black/white pair; Rosa, Edge and others are possible too.
+   - New characters on existing sprites.
+   - Constraint: we only have FF4's sprites, so an adult Palom or Porom still looks like a child. Is that acceptable?
+2. **How they differ.** Options:
+   - Each species has an affinity (white, black, neutral) and only a matching summoner can pact it.
+   - Anyone can pact anything, but the summon acts differently by summoner (a white summoner's version heals or protects).
+   - Each summoner reaches different monsters through their own capture conditions.
+3. **Collection.** One shared bestiary (the pool) with a roster per summoner is the cleanest; separate pools are the alternative.
+4. **Roster size per summoner** (24 each?). Technically each character already has their own spell lists; more rosters need more save space, so expanding save RAM becomes likely.
+5. **When they join:** all at the start, or recruited region by region (natural chapter beats; FF4's party holds 5)?
+6. **What else they keep:** their FF4 commands (Porom's White, Palom's Black, Edge's Ninja), or summoning only?
+7. **Rydia's role:** the teacher and master (e.g. the only one who can pact anything), or one summoner among peers?
+
+### Open: Rydia's power at the start
+
+8. **Why she isn't at full strength.** Ideas to discuss:
+   - Her old pacts faded or were released.
+   - She chose to start over while teaching others.
+   - Something changed in the Feymarch.
+   - *The After Years* changed Rydia's situation with her eidolons; worth checking as input for this.
+9. **Starting level and kit.**
+
+### Open: everything else
+
+10. **Black magic:** does Rydia (or the black summoner) learn it by level, or have a fixed set?
+11. **Roster budget:** yes or no, and how it works across several summoners.
+12. **XP numbers:** how much a first pact and a boss give relative to an ordinary fight.
+13. **Gear and shops:** FF4's town shops as they are, or curated per chapter.
+14. **Final trial:** where, and what unlocks it.
+15. **Encounters:** keep FF4's tables, or redesign per region (rare spawns, every capturable species findable before the final trial).
+16. **Capturable list:** prune the oddities (the seven debug "Dummy" species, scripted story enemies).
+17. **Names:** the game, and terms such as Pact, Call, Pool and guide.
+
+## Original draft (Nov 6)
+
+### How Rydia grows: what the player learns in the first hour
 
 1. **Pacts are her levels.** Rydia's power, her **summoner rank**, comes from how many pacts she holds, not from EXP. Each new pact is a small permanent gain in HP, MP and magic. Grinding the same field doesn't make her stronger; finding new monsters does.
 2. **Summons grow with use.** Each pact has its own level. Using a summon, or pacting the same species again (an "echo"), raises it. Power and MP scale with that level, so old favourites stay useful. (This uses the reserved byte-per-species space.)
@@ -21,7 +88,7 @@ Monster levels below come from `data/encounters.csv`: the median, then the range
 
 What the player feels: every region is a set of new pacts to win, and each one immediately makes Rydia and her roster stronger.
 
-## Chapters
+### Chapters
 
 Each chapter is a region you can reach with the vehicles you have, a set of monsters to collect, and a **guardian**: an existing boss fight that refuses Pact. Beating it grants an **eidolon** (into the pool and roster) and the **next ride**.
 
@@ -42,7 +109,7 @@ Notes on the table:
 - **Guardians are vanilla bosses** fought again. Their event flags get reset or the fight is re-triggered. A few bosses (Asura, Leviathan, Odin, Bahamut) are already trial fights in vanilla.
 - **Order is a suggestion.** FF4's geography only enforces the vehicle gates, so curious players can wander into harder corners early. That's soft gating by monster strength.
 
-## Expectations between regions
+### Expectations between regions
 
 What a player should feel when crossing into a new chapter:
 - **Field monsters about 1.5-2x the last region's level.** The previous roster handles fights with effort, but the new monsters are hard to capture until a few local pacts are won. Status summons help a lot there.
@@ -55,7 +122,7 @@ What a player should feel when crossing into a new chapter:
 - **MP is the stamina meter.** Healing items and inns refill it. Rydia should manage about 4-6 fights between rests (the handoff's target), so cheap low-level summons stay useful as field tools.
 - **Old summons don't go dead.** Echo-levelling keeps favourites viable; the budget pushes towards a mixed roster.
 
-## A typical session in chapter 3
+### A typical session in chapter 3
 
 - **Exploring:** the player lands near Mt. Hobs with about 20 pacts. The Gargoyles and Bombs here hit harder than anything at Damcyan. Rydia opens with SandMoth's Powder (status), then pacts the confused Bomb.
 - **First tries:** two failed attempts on a Cockatrice teach them to weaken it first.
@@ -63,7 +130,7 @@ What a player should feel when crossing into a new chapter:
 - **Guardian:** Mom Bomb splits into many bombs. The new Bomb's Fire3 and Sandpede's all-target Quake win the fight.
 - **Payoff:** Titan joins the roster, and Mysidia opens across the sea.
 
-## What it needs to build, by size
+### What it needs to build, by size
 
 | Piece | Size | Notes |
 | --- | --- | --- |
@@ -76,40 +143,9 @@ What a player should feel when crossing into a new chapter:
 | Framing text | Small | A few new messages |
 | Balance pass per chapter | Ongoing | Monster levels are fixed by FF4; tune rank gains, summon scaling and MP |
 
-## Open questions for this storyboard
+### Open questions (Nov 6, now answered above)
 
 1. **Starting point:** Mist on foot with nothing (as above), or a bit further along (e.g. with the hovercraft) to shorten the first hour?
 2. **EXP:** remove it completely (rank only), or keep a small EXP curve alongside rank?
 3. **Guardians:** use FF4's boss order as above, or theme them per region (each guardian matching the region's eidolon)?
 4. **End goal:** complete the bestiary, defeat a final trial (Zeromus as a summon-only fight?), or both?
-
-## Decisions so far (user, Nov 6)
-
-- **Start:** Mist, on foot.
-- **Setting:** long after FF4, years or more. Everything from FF4 is resolved; this is a new situation and challenge. It can nod to the past but doesn't depend on it.
-- **Capture curve:** one formula for the whole game. The first region's monsters are easy and straightforward to pact; later ones need the conditions set up (low HP, a status, level, a per-species difficulty or preference in the CSV).
-- **Growth (proposed, pending a final yes):** normal FF4 XP and levels, plus a large XP bonus for the first pact with each species, so collecting is the fastest way to level. Summons level with use, and echoes help. Rank-only was considered and set aside as too foreign.
-- **Guardians:** each region's gate is a mostly standard monster from the *next* region, or an enhanced version of one. Beating it means you're ready for that region, and a new guardian can be a little easier than the previous one, since it previews new content rather than capping old. Reused graphics; FF4's eidolons (Asura, Leviathan, Odin, Bahamut, ...) can still have their own trials.
-- **Bestiary:** a "seen" record. Monsters you've met appear in the pool list greyed out until captured, so the list is your progress. Save space for the 28 seen bytes to be found, or save RAM expanded.
-- **Guide NPCs:** plain-spoken, not riddles. They talk about the world, what's nearby, tips, a known weakness.
-- **Goal:** a final trial ends the game. Completing the bestiary stays its own motivation, supported by the seen list, the guides and per-region progress.
-
-## Still to decide
-
-1. **Growth:** confirm XP plus a first-pact bonus.
-2. **The moon.** At the end of FF4 the Lunarians' moon leaves Earth's sky; *The After Years* brings it back. Our game is set long after and doesn't need either story. Options:
-   - **(a)** It's in the sky again, unexplained or with one line ("the second moon returned some years ago"). The Big Whale reaches it; the moon maps and monsters become the late game.
-   - **(b)** The moon is gone and the late game happens elsewhere. The moon's monsters would then need homes on Earth or in the underworld, losing those maps.
-   - **(c)** It returns during the game, as the event that opens the final chapter.
-   - Recommended: (a) or (c). The moon holds the strongest monsters and Bahamut, and reusing its maps costs nothing.
-3. **Rydia's start:** level and kit (e.g. Lv 1-3, Fire and Sleep, starter gear and items).
-4. **Black magic:** learned by level as vanilla child Rydia does, or a fixed small set?
-5. **Party:** solo for the whole game, or companions later? (Solo means a KO is game over, and Stone or Silence are deadly.)
-6. **Summon growth:** levels from use, echoes, or both, and a level cap.
-7. **Roster budget:** yes or no, and how strict early on.
-8. **Gear and shops:** keep FF4's town shops as they are (Rydia's equipment progression), or curate them per chapter?
-9. **Final trial:** where (Feymarch, the moon's depths, somewhere new), and what unlocks it (all eidolons, a bestiary share, a level).
-10. **Encounters:** keep FF4's tables, or redesign per region (rare spawns, making every capturable species findable before the final trial)?
-11. **Capturable list:** prune oddities (the seven debug "Dummy" species, scripted story enemies) and decide which bosses stay unpactable.
-12. **Difficulty target:** relaxed collecting game, or a real challenge with some failure?
-13. **Names:** the game, and terms such as Pact, Call, Pool and guide.
