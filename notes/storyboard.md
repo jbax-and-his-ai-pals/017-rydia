@@ -124,13 +124,20 @@ FF2-sized chapters, each bringing a character, a batch of kin and summons, story
 
 **Party size:** FF4 battles hold 5. Rydia plus 4 is the simplest; with 5 or more other summoners we need a way to swap party members, which is new menu work (the picker pattern can be reused).
 
+### Decided (Nov 12, third round)
+
+Open questions 1-5 are settled, all as recommended above:
+
+1. **Kin:** keep the eight. Check them against data before adjusting: fill a `kin` column in `data/monsters.csv` and count each kin per region with `data/encounters.csv`. Merge or split only if a chapter's region can't supply its kin batch.
+2. **Breadth:** two kin per summoner, and Rydia bonds with all eight. **Specialists summon their own kin a bit stronger or cheaper** than Rydia does, so the others aren't just a narrower Rydia.
+3. **Capture styles:** **bonus only.** Each summoner's style raises the odds and is never required. Hard conditions are reserved for a few rare species, so capture stays one formula.
+4. **Cast:** **Edge, Kain, Rosa and Cid** as the four summoners besides Rydia; **FuSoYa joins as a guest** for the moon chapter. Cecil, Yang, Palom and Porom aren't planned. Palom and Porom remain possible if their adult graphics pass and the party grows.
+5. **Party:** fixed at five. Characters come and go through story events, using vanilla's add and remove commands, so **no swap menu**. Revisit only if the cast grows past four.
+
+Kin coverage with this cast: Edge Beast and Shade, Kain Dragon and Sky, Rosa Sea and Wild, Cid Construct. Arcane is Rydia's own until FuSoYa arrives.
+
 ### Open: next round
 
-1. **Kin:** these 8, or merge or split some (e.g. Wild versus Sea)?
-2. **Two kin per summoner,** plus Rydia omni: the right breadth?
-3. **Capture styles:** good idea, too much, or keep only the per-species conditions?
-4. **The cast:** which 4-5 summoners besides Rydia (Edge is in; Kain, Rosa, Cid, FuSoYa, Cecil, Yang, and Palom/Porom behind the graphics gate)?
-5. **Party size and swapping:** fixed at 5, or a swap mechanism?
 6. **The Palom/Porom graphics test:** when to try it. Approach: build adult versions from existing adult sprites, e.g. Rosa's body with Porom's palette and hair, and Edward's or Cecil's body for Palom. Battle poses, field sprites and menu portraits all need versions.
 7. **Chapter order and bosses** (v2 above is a first pass).
 8. **Rydia's starting level and spells,** and how "forgotten black magic" returns.

@@ -201,6 +201,8 @@ Repurpose an existing command rather than adding one. Edge's steal command and t
 
 ## After the MVP, in order
 
+> **Superseded (Nov 12)** by [notes/roadmap.md](notes/roadmap.md). Kept for history.
+
 1. **Call.** Pact slot spells resolved at runtime, the loadout auto-filled with the most recent N pacts, signature abilities curated in the CSV.
 2. **Scaling and MP cost.**
 3. **More ways to earn pacts.** Echo drops, plus a success chance on the capture command if wanted.

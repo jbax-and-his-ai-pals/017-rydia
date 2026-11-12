@@ -2,8 +2,9 @@
 
 A Final Fantasy IV (SNES) hack: Rydia alone in an open world, forming pacts with the monsters she fights. Distributed only as a BPS patch against your own ROM.
 
-- Design: [handoff.md](handoff.md)
-- MVP plan: [mvp-plan.md](mvp-plan.md)
+- Roadmap: [notes/roadmap.md](notes/roadmap.md)
+- Game design: [notes/storyboard.md](notes/storyboard.md) (the original handoff is [handoff.md](handoff.md))
+- MVP plan (done): [mvp-plan.md](mvp-plan.md)
 - Addresses and lookups: [notes/addresses.md](notes/addresses.md)
 - Next build: [notes/next-build.md](notes/next-build.md)
 - Branch review and verification: [notes/integration-review.md](notes/integration-review.md)
