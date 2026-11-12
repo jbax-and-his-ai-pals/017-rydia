@@ -15,9 +15,10 @@ from collections import Counter, defaultdict
 from ff4rom import ROOT
 import kin as kin_mod
 
-BATCHES = {"1": ["Wild", "Sky"], "2": ["Beast", "Shade"], "3": ["Construct"], "4": ["Dragon"],
-           "5": ["Sea"], "8": ["Arcane"]}
-ORDER = ["1", "2", "3", "4", "5", "6", "7", "8", "final"]
+# The kin each chapter's new summoner brings (chapter outline v3, notes/storyboard.md).
+BATCHES = {"2": ["Sea", "Wild"], "3": ["Beast", "Shade"], "6": ["Construct"], "7": ["Dragon", "Sky"],
+           "9": ["Arcane"]}
+ORDER = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "final"]
 SHORT = 3   # a batch kin with fewer new species than this in its chapter is flagged
 LIKES = ["sleep", "charm", "confuse", "paralyze", "slow", "stop", "blind", "poison", "mute",
          "low_hp", "critical_hp", "alone", "level_gap"]
@@ -104,8 +105,7 @@ def main() -> None:
         return ", ".join(f"{monsters[s]['name']} ({monsters[s]['kin']})" for s in sorted(ids)) or "none"
 
     out += ["## Species outside the chapter outline", "",
-            f"- **Only in unplaced areas** (Toroia, Cave Magnes, Silvera, Grotto Adamant, Tower of Zot, chocobo areas, "
-            f"Giant of Babil): {names(leftover['unplaced'])}",
+            f"- **Only in unplaced areas** (chocobo areas, Giant of Babil): {names(leftover['unplaced'])}",
             f"- **Only in unrecognised maps:** {names(leftover['unknown'])}",
             f"- **Never in a random fight:** {names(nowhere)}", ""]
     if unknown_areas:

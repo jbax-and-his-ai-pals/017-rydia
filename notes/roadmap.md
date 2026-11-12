@@ -7,7 +7,7 @@ Nov 12, 2026. Supersedes "After the MVP" in [mvp-plan.md](../mvp-plan.md). The g
 A chaptered FF4 sequel about summoners, set long after FF4:
 - **Start:** Rydia starts at Mist, on foot and weak; her old pacts have faded. She grows through XP. A first pact with a species gives extra XP.
 - **Chapters:** each adds a summoner, a batch of kin, story, and a guardian or boss. Guardians gate regions; vehicles open new ones.
-- **Cast:** Edge (Beast, Shade), Kain (Dragon, Sky), Rosa (Sea, Wild), Cid (Construct). FuSoYa joins as a guest on the moon.
+- **Cast, in join order** (chapter outline v3): Rosa (Sea, Wild), Edge (Beast, Shade), Cid (Construct), Kain (Dragon, Sky). FuSoYa joins as a guest on the moon.
   - The party is fixed at five; members come and go through story events.
   - Rydia bonds with all eight kin, so only she can complete the bestiary. Specialists summon their own kin stronger or cheaper.
 - **Capture:** one formula. Early captures are easy; later ones need conditions set up. Each summoner's capture style is a bonus, never a requirement.
@@ -53,7 +53,11 @@ A chaptered FF4 sequel about summoners, set long after FF4:
   - All eight kin are well populated (10 to 30 species each).
   - Capture tiers rise chapter by chapter.
   - **FF4's encounter geography doesn't match the outline's kin batches.** Chapter 4 has no Dragons, Sky, Shade, Construct and Arcane are thin in their chapters, and Toroia, Cave Magnes and the Tower of Zot (not in the outline) hold 19 species found nowhere else.
-- **Open decision:** reorder the chapters around the geography, or move monsters through the encounter redesign.
+- **Decided:** chapters follow the geography, with small adjustments allowed where they open different paths. See outline v3 in [storyboard.md](storyboard.md); the report now checks each chapter against the kin its new summoner brings.
+- **Small geography tweaks planned,** done in each chapter's build:
+  - Construct into Zot or Cave Magnes for Cid (chapter 6)
+  - two or three dragons into the underworld for Kain (chapter 7)
+  - find where Q.Lamia and Ironman really appear
 
 ### M2 · Risky systems, one spike each
 
@@ -62,7 +66,7 @@ Build each against the sandbox start, smallest working slice first.
 | # | System | Main risk | Done when |
 | --- | --- | --- | --- |
 | a | **Capture formula:** HP, status and level gap, plus the per-species preferences from M1; a refusal hint; the seen list in the pool view | Fitting the odds math and messages into the Pact handler and free bank space | Odds behave as designed in scripted fights; the seen list shows met species |
-| b | **Second summoner:** Edge with Pact, Call, his own roster limited to his kin, his capture-style bonus, and the specialist bonus | Today's Call, roster and pool assume one summoner, Rydia | Edge and Rydia both capture and summon in one battle, and Edge can't take a non-Beast/Shade pact |
+| b | **Second summoner:** Rosa, who joins second in outline v3, with Pact, Call, her own roster limited to her kin, her capture-style bonus (soothe), and the specialist bonus | Today's Call, roster and pool assume one summoner, Rydia | Rosa and Rydia both capture and summon in one battle, and Rosa can't take a non-Sea/Wild pact |
 | c | **Early-game start:** Mist, on foot, chapter-1 world state, vehicles locked, low-level Rydia, first-pact XP bonus | Early-game flag state, built the way the late-game snapshot was | New Game starts at Mist with the right flags; the access audit stays quiet for chapter-1 locations |
 | d | **Text pipeline:** decode and re-encode dialogue (DTE, banks at `$10:8000`+), edit NPC lines, add new messages; an event-script encoder to go with `tools/events.py` | Text compression and space in the dialogue banks | A guide NPC in Mist says new text, built from a source file |
 | e | **Guardians:** a region gate as an event-triggered fight with a flag; beating it opens the way | Building triggers and event calls from source | One guardian blocks the Watery Pass until beaten |
@@ -71,19 +75,21 @@ Build each against the sandbox start, smallest working slice first.
 
 ### M3 · Chapter 1 vertical slice: Mist to Kaipo
 
-Wild and Sky kin, capture conditions, a guide in Mist and Kaipo, the Watery Pass guardian, the XP curve, and low difficulty.
+Rydia alone. Beast and Wild captures (14 new species in the region), capture conditions, a guide in Mist and Kaipo, the Watery Pass guardian, the XP curve, and low difficulty.
 
 **Done when:** a playtest of about 30–45 minutes captures 8–12 species, uses Call, beats the guardian, and feels like the game we want. Fold the outstanding roster playtest (package G in [next-build.md](next-build.md)) into this one.
 
-### M4 · Chapter 2: Edge joins
+### M4 · Chapter 2: Rosa joins (Watery Pass, Damcyan)
 
-Edge joins by an event; Beast and Shade kin; his capture style; the chapter's guardian; first balance pass with two summoners.
+Rosa joins by an event; Sea and Wild kin; her capture style; the chapter's guardian; first balance pass with two summoners.
 
 ### M5 onward
 
-- **Chapters 3–5:** Cid, Kain, Rosa.
-- **Chapters 6–7:** the underworld: dwarves, Feymarch trials (Asura, Leviathan), Eblan.
-- **Chapter 8:** the moon, with FuSoYa as guest; Bahamut.
+- **Chapters 3–5:** Edge joins at Mt. Hobs and Fabul; then Mysidia and Mt. Ordeals; then Baron.
+- **Chapter 6:** Toroia, Cave Magnes, the Tower of Zot; Cid joins.
+- **Chapter 7:** the underworld; Kain joins; Feymarch trials (Asura, Leviathan).
+- **Chapter 8:** Eblan, Sylvan, the Tower of Babil; Edge's homeland arc.
+- **Chapter 9:** the moon, with FuSoYa as guest; Bahamut.
 - **Final trial,** bestiary completion and polish.
 - **Encounter redesign** per region as each chapter is built, so every capturable species is findable. Starts from `data/encounters.csv`.
 

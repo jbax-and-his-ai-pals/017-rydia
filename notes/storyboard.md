@@ -136,6 +136,31 @@ Open questions 1-5 are settled, all as recommended above:
 
 Kin coverage with this cast: Edge Beast and Shade, Kain Dragon and Sky, Rosa Sea and Wild, Cid Construct. Arcane is Rydia's own until FuSoYa arrives.
 
+### Decided (Nov 12, fourth round): chapters follow the geography
+
+The M1 data ([kin-report.md](kin-report.md)) showed FF4's encounter geography doesn't fit outline v2's kin batches: Mt. Ordeals has no dragons, for example. **Chapters now follow where FF4's monsters live.** Small changes to the geography (encounter sets, routes) are welcome where they open different paths than vanilla FF2's. This supersedes outline v2 below.
+
+**Chapter outline v3:**
+
+| Ch | Region | Joins | What the region offers |
+| --- | --- | --- | --- |
+| 1 | Mist, Kaipo | Rydia (alone) | Beast, Wild |
+| 2 | Watery Pass, Damcyan | **Rosa** (Sea, Wild) | Sea 6 new |
+| 3 | Mt. Hobs, Fabul | **Edge** (Beast, Shade) | Shade; Beast from chapters 1–2 |
+| 4 | Mysidia, Mt. Ordeals | — | Shade (the undead mountain) |
+| 5 | Baron | — | Sea |
+| 6 | Toroia, Cave Magnes, Silvera, Tower of Zot | **Cid** (Construct) | Arcane (Zot's mages), Beast |
+| 7 | Underworld: Agart, dwarves, Feymarch, Sealed Cave | **Kain** (Dragon, Sky) | Sky 5 new; eidolon trials |
+| 8 | Eblan, Cave Eblana, Sylvan, Tower of Babil | — | Edge's homeland arc; dragons, rares |
+| 9 | The moon | **FuSoYa** (guest; Arcane) | Bahamut |
+| Final | Lunar Subterrane or a new trial site | — | final trial |
+
+- **Order changes from v2:** Rosa now joins second and Edge third, and Kain joins in the underworld.
+- **Planned small geography adjustments:**
+  - **Construct for Cid:** FF4's machines (Beamer, Machine, Searcher, Horseman, MacGiant, D.Machin) appear only inside the Giant of Babil, a story-event location. Add a few to the Tower of Zot or Cave Magnes encounter sets.
+  - **Dragons for Kain:** add two or three dragons to underworld encounter sets. Most dragons appear only from chapter 8 on.
+  - **Two species** (Q.Lamia, Ironman) appear only in maps the encounter exporter couldn't name. Check where they really are.
+
 ### Open: next round
 
 6. **The Palom/Porom graphics test:** when to try it. Approach: build adult versions from existing adult sprites, e.g. Rosa's body with Porom's palette and hair, and Edward's or Cecil's body for Palom. Battle poses, field sprites and menu portraits all need versions.

@@ -13,35 +13,35 @@ Species counted in the first chapter whose areas contain them. **Bold** marks th
 
 | Chapter | Dragon | Sky | Sea | Beast | Wild | Shade | Construct | Arcane | New | Tier (min–max, mean) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 0 | **2** | 0 | 6 | **6** | 0 | 0 | 0 | 14 | 1–3, 1.6 |
-| 2 | 0 | 0 | 6 | **3** | 3 | **2** | 0 | 1 | 15 | 1–2, 1.1 |
-| 3 | 0 | 2 | 0 | 0 | 1 | 3 | **2** | 0 | 8 | 2–2, 2.0 |
-| 4 | **0** | 1 | 0 | 0 | 0 | 4 | 0 | 0 | 5 | 2–3, 2.2 |
-| 5 | 0 | 0 | **5** | 1 | 0 | 0 | 0 | 1 | 7 | 2–3, 2.1 |
-| 6 | 1 | 5 | 2 | 8 | 7 | 2 | 5 | 4 | 34 | 2–4, 3.3 |
-| 7 | 2 | 3 | 0 | 3 | 5 | 3 | 3 | 3 | 22 | 3–4, 3.5 |
-| 8 | 3 | 0 | 0 | 2 | 4 | 0 | 2 | **2** | 13 | 3–5, 4.5 |
+| 1 | 0 | 2 | 0 | 6 | 6 | 0 | 0 | 0 | 14 | 1–3, 1.6 |
+| 2 | 0 | 0 | **6** | 3 | **3** | 2 | 0 | 1 | 15 | 1–2, 1.1 |
+| 3 | 0 | 2 | 0 | **0** | 1 | **3** | 2 | 0 | 8 | 2–2, 2.0 |
+| 4 | 0 | 1 | 0 | 0 | 0 | 4 | 0 | 0 | 5 | 2–3, 2.2 |
+| 5 | 0 | 0 | 5 | 1 | 0 | 0 | 0 | 1 | 7 | 2–3, 2.1 |
+| 6 | 0 | 1 | 1 | 5 | 1 | 2 | **1** | 5 | 16 | 2–4, 3.0 |
+| 7 | **1** | **5** | 2 | 8 | 7 | 2 | 5 | 3 | 33 | 2–4, 3.3 |
+| 8 | 2 | 2 | 0 | 3 | 5 | 3 | 3 | 3 | 21 | 3–4, 3.6 |
+| 9 | 3 | 0 | 0 | 2 | 3 | 0 | 2 | **2** | 12 | 4–5, 4.6 |
 | final | 3 | 1 | 0 | 1 | 1 | 0 | 1 | 3 | 10 | 5–5, 5.0 |
 
 ## Kin batch check
 
-- Chapter 1: Sky has 2 new species (want 3+)
-- Chapter 2: Shade has 2 new species (want 3+)
-- Chapter 3: Construct has 2 new species (want 3+)
-- Chapter 4: Dragon has 0 new species (want 3+)
-- Chapter 8: Arcane has 2 new species (want 3+)
-- Chapter 1 Wild: 6 available in its areas (new or repeat).
-- Chapter 1 Sky: 2 available in its areas (new or repeat).
-- Chapter 2 Beast: 5 available in its areas (new or repeat).
-- Chapter 2 Shade: 2 available in its areas (new or repeat).
-- Chapter 3 Construct: 2 available in its areas (new or repeat).
-- Chapter 4 Dragon: 0 available in its areas (new or repeat).
-- Chapter 5 Sea: 8 available in its areas (new or repeat).
-- Chapter 8 Arcane: 2 available in its areas (new or repeat).
+- Chapter 3: Beast has 0 new species (want 3+)
+- Chapter 6: Construct has 1 new species (want 3+)
+- Chapter 7: Dragon has 1 new species (want 3+)
+- Chapter 9: Arcane has 2 new species (want 3+)
+- Chapter 2 Sea: 6 available in its areas (new or repeat).
+- Chapter 2 Wild: 8 available in its areas (new or repeat).
+- Chapter 3 Beast: 1 available in its areas (new or repeat).
+- Chapter 3 Shade: 3 available in its areas (new or repeat).
+- Chapter 6 Construct: 3 available in its areas (new or repeat).
+- Chapter 7 Dragon: 1 available in its areas (new or repeat).
+- Chapter 7 Sky: 5 available in its areas (new or repeat).
+- Chapter 9 Arcane: 2 available in its areas (new or repeat).
 
 ## Species outside the chapter outline
 
-- **Only in unplaced areas** (Toroia, Cave Magnes, Silvera, Grotto Adamant, Tower of Zot, chocobo areas, Giant of Babil): VampGirl (Shade), CaveNaga (Beast), Mage (Arcane), Ogre (Construct), SwordMan (Shade), Centaur (Beast), Puppet (Arcane), EpeeGirl (Beast), Carapace (Sea), Beamer (Construct), D.Machin (Dragon), Gremlin (Arcane), Ice Liz (Beast), IceBeast (Beast), Witch (Arcane), Machine (Construct), MacGiant (Construct), Horseman (Construct), Searcher (Construct)
+- **Only in unplaced areas** (chocobo areas, Giant of Babil): Beamer (Construct), D.Machin (Dragon), Machine (Construct), MacGiant (Construct), Horseman (Construct), Searcher (Construct)
 - **Only in unrecognised maps:** Q.Lamia (Beast), Ironman (Construct)
 - **Never in a random fight:** none
 
