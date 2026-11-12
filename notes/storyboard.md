@@ -50,58 +50,91 @@ for reference; where it conflicts with this section, this section wins.
 - **Her old pacts faded,** and she has forgotten most of her black magic through disuse. That's why she isn't overpowered at the start.
 - **Background from *The After Years*** (fan wikis, not checked against the game): in "Rydia's Tale" the Feymarch's eidolons are turned to stone by the mysterious girl and Rydia can't summon them, so she falls back on black magic. Edge quietly helps her repair her bond with Leviathan and Asura. The Edge-Rydia romance stays a tease, never resolved. We don't depend on any of this, but it fits "her pacts faded" and gives Edge a reason to care about summoning.
 
-### Proposal: summoner types and the party (for discussion)
+### Decided (Nov 12, second round)
 
-**Types.** Every species gets a `type` column in `data/monsters.csv`. Three types would cover the bestiary:
+- **Chapters on FF2's pacing:** small chapters, each bringing a character, a batch of unique summons, story, and a boss at or near the end.
+- **Characters:** anyone from FF4 can be considered (FuSoYa, Rosa, Cecil, Kain, ...), as long as the summoning style fits the character. **FuSoYa** fits especially well if the moon becomes a final or near-final chapter.
+- **No child sprites or child characters.** Palom and Porom are in only if adult versions of their graphics reach a passable state. **Graphics are the gate:** pass, they're in; fail, they're out.
+- **Edge and Rydia:** the tension the series established. Edge has the crush, never acts on it because of his immaturity, and lives with the fact that it never worked out. Rydia's motivation is purer: devoted to summoning and her monster friends. The story elements need a lot of work.
+- **Rare captures through other means:** unique fights with unique mechanics, secret places, people, events, quests or triggers.
 
-| Type (working name) | What its summons do | Rough share of species |
-| --- | --- | --- |
-| Black | damage, debuffs, death, elements | most monsters with damaging abilities |
-| White | healing, protection, buffs, status cures | monsters with support abilities, plus some new curation |
-| Beast | physical strikes, toughness, simple power | the 44 "fight only" monsters, plus big brutes |
+### Summon types: options considered
 
-- A third type gives the plain attackers, about a quarter of the bestiary, a natural owner instead of leaving them as filler.
-- Each non-Rydia summoner can pact only their own type. Rydia can pact everything, which makes her the one who completes the bestiary.
+| System | Idea | For | Against |
+| --- | --- | --- | --- |
+| Role | white (support), black (damage), beast (physical) | Simple; clear party roles | Generic; most monsters do several things; a weak fit for characters like Kain or Cid |
+| Element | fire, ice, lightning, earth, holy, dark, water, wind | FF-native | Most monsters have no element; it splits the bestiary unevenly |
+| Habitat | land, sea, sky, underground, lunar | Easy to understand | Overlaps the regions; says little about what a summon does |
+| **Kin (family)** | dragons, beasts, undead, machines, ... | **Partly in the ROM already**; very strong character fits (Kain and dragons, Cid and machines) | Needs curation for half the bestiary |
+| Capture style | each summoner bonds differently (calm, subdue, outwit) | Makes capturing itself varied | On its own it doesn't divide the bestiary |
 
-**Who, and when they join** (recruitment reuses FF4 towns and existing sprites):
+### Recommended: kin decides who can bond; capture style makes each summoner play differently
 
-| Ch | Where | Joins | Type | Why it fits |
+**1. Kin.** Every species belongs to one kin (a `kin` column in `data/monsters.csv`). Half come from the ROM's creature type; the rest are curated. Eight kin cover the 149 real species:
+
+| Kin | Who's in it (examples) | Source | Leans towards |
+| --- | --- | --- | --- |
+| Dragon | Green D., Yellow D., D.Bone, Ging-Ryu | ROM dragon (10) | elemental breath, big hits |
+| Sky | Eagle, Cave Bat, Roc, Raven, Cockatrice | curated | speed, wind, status from above |
+| Sea | Pike, Piranha, Aligator, AquaWorm, ElecFish | curated | water, lightning, healing tides |
+| Beast | Python, SwordRat, Panther, Basilisk, Hydra, lizards | ROM reptile (19) + curated | physical power, poison, petrify |
+| Wild | SandMoth, TrapRose, Treant, Larva, slimes, Imps | ROM slime (6) + curated | status, pollen, healing, odd tricks |
+| Shade | Zombie, Skull, Ghoul, Soul, Spirit, Weeper | ROM undead (12) + spirit (5) | death, drain, curses |
+| Construct | Bomb, Beamer, Machine, Stoneman, MacGiant, Ogre | ROM machine (8) + giant (8) | beams, explosions, toughness |
+| Arcane | TinyMage, Sorcerer, Marion, Witch, Lunar mages | ROM mage (14) + curated | spells, buffs and debuffs, MP tricks |
+
+**2. Each summoner bonds with 2 kin.** Rydia bonds with all of them, so she is the only one who can complete the bestiary.
+
+**3. Each summoner has a capture style**: a bonus condition for their Pact command. That teaches strategy without a tutorial, and the guides can mention it.
+
+| Summoner | Kin | Capture style (bonus when...) | Role it gives the party |
+| --- | --- | --- | --- |
+| **Rydia** (omni) | all 8 | gentle: the target is calm (asleep, charmed) or trusts her (low level) | flexible; the heroine; strongest over time |
+| **Edge** | Beast, Shade | outwit: the target is confused, stopped, or just struck by Edge | damage and debuffs (the "black" side) |
+| **Kain** | Dragon, Sky | prove strength: the target's HP is low | heavy elemental and physical damage |
+| **Rosa** | Sea, Wild | soothe: the target is asleep or slowed | healing and protection (the "white" side) |
+| **Cid** | Construct | repair: the target is damaged but not weakened by status | toughness and beams; comic relief |
+| **FuSoYa** | Arcane (and Shade?) | lunar insight: ignores the level gap | spells and late-game power; the moon chapter |
+
+- Cecil or Yang could take Construct or Beast instead, if their story fits better.
+- Palom (Arcane or Shade) and Porom (Wild or Sea) slot in the same way if their adult graphics pass the gate.
+- Roles then **emerge from the kin** (Rosa heals, Kain hits hard) without hard white/black labels. Players still see "healer" and "attacker".
+
+**Rare captures** fit this naturally:
+- a unique species that only appears in a quest fight
+- a secret room
+- a guide who trades a hint for a favour
+- a monster that only bonds with a particular summoner, or only when a particular party member is present
+
+### Chapter outline v2 (for discussion)
+
+FF2-sized chapters, each bringing a character, a batch of kin and summons, story and a boss:
+
+| Ch | Region | New summoner | Kin batch introduced | Boss (guardian or story) |
 | --- | --- | --- | --- | --- |
-| 1 | Mist | Rydia | omni | Home; the tutorial region, solo |
-| 2 | Damcyan / Watery Pass | Edge | black | He comes looking for her (*The After Years* gives him a reason) |
-| 3 | Fabul | Yang, or a Fabul monk | beast | Fabul's monks and their discipline |
-| 4 | Mysidia | Porom, or a Mysidian white mage | white | Mysidia is the home of white magic |
-| later | open | a fifth member? | ? | FF4 parties hold 5 |
+| 1 | Mist, Kaipo | Rydia (her pacts faded) | Wild, Sky | a guardian from Watery Pass |
+| 2 | Watery Pass, Damcyan | Edge (comes looking for her) | Beast, Shade | an elder Hydra or Octomamm-class guardian |
+| 3 | Mt. Hobs, Fabul | (Cid with an airship?) | Construct | a Mom Bomb-class guardian |
+| 4 | Mysidia, Mt. Ordeals | Kain (a hermit on Mt. Ordeals, as in *The After Years*) | Dragon | a dragon trial on the mountain |
+| 5 | Baron | Rosa | Sea | a castle or waterway guardian |
+| 6 | Underworld: Agart, dwarves, Feymarch | (Cid / the dwarves) | eidolon trials (Asura, Leviathan) | Feymarch trial |
+| 7 | Eblan, Cave Eblana, Sylvan | (Edge's homeland arc) | rares, elders | Eblan story boss |
+| 8 | The moon (back in the sky) | FuSoYa | Arcane | Bahamut |
+| Final | Lunar Subterrane or a new trial site | — | — | final trial |
 
-- **Sprite question:** Porom's only sprite is a child. Either accept that (it's a sprite), or use her sprite for a new Mysidian apprentice. Yang's adult sprite is fine.
-
-**Teaching capture conditions:**
-- **Refusals that hint:** "The Bomb won't listen while it's this angry" means weaken it.
-- **Guide NPCs** describe local monsters' habits.
-- **The seen list** shows a hint once a species has refused you.
-
-**Technical note:** a roster per summoner (24 each, or fewer for the others) plus the seen bits needs more save space than Tellah's parked slot has. Expanding save RAM is the likely answer.
+**Party size:** FF4 battles hold 5. Rydia plus 4 is the simplest; with 5 or more other summoners we need a way to swap party members, which is new menu work (the picker pattern can be reused).
 
 ### Open: next round
 
-1. **Types:** white and black only, or add a third such as Beast? And their names (white/black are working names).
-2. **The white summoner:** Porom (child sprite), Rosa, or a new character on an existing sprite?
-3. **A beast (or other third-type) summoner:** Yang or a Fabul monk, or someone else, or no third type?
-4. **Where and when each one joins** (the table above is a first pass).
-5. **Roster size for the others:** 24 each like Rydia, or smaller?
-6. **Rydia's starting level and spells,** and what "forgotten black magic" looks like (a few low spells that return with levels?).
-7. **Tone of the Edge-Rydia scenes:** a few lines at recruitment and guardians, or more?
-8. **Teaching captures:** hinting refusals, guides, seen-list hints, or all three?
-
-### Open: everything else (unchanged)
-
-9. **Roster budget:** yes or no, now across several summoners.
-10. **XP numbers:** how much a first pact and a boss give relative to an ordinary fight.
-11. **Gear and shops:** FF4's town shops as they are, or curated per chapter.
-12. **Final trial:** where, and what unlocks it.
-13. **Encounters:** keep FF4's tables, or redesign per region (rare spawns, every capturable species findable).
-14. **Capturable list:** prune the oddities (the seven debug "Dummy" species, scripted story enemies).
-15. **Names:** the game, and terms such as Pact, Call, Pool and guide.
+1. **Kin:** these 8, or merge or split some (e.g. Wild versus Sea)?
+2. **Two kin per summoner,** plus Rydia omni: the right breadth?
+3. **Capture styles:** good idea, too much, or keep only the per-species conditions?
+4. **The cast:** which 4-5 summoners besides Rydia (Edge is in; Kain, Rosa, Cid, FuSoYa, Cecil, Yang, and Palom/Porom behind the graphics gate)?
+5. **Party size and swapping:** fixed at 5, or a swap mechanism?
+6. **The Palom/Porom graphics test:** when to try it. Approach: build adult versions from existing adult sprites, e.g. Rosa's body with Porom's palette and hair, and Edward's or Cecil's body for Palom. Battle poses, field sprites and menu portraits all need versions.
+7. **Chapter order and bosses** (v2 above is a first pass).
+8. **Rydia's starting level and spells,** and how "forgotten black magic" returns.
+9. **Teaching captures:** hinting refusals, guides, seen-list hints, capture styles.
 
 ## Original draft (Nov 6)
 
