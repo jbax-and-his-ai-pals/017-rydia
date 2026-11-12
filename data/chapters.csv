@@ -1,0 +1,44 @@
+world,location,chapter,note
+surface,Village Mist,1,
+surface,Kaipo,1,
+surface,Misty Cave,1,
+surface,Watery Pass-South,2,
+surface,Watery Pass-North,2,
+surface,Waterfalls,2,part of the Watery Pass
+surface,Lake,2,part of the Watery Pass
+surface,Damcyan,2,
+surface,Antlion,2,Antlion's cave by Damcyan
+surface,Mt.Hobs-West,3,
+surface,Mt.Hobs-East,3,
+surface,Fabul,3,
+surface,Mysidia,4,
+surface,Mt.Ordeals,4,
+surface,Baron,5,
+surface,Town of Baron,5,
+surface,Old Water-way,5,Baron's waterway
+surface,Agart,6,the hole to the underworld
+underworld,Castle of Dwarves,6,
+underworld,Dwarf Base,6,
+underworld,Kokkol{C9} the Smith's,6,
+underworld,Tomra,6,
+underworld,Land of Monsters,6,the Feymarch
+underworld,Sealed Cave,6,
+underworld,Tower of Bab-il,6,the underworld half
+surface,Eblan,7,
+surface,Cave Eblana,7,
+surface,Tower of Bab-il,7,the surface half
+surface,Pass to Bab-il,7,
+underworld,Sylvan Cave,7,
+moon,Cave Bahamut,8,
+moon,Lunar Path,8,
+moon,Lunar's Lair,8,
+moon,Lunar Subterrane,final,
+surface,Toroian Castle,unplaced,not in chapter outline v2
+surface,Town of Toroia,unplaced,not in chapter outline v2
+surface,Cave Magnes,unplaced,not in chapter outline v2
+surface,Silvera,unplaced,not in chapter outline v2
+surface,Grotto Adamant,unplaced,not in chapter outline v2
+surface,Tower of Zot,unplaced,not in chapter outline v2
+surface,Chocobo's Forest,unplaced,scattered across the surface
+surface,Chocobo's Village,unplaced,
+surface,Giant of Babil,unplaced,story-event location

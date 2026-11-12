@@ -43,6 +43,18 @@ A chaptered FF4 sequel about summoners, set long after FF4:
 
 **Done when:** the CSVs are filled, a kin and chapter report is in `notes/`, and the user has agreed any kin adjustments.
 
+**Status (Nov 12): data done; one decision open.**
+- **Built:**
+  - `kin`, `kin_source`, `capture_tier`, `capture_likes` and `capture_needs` in `data/monsters.csv` (`tools/kin.py`, `tools/export_monsters.py`)
+  - `data/chapters.csv`
+  - [kin-report.md](kin-report.md), from `tools/kin_report.py`
+  - the seven Dummy debug species are no longer capturable, leaving 149
+- **Findings:**
+  - All eight kin are well populated (10 to 30 species each).
+  - Capture tiers rise chapter by chapter.
+  - **FF4's encounter geography doesn't match the outline's kin batches.** Chapter 4 has no Dragons, Sky, Shade, Construct and Arcane are thin in their chapters, and Toroia, Cave Magnes and the Tower of Zot (not in the outline) hold 19 species found nowhere else.
+- **Open decision:** reorder the chapters around the geography, or move monsters through the encounter redesign.
+
 ### M2 · Risky systems, one spike each
 
 Build each against the sandbox start, smallest working slice first.
